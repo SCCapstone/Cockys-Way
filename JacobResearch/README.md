@@ -1,0 +1,21 @@
+
+LINK TO VIDEO:  https://youtu.be/q-jlxyh9M1U
+
+The fireApp uses Firebase Cloud Database (FC) services.
+FC stores the data that the user inputs through the app.
+This would allow users to store a favorite location or settings preferences, for example.
+
+I accomplished these functions by setting up a database on Google's Firebase service,
+and then integrating fireApp/FirebaseConfig.ts
+
+To run, you must have the ability to run the Expo app natively or using an emulator.
+You can then launch the app from the relative directory: research-CyberneticMedic/fireApp
+
+Why is this important?
+I now have the framework I need to test development with my team.
+Our team needs to be able to store and retrieve data in real-time.
+FC supports this by providing a reliable location to read and write data.
+FC also prevents any issues stemming from lack of or unreliable storage...
+...by team members and their personal technology.
+
+**DISCLOSURE: This code heavily references a tutorial found at https://galaxies.dev/react-native-firebase
