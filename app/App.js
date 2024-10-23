@@ -7,7 +7,7 @@ export default function App() {
       <Text style={styles.title}>Hello, Cruel World!</Text>
       <Text>Ryan Was here! And I'm solving a merge conflict! and johnny</Text>
       <Text>Isaac was here!</Text>
-      <Text>Jacob was here!</Text>
+      <Text>Jacob was here! apples</Text>
       <Text style={styles.johnny}>Johnny was here! as was Jacob hahaha lmaorofl</Text>
       <StatusBar style="auto" />
     </View>
