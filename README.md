@@ -9,7 +9,7 @@
 - Run 'npx expo start'
 - Scan QR code with phone camera, will open Expo Go app
 
-# Authors
+## Authors
 - Ryan Malone: rpmalone@email.sc.edu
 - Isaac Mayernik: mayernii@email.sc.edu
 - Johnny Hyman: JPHYMAN@email.sc.edu
