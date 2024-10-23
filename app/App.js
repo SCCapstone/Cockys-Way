@@ -5,7 +5,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Hello, Cruel World!</Text>
-      <Text>Ryan Was here! And I'm solving a merge conflict!</Text>
+      <Text>Ryan Was here! And I'm solving a merge conflict! and johnny</Text>
       <Text>Isaac was here!</Text>
       <Text>Jacob was here!</Text>
       <Text style={styles.johnny}>Johnny was here!</Text>
