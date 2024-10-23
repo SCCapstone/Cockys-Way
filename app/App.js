@@ -8,6 +8,7 @@ export default function App() {
       <Text>Ryan Was here!</Text>
       <Text>Isaac was here!</Text>
       <Text>Jacob was here!</Text>
+      <Text style={styles.johnny}>Johnny was here!</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -19,5 +20,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  johnny: {
+    fontStyle: 'italic',
   },
 });
