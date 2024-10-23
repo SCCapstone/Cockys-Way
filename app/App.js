@@ -11,13 +11,7 @@ export default function App() {
       <Text style={styles.johnny}>
         Johnny was here! as was Jacob hahaha lmaorofl i love pizza
       </Text>
-<<<<<<< HEAD
-      <Text style={styles.johnny}>
-        This is Johnny's code merging to main from my branch
-      </Text>
-=======
       <Text style={styles.johnny}>This is Johnny's code merging to main from my branch (for the second time)</Text>
->>>>>>> refs/remotes/origin/main
       <Text>This was creates on Ryan's branch to merge into main</Text>
       <StatusBar style="auto" />
     </View>
