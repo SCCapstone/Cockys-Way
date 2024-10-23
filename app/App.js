@@ -8,7 +8,7 @@ export default function App() {
       <Text>Ryan Was here! And I'm solving a merge conflict! and johnny</Text>
       <Text>Isaac was here!</Text>
       <Text>Jacob was here!</Text>
-      <Text style={styles.johnny}>Johnny was here! as was Jacob hahaha i love pizza</Text>
+      <Text style={styles.johnny}>Johnny was here! as was Jacob hahaha lmaorofl i love pizza</Text>
       <StatusBar style="auto" />
     </View>
   );
