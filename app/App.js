@@ -7,7 +7,7 @@ export default function App() {
       <Text style={styles.title}>Hello, Cruel World!</Text>
       <Text>Ryan Was here! And I'm solving a merge conflict! and johnny</Text>
       <Text>Isaac was here! Hi Isaac, Ryan was here!</Text>
-      <Text>Jacob was here! banana apples</Text>
+      <Text>Jacob was here! banana apples Raffi was lit baby beluga</Text>
       <Text style={styles.johnny}>
         Johnny was here! as was Jacob hahaha lmaorofl i love pizza
       </Text>
