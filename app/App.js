@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Hello, Cruel World!</Text>
+      <Text style={styles.title}>Hello, Cruel World!</Text>
       <Text>Ryan Was here!</Text>
       <Text>Isaac was here!</Text>
       <Text>Jacob was here!</Text>
@@ -21,8 +21,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
+  title: {
+    fontWeight: "bold",
+    fontSize: "25px",
+    marginBottom: 20,
+  },
   johnny: {
-    fontStyle: 'italic',
+    fontStyle: "italic",
   },
 });
