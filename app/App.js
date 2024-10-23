@@ -7,7 +7,7 @@ export default function App() {
       <Text>Hello, Cruel World!</Text>
       <Text>Ryan Was here!</Text>
       <Text>Isaac was here!</Text>
-      <Text>Isaac was here!</Text>
+      <Text>Jacob was here!</Text>
       <StatusBar style="auto" />
     </View>
   );
