@@ -1,4 +1,4 @@
-# Cockys-Way
+# Cocky's Way
 
 We are making a navigation app tailored to students at the UofSC for the purpose of efficient navigation with GPS, and schedule management.
 The app will be able to navigate to specific locations on campus and have
@@ -8,23 +8,17 @@ location, time, office hours, and title. The app will integrate Firebase DB
 in order to save user settings, favorites, account, and other like information.
 
 ## External Requirements
-
-- [Node.js](https://nodejs.org/en/)
-- [Expo CLI](https://docs.expo.dev/more/expo-cli/)
+To run this app, you'll first need to download and install:
+  - [Node.js](https://nodejs.org/en/)
+  - [Expo Go](https://expo.dev/go) on your phone
 
 ## Setup
-
-1. Clone the repository onto your computer
-2. Download Expo CLI on system with `npm install -g expo-cli`
-3. Download and install [Node.js](https://nodejs.org/en).
-4. Verify `node -v` and `npm -v`
-5. Download Expo Go mobile app
-6. Run `npm install` in root directory of the cloned repo to get dependencies
-7. Run `npx expo start`
-8. Scan QR code with phone camera
-9. App will open within Expo Go app
+Once cloning the repo, you'll have to:
+1. Open up a terminal, and install the Expo CLI using `npm install -g expo-cli`
+2. Install the dependencies the project uses with `npm install`
 
 ## Running
+To run the app, you'll have to:
 
 - Ensure both your computer and phone are connected to the same local network
 - Ensure your working directory is 'Cockys-Way' (the project root directory)
