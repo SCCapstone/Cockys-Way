@@ -10,22 +10,19 @@ in order to save user settings, favorites, account, and other like information.
 ## External Requirements
 
 - [Node.js](https://nodejs.org/en/)
-- [Java 21](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
+- [Expo CLI](https://docs.expo.dev/more/expo-cli/)
 
 ## Setup
 
 1. Clone the repository onto your computer
-2. Download the appropriate Java installer for your OS
-3. Install Java 21 using the downloaded file and follow install default instructions
-4. Download and install Node
-5. Enter your CLI environment
-6. Verify `node -v` and `npm -v`
-7. Download Expo CLI on system with `npm install -g expo-cli`
-8. Download Expo Go mobile app
-9. Run `npm install` in root directory to get dependencies
-10. Run `npx expo start`
-11. Scan QR code with phone camera
-12. App will open within Expo Go app
+2. Download Expo CLI on system with `npm install -g expo-cli`
+3. Download and install Node
+4. Verify `node -v` and `npm -v`
+5. Download Expo Go mobile app
+6. Run `npm install` in root directory of the cloned repo to get dependencies
+7. Run `npx expo start`
+8. Scan QR code with phone camera
+9. App will open within Expo Go app
 
 ## Running
 
