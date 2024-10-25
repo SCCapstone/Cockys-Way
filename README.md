@@ -1,4 +1,11 @@
 # Cockys-Way
+    We are making a navigation app tailored to students at the UofSC
+for the purpose of efficient navigation with GPS, and schedule management.
+The app will be able to navigate to specific locations on campus and have
+the ability to save locations as 'favorites'. The app will also allow 
+students to view information about their classes and professors, including
+location, time, office hours, and title. The app will integrate Firebase DB
+in order to save user settings, favorites, account, and other like information.
 
 ## External Requirements
 - [Node.js](https://nodejs.org/en/)
