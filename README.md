@@ -16,7 +16,7 @@ in order to save user settings, favorites, account, and other like information.
 
 1. Clone the repository onto your computer
 2. Download Expo CLI on system with `npm install -g expo-cli`
-3. Download and install Node
+3. Download and install [Node.js](https://nodejs.org/en).
 4. Verify `node -v` and `npm -v`
 5. Download Expo Go mobile app
 6. Run `npm install` in root directory of the cloned repo to get dependencies
