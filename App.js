@@ -17,6 +17,7 @@ export default function App() {
       <Text style={styles.johnny}>
         Johnny was here! as was Jacob hahaha lmaorofl i love pizza it's johnny again uhhh
       </Text>
+      <Text>javascript tuah code on that thang</Text>
       <Text style={styles.johnny}>
         This is Johnny's code merging to main from my branch (for the second
         time)
