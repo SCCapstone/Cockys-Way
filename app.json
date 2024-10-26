@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Cockys-Way",
-    "slug": "Cockys-Way",
+    "slug": "cockys-way",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -26,8 +26,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "638d679e-1126-4eb0-a93f-b73ec21b08a0"
+        "projectId": "25d82025-901e-4d91-84eb-966383bd4984"
       }
-    }
+    },
+    "owner": "cockys-way"
   }
 }
