@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "bold",
-    fontSize: "25px",
+    fontSize: 25,
     marginBottom: 20,
   },
   johnny: {
