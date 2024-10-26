@@ -20,7 +20,7 @@ export default function App() {
       <Text>javascript tuah code on that thang</Text>
       <Text style={styles.johnny}>
         This is Johnny's code merging to main from my branch (for the second
-        time)
+        time) and a third time
       </Text>
       <Text>This was created on Ryan's branch to merge into main</Text>
       <StatusBar style="auto" />
