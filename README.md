@@ -8,16 +8,21 @@ location, time, office hours, and title. The app will integrate Firebase DB
 in order to save user settings, favorites, account, and other like information.
 
 ## External Requirements
+
 To run this app, you'll first need to download and install:
-  - [Node.js](https://nodejs.org/en/)
-  - [Expo Go](https://expo.dev/go) on your phone
+
+- [Node.js](https://nodejs.org/en/)
+- [Expo Go](https://expo.dev/go) on your phone
 
 ## Setup
+
 Once cloning the repo, you'll have to:
+
 1. Open up a terminal, and install the Expo CLI using `npm install -g expo-cli`
 2. Install the dependencies the project uses with `npm install`
 
 ## Running
+
 To run the app, you'll have to:
 
 - Ensure both your computer and phone are connected to the same local network
@@ -31,6 +36,16 @@ Possible troubleshooting:
 - Wireless(Phone) and wired(PC) networks are segregated (common with VLAN), node installed in improper directory, incorrect Java version installed, previous node version is preinstalled.
 
 # Deployment
+
+We will be deploying our build with eas build (using expo.dev) to build an apk that works on android devices. Follow the steps below to initiate the build and deploy the app
+
+1. Globally install the eas-cli by running `npm install -g eas-cli` (this only has to be done once on your computer)
+
+2. Once eas-cli is installed, run `eas login` to login to your expo account
+
+3. Run `eas build -p android --profile preview` to build the app
+
+> Note: the build process may take a while as we are working on the free version of the platform. Also, access to the Cockys-Way project on expo.dev is required to deploy the app. If you need access, please reach out to one of the team members.
 
 # Testing
 
