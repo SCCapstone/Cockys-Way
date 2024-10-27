@@ -8,7 +8,7 @@ export default function App() {
       <Text>Ryan Was here! And I'm solving a merge conflict! and johnny</Text>
       <Text>
         Jacob was here! banana apples Raffi was lit baby beluga I have a branch
-        I have a branch
+        I have a branch and Chloe has a branch too
       </Text>
       <Text>
         Isaac was here! Hi Isaac, Ryan was here! resolving conflict. FUSION!!!
