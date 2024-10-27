@@ -23,6 +23,7 @@ export default function App() {
         time) and a third time
       </Text>
       <Text>This was created on Ryan's branch to merge into main</Text>
+      <Text>Chloe was here & survived round 7 of hit series Alien Stage.</Text>
       <StatusBar style="auto" />
     </View>
   );
