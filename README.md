@@ -49,12 +49,6 @@ We will be deploying our build with eas build (using expo.dev) to build an apk t
 
 > Note: The build process may take a while as we are working on the free version of the platform (~20-30 minutes). Also, access to the Cockys-Way project on expo.dev is required to deploy the app. If you need access, please reach out to one of the team members.
 
-# Testing
-
-## Testing Technology
-
-## Running Tests
-
 ## Authors
 
 - Ryan Malone: rpmalone@email.sc.edu
