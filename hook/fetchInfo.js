@@ -35,7 +35,7 @@ const fetchInfo = () => {
         typeof response.data === "string"
           ? JSON.parse(response.data)
           : response.data;
-      setData(parsedData);
+      setData(parsedData.results || []);
       console.log("Fetch successful:");
     } catch (error) {
       console.error("Error fetching data:", error);

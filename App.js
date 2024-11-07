@@ -8,15 +8,16 @@ export default function App() {
       <Text>Ryan Was here! And I'm solving a merge conflict! and johnny</Text>
       <Text>
         Jacob was here! banana apples Raffi was lit baby beluga I have a branch
-        I have a branch and Chloe has a branch too
-        I have a branch and it's on a tree.
+        I have a branch and Chloe has a branch too I have a branch and it's on a
+        tree.
       </Text>
       <Text>
         Isaac was here! Hi Isaac, Ryan was here! resolving conflict. FUSION!!!
         HAA!!!!
       </Text>
       <Text style={styles.johnny}>
-        Johnny was here! as was Jacob hahaha lmaorofl i love pizza it's johnny again uhhh
+        Johnny was here! as was Jacob hahaha lmaorofl i love pizza it's johnny
+        again uhhh
       </Text>
       <Text>javascript tuah code on that thang</Text>
       <Text style={styles.johnny}>
