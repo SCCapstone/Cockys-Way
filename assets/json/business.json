@@ -8,7 +8,8 @@
     "Email": "foresta@cse.sc.edu",
     "Keywords": "artificial intelligence, cse, ai",
     "Tags": "Computer Science and Engineering,Artificial Intelligence,",
-    "Department": "Computer Science and Engineering, AI Institute,"
+    "Department": "Computer Science and Engineering, AI Institute,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -19,7 +20,8 @@
     "Email": "ahmad@cec.sc.edu",
     "Keywords": "electric, electrical",
     "Tags": "Electrical Engineering,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -30,7 +32,8 @@
     "Email": "alexeev@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -41,7 +44,8 @@
     "Email": "alimo@cec.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -52,7 +56,8 @@
     "Email": "alshareef@sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,Biomedical Engineering,",
-    "Department": "Mechanical Engineering, Biomedical Engineering,"
+    "Department": "Mechanical Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -63,7 +68,8 @@
     "Email": "ammal@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -74,7 +80,8 @@
     "Email": "ammarell@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -85,7 +92,8 @@
     "Email": "rmaustin@cse.sc.edu",
     "Keywords": "",
     "Tags": "Information Technology,Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -96,7 +104,8 @@
     "Email": "mohamad.azhar@uscmed.sc.edu",
     "Keywords": "medicine",
     "Tags": "Biomedical Engineering,",
-    "Department": "Cell Biology & Anatomy, School of Medicine; Biomedical Engineering,"
+    "Department": "Cell Biology & Anatomy, School of Medicine; Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -107,7 +116,8 @@
     "Email": "baileyrt@email.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -118,7 +128,8 @@
     "Email": "jbakos@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,Artificial Intelligence,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -129,7 +140,8 @@
     "Email": "baldwirk@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -140,7 +152,8 @@
     "Email": "balestrj@cec.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -151,7 +164,8 @@
     "Email": "nbamogho@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -162,7 +176,8 @@
     "Email": "banerjes@cec.sc.edu",
     "Keywords": "",
     "Tags": "Advanced Manufacturing,McNair,Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -173,7 +188,8 @@
     "Email": "dbarazanchy@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -184,7 +200,8 @@
     "Email": "ebarnett@email.sc.edu",
     "Keywords": "uofsc, cec, mechanical engineering, aerospace",
     "Tags": "McNair,Mechanical Engineering,Aerospace Engineering,",
-    "Department": "Mechanical Engineering, Aerospace Engineering,"
+    "Department": "Mechanical Engineering, Aerospace Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -195,7 +212,8 @@
     "Email": "bartlaj@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -206,7 +224,8 @@
     "Email": "",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -217,7 +236,8 @@
     "Email": "bayoumi@sc.edu",
     "Keywords": "mcnair",
     "Tags": "McNair,Mechanical Engineering,Biomedical Engineering,Advanced Manufacturing,",
-    "Department": "Mechanical Engineering, Biomedical Engineering,"
+    "Department": "Mechanical Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -228,7 +248,8 @@
     "Email": "bays@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -239,7 +260,8 @@
     "Email": "bjanice@cec.sc.edu",
     "Keywords": "",
     "Tags": "Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -250,7 +272,8 @@
     "Email": "berge@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,Intelligent Infrastructure,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -261,7 +284,8 @@
     "Email": "besmann@cec.sc.edu",
     "Keywords": "nuclear",
     "Tags": "Nuclear Energy,Mechanical Engineering,Chemical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -272,7 +296,8 @@
     "Email": "bess@mailbox.sc.edu",
     "Keywords": "Bree Bess, USC Development",
     "Tags": ",",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -283,7 +308,8 @@
     "Email": "blanchej@cec.sc.edu",
     "Keywords": "blanchette instructor biomedical",
     "Tags": "Biomedical Engineering,",
-    "Department": "Biomedical Engineering,"
+    "Department": "Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -294,7 +320,8 @@
     "Email": "boltinn@mailbox.sc.edu",
     "Keywords": "boltin, biomedical, data analysis",
     "Tags": "Biomedical Engineering,",
-    "Department": "Biomedical Engineering,"
+    "Department": "Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -305,7 +332,8 @@
     "Email": "kristen.booth@sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,Energy Storage and Distribution,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -316,7 +344,8 @@
     "Email": "bowles@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -327,7 +356,8 @@
     "Email": "bboyd08@sc.edu",
     "Keywords": "",
     "Tags": "Academic Affairs,Undergraduate Advising,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -338,7 +368,8 @@
     "Email": "bradburn@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -349,7 +380,8 @@
     "Email": "billb@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -360,7 +392,8 @@
     "Email": "bradshaw@sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,",
-    "Department": "Biomedical Engineering,"
+    "Department": "Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -371,7 +404,8 @@
     "Email": "am142@mailbox.sc.edu",
     "Keywords": "Advisor, advising, student affairs, student services",
     "Tags": "Academic Affairs,Undergraduate Advising,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -382,7 +416,8 @@
     "Email": "brookshire@sc.edu",
     "Keywords": "Bob, Graduate Studies, Integrated Information Technology, College of Hospitality, Retail and Sport Management",
     "Tags": ",",
-    "Department": "Department of Integrated Information Technology,"
+    "Department": "Department of Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -393,7 +428,8 @@
     "Email": "buell@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -404,7 +440,8 @@
     "Email": "cacuci@cec.sc.edu",
     "Keywords": "nuclear",
     "Tags": ",",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -415,7 +452,8 @@
     "Email": "caicedo@cec.sc.edu",
     "Keywords": "",
     "Tags": "Intelligent Infrastructure,Transforming Health Care,Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -426,7 +464,8 @@
     "Email": "ac22@cec.sc.edu",
     "Keywords": "Capstone Design Industrial Coordinator",
     "Tags": ",",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -437,7 +476,8 @@
     "Email": "bond.calloway@sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Office of the Dean,"
+    "Department": "Office of the Dean,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -448,7 +488,8 @@
     "Email": "cannon@sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -459,7 +500,8 @@
     "Email": "carrilho@cec.sc.edu",
     "Keywords": "nuclear",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -470,7 +512,8 @@
     "Email": "wayne.carver@uscmed.sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,",
-    "Department": "School of Medicine; Biomedical Engineering,"
+    "Department": "School of Medicine; Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -481,7 +524,8 @@
     "Email": "chao@cec.sc.edu",
     "Keywords": "",
     "Tags": "Nuclear Energy,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -492,7 +536,8 @@
     "Email": "chaudhry@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -503,7 +548,8 @@
     "Email": "dachen@sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -514,7 +560,8 @@
     "Email": "chenfa@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -525,7 +572,8 @@
     "Email": "chenyin@engr.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -536,7 +584,8 @@
     "Email": "chenyuc@cec.sc.edu",
     "Keywords": "yuche, chen",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -547,7 +596,8 @@
     "Email": "mjcolebank@sc.edu",
     "Keywords": "Mathematics, colebank",
     "Tags": "Biomedical Engineering,",
-    "Department": "Biomedical Engineering,"
+    "Department": "Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -558,7 +608,8 @@
     "Email": "comanpt@cec.sc.edu",
     "Keywords": "Coman, Chemical, Engineering, Post-Doctoral",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -569,7 +620,8 @@
     "Email": "jcrichigno@cec.sc.edu",
     "Keywords": "CEC, IIT, technology, professor",
     "Tags": "Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -580,7 +632,8 @@
     "Email": "daltont@email.sc.edu",
     "Keywords": "IIT",
     "Tags": "Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -591,7 +644,8 @@
     "Email": "jimdavis@cse.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -602,7 +656,8 @@
     "Email": "wdbacker@cec.sc.edu",
     "Keywords": "mcnair, aerospace, 3D Printing, structures, materials",
     "Tags": "Aerospace Engineering,Mechanical Engineering,McNair,",
-    "Department": "Mechanical Engineering; Aerospace Engineering,"
+    "Department": "Mechanical Engineering; Aerospace Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -613,7 +668,8 @@
     "Email": "ndelahunt@sc.edu",
     "Keywords": "Natasha Delahunt",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -624,7 +680,8 @@
     "Email": "deng@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -635,7 +692,8 @@
     "Email": "deschamk@cec.sc.edu",
     "Keywords": "chemical, administrative, assistant, deschamps, kachet",
     "Tags": "Biomedical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -646,7 +704,8 @@
     "Email": "dickerso@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -657,7 +716,8 @@
     "Email": "tldillon@cec.sc.edu",
     "Keywords": "",
     "Tags": "Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -668,7 +728,8 @@
     "Email": "dcdohan@cec.sc.edu",
     "Keywords": "",
     "Tags": "Information Technology,",
-    "Department": "Information Technology Services,"
+    "Department": "Information Technology Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -679,7 +740,8 @@
     "Email": "dorrellk@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Dean's Office,"
+    "Department": "Dean's Office,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -690,7 +752,8 @@
     "Email": "dorrellv@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -701,7 +764,8 @@
     "Email": "rep@cec.sc.edu",
     "Keywords": "admin, administrative, civil, environmental",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -712,7 +776,8 @@
     "Email": "dougal@engr.sc.edu",
     "Keywords": "",
     "Tags": "Energy Storage and Distribution,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -723,7 +788,8 @@
     "Email": "austindowney@sc.edu",
     "Keywords": "Mechanical Engineering, CEC, UofSC",
     "Tags": "Advanced Manufacturing,Mechanical Engineering,Artificial Intelligence,",
-    "Department": "Mechanical Engineering, Aerospace Engineering, Civil Engineering,"
+    "Department": "Mechanical Engineering, Aerospace Engineering, Civil Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -734,7 +800,8 @@
     "Email": "dryerf@mailbox.sc.edu",
     "Keywords": "mechanical, engineering, faculty",
     "Tags": "Nuclear Energy,Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -745,7 +812,8 @@
     "Email": "kddubose@cec.sc.edu",
     "Keywords": "",
     "Tags": "Academic Affairs,",
-    "Department": "Outreach, Recruitment, Retention,"
+    "Department": "Outreach, Recruitment, Retention,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -756,7 +824,8 @@
     "Email": "eastman@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -767,7 +836,8 @@
     "Email": "ebnera@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -778,7 +848,8 @@
     "Email": "kelia@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Academic Affairs,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -789,7 +860,8 @@
     "Email": "emblerl@cec.sc.edu",
     "Keywords": "",
     "Tags": "Academic Affairs,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -800,7 +872,8 @@
     "Email": "colin.evans@sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,",
-    "Department": "School of Medicine, Biomedical Engineering,"
+    "Department": "School of Medicine, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -811,7 +884,8 @@
     "Email": "Daping.Fan@uscmed.sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,",
-    "Department": "School of Medicine, Biomedical Engineering,"
+    "Department": "School of Medicine, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -822,7 +896,8 @@
     "Email": "fangr@cec.sc.edu",
     "Keywords": "Ruixian Fang, mechanical engineering, UofSC",
     "Tags": "Nuclear Engineering,Mechanical Engineering,",
-    "Department": "Nuclear Engineering,"
+    "Department": "Nuclear Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -833,7 +908,8 @@
     "Email": "farkas@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -844,7 +920,8 @@
     "Email": "farouk@cec.sc.edu",
     "Keywords": "aerospace, nuclear",
     "Tags": "Mechanical Engineering,Aerospace Engineering,McNair,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -855,7 +932,8 @@
     "Email": "fenner@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -866,7 +944,8 @@
     "Email": "fiedler@moore.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -877,7 +956,8 @@
     "Email": "flora@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -888,7 +968,8 @@
     "Email": "pfu@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -899,7 +980,8 @@
     "Email": "fulmersb@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Dean's Office,"
+    "Department": "Dean's Office,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -910,7 +992,8 @@
     "Email": "gadala-m@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -921,7 +1004,8 @@
     "Email": "gadowd@cec.sc.edu",
     "Keywords": "",
     "Tags": "McNair,",
-    "Department": "Mechanical Engineering, McNair Center,"
+    "Department": "Mechanical Engineering, McNair Center,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -932,7 +1016,8 @@
     "Email": "",
     "Keywords": "garcia-diaz, brenda, chemical, professor",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -943,7 +1028,8 @@
     "Email": "gassman@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,Intelligent Infrastructure,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -954,7 +1040,8 @@
     "Email": "gatzke@sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,Biomedical Engineering,",
-    "Department": "Chemical Engineering, Biomedical Engineering,"
+    "Department": "Chemical Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -965,7 +1052,8 @@
     "Email": "jgerdes@sc.edu",
     "Keywords": "",
     "Tags": "Integrated Information Technology,",
-    "Department": "Department of Integrated Information Technology,"
+    "Department": "Department of Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -976,7 +1064,8 @@
     "Email": "bhavana@sc.edu",
     "Keywords": "bhavana, Ginjupally, CSE",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -987,7 +1076,8 @@
     "Email": "ginnhl@cec.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,Energy Storage and Distribution,Intelligent Infrastructure,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -998,7 +1088,8 @@
     "Email": "victorg@sc.edu",
     "Keywords": "",
     "Tags": "McNair,Mechanical Engineering,Advanced Manufacturing,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1009,7 +1100,8 @@
     "Email": "glennjro@email.sc.edu",
     "Keywords": "Mechanical Engineering",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1020,7 +1112,8 @@
     "Email": "goharian@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1031,7 +1124,8 @@
     "Email": "rlgoodwin@sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,",
-    "Department": "Biomedical Engineering,"
+    "Department": "Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1042,7 +1136,8 @@
     "Email": "gowerrm@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,Biomedical Engineering,",
-    "Department": "Chemical Engineering, Biomedical Engineering,"
+    "Department": "Chemical Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1053,7 +1148,8 @@
     "Email": "sagraham@mailbox.sc.edu",
     "Keywords": "HR",
     "Tags": ",",
-    "Department": "Human Resources,"
+    "Department": "Human Resources,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1064,7 +1160,8 @@
     "Email": "jgray@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1075,7 +1172,8 @@
     "Email": "donn@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Student Services Office,"
+    "Department": "Student Services Office,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1086,7 +1184,8 @@
     "Email": "andrewgross@sc.edu",
     "Keywords": "",
     "Tags": "Aerospace Engineering,Mechanical Engineering,",
-    "Department": "Mechanical Engineering, Aerospace Engineering,"
+    "Department": "Mechanical Engineering, Aerospace Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1097,7 +1196,8 @@
     "Email": "jjgucwa@mailbox.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1108,7 +1208,8 @@
     "Email": "gumina@cec.sc.edu",
     "Keywords": "",
     "Tags": "Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1119,7 +1220,8 @@
     "Email": "gurdal@cec.sc.edu",
     "Keywords": "",
     "Tags": "McNair,Mechanical Engineering,Aerospace Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1130,7 +1232,8 @@
     "Email": "hagansp@cec.sc.edu",
     "Keywords": "IT, Staff, Lab, Computer, technology",
     "Tags": "Information Technology,Chemical Engineering,",
-    "Department": "Chemical Engineering and Biomedical Engineering,"
+    "Department": "Chemical Engineering and Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1141,7 +1244,8 @@
     "Email": "cecdean@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1152,7 +1256,8 @@
     "Email": "luther.hamm@srnl.doe.gov",
     "Keywords": "nuclear",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1163,7 +1268,8 @@
     "Email": "khaon@cec.sc.edu",
     "Keywords": "Communications, Marketing, web",
     "Tags": ",",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1174,7 +1280,8 @@
     "Email": "hardaway@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1185,7 +1292,8 @@
     "Email": "",
     "Keywords": "",
     "Tags": ",",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1196,7 +1304,8 @@
     "Email": "hartmant@email.sc.edu",
     "Keywords": "",
     "Tags": "McNair,",
-    "Department": "Mechanical Engineering, McNair Center,"
+    "Department": "Mechanical Engineering, McNair Center,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1207,7 +1316,8 @@
     "Email": "henrich@cec.sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,",
-    "Department": "Biomedical Engineering,"
+    "Department": "Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1218,7 +1328,8 @@
     "Email": "heyden@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1229,7 +1340,8 @@
     "Email": "jah49@mailbox.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Office of Development,"
+    "Department": "Office of Development,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1240,7 +1352,8 @@
     "Email": "hicksjd@cec.sc.edu",
     "Keywords": "helpdesk, IT, help, desk",
     "Tags": "Information Technology,",
-    "Department": "Information Technology Services,"
+    "Department": "Information Technology Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1251,7 +1364,8 @@
     "Email": "fievet@cec.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1262,7 +1376,8 @@
     "Email": "nhikmet@cec.sc.edu",
     "Keywords": "",
     "Tags": "McNair,Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1273,7 +1388,8 @@
     "Email": "bhipp@cse.sc.edu",
     "Keywords": "Brian Hipp",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1284,7 +1400,8 @@
     "Email": "hollance@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1295,7 +1412,8 @@
     "Email": "hollisma@cec.sc.edu",
     "Keywords": "",
     "Tags": "Information Technology,",
-    "Department": "Information Technology Services,"
+    "Department": "Information Technology Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1306,7 +1424,8 @@
     "Email": "moeshia@mailbox.sc.edu",
     "Keywords": "Moeshia Holmes, USC, Molinaroli College",
     "Tags": "Academic Affairs,Undergraduate Advising,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1317,7 +1436,8 @@
     "Email": "hoques@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1328,7 +1448,8 @@
     "Email": "hoskinsw@email.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1339,7 +1460,8 @@
     "Email": "jianjunh@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,Artificial Intelligence,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1350,7 +1472,8 @@
     "Email": "hu@sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,Artificial Intelligence,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1361,7 +1484,8 @@
     "Email": "huangct@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1372,7 +1496,8 @@
     "Email": "huang46@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,Mechanical Engineering,Energy Storage and Distribution,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1383,7 +1508,8 @@
     "Email": "huangxin@cec.sc.edu",
     "Keywords": "nuclear",
     "Tags": "Mechanical Engineering,Nuclear Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1394,7 +1520,8 @@
     "Email": "huegelds@westinghouse.com",
     "Keywords": "Huegel, adjunct",
     "Tags": "Mechanical Engineering,Nuclear Engineering,",
-    "Department": "Nuclear Engineering,"
+    "Department": "Nuclear Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1405,7 +1532,8 @@
     "Email": "huhns@cec.sc.edu",
     "Keywords": "",
     "Tags": "Energy Storage and Distribution,Computer Science and Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1416,7 +1544,8 @@
     "Email": "hullb@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,Information Technology,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1427,7 +1556,8 @@
     "Email": "imran@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1438,7 +1568,8 @@
     "Email": "inglettr@cec.sc.edu",
     "Keywords": "civil, environmental, research",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1449,7 +1580,8 @@
     "Email": "jabbari@engr.sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,Chemical Engineering,",
-    "Department": "Chemical Engineering, Biomedical Engineering,"
+    "Department": "Chemical Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1460,7 +1592,8 @@
     "Email": "ehsan@sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1471,7 +1604,8 @@
     "Email": "golareh@mailbox.sc.edu",
     "Keywords": "Goli",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1482,7 +1616,8 @@
     "Email": "pjamshid@cse.sc.edu",
     "Keywords": "AI",
     "Tags": "Computer Science and Engineering,Artificial Intelligence,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1493,7 +1628,8 @@
     "Email": "jenkinsr@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1504,7 +1640,8 @@
     "Email": "johnson@engr.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1515,7 +1652,8 @@
     "Email": "wj16@mailbox.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1526,7 +1664,8 @@
     "Email": "josephls@email.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1537,7 +1676,8 @@
     "Email": "jusiewis@cec.sc.edu",
     "Keywords": "",
     "Tags": "Academic Affairs,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1548,7 +1688,8 @@
     "Email": "neema@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1559,7 +1700,8 @@
     "Email": "karakchi@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1570,7 +1712,8 @@
     "Email": "rmkeefe@sc.edu",
     "Keywords": "Keefe, CEC student services",
     "Tags": "Undergraduate Advising,Academic Affairs,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1581,7 +1724,8 @@
     "Email": "ekfoury@email.sc.edu",
     "Keywords": "Kfoury, IIT",
     "Tags": "Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1592,7 +1736,8 @@
     "Email": "asif@engr.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1603,7 +1748,8 @@
     "Email": "khan@cec.sc.edu",
     "Keywords": "nuclear",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1614,7 +1760,8 @@
     "Email": "twknight@sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,Nuclear Energy,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1625,7 +1772,8 @@
     "Email": "lauteraj@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1636,7 +1784,8 @@
     "Email": "dongkyu@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1647,7 +1796,8 @@
     "Email": "junsoo.lee@sc.edu",
     "Keywords": "Junsoo Lee",
     "Tags": "Mechanical Engineering,Aerospace Engineering,",
-    "Department": "Mechanical Engineering, Aerospace Engineering,"
+    "Department": "Mechanical Engineering, Aerospace Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1658,7 +1808,8 @@
     "Email": "",
     "Keywords": "woo-kum, lee, professor, adjunct, chemical, engineering",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1669,7 +1820,8 @@
     "Email": "LEONARD@cec.sc.edu",
     "Keywords": "leonard, 350, instructor, s3d, vtd",
     "Tags": "Electrical Engineering,",
-    "Department": "Department of Electrical Engineering,"
+    "Department": "Department of Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1680,7 +1832,8 @@
     "Email": "susan.lessner@uscmed.sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,",
-    "Department": "School of Medicine, Biomedical Engineering,"
+    "Department": "School of Medicine, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1691,7 +1844,8 @@
     "Email": "alewin@mailbox.sc.edu",
     "Keywords": "Alicia Lewin",
     "Tags": ",",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1702,7 +1856,8 @@
     "Email": "lewisjs4@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1713,7 +1868,8 @@
     "Email": "li01@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1724,7 +1880,8 @@
     "Email": "stanley_ling@sc.edu",
     "Keywords": "Mechanical Engineering, Aerospace Engineering",
     "Tags": "Aerospace Engineering,Mechanical Engineering,",
-    "Department": "Mechanical Engineering, Aerospace Engineering,"
+    "Department": "Mechanical Engineering, Aerospace Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1735,7 +1892,8 @@
     "Email": "sl96@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1746,7 +1904,8 @@
     "Email": "loggans@cec.sc.edu",
     "Keywords": "",
     "Tags": "Information Technology,",
-    "Department": "Information Technology Services,"
+    "Department": "Information Technology Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1757,7 +1916,8 @@
     "Email": "lylen@mailbox.sc.edu",
     "Keywords": "Academic advisor",
     "Tags": "Academic Affairs,Undergraduate Advising,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1768,7 +1928,8 @@
     "Email": "lyons@cec.sc.edu",
     "Keywords": "advising, education",
     "Tags": "Mechanical Engineering,Academic Affairs,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1779,7 +1940,8 @@
     "Email": "mandalk@cec.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1790,7 +1952,8 @@
     "Email": "emmartin@mailbox.sc.edu",
     "Keywords": "Erik Martin, CEC Student Services",
     "Tags": "Undergraduate Advising,Academic Affairs,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1801,7 +1964,8 @@
     "Email": "matolak@cec.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1812,7 +1976,8 @@
     "Email": "fmatta@sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,Nuclear Energy,Intelligent Infrastructure,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1823,7 +1988,8 @@
     "Email": "mmm@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1834,7 +2000,8 @@
     "Email": "mamatthe@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,Biomedical Engineering,",
-    "Department": "Chemical Engineering, Biomedical Engineering,"
+    "Department": "Chemical Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1845,7 +2012,8 @@
     "Email": "rheamatthews@sc.edu",
     "Keywords": "Rhea Matthews, McNair Center",
     "Tags": "McNair,",
-    "Department": "Mechanical Engineering, McNair Center,"
+    "Department": "Mechanical Engineering, McNair Center,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1856,7 +2024,8 @@
     "Email": "mayo@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Student Services Office,"
+    "Department": "Student Services Office,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1867,7 +2036,8 @@
     "Email": "mcanally@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1878,7 +2048,8 @@
     "Email": "mccants@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1889,7 +2060,8 @@
     "Email": "cameron.mccarthy@uscmed.sc.edu",
     "Keywords": "biomed, biomedical engineering, cec, engineering",
     "Tags": "Biomedical Engineering,",
-    "Department": "Cardiovascular Translational Research Center Cell Biology and Anatomy,"
+    "Department": "Cardiovascular Translational Research Center Cell Biology and Anatomy,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1900,7 +2072,8 @@
     "Email": "mccastbr@cec.sc.edu",
     "Keywords": "",
     "Tags": "Academic Affairs,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1911,7 +2084,8 @@
     "Email": "cam49@sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1922,7 +2096,8 @@
     "Email": "dmcelwai@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Dean's Office,"
+    "Department": "Dean's Office,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1933,7 +2108,8 @@
     "Email": "mcentijl@cec.sc.edu",
     "Keywords": "alumni, giving",
     "Tags": ",",
-    "Department": "Office of Development,"
+    "Department": "Office of Development,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1944,7 +2120,8 @@
     "Email": "ss20@email.sc.edu",
     "Keywords": "",
     "Tags": "Undergraduate Advising,Academic Affairs,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1955,7 +2132,8 @@
     "Email": "mcneill@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1966,7 +2144,8 @@
     "Email": "meadows@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1977,7 +2156,8 @@
     "Email": "meekins@sc.edu",
     "Keywords": "photovoltaics, solar fuel conversion, catalysis",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -1988,7 +2168,8 @@
     "Email": "middle28@mailbox.sc.edu",
     "Keywords": "Keiona Middleton, IIT",
     "Tags": "Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -1999,7 +2180,8 @@
     "Email": "shelby.mills@sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Office of Research,"
+    "Department": "Office of Research,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2010,7 +2192,8 @@
     "Email": "mobli@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2021,7 +2204,8 @@
     "Email": "monnier@cec.sc.edu",
     "Keywords": "",
     "Tags": "Nuclear Energy,Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2032,7 +2216,8 @@
     "Email": "cm207@mailbox.sc.edu",
     "Keywords": "Carver Moore. IT manager",
     "Tags": ",",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2043,7 +2228,8 @@
     "Email": "more@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2054,7 +2240,8 @@
     "Email": "mossme@cec.sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,Chemical Engineering,",
-    "Department": "Chemical Engineering, Biomedical Engineering,"
+    "Department": "Chemical Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2065,7 +2252,8 @@
     "Email": "wmujica@sc.edu",
     "Keywords": "Mujica, CEC Advisor",
     "Tags": "Academic Affairs,Undergraduate Advising,",
-    "Department": "Student Services College of Engineering and Computing ,"
+    "Department": "Student Services College of Engineering and Computing ,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2076,7 +2264,8 @@
     "Email": "ken.mulchahey@sc.edu",
     "Keywords": "Ken Mulchahey, Kenneth Mulchahey, IIT, MCEC",
     "Tags": "Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2087,7 +2276,8 @@
     "Email": "rlm@sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2098,7 +2288,8 @@
     "Email": "mustainw@mailbox.sc.edu",
     "Keywords": "Profile page of Dr. William Mustain",
     "Tags": "Chemical Engineering,Energy Storage and Distribution,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2109,7 +2300,8 @@
     "Email": "himanshu@sc.edu",
     "Keywords": "",
     "Tags": "Aerospace Engineering,Mechanical Engineering,Nuclear Engineering,Information Technology,",
-    "Department": "Information Technology Services, College of Engineering and Computing,"
+    "Department": "Information Technology Services, College of Engineering and Computing,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2120,7 +2312,8 @@
     "Email": "vignar@sc.edu",
     "Keywords": "AI Institute, engineering, computing, CEC, UofSC",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering, AI Institute,"
+    "Department": "Computer Science and Engineering, AI Institute,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2131,7 +2324,8 @@
     "Email": "nasiri@sc.edu",
     "Keywords": "Electrical, engineering, uofsc",
     "Tags": "Electrical Engineering,McNair,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2142,7 +2336,8 @@
     "Email": "srihari@cec.sc.edu",
     "Keywords": "",
     "Tags": "Intelligent Infrastructure,Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2153,7 +2348,8 @@
     "Email": "riahinez@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2164,7 +2360,8 @@
     "Email": "dyers@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2175,7 +2372,8 @@
     "Email": "nicholma@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2186,7 +2384,8 @@
     "Email": "odonnemc@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2197,7 +2396,8 @@
     "Email": "christian.oreilly@sc.edu",
     "Keywords": "Computing, engineering, computer science",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Department of Computer Science and Engineering,"
+    "Department": "Department of Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2208,7 +2408,8 @@
     "Email": "oreillyj@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2219,7 +2420,8 @@
     "Email": "ortizi@mailbox.sc.edu",
     "Keywords": "chemical engineering, instructor",
     "Tags": "Chemical Engineering,",
-    "Department": "Department of Chemical Engineering,"
+    "Department": "Department of Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2230,7 +2432,8 @@
     "Email": "pandher@email.sc.edu",
     "Keywords": "",
     "Tags": "McNair,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2241,7 +2444,8 @@
     "Email": "paschvon@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Career Center,",
-    "Department": "Engineering and Computing Career Center College of Engineering and Computing,"
+    "Department": "Engineering and Computing Career Center College of Engineering and Computing,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2252,7 +2456,8 @@
     "Email": "patelc@sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,",
-    "Department": "Biomedical Engineering,"
+    "Department": "Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2263,7 +2468,8 @@
     "Email": "ruthp@sc.edu",
     "Keywords": "",
     "Tags": "Academic Affairs,",
-    "Department": "Student Services ,"
+    "Department": "Student Services ,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2274,7 +2480,8 @@
     "Email": "paultc@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2285,7 +2492,8 @@
     "Email": "zmpeng@sc.edu",
     "Keywords": "Zhenmeng Peng",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2296,7 +2504,8 @@
     "Email": "dperea@cec.sc.edu",
     "Keywords": "",
     "Tags": "Information Technology,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2307,7 +2516,8 @@
     "Email": "perkinda@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Career Center,",
-    "Department": "Career Center,"
+    "Department": "Career Center,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2318,7 +2528,8 @@
     "Email": "peters@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2329,7 +2540,8 @@
     "Email": "piercec@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2340,7 +2552,8 @@
     "Email": "pierce9@cec.sc.edu",
     "Keywords": "",
     "Tags": "Academic Affairs,Undergraduate Advising,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2351,7 +2564,8 @@
     "Email": "pplante@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2362,7 +2576,8 @@
     "Email": "popov@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2373,7 +2588,8 @@
     "Email": "jay.potts@uscmed.sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,",
-    "Department": "School of Medicine, Biomedical Engineering,"
+    "Department": "School of Medicine, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2384,7 +2600,8 @@
     "Email": "praterst@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Academic Affairs,Undergraduate Advising,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2395,7 +2612,8 @@
     "Email": "fernanda.priviero@uscmed.sc.edu",
     "Keywords": "Cardiovascular, Translational, Research, Cell Biology, Anatomy",
     "Tags": "Biomedical Engineering,",
-    "Department": "Cardiovascular Translational Research Center Cell Biology and Anatomy,"
+    "Department": "Cardiovascular Translational Research Center Cell Biology and Anatomy,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2406,7 +2624,8 @@
     "Email": "sputlock@mailbox.sc.edu",
     "Keywords": "CEC Outreach, Recruitment, Retention, Putlock",
     "Tags": "Academic Affairs,",
-    "Department": "Outreach, Recruitment, Retention,"
+    "Department": "Outreach, Recruitment, Retention,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2417,7 +2636,8 @@
     "Email": "peresm@email.sc.edu",
     "Keywords": "repowering coal plants and supplying data centers with non-emitting nuclear power using seismically isolated small modular and microreactors.",
     "Tags": "Mechanical Engineering,Nuclear Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2428,7 +2648,8 @@
     "Email": "yuqian@sc.edu",
     "Keywords": "",
     "Tags": "Intelligent Infrastructure,Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2439,7 +2660,8 @@
     "Email": "ravilali@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2450,7 +2672,8 @@
     "Email": "regalbuj@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2461,7 +2684,8 @@
     "Email": "earegan@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Transforming Health Care,Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2472,7 +2696,8 @@
     "Email": "reifsnid@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2483,7 +2708,8 @@
     "Email": "yiannisr@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2494,7 +2720,8 @@
     "Email": "reynolds@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2505,7 +2732,8 @@
     "Email": "ritter@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2516,7 +2744,8 @@
     "Email": "rizos@cec.sc.edu",
     "Keywords": "",
     "Tags": "Intelligent Infrastructure,Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2527,7 +2756,8 @@
     "Email": "robertse@cec.sc.edu",
     "Keywords": "nuclear",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2538,7 +2768,8 @@
     "Email": "rocheleau@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2549,7 +2780,8 @@
     "Email": "adr1@email.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,Nuclear Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2560,7 +2792,8 @@
     "Email": "rose@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Computer Science & Engineering, Biomedical Engineering,"
+    "Department": "Computer Science & Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2571,7 +2804,8 @@
     "Email": "rowen@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2582,7 +2816,8 @@
     "Email": "kennyr@mailbox.sc.edu",
     "Keywords": "Ken Rucker, MCEC Career Center",
     "Tags": "Career Center,",
-    "Department": "Career Center,"
+    "Department": "Career Center,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2593,7 +2828,8 @@
     "Email": "sabalows@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2604,7 +2840,8 @@
     "Email": "sadati@cec.sc.edu",
     "Keywords": "Sadati, Sanaz, Chemical Engineering faculty",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2615,7 +2852,8 @@
     "Email": "asahin@mailbox.sc.edu",
     "Keywords": "Wireless, electrical engineering",
     "Tags": "Electrical Engineering,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2626,7 +2864,8 @@
     "Email": "esanti00@engr.sc.edu",
     "Keywords": "",
     "Tags": "Energy Storage and Distribution,Electrical Engineering,Intelligent Infrastructure,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2637,7 +2876,8 @@
     "Email": "sasanaku@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2648,7 +2888,8 @@
     "Email": "satti@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2659,7 +2900,8 @@
     "Email": "julianos@mailbox.sc.edu",
     "Keywords": "advanced materials, from ceramics and alloys to nuclear fuels and molten salts, developing thermodynamic databases, and experimental work on radioactive and non-radioactive materials",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2670,7 +2912,8 @@
     "Email": "seayb@email.sc.edu",
     "Keywords": "uofsc, engineer, cec, aerospace, mechanical, mcnair center",
     "Tags": "McNair,Aerospace Engineering,Mechanical Engineering,",
-    "Department": "Mechanical Engineering, Aerospace Engineering,"
+    "Department": "Mechanical Engineering, Aerospace Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2681,7 +2924,8 @@
     "Email": "sepahvan@mailbox.sc.edu",
     "Keywords": "uofsc, cec, engineering, mechanical",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2692,7 +2936,8 @@
     "Email": "shazly@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,Biomedical Engineering,",
-    "Department": "Mechanical Engineering, Biomedical Engineering,"
+    "Department": "Mechanical Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2703,7 +2948,8 @@
     "Email": "shephejj@email.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2714,7 +2960,8 @@
     "Email": "amit@sc.edu",
     "Keywords": "",
     "Tags": "Artificial Intelligence,Computer Science and Engineering,Transforming Health Care,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2725,7 +2972,8 @@
     "Email": "shimpale@cec.sc.edu",
     "Keywords": "",
     "Tags": "Energy Storage and Distribution,Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2736,7 +2984,8 @@
     "Email": "simin@engr.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2747,7 +2996,8 @@
     "Email": "SMOAKW@mailbox.sc.edu",
     "Keywords": "smoak, capstone",
     "Tags": "Electrical Engineering,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2758,7 +3008,8 @@
     "Email": "ksnelson@mailbox.sc.edu",
     "Keywords": "CEC Advisor, Snelson",
     "Tags": "Undergraduate Advising,Academic Affairs,",
-    "Department": "Student Services College of Engineering and Computing ,"
+    "Department": "Student Services College of Engineering and Computing ,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2769,7 +3020,8 @@
     "Email": "sockalin@cec.sc.edu",
     "Keywords": "",
     "Tags": "McNair,Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2780,7 +3032,8 @@
     "Email": "cvctrc@uscmed.sc.edu",
     "Keywords": "spinale, school of medicine, anatomy, innovation center, cell biology",
     "Tags": "Biomedical Engineering,",
-    "Department": "School of Medicine, Biomedical Engineering,"
+    "Department": "School of Medicine, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2791,7 +3044,8 @@
     "Email": "biplav.s@sc.edu",
     "Keywords": "artificial intelligence, AI",
     "Tags": "Computer Science and Engineering,Artificial Intelligence,",
-    "Department": "Computer Science and Engineering, AI Institute,"
+    "Department": "Computer Science and Engineering, AI Institute,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2802,7 +3056,8 @@
     "Email": "stanford@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2813,7 +3068,8 @@
     "Email": "stork@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2824,7 +3080,8 @@
     "Email": "sudarsha@engr.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2835,7 +3092,8 @@
     "Email": "sur@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,Intelligent Infrastructure,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2846,7 +3104,8 @@
     "Email": "sutton@cec.sc.edu",
     "Keywords": "NAE",
     "Tags": "McNair,Intelligent Infrastructure,Mechanical Engineering,Biomedical Engineering,Nuclear Energy,",
-    "Department": "Mechanical Engineering, Biomedical Engineering,"
+    "Department": "Mechanical Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2857,7 +3116,8 @@
     "Email": "jswanner@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2868,7 +3128,8 @@
     "Email": "ntaheri@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,Biomedical Engineering,",
-    "Department": "Chemical Engineering, Biomedical Engineering,"
+    "Department": "Chemical Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2879,7 +3140,8 @@
     "Email": "wenbin.tan@uscmed.sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,",
-    "Department": "Cell Biology and Anatomy, School of Medicine; Biomedical Engineering,"
+    "Department": "Cell Biology and Anatomy, School of Medicine; Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2890,7 +3152,8 @@
     "Email": "tang4@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,",
-    "Department": "Chemistry and Biochemistry, College of Arts and Sciences; Biomedical Engineering,"
+    "Department": "Chemistry and Biochemistry, College of Arts and Sciences; Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2901,7 +3164,8 @@
     "Email": "tatting@cec.sc.edu",
     "Keywords": "Tatting, Mechanical Engineering",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2912,7 +3176,8 @@
     "Email": "tengco@email.sc.edu",
     "Keywords": "John Tengco, Chemical Engineering",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2923,7 +3188,8 @@
     "Email": "thatche1@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2934,7 +3200,8 @@
     "Email": "thomp899@cec.sc.edu",
     "Keywords": "room",
     "Tags": ",",
-    "Department": "Dean's Office,"
+    "Department": "Dean's Office,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2945,7 +3212,8 @@
     "Email": "tongy@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2956,7 +3224,8 @@
     "Email": "vantooren@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,Advanced Manufacturing,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2967,7 +3236,8 @@
     "Email": "mtorki@sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -2978,7 +3248,8 @@
     "Email": "tulenko@ufl.edu",
     "Keywords": "nuclear",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -2989,7 +3260,8 @@
     "Email": "carriebt@mailbox.sc.edu",
     "Keywords": "CEC Advisor, Turner",
     "Tags": "Undergraduate Advising,Academic Affairs,",
-    "Department": "Student Services College of Engineering and Computing ,"
+    "Department": "Student Services College of Engineering and Computing ,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3000,7 +3272,8 @@
     "Email": "jeturner@mailbox.sc.edu",
     "Keywords": "bridge, professional development",
     "Tags": "Dean's Office,",
-    "Department": "Dean's Office,"
+    "Department": "Dean's Office,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3011,7 +3284,8 @@
     "Email": "turnerj@cec.sc.edu",
     "Keywords": "",
     "Tags": "Academic Affairs,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3022,7 +3296,8 @@
     "Email": "uline@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,Biomedical Engineering,",
-    "Department": "Biomedical Engineering,"
+    "Department": "Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3033,7 +3308,8 @@
     "Email": "bulrich@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3044,7 +3320,8 @@
     "Email": "homayoun@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,Biomedical Engineering,Artificial Intelligence,Transforming Health Care,",
-    "Department": "Computer Science & Engineering; Biomedical Engineering,"
+    "Department": "Computer Science & Engineering; Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3055,7 +3332,8 @@
     "Email": "mgv@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3066,7 +3344,8 @@
     "Email": "vanbrunt@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3077,7 +3356,8 @@
     "Email": "vargasje@engr.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3088,7 +3368,8 @@
     "Email": "lvensel@mailbox.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Office of Development,"
+    "Department": "Office of Development,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3099,7 +3380,8 @@
     "Email": "vidal@sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3110,7 +3392,8 @@
     "Email": "VIPARELL@cec.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3121,7 +3404,8 @@
     "Email": "jvitali@mailbox.sc.edu",
     "Keywords": "Chief, Nuclear Power Branch, US Army, mechanical engineer",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3132,7 +3416,8 @@
     "Email": "vitzilaios@sc.edu",
     "Keywords": "",
     "Tags": "Intelligent Infrastructure,Mechanical Engineering,McNair,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3143,7 +3428,8 @@
     "Email": "tvogt@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3154,7 +3440,8 @@
     "Email": "guirenwang@sc.edu",
     "Keywords": "",
     "Tags": "Biomedical Engineering,Mechanical Engineering,",
-    "Department": "Mechanical Engineering, Biomedical Engineering,"
+    "Department": "Mechanical Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3165,7 +3452,8 @@
     "Email": "gwang@cec.sc.edu",
     "Keywords": "",
     "Tags": "Intelligent Infrastructure,Electrical Engineering,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3176,7 +3464,8 @@
     "Email": "songwang@cec.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3187,7 +3476,8 @@
     "Email": "wangxi@cec.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": "Electrical Engineering,"
+    "Department": "Electrical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3198,7 +3488,8 @@
     "Email": "yiwang@cec.sc.edu",
     "Keywords": "Mechanical Engineering, College of Engineering and Computing, professor",
     "Tags": "Mechanical Engineering,Advanced Manufacturing,Aerospace Engineering,",
-    "Department": "Mechanical Engineering, Aerospace Engineering,"
+    "Department": "Mechanical Engineering, Aerospace Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3209,7 +3500,8 @@
     "Email": "amarra@mailbox.sc.edu",
     "Keywords": "Amarra Washington, MCEC, MCEC Student Services",
     "Tags": "Academic Affairs,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3220,7 +3512,8 @@
     "Email": "waugh@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3231,7 +3524,8 @@
     "Email": "weathert@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Civil and Environmental Engineering,",
-    "Department": "Civil and Environmental Engineering,"
+    "Department": "Civil and Environmental Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3242,7 +3536,8 @@
     "Email": "clinton.webb@uscmed.sc.edu",
     "Keywords": "biomedical engineering, uofsc, cec",
     "Tags": "Biomedical Engineering,",
-    "Department": "Biomedical Engineering,"
+    "Department": "Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3253,7 +3548,8 @@
     "Email": "taow@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "College of Engineering and Computing,Biomedical Engineering,Chemical Engineering,",
-    "Department": "Chemical Engineering, Biomedical Engineering,"
+    "Department": "Chemical Engineering, Biomedical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3264,7 +3560,8 @@
     "Email": "weix@mailbox.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3275,7 +3572,8 @@
     "Email": "Camilla.Wenceslau@uscmed.sc.edu",
     "Keywords": "cec, uofsc, biomedical, engineering",
     "Tags": "Biomedical Engineering,",
-    "Department": "Laboratory of Vascular Biology Cardiovascular Translational Research Center Cell Biology and Anatomy,"
+    "Department": "Laboratory of Vascular Biology Cardiovascular Translational Research Center Cell Biology and Anatomy,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3286,7 +3584,8 @@
     "Email": "rineharr@mailbox.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Office of Research,"
+    "Department": "Office of Research,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3297,7 +3596,8 @@
     "Email": "white@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,Energy Storage and Distribution,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3308,7 +3608,8 @@
     "Email": "wilhelm@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3319,7 +3620,8 @@
     "Email": "ronni@cec.sc.edu",
     "Keywords": "",
     "Tags": "Information Technology,",
-    "Department": "Information Technology Services,"
+    "Department": "Information Technology Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3330,7 +3632,8 @@
     "Email": "willia84@cec.sc.edu",
     "Keywords": "",
     "Tags": "Chemical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3341,7 +3644,8 @@
     "Email": "heatherw@mailbox.sc.edu",
     "Keywords": "uofsc, cec, admin, administrative assistant",
     "Tags": ",",
-    "Department": "Research and Graduate Programs,"
+    "Department": "Research and Graduate Programs,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3352,7 +3656,8 @@
     "Email": "winterfa@mailbox.sc.edu",
     "Keywords": "advising, advisor, uofsc",
     "Tags": "Undergraduate Advising,Academic Affairs,",
-    "Department": "Student Services,"
+    "Department": "Student Services,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3363,7 +3668,8 @@
     "Email": "kristinn@mailbox.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Dean's Office,"
+    "Department": "Dean's Office,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3374,7 +3680,8 @@
     "Email": "sanghee@mailbox.sc.edu",
     "Keywords": "mechanical engineering, engineering, professor, faculty",
     "Tags": "McNair,Mechanical Engineering,Advanced Manufacturing,Aerospace Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3385,7 +3692,8 @@
     "Email": "woodjar@mailbox.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Dean's Office,"
+    "Department": "Dean's Office,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3396,7 +3704,8 @@
     "Email": "cwoodley@mailbox.sc.edu",
     "Keywords": "communications",
     "Tags": ",",
-    "Department": "Communications,"
+    "Department": "Communications,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3407,7 +3716,8 @@
     "Email": "pmwrightsr@sc.edu",
     "Keywords": "IIT, integrate information technology, computing, uofsc",
     "Tags": "Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3418,7 +3728,8 @@
     "Email": "dezhiwu@cec.sc.edu",
     "Keywords": "Integrated Information Technology, Dezhi, Wu, IIT",
     "Tags": "Artificial Intelligence,Transforming Health Care,Integrated Information Technology,",
-    "Department": "Integrated Information Technology,"
+    "Department": "Integrated Information Technology,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3429,7 +3740,8 @@
     "Email": "twuest@sc.edu",
     "Keywords": "MCEC, Smart and Advanced Manufacturing, Machine Learning/Data Analytics, AI/ML and Hybrid Analytics, Industry 4.0, Servitization and Product Service Systems, as well as closed-loop, item-level Product Lifecycle Management (PLM) with a focus on Smart Manufacturing Systems",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Staff",
@@ -3440,7 +3752,8 @@
     "Email": "jwurd@email.sc.edu",
     "Keywords": "wurdinger, Jamie",
     "Tags": ",",
-    "Department": "Engineering Management,"
+    "Department": "Engineering Management,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3451,7 +3764,8 @@
     "Email": "xue@cec.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3462,7 +3776,8 @@
     "Email": "wenqiang@email.sc.edu",
     "Keywords": "Wenqiang Yang, Chemical Engineering",
     "Tags": ",",
-    "Department": "Chemical Engineering,"
+    "Department": "Chemical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3473,7 +3788,8 @@
     "Email": "yu3@cec.sc.edu",
     "Keywords": "nuclear",
     "Tags": "Aerospace Engineering,Nuclear Energy,Mechanical Engineering,Advanced Manufacturing,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3484,7 +3800,8 @@
     "Email": "langyuan@cec.sc.edu",
     "Keywords": "mechanical engineering, CEC",
     "Tags": "Advanced Manufacturing,McNair,Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3495,7 +3812,8 @@
     "Email": "yuan@cec.sc.edu",
     "Keywords": "",
     "Tags": ",",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3506,7 +3824,8 @@
     "Email": "ramtin@cse.sc.edu",
     "Keywords": "",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering,"
+    "Department": "Computer Science and Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3517,7 +3836,8 @@
     "Email": "zhangbin@cec.sc.edu",
     "Keywords": "",
     "Tags": "Electrical Engineering,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3528,7 +3848,8 @@
     "Email": "qz5@cse.sc.edu",
     "Keywords": "AI, Artificial Intelligence, CSE",
     "Tags": "Computer Science and Engineering,",
-    "Department": "Computer Science and Engineering, AI Institute,"
+    "Department": "Computer Science and Engineering, AI Institute,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3539,7 +3860,8 @@
     "Email": "caizhi@mailbox.sc.edu",
     "Keywords": "",
     "Tags": "Mechanical Engineering,",
-    "Department": "Mechanical Engineering,"
+    "Department": "Mechanical Engineering,",
+    "College": "Business"
   },
   {
     "Faculty/Staff": "Faculty",
@@ -3550,6 +3872,7 @@
     "Email": "ziehl@cec.sc.edu",
     "Keywords": "",
     "Tags": "McNair,Mechanical Engineering,Civil and Environmental Engineering,Advanced Manufacturing,Intelligent Infrastructure,",
-    "Department": ","
+    "Department": ",",
+    "College": "Business"
   }
 ]
