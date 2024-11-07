@@ -1,5 +1,12 @@
-import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
-import fetchInfo from "../hook/fetchInfo";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ActivityIndicator,
+  SafeAreaView,
+  ScrollView,
+} from "react-native";
+import fetchInfo from "../../hook/fetchInfo";
 
 export default function Directory() {
   const { data, isLoading, error } = fetchInfo("directory");
@@ -23,19 +30,18 @@ export default function Directory() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text>Directory</Text>
+    <ScrollView contentContainerStyle={styles.container}>
       {console.log(data[0])}
       {data.map((course, index) => (
         <Text key={course.crn}>{course.crn}</Text>
       ))}
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "center",
     alignItems: "center",
   },
