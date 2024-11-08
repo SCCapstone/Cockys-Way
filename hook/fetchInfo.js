@@ -10,6 +10,7 @@ const fetchInfo = () => {
   // (or other parameters that the api supports)
   const fetch = async () => {
     setIsLoading(true);
+    // Fetching
     try {
       console.log("Fetching data...");
       const response = await axios({
@@ -31,6 +32,8 @@ const fetchInfo = () => {
           ],
         }),
       });
+
+      // Parse the data
       const parsedData =
         typeof response.data === "string"
           ? JSON.parse(response.data)
@@ -49,6 +52,7 @@ const fetchInfo = () => {
     fetch();
   }, []);
 
+  // Return the data
   return { data, isLoading, error };
 };
 
