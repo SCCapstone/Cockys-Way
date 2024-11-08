@@ -16,6 +16,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
 } from "firebase/auth";
+import { router } from "expo-router";
 
 const Login = () => {
   // Manage Email and Password State
@@ -38,7 +39,7 @@ const Login = () => {
     }
   };
 
-  const register = async () => {
+  /*const register = async () => {
     setLoading(true);
     try {
       const response = await createUserWithEmailAndPassword(
@@ -54,7 +55,7 @@ const Login = () => {
     } finally {
       setLoading(false);
     }
-  };
+  };*/
 
   return (
     <SafeAreaView style={styles.container}>
@@ -81,7 +82,13 @@ const Login = () => {
         ) : (
           <>
             <Button style={styles.button} title="Login" onPress={signIn} />
-            <Button style={styles.button} title="Register" onPress={register} />
+            <Button
+              style={styles.button}
+              title="Register"
+              onPress={() => {
+                router.push("/register");
+              }}
+            />
           </>
         )}
       </View>
