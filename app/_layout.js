@@ -9,6 +9,7 @@ export default function Layout() {
         options={{
           title: "Login",
           headerBackTitleVisible: false,
+          headerTintColor: "#73000A",
         }}
       />
       <Stack.Screen
@@ -16,6 +17,15 @@ export default function Layout() {
         options={{
           title: "Register",
           headerBackTitleVisible: false,
+          headerTintColor: "#73000A",
+        }}
+      />
+      <Stack.Screen
+        name="professorInfo"
+        options={{
+          title: "",
+          headerBackTitleVisible: false,
+          headerTintColor: "#73000A",
         }}
       />
     </Stack>

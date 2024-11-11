@@ -6,12 +6,16 @@ import {
   ActivityIndicator,
   SafeAreaView,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
+import { useRouter } from "expo-router";
 import getItemLayout from "react-native-section-list-get-item-layout";
 
 export default function Directory() {
+  const router = useRouter();
+
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -62,9 +66,18 @@ export default function Directory() {
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         {console.log(data)}
         {data.map((item) => (
-          <View key={item.Name} style={styles.staffBox}>
+          <TouchableOpacity
+            key={item.Name}
+            style={styles.staffBox}
+            onPress={() =>
+              router.push({
+                pathname: "professorInfo",
+                params: { item: JSON.stringify(item) },
+              })
+            }
+          >
             <Text style={styles.staffText}>{item.Name}</Text>
-          </View>
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </SafeAreaView>
