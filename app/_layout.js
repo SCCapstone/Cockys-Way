@@ -11,6 +11,13 @@ export default function Layout() {
           headerBackTitleVisible: false,
         }}
       />
+      <Stack.Screen
+        name="register"
+        options={{
+          title: "Register",
+          headerBackTitleVisible: false,
+        }}
+      />
     </Stack>
   );
 }
