@@ -18,6 +18,13 @@ export default function Layout() {
           headerBackTitleVisible: false,
         }}
       />
+      <Stack.Screen 
+        name="addClassForm"
+        options={{
+          title: "Add Class",
+          headerBackTitleVisible: false,
+        }}
+      />
     </Stack>
   );
 }
