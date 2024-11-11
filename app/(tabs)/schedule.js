@@ -9,7 +9,7 @@ export default function Schedule() {
         {/* example course box layout */}
         <View style={styles.course}>
           <View style={styles.courseText}>
-            <Text style={styles.courseHeader}>hawk tuah</Text>
+            <Text style={styles.courseHeader}>CSCE 355</Text>
             <Text style={styles.courseInfo}>Foundations of Computation</Text>
             <Text style={styles.courseInfo}>James O'Reilly</Text>
             <Text style={styles.courseInfo}>TuTh, 11:40am - 12:55pm</Text>
@@ -55,9 +55,13 @@ const styles = StyleSheet.create({
   },
 
   courseText: {
-    flexWrap: "wrap",
+    // flexWrap: "wrap",
     width: "90%",
     // flex: 1,
+    borderWidth: 5,
+    borderColor: "green",
+    flex: 1,
+    flexShrink: 0
   },
 
   courseInfo: {
@@ -73,6 +77,8 @@ const styles = StyleSheet.create({
 
   courseIcons: {
     flexDirection: "row",
-    gap: 5
+    gap: 10,
+    borderWidth: 5,
+    borderColor: "green"
   }
 });
