@@ -24,6 +24,7 @@ export default function ProfessorInfo() {
           <Image
             style={styles.image}
             // Will switch around when we determine how to store images
+            // Need to check if we can use portraits on UofSC site
             source={
               professor.image
                 ? { uri: "data:image/png;base64," + professor.image }
