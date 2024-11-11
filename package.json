@@ -20,6 +20,7 @@
     "react-native": "0.74.5",
     "react-native-async-storage": "^0.0.1",
     "react-native-dotenv": "^3.4.11",
+    "react-native-maps": "1.14.0",
     "react-native-section-list": "^0.0.3",
     "react-native-section-list-get-item-layout": "^2.2.3",
     "typescript": "~5.3.3"
