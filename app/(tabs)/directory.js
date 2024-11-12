@@ -32,7 +32,8 @@ export default function Directory() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        /*const query = await getDocs(
+        /*
+        const query = await getDocs(
           collection(FIRESTORE_DB, "staff-directory")
         );
         const db_data = query.docs.map((doc) => doc.data());*/
@@ -158,7 +159,7 @@ export default function Directory() {
     }
 
     const filtered = data.filter((item) =>
-      item.Name.toLowerCase().includes(search.toLowerCase())
+      formatName(item.Name).toLowerCase().includes(search.toLowerCase())
     );
     setFilteredData(filtered);
   }, [search, data]);
@@ -204,7 +205,6 @@ export default function Directory() {
         style={styles.searchBar}
       />
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-        {console.log(data)}
         {filteredData.map((item) => (
           <TouchableOpacity
             key={item.Name}
