@@ -33,15 +33,19 @@ export default function ProfessorInfo() {
           />
         </View>
         <View style={[styles.midBox, styles.quickLook]}>
-          <Text style={styles.quickLookText}>Office Status</Text>
-          <View style={styles.topInfo}>
+          <Text style={styles.quickLookHeader}>Office Status:</Text>
+          <View style={styles.flexRow}>
             <FontAwesome
-              size={15}
+              size={17}
               style={[styles.circle, { color: circleColor }]}
               name="circle"
             />
             <Text style={styles.quickLookText}>{indicator}</Text>
           </View>
+          <Text style={[styles.quickLookHeader, { marginTop: 20 }]}>
+            Affiliation:
+          </Text>
+          <Text style={styles.quickLookText}>{professor.College}</Text>
         </View>
       </View>
     </SafeAreaView>
@@ -64,6 +68,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#73000A",
   },
+  flexRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
   topInfo: {
     flexDirection: "row",
     marginTop: 20,
@@ -82,11 +90,16 @@ const styles = StyleSheet.create({
     alignItems: "left",
     padding: 10,
   },
+  quickLookHeader: {
+    fontSize: 23,
+    color: "#73000A",
+  },
   quickLookText: {
     fontSize: 20,
+    marginTop: 10,
   },
   circle: {
-    marginTop: 5,
     marginRight: 10,
+    marginTop: 10,
   },
 });

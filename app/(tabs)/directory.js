@@ -8,6 +8,7 @@ import {
   ScrollView,
   TouchableOpacity,
 } from "react-native";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import { useRouter } from "expo-router";
@@ -23,10 +24,36 @@ export default function Directory() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const query = await getDocs(
+        /*const query = await getDocs(
           collection(FIRESTORE_DB, "staff-directory")
         );
-        const db_data = query.docs.map((doc) => doc.data());
+        const db_data = query.docs.map((doc) => doc.data());*/
+        const db_data = [
+          {
+            College: "School of Public Health",
+            Department: "Health Promotion, Education, and Behavior,",
+            Email: "zwemer@mailbox.sc.edu",
+            "Faculty/Staff": "Staff",
+            Keywords: "Health Promotion, Education, and Behavior, HPEB",
+            Name: "Zwemer, Joni",
+            Phone: "803-777-8615",
+            "Secondary Title": "",
+            Tags: "Health Promotion Education and Behavior,",
+            Title: "Administrative Coordinator",
+          },
+          {
+            College: "School of Public Health",
+            Department: "Health Promotion, Education, and Behavior,",
+            Email: "rpmalone@email.sc.edu",
+            "Faculty/Staff": "Faculty",
+            Keywords: "Health Promotion, Education, and Behavior, HPEB",
+            Name: "Malone, Ryan",
+            Phone: "803-777-4253",
+            "Secondary Title": "",
+            Tags: "Health Promotion Education and Behavior,",
+            Title: "Associate Professor",
+          },
+        ];
         setData(db_data);
       } catch (err) {
         setError(err);
@@ -77,6 +104,7 @@ export default function Directory() {
             }
           >
             <Text style={styles.staffText}>{item.Name}</Text>
+            <FontAwesome name="chevron-right" size={30} color="#fff" />
           </TouchableOpacity>
         ))}
       </ScrollView>
@@ -84,26 +112,11 @@ export default function Directory() {
   );
 }
 
-/* <div>, but for R
-import React from 'react';
-import { View, Text } from 'react-native';
-
-const App = () => {
-  return (
-    <View style={{ padding: 20, backgroundColor: 'lightgray' }}>
-      <Text>Hello, this is a box!</Text>
-    </View>
-  );
-};
-
-export default App;
-*/
-
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     justifyContent: "center",
-    alignItems: "center",
+    // alignItems: "center",
   },
   staffBox: {
     padding: 20,
@@ -111,6 +124,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#73000A",
     borderBlockColor: "#000",
     borderWidth: 4,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   staffText: {
     color: "#fff",
