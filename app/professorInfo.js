@@ -17,8 +17,8 @@ export default function ProfessorInfo() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>{professor.Name}</Text>
-      <Text style={styles.subtitle}>{professor.Title}</Text>
+      <Text style={styles.title}>{professor.name}</Text>
+      <Text style={styles.subtitle}>{professor.title}</Text>
       <View style={styles.topInfo}>
         <View style={styles.midBox}>
           <Image
@@ -45,7 +45,7 @@ export default function ProfessorInfo() {
           <Text style={[styles.quickLookHeader, { marginTop: 20 }]}>
             Affiliation:
           </Text>
-          <Text style={styles.quickLookText}>{professor.College}</Text>
+          <Text style={styles.quickLookText}>{professor.college}</Text>
         </View>
       </View>
     </SafeAreaView>

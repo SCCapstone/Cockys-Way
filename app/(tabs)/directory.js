@@ -32,13 +32,13 @@ export default function Directory() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        /*const query = await getDocs(
+        const query = await getDocs(
           collection(FIRESTORE_DB, "staff-directory")
         );
-        const db_data = query.docs.map((doc) => doc.data());*/
+        const db_data = query.docs.map((doc) => doc.data());
 
         // Placeholder data to prevent quota overage
-        const db_data = [
+        /*const db_data = [
           {
             College: "School of Public Health",
             Department: "Health Promotion, Education, and Behavior,",
@@ -131,7 +131,7 @@ export default function Directory() {
             Department: "",
             College: "College of Social Work",
           },
-        ];
+        ];*/
         setData(db_data);
       } catch (err) {
         setError(err);
@@ -150,13 +150,13 @@ export default function Directory() {
       setFilteredData(data);
     } else {
       const filtered = data.filter((item) =>
-        item.Name.toLowerCase().includes(search.toLowerCase())
+        item.name.toLowerCase().includes(search.toLowerCase())
       );
       setFilteredData(filtered);
     }
 
     const filtered = data.filter((item) =>
-      item.Name.toLowerCase().includes(search.toLowerCase())
+      item.name.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredData(filtered);
   }, [search, data]);
@@ -190,7 +190,7 @@ export default function Directory() {
   const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   const sections = alphabet.map((letter) => ({
     title: letter,
-    data: data.filter((item) => item.Name.startsWith(letter)),
+    data: data.filter((item) => item.name.startsWith(letter)),
   }));
 
   return (
@@ -204,7 +204,7 @@ export default function Directory() {
       <ScrollView contentContainerStyle={styles.scrollViewContainer}>
         {filteredData.map((item) => (
           <TouchableOpacity
-            key={item.Name}
+            key={item.name}
             style={styles.staffBox}
             onPress={() =>
               router.push({
@@ -213,7 +213,7 @@ export default function Directory() {
               })
             }
           >
-            <Text style={styles.staffText}>{formatName(item.Name)}</Text>
+            <Text style={styles.staffText}>{formatName(item.name)}</Text>
             <FontAwesome name="chevron-right" size={30} color="#fff" />
           </TouchableOpacity>
         ))}
