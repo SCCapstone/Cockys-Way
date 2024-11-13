@@ -150,15 +150,10 @@ export default function Directory() {
       setFilteredData(data);
     } else {
       const filtered = data.filter((item) =>
-        item.name.toLowerCase().includes(search.toLowerCase())
+        formatName(item.name).toLowerCase().includes(search.toLowerCase())
       );
       setFilteredData(filtered);
     }
-
-    const filtered = data.filter((item) =>
-      item.name.toLowerCase().includes(search.toLowerCase())
-    );
-    setFilteredData(filtered);
   }, [search, data]);
 
   if (isLoading) {

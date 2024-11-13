@@ -28,10 +28,17 @@ export default function Layout() {
           headerTintColor: "#73000A",
         }}
       />
-      <Stack.Screen 
+      <Stack.Screen
         name="addClassForm"
         options={{
           title: "Add Class",
+          headerBackTitleVisible: false,
+        }}
+      />
+      <Stack.Screen
+        name="forgotPassword"
+        options={{
+          title: "Forgot Password",
           headerBackTitleVisible: false,
         }}
       />
