@@ -13,10 +13,7 @@ import {
 
 // Firebase Imports
 import { FIREBASE_AUTH } from "../FirebaseConfig";
-import {
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-} from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { router } from "expo-router";
 
 const Login = () => {
@@ -30,7 +27,10 @@ const Login = () => {
     setLoading(true);
     try {
       const response = await signInWithEmailAndPassword(auth, email, password);
-      alert("Congrats! You were authenticated!");
+      const user = response.user;
+      console.log("User Logged In:");
+      console.log(user);
+      router.push("/");
       // Eventually will do something else
     } catch (error) {
       alert("Login Failed!");
@@ -68,7 +68,7 @@ const Login = () => {
           />
 
           {loading ? (
-            <ActivityIndicator size="large" color="#0000ff" />
+            <ActivityIndicator size="large" color="#73000A" />
           ) : (
             <>
               <TouchableOpacity
