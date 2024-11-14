@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 10,
     textAlign: "center",
-    color: "#",
+    color: "#73000A",
   },
   image: {
     width: 150,
