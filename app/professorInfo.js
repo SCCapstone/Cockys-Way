@@ -48,6 +48,38 @@ export default function ProfessorInfo() {
           <Text style={styles.quickLookText}>{professor.college}</Text>
         </View>
       </View>
+      <View style={styles.line}></View>
+      <View style={[styles.officeInfo, styles.quickLook]}>
+        <Text style={styles.quickLookHeader}>Office Information:</Text>
+
+        {/* TODO: NEED TO UPDATE WITH OFFICE INFO IN DB */}
+        <Text style={styles.quickLookText}>{professor.college}</Text>
+      </View>
+      <View style={styles.line}></View>
+      <View style={[styles.officeInfo, styles.quickLook]}>
+        <Text style={styles.quickLookHeader}>Office Hours:</Text>
+
+        {/* TODO: NEED TO UPDATE WITH OFFICE HOURS INFO IN DB */}
+        <Text style={styles.quickLookText}>{professor.college}</Text>
+      </View>
+      <View style={styles.line}></View>
+      <View style={[styles.officeInfo, styles.quickLook]}>
+        <Text style={[styles.quickLookHeader]}>Let's Connect:</Text>
+
+        {/* TODO: NEED TO UPDATE WITH OFFICE INFO IN DB */}
+        <View style={[styles.flexRow, styles.spacer]}>
+          <FontAwesome name="at" size={30} color="#73000A" />
+          <Text style={[styles.social]}>{professor.email}</Text>
+        </View>
+        <View style={[styles.flexRow, styles.spacer]}>
+          <FontAwesome name="phone" size={30} color="#73000A" />
+          <Text style={[styles.social]}>{professor.phone}</Text>
+        </View>
+        <View style={[styles.flexRow, styles.spacer]}>
+          <FontAwesome name="globe" size={30} color="#73000A" />
+          <Text style={[styles.social]}>{professor.phone}</Text>
+        </View>
+      </View>
     </SafeAreaView>
   );
 }
@@ -75,6 +107,7 @@ const styles = StyleSheet.create({
   topInfo: {
     flexDirection: "row",
     marginTop: 20,
+    width: "95%",
   },
   midBox: {
     flex: 1,
@@ -101,5 +134,23 @@ const styles = StyleSheet.create({
   circle: {
     marginRight: 10,
     marginTop: 10,
+  },
+  line: {
+    borderBottomColor: "#73000A",
+    borderBottomWidth: 2,
+    width: "95%",
+    marginTop: 2,
+    marginBottom: 2,
+  },
+  officeInfo: {
+    width: "95%",
+    margin: 5,
+  },
+  spacer: {
+    marginTop: 20,
+  },
+  social: {
+    marginLeft: 30,
+    fontSize: 20,
   },
 });
