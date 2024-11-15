@@ -59,7 +59,7 @@ const Login = () => {
           source={require("../assets/images/cockys-way.png")}
         />
         <View style={styles.form}>
-          <Text style={styles.title}>Register:</Text>
+          <Text style={styles.title}>Register</Text>
 
           <Text style={styles.label}>Email:</Text>
           <TextInput
@@ -133,6 +133,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+    fontWeight: "bold",
     marginBottom: 10,
     textAlign: "center",
     color: "#73000A",

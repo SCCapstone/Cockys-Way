@@ -48,7 +48,7 @@ const Login = () => {
           source={require("../assets/images/cockys-way.png")}
         />
         <View style={styles.form}>
-          <Text style={styles.title}>Login:</Text>
+          <Text style={styles.title}>Login</Text>
 
           <Text style={styles.label}>Email:</Text>
           <TextInput
@@ -122,6 +122,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textAlign: "center",
     color: "#73000A",
+    fontWeight: "bold",
   },
   image: {
     width: 150,

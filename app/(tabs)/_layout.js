@@ -9,7 +9,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "Map",
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="home" color={color} />
           ),
@@ -20,7 +20,6 @@ export default function TabLayout() {
                 name="user"
                 style={{ marginRight: 20, marginBottom: 5 }}
                 onPress={() => {
-                  console.log("Login pressed");
                   router.push("/login");
                 }}
               />

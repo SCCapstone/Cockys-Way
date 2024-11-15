@@ -9,6 +9,7 @@ export default function Layout() {
         options={{
           title: "Login",
           headerBackTitleVisible: false,
+          headerBackButtonMenuEnabled: true,
           headerTintColor: "#73000A",
         }}
       />
@@ -33,6 +34,7 @@ export default function Layout() {
         options={{
           title: "Add Class",
           headerBackTitleVisible: false,
+          headerTintColor: "#73000A",
         }}
       />
       <Stack.Screen
@@ -40,6 +42,7 @@ export default function Layout() {
         options={{
           title: "Forgot Password",
           headerBackTitleVisible: false,
+          headerTintColor: "#73000A",
         }}
       />
     </Stack>
