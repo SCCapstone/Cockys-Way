@@ -57,31 +57,6 @@ const Class = ({ subject, number, section, name, instructor, meeting, fromSearch
             </Pressable>
         </>
         }
-{/* 
-        <Pressable
-            onPress={() => {
-                setNotification(!notification)
-            }}
-            style={({pressed}) => [
-                {
-                backgroundColor: pressed ? '#450006' : 'transparent'
-                },
-                styles.button,
-            ]}
-        >
-            <FontAwesome5 name={ notification ? "bell" : "bell-slash" } size={30} color="#FFFFFF" />
-        </Pressable>
-        <Pressable
-            onPress={() => {}}
-            style={({pressed}) => [
-                {
-                backgroundColor: pressed ? '#450006' : 'transparent'
-                },
-                styles.button,
-            ]}
-        >
-            <FontAwesome5 name="trash-alt" size={30} color="#FFFFFF" />
-        </Pressable> */}
       </View>
     </View>
   )

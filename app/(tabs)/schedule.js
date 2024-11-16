@@ -38,6 +38,7 @@ export default function Schedule() {
           />
         </View>
       </View>
+      <View>
       <TouchableOpacity
         onPress={() => {
           router.push("../addClassForm");
@@ -47,6 +48,7 @@ export default function Schedule() {
         <Text style={styles.addText}>Add a Class</Text>
         <FontAwesome5 style={styles.addIcon} name="plus" size={20} color="black" />
       </TouchableOpacity>
+      </View>
     </>
   );
 }
@@ -67,7 +69,8 @@ const styles = StyleSheet.create({
     gap: 5,
     borderRadius: 10, 
     padding: 10,
-    alignItems: "center"
+    alignItems: "center",
+    zIndex: 999
   },
 
   addText: {
