@@ -38,17 +38,15 @@ export default function Schedule() {
           />
         </View>
       </View>
-      <View>
-      <TouchableOpacity
-        onPress={() => {
-          router.push("../addClassForm");
-        }}
-        style={styles.addButton}
-      >
-        <Text style={styles.addText}>Add a Class</Text>
-        <FontAwesome5 style={styles.addIcon} name="plus" size={20} color="black" />
-      </TouchableOpacity>
-      </View>
+        <TouchableOpacity
+          onPress={() => {
+            router.push("../addClassForm");
+          }}
+          style={styles.addButton}
+        >
+          <Text style={styles.addText}>Add a Class</Text>
+          <FontAwesome5 style={styles.addIcon} name="plus" size={20} color="black" />
+        </TouchableOpacity>
     </>
   );
 }
