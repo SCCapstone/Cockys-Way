@@ -2,8 +2,9 @@ import { StyleSheet, Text, View, Pressable } from 'react-native'
 import React from 'react'
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { useState } from 'react';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-const Class = ({ subject, number, section, name, instructor, meeting }) => {
+const Class = ({ subject, number, section, name, instructor, meeting, fromSearch = false }) => {
     const [notification, setNotification] = useState(false);
 
     return (
@@ -15,6 +16,48 @@ const Class = ({ subject, number, section, name, instructor, meeting }) => {
         <Text style={styles.courseInfo}>{meeting}</Text>
       </View>
       <View style={styles.courseIcons}>
+        {fromSearch ? 
+        <Pressable
+            onPress={() => {
+                setNotification(!notification)
+            }}
+            style={({pressed}) => [
+                {
+                backgroundColor: pressed ? '#450006' : 'transparent'
+                },
+                styles.button,
+            ]}
+        >
+            <FontAwesome name="plus-circle" size={30} color="#FFFFFF" />
+        </Pressable> : 
+        <>
+            <Pressable
+                onPress={() => {
+                    setNotification(!notification)
+                }}
+                style={({pressed}) => [
+                    {
+                    backgroundColor: pressed ? '#450006' : 'transparent'
+                    },
+                    styles.button,
+                ]}
+            >
+                <FontAwesome5 name={ notification ? "bell" : "bell-slash" } size={30} color="#FFFFFF" />
+            </Pressable>
+            <Pressable
+                onPress={() => {}}
+                style={({pressed}) => [
+                    {
+                    backgroundColor: pressed ? '#450006' : 'transparent'
+                    },
+                    styles.button,
+                ]}
+            >
+                <FontAwesome5 name="trash-alt" size={30} color="#FFFFFF" />
+            </Pressable>
+        </>
+        }
+{/* 
         <Pressable
             onPress={() => {
                 setNotification(!notification)
@@ -38,7 +81,7 @@ const Class = ({ subject, number, section, name, instructor, meeting }) => {
             ]}
         >
             <FontAwesome5 name="trash-alt" size={30} color="#FFFFFF" />
-        </Pressable>
+        </Pressable> */}
       </View>
     </View>
   )

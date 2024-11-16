@@ -27,6 +27,15 @@ export default function Schedule() {
             instructor={"Brian Hipp"}
             meeting={"MW, 2:30pm - 3:35pm"}
           />
+          <Class 
+            subject={"MATH"}
+            number={"344"}
+            section={"001"}
+            name={"Applied Linear Algebra"}
+            instructor={"Changhui Tan"}
+            meeting={"TuTh, 2:50pm - 4:05pm"}
+            fromSearch
+          />
         </View>
       </View>
       <TouchableOpacity
