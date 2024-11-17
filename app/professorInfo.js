@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Image, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  SafeAreaView,
+  Linking,
+} from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
@@ -10,9 +17,33 @@ export default function ProfessorInfo() {
 
   // Manage office hours indicator
   // Need to import office hour schedules
-  const currentHour = new Date().getHours();
-  const indicator =
-    currentHour > 9 && currentHour < 17 ? "Available" : "Unavailable";
+
+  const checkHours = (officeHours) => {
+    const currentDay = new Date()
+      .toLocaleString("en-US", { weekday: "long" })
+      .toLowerCase();
+    const currentTime = new Date();
+    const currentHour = currentTime.getHours();
+    const officeHoursToday = officeHours[currentDay];
+
+    if (!officeHoursToday) return false;
+
+    const [start, end] = officeHoursToday
+      .split(" - ")
+      .map(
+        (time) =>
+          new Date(
+            `1970-01-01T${time.replace(/ (AM|PM)/, "")}:00${
+              time.includes("PM") && !time.startsWith("12") ? " PM" : " AM"
+            }`
+          )
+      );
+    return currentTime >= start && currentTime <= end;
+  };
+
+  const indicator = checkHours(professor.officeHours)
+    ? "Available"
+    : "Unavailable";
   const circleColor = indicator === "Available" ? "#39C75A" : "#FF0000";
 
   return (
@@ -53,14 +84,25 @@ export default function ProfessorInfo() {
         <Text style={styles.quickLookHeader}>Office Information:</Text>
 
         {/* TODO: NEED TO UPDATE WITH OFFICE INFO IN DB */}
-        <Text style={styles.quickLookText}>{professor.college}</Text>
+        {professor.office ? (
+          <Text style={styles.quickLookText}>{professor.office}</Text>
+        ) : (
+          <Text style={styles.quickLookText}>
+            No office information available.
+          </Text>
+        )}
       </View>
       <View style={styles.line}></View>
       <View style={[styles.officeInfo, styles.quickLook]}>
         <Text style={styles.quickLookHeader}>Office Hours:</Text>
-
-        {/* TODO: NEED TO UPDATE WITH OFFICE HOURS INFO IN DB */}
-        <Text style={styles.quickLookText}>{professor.college}</Text>
+        {professor.officeHours &&
+          Object.entries(professor.officeHours).map(([day, hours]) =>
+            hours ? (
+              <Text key={day} style={styles.quickLookText}>
+                {day.charAt(0).toUpperCase() + day.slice(1)}: {hours}
+              </Text>
+            ) : null
+          )}
       </View>
       <View style={styles.line}></View>
       <View style={[styles.officeInfo, styles.quickLook]}>
@@ -77,7 +119,12 @@ export default function ProfessorInfo() {
         </View>
         <View style={[styles.flexRow, styles.spacer]}>
           <FontAwesome name="globe" size={30} color="#73000A" />
-          <Text style={[styles.social]}>{professor.website}</Text>
+          <Text
+            style={[styles.social]}
+            onPress={() => Linking.openURL(professor.website)}
+          >
+            My Website
+          </Text>
         </View>
       </View>
     </SafeAreaView>
