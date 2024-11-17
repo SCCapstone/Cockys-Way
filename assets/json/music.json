@@ -14,8 +14,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "10:30 AM-12:00 PM",
+            "thursday": "09:30 AM-11:00 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/allen_emily.php"
@@ -36,8 +36,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "02:30 PM-04:00 PM",
+            "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Anderson_Hassan.php"
     },
@@ -55,9 +55,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "09:30 AM-11:00 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/armstrong_dominic.php"
@@ -75,8 +75,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "02:00 PM-03:30 PM",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -96,8 +96,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "03:00 PM-04:30 PM",
+            "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -118,8 +118,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "12:30 PM-02:00 PM",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -138,11 +138,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:00 PM-02:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/bates_william.php"
     },
@@ -160,8 +160,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "01:00 PM-02:30 PM",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
             "friday": ""
         },
@@ -180,9 +180,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
             "friday": ""
         },
@@ -203,8 +203,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "09:00 AM-10:30 AM",
+            "thursday": "09:30 AM-11:00 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Berg.php"
@@ -222,9 +222,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:30 AM-12:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -243,9 +243,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
             "friday": ""
         },
@@ -264,11 +264,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/burney.php"
     },
@@ -288,8 +288,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "03:00 PM-04:30 PM",
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Bush.php"
     },
@@ -306,8 +306,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "02:00 PM-03:30 PM",
+            "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -330,8 +330,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "01:00 PM-02:30 PM",
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/calderon.php"
     },
@@ -350,8 +350,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "11:00 AM-12:30 PM",
+            "thursday": "01:00 PM-02:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/calloway.php"
@@ -371,8 +371,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "02:30 PM-04:00 PM",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/cannon.php"
@@ -393,8 +393,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "09:00 AM-10:30 AM",
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/carey.php"
     },
@@ -412,10 +412,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/carrico.php"
     },
@@ -432,9 +432,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:00 PM-02:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "11:00 AM-12:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -453,9 +453,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -476,8 +476,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "10:30 AM-12:00 PM",
+            "thursday": "12:00 PM-01:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/emily_creed.php"
@@ -495,9 +495,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
             "friday": ""
         },
@@ -517,9 +517,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Curry.php"
@@ -537,11 +537,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Cutler.php"
     },
@@ -558,10 +558,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "03:30 PM-05:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Davis.php"
@@ -579,10 +579,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:00 AM-10:30 AM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "10:30 AM-12:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Douglas.php"
@@ -600,10 +600,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "12:00 PM-01:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/earp_caroline.php"
@@ -621,10 +621,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Eller.php"
@@ -645,8 +645,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "10:00 AM-11:30 AM",
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/emerson_ashley.php"
     },
@@ -664,8 +664,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "03:00 PM-04:30 PM",
+            "wednesday": "02:30 PM-04:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -685,9 +685,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "10:30 AM-12:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/fife_alexandra.php"
@@ -706,9 +706,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "02:30 PM-04:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/mathew_fink.php"
@@ -726,8 +726,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "12:30 PM-02:00 PM",
+            "tuesday": "10:30 AM-12:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -747,10 +747,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Fugo.php"
@@ -769,9 +769,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "03:30 PM-05:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/garner.php"
@@ -792,8 +792,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "10:30 AM-12:00 PM",
+            "friday": "02:30 PM-04:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Gibson.php"
     },
@@ -810,11 +810,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/gibson_michael.php"
     },
@@ -831,11 +831,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:00 AM-10:30 AM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "02:30 PM-04:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/glass_j.php"
     },
@@ -853,9 +853,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "12:30 PM-02:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/GoodwinG.php"
@@ -873,10 +873,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Gowan.php"
@@ -895,9 +895,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Gray.php"
@@ -918,8 +918,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "02:30 PM-04:00 PM",
+            "friday": "02:30 PM-04:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/mak_grgic.php"
     },
@@ -937,8 +937,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "11:30 AM-01:00 PM",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -959,9 +959,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "02:30 PM-04:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Hache_Michelle.php"
     },
@@ -978,10 +978,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "10:00 AM-11:30 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Hair.php"
@@ -999,11 +999,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/hall_jim.php"
     },
@@ -1021,8 +1021,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "09:00 AM-10:30 AM",
+            "wednesday": "10:30 AM-12:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1042,8 +1042,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "12:30 PM-02:00 PM",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
             "friday": ""
         },
@@ -1062,10 +1062,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "03:30 PM-05:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Harley.php"
@@ -1085,8 +1085,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "11:00 AM-12:30 PM",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/hawkins.php"
@@ -1104,11 +1104,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Herring.php"
     },
@@ -1127,9 +1127,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
-            "friday": ""
+            "friday": "11:30 AM-01:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/hill-laroche.php"
     },
@@ -1146,11 +1146,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:00 AM-10:30 AM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Hopkins.php"
     },
@@ -1167,8 +1167,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "11:30 AM-01:00 PM",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -1189,10 +1189,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "10:00 AM-11:30 AM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Jablonski.php"
     },
@@ -1210,8 +1210,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "03:30 PM-05:00 PM",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1233,8 +1233,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "12:00 PM-01:30 PM",
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/untitled.php"
     },
@@ -1254,8 +1254,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "09:00 AM-10:30 AM",
+            "friday": "12:30 PM-02:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Jenkins.php"
     },
@@ -1275,8 +1275,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "11:30 AM-01:00 PM",
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Jesselson.php"
     },
@@ -1293,8 +1293,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "01:30 PM-03:00 PM",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -1315,8 +1315,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "02:30 PM-04:00 PM",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1335,11 +1335,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "11:30 AM-01:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Kompass.php"
     },
@@ -1356,8 +1356,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "03:30 PM-05:00 PM",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -1377,11 +1377,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Leaman.php"
     },
@@ -1399,9 +1399,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "12:30 PM-02:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Ligon.php"
@@ -1420,8 +1420,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "12:30 PM-02:00 PM",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1440,10 +1440,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/magradey.php"
@@ -1461,8 +1461,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "11:00 AM-12:30 PM",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -1484,9 +1484,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:30 AM-12:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "12:30 PM-02:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/bmartin.php"
     },
@@ -1504,10 +1504,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "10:30 AM-12:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/martin_brittany.php"
     },
@@ -1526,9 +1526,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/meccia.php"
     },
@@ -1545,8 +1545,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "12:00 PM-01:30 PM",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -1567,10 +1567,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/moffitt.php"
     },
@@ -1587,11 +1587,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Nagel.php"
     },
@@ -1608,10 +1608,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "02:30 PM-04:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/olivera.php"
@@ -1629,10 +1629,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/overbay_jay.php"
@@ -1651,10 +1651,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "11:30 AM-01:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Parkerharley.php"
     },
@@ -1671,10 +1671,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "09:30 AM-11:00 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/peak_mary.php"
@@ -1695,8 +1695,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "09:00 AM-10:30 AM",
+            "friday": "11:30 AM-01:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/pelfrey.php"
     },
@@ -1713,10 +1713,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/polley.php"
@@ -1736,8 +1736,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "02:30 PM-04:00 PM",
+            "thursday": "03:30 PM-05:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/portnoy_emeritus.php"
@@ -1755,10 +1755,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Price.php"
@@ -1777,10 +1777,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "12:30 PM-02:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/ramsey.php"
     },
@@ -1799,9 +1799,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Rattray.php"
     },
@@ -1818,10 +1818,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/richardson.php"
@@ -1842,8 +1842,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "01:30 PM-03:00 PM",
+            "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Rogers.php"
     },
@@ -1861,10 +1861,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "10:00 AM-11:30 AM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/vega_roque.php"
     },
@@ -1881,10 +1881,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Omar_Roy.php"
@@ -1902,9 +1902,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
             "friday": ""
         },
@@ -1924,9 +1924,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "12:30 PM-02:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/schlegel.php"
@@ -1946,8 +1946,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "11:00 AM-12:30 PM",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/seabury_b.php"
@@ -1968,8 +1968,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "02:00 PM-03:30 PM",
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/shaw.php"
     },
@@ -1986,11 +1986,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Smith.php"
     },
@@ -2008,8 +2008,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "03:30 PM-05:00 PM",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -2029,9 +2029,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/streisfeld.php"
@@ -2049,11 +2049,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Stuart.php"
     },
@@ -2072,9 +2072,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
-            "friday": ""
+            "friday": "02:30 PM-04:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/susi_nicholas.php"
     },
@@ -2091,10 +2091,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "02:30 PM-04:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/sweaney.php"
@@ -2114,8 +2114,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "02:30 PM-04:00 PM",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/terracio.php"
@@ -2133,11 +2133,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Terwilliger.php"
     },
@@ -2156,9 +2156,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Trenary.php"
     },
@@ -2175,9 +2175,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "11:30 AM-01:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -2196,11 +2196,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/ValerioW.php"
     },
@@ -2217,11 +2217,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Vaz_Audra.php"
     },
@@ -2241,8 +2241,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "03:00 PM-04:30 PM",
+            "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/wade_chip.php"
     },
@@ -2259,8 +2259,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "09:00 AM-10:30 AM",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -2281,9 +2281,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "03:30 PM-05:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/weingarth.php"
@@ -2301,9 +2301,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -2322,9 +2322,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
             "friday": ""
         },
@@ -2344,8 +2344,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "03:00 PM-04:30 PM",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -2366,9 +2366,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "11:30 AM-01:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/Will.php"
     },
@@ -2387,8 +2387,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "03:00 PM-04:30 PM",
+            "thursday": "09:30 AM-11:00 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/music/faculty-staff/williams_paul.php"
@@ -2406,8 +2406,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "02:30 PM-04:00 PM",
+            "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -2428,8 +2428,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "03:00 PM-04:30 PM",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
             "friday": ""
         },
@@ -2448,8 +2448,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "11:00 AM-12:30 PM",
+            "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -2469,9 +2469,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "",
             "friday": ""
         },

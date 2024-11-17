@@ -13,10 +13,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/abshired.php"
     },
@@ -33,11 +33,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "01:30 PM-03:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/adams.php"
     },
@@ -55,10 +55,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/adamss.php"
     },
@@ -75,11 +75,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/addy.php"
     },
@@ -96,8 +96,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "02:00 PM-03:30 PM",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -117,11 +117,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/jacksonjr.php"
     },
@@ -141,8 +141,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "12:00 PM-01:30 PM",
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/andrewsj.php"
     },
@@ -159,9 +159,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "03:30 PM-05:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -181,10 +181,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/armstrongs.php"
     },
@@ -204,8 +204,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "10:00 AM-11:30 AM",
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/baileyk.php"
     },
@@ -222,10 +222,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/balikob.php"
@@ -244,9 +244,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/barnesn.php"
@@ -267,8 +267,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "11:00 AM-12:30 PM",
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/bartmess.php"
     },
@@ -285,8 +285,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "01:00 PM-02:30 PM",
+            "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -307,8 +307,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "03:00 PM-04:30 PM",
+            "wednesday": "02:30 PM-04:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -329,8 +329,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "11:00 AM-12:30 PM",
+            "thursday": "12:30 PM-02:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/bernheiselnew.php"
@@ -348,11 +348,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/bloom.php"
     },
@@ -372,8 +372,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "12:30 PM-02:00 PM",
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/bowerst.php"
     },
@@ -390,9 +390,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "11:30 AM-01:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -411,9 +411,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -432,10 +432,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "12:30 PM-02:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/byrds.php"
@@ -453,8 +453,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "12:30 PM-02:00 PM",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -474,9 +474,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -497,8 +497,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "12:00 PM-01:30 PM",
+            "thursday": "10:00 AM-11:30 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/cathcartn.php"
@@ -518,8 +518,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "01:30 PM-03:00 PM",
+            "thursday": "03:30 PM-05:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/catledgec.php"
@@ -538,10 +538,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/cavanaugh.php"
     },
@@ -559,10 +559,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "10:00 AM-11:30 AM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/chappellk.php"
     },
@@ -580,10 +580,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "12:30 PM-02:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/clements.php"
     },
@@ -600,9 +600,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:00 PM-02:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "11:00 AM-12:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -622,10 +622,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/corbettc.php"
     },
@@ -642,8 +642,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "02:00 PM-03:30 PM",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -663,8 +663,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "11:00 AM-12:30 PM",
+            "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -684,9 +684,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
             "friday": ""
         },
@@ -705,10 +705,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/crosbyk.php"
@@ -728,9 +728,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "02:30 PM-04:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/culpepper.php"
     },
@@ -747,11 +747,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/custers.php"
     },
@@ -768,10 +768,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/dailr.php"
@@ -792,8 +792,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "03:00 PM-04:30 PM",
+            "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/dangerfieldb.php"
     },
@@ -811,10 +811,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/davis.php"
     },
@@ -831,10 +831,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "12:30 PM-02:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/davisp.php"
@@ -853,10 +853,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "11:30 AM-01:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/hollingsworth.php"
     },
@@ -873,9 +873,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -895,10 +895,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/decker.php"
     },
@@ -915,10 +915,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "10:30 AM-12:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/dipalma.php"
@@ -936,9 +936,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "02:30 PM-04:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -959,8 +959,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "09:00 AM-10:30 AM",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/donellel.php"
@@ -978,8 +978,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "12:00 PM-01:30 PM",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -999,9 +999,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
             "friday": ""
         },
@@ -1021,10 +1021,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "10:00 AM-11:30 AM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/ekmanc.php"
     },
@@ -1041,11 +1041,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/everhartk.php"
     },
@@ -1062,8 +1062,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "01:00 PM-02:30 PM",
+            "tuesday": "03:30 PM-05:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -1083,8 +1083,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "09:00 AM-10:30 AM",
+            "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -1106,9 +1106,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/gibbss.php"
     },
@@ -1126,8 +1126,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "09:00 AM-10:30 AM",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1146,10 +1146,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "02:00 PM-03:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/gumss.php"
@@ -1169,9 +1169,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/hamerc.php"
     },
@@ -1188,11 +1188,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/hardingk.php"
     },
@@ -1210,8 +1210,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "10:00 AM-11:30 AM",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1231,8 +1231,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "11:30 AM-01:00 PM",
+            "wednesday": "03:30 PM-05:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1251,10 +1251,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:00 PM-02:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "10:30 AM-12:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/heinl.php"
@@ -1272,11 +1272,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/herbertl.php"
     },
@@ -1293,10 +1293,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:00 AM-10:30 AM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/harris.php"
@@ -1315,9 +1315,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "10:30 AM-12:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/howard.php"
@@ -1335,11 +1335,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/hughest.php"
     },
@@ -1357,8 +1357,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "01:30 PM-03:00 PM",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1377,10 +1377,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/jacksons.php"
@@ -1401,8 +1401,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "12:30 PM-02:00 PM",
+            "friday": "01:30 PM-03:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/jeffcoatc.php"
     },
@@ -1421,8 +1421,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "02:00 PM-03:30 PM",
+            "thursday": "10:00 AM-11:30 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/jeffery.php"
@@ -1441,10 +1441,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "09:30 AM-11:00 AM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/johnsons.php"
     },
@@ -1463,8 +1463,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "03:00 PM-04:30 PM",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/kazemi.php"
@@ -1485,8 +1485,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "03:30 PM-05:00 PM",
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/knell.php"
     },
@@ -1503,9 +1503,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1524,9 +1524,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "11:00 AM-12:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1545,8 +1545,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "11:00 AM-12:30 PM",
+            "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -1567,9 +1567,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/magwoodg.php"
@@ -1588,10 +1588,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "09:30 AM-11:00 AM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "11:30 AM-01:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/maigur.php"
     },
@@ -1611,8 +1611,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "03:30 PM-05:00 PM",
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/mansfieldm.php"
     },
@@ -1630,8 +1630,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "12:30 PM-02:00 PM",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1650,11 +1650,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "01:30 PM-03:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/mccormickj.php"
     },
@@ -1672,9 +1672,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "10:30 AM-12:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/mccoy.php"
@@ -1692,9 +1692,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1713,9 +1713,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:00 PM-02:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
             "friday": ""
         },
@@ -1737,8 +1737,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "11:30 AM-01:00 PM",
+            "friday": "11:30 AM-01:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/ruffh.php"
     },
@@ -1756,10 +1756,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/mitchells.php"
     },
@@ -1777,10 +1777,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/mulkeym.php"
     },
@@ -1798,9 +1798,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/mull.php"
@@ -1820,8 +1820,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "12:30 PM-02:00 PM",
+            "thursday": "02:30 PM-04:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/grahamc.php"
@@ -1841,8 +1841,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "03:00 PM-04:30 PM",
+            "thursday": "01:00 PM-02:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/nease.php"
@@ -1860,9 +1860,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "03:30 PM-05:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1881,11 +1881,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/newman.php"
     },
@@ -1902,8 +1902,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "03:00 PM-04:30 PM",
+            "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -1923,11 +1923,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/niermeierk.php"
     },
@@ -1946,8 +1946,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "12:00 PM-01:30 PM",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/patel.php"
@@ -1966,9 +1966,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "12:30 PM-02:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/patelh.php"
@@ -1987,8 +1987,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "02:30 PM-04:00 PM",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -2008,10 +2008,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "09:30 AM-11:00 AM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/pattyt.php"
     },
@@ -2030,9 +2030,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/pinto.php"
     },
@@ -2049,11 +2049,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/pointert.php"
     },
@@ -2070,11 +2070,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/norwoodv.php"
     },
@@ -2092,8 +2092,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "10:00 AM-11:30 AM",
+            "wednesday": "01:30 PM-03:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -2113,9 +2113,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "10:30 AM-12:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/raynorp.php"
@@ -2133,11 +2133,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/rosierl.php"
     },
@@ -2154,8 +2154,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "09:30 AM-11:00 AM",
+            "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -2175,10 +2175,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "12:00 PM-01:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/schallers.php"
@@ -2197,10 +2197,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/scotta.php"
     },
@@ -2218,9 +2218,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/scottj.php"
@@ -2238,8 +2238,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "02:00 PM-03:30 PM",
+            "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -2261,9 +2261,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/colvinj.php"
     },
@@ -2280,11 +2280,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "12:30 PM-02:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/simmonsd.php"
     },
@@ -2304,8 +2304,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "01:30 PM-03:00 PM",
+            "friday": "01:30 PM-03:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/ssloane.php"
     },
@@ -2322,11 +2322,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:00 AM-10:30 AM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/spruilll.php"
     },
@@ -2343,11 +2343,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/stoquertv.php"
     },
@@ -2365,10 +2365,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/suelingc.php"
     },
@@ -2385,9 +2385,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "01:30 PM-03:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -2406,8 +2406,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "01:30 PM-03:00 PM",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -2427,10 +2427,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "03:30 PM-05:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/tavakolia.php"
@@ -2448,8 +2448,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "09:00 AM-10:30 AM",
+            "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -2471,9 +2471,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
-            "friday": ""
+            "friday": "01:30 PM-03:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/taylork.php"
     },
@@ -2493,8 +2493,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "03:00 PM-04:30 PM",
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/thakwalakwa.php"
     },
@@ -2513,9 +2513,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "03:30 PM-05:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/tuckerc.php"
     },
@@ -2533,9 +2533,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/turnerm.php"
@@ -2553,10 +2553,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/vickl.php"
@@ -2574,9 +2574,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:30 AM-12:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -2597,9 +2597,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
-            "friday": ""
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/wang.php"
     },
@@ -2619,8 +2619,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "02:00 PM-03:30 PM",
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/warrenk.php"
     },
@@ -2637,10 +2637,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "09:30 AM-11:00 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/weavertoedtman.php"
@@ -2658,8 +2658,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "10:00 AM-11:30 AM",
+            "tuesday": "10:00 AM-11:30 AM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -2679,9 +2679,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:00 PM-02:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
             "friday": ""
         },
@@ -2702,8 +2702,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "03:30 PM-05:00 PM",
+            "thursday": "12:00 PM-01:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/wickersham.php"
@@ -2721,9 +2721,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "03:30 PM-05:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -2745,8 +2745,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "09:30 AM-11:00 AM",
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/wisec.php"
     },
@@ -2764,9 +2764,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "12:30 PM-02:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/worthyk.php"
@@ -2784,9 +2784,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -2805,11 +2805,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "02:30 PM-04:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/nursing/faculty-staff/youngf.php"
     },
@@ -2826,9 +2826,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
             "friday": ""
         },
