@@ -77,7 +77,7 @@ export default function ProfessorInfo() {
         </View>
         <View style={[styles.flexRow, styles.spacer]}>
           <FontAwesome name="globe" size={30} color="#73000A" />
-          <Text style={[styles.social]}>{professor.phone}</Text>
+          <Text style={[styles.social]}>{professor.website}</Text>
         </View>
       </View>
     </SafeAreaView>
