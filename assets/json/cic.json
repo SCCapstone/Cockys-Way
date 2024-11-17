@@ -13,8 +13,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "10:00 AM-11:30 AM",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "",
             "thursday": "02:30 PM-04:00 PM",
             "friday": "01:30 PM-03:00 PM"
@@ -34,9 +34,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
-            "wednesday": "03:00 PM-04:30 PM",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "02:30 PM-04:00 PM",
             "friday": ""
         }
@@ -58,8 +58,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "10:30 AM-12:00 PM",
-            "thursday": "",
-            "friday": "09:30 AM-11:00 AM"
+            "thursday": "03:00 PM-04:30 PM",
+            "friday": "02:00 PM-03:30 PM"
         }
     },
     {
@@ -77,10 +77,10 @@
         "office": "",
         "officeHours": {
             "monday": "09:00 AM-10:30 AM",
-            "tuesday": "01:30 PM-03:00 PM",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         }
     },
     {
@@ -97,10 +97,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "",
-            "thursday": "09:30 AM-11:00 AM",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": ""
         }
     },
@@ -118,11 +118,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "03:30 PM-05:00 PM",
             "thursday": "01:00 PM-02:30 PM",
-            "friday": ""
+            "friday": "10:00 AM-11:30 AM"
         }
     },
     {
@@ -139,9 +139,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "03:30 PM-05:00 PM",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
-            "wednesday": "03:00 PM-04:30 PM",
+            "wednesday": "02:30 PM-04:00 PM",
             "thursday": "",
             "friday": ""
         }
@@ -160,8 +160,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "02:00 PM-03:30 PM",
+            "monday": "09:30 AM-11:00 AM",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
             "friday": ""
@@ -183,9 +183,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "09:00 AM-10:30 AM",
-            "wednesday": "03:30 PM-05:00 PM",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "10:00 AM-11:30 AM"
         }
     },
     {
@@ -202,9 +202,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "",
-            "wednesday": "10:30 AM-12:00 PM",
+            "wednesday": "03:30 PM-05:00 PM",
             "thursday": "",
             "friday": "02:30 PM-04:00 PM"
         }
@@ -226,8 +226,8 @@
             "monday": "01:00 PM-02:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "02:00 PM-03:30 PM",
-            "friday": ""
+            "thursday": "11:30 AM-01:00 PM",
+            "friday": "12:00 PM-01:30 PM"
         }
     },
     {
@@ -244,11 +244,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:00 AM-10:30 AM",
             "tuesday": "",
             "wednesday": "01:00 PM-02:30 PM",
             "thursday": "01:30 PM-03:00 PM",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         }
     },
     {
@@ -266,9 +266,9 @@
         "office": "",
         "officeHours": {
             "monday": "12:00 PM-01:30 PM",
-            "tuesday": "02:30 PM-04:00 PM",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "12:00 PM-01:30 PM",
             "friday": ""
         }
     },
@@ -287,9 +287,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "10:00 AM-11:30 AM",
             "wednesday": "12:00 PM-01:30 PM",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": "01:00 PM-02:30 PM"
         }
     },
@@ -307,10 +307,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "10:30 AM-12:00 PM",
             "friday": "12:00 PM-01:30 PM"
         }
     },
@@ -329,8 +329,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "01:30 PM-03:00 PM",
-            "wednesday": "",
+            "tuesday": "12:00 PM-01:30 PM",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
             "friday": "01:30 PM-03:00 PM"
         }
@@ -351,9 +351,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "12:00 PM-01:30 PM",
-            "wednesday": "",
+            "wednesday": "03:30 PM-05:00 PM",
             "thursday": "",
-            "friday": "03:00 PM-04:30 PM"
+            "friday": "10:30 AM-12:00 PM"
         }
     },
     {
@@ -371,8 +371,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "10:00 AM-11:30 AM",
-            "wednesday": "",
+            "tuesday": "10:30 AM-12:00 PM",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
             "friday": "10:00 AM-11:30 AM"
         }
@@ -393,9 +393,9 @@
         "officeHours": {
             "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
-            "wednesday": "02:00 PM-03:30 PM",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "10:30 AM-12:00 PM"
         }
     },
     {
@@ -414,9 +414,9 @@
         "officeHours": {
             "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "11:00 AM-12:30 PM",
             "thursday": "11:30 AM-01:00 PM",
-            "friday": ""
+            "friday": "12:30 PM-02:00 PM"
         }
     },
     {
@@ -433,10 +433,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
             "wednesday": "12:30 PM-02:00 PM",
-            "thursday": "02:00 PM-03:30 PM",
+            "thursday": "10:30 AM-12:00 PM",
             "friday": ""
         }
     },
@@ -454,8 +454,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "12:30 PM-02:00 PM",
+            "monday": "10:30 AM-12:00 PM",
+            "tuesday": "09:30 AM-11:00 AM",
             "wednesday": "",
             "thursday": "09:30 AM-11:00 AM",
             "friday": ""
@@ -475,11 +475,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "09:00 AM-10:30 AM",
+            "monday": "01:00 PM-02:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": "11:30 AM-01:00 PM"
+            "friday": "01:00 PM-02:30 PM"
         }
     },
     {
@@ -496,10 +496,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "10:00 AM-11:30 AM",
             "wednesday": "",
-            "thursday": "03:00 PM-04:30 PM",
+            "thursday": "09:30 AM-11:00 AM",
             "friday": ""
         }
     },
@@ -517,11 +517,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "02:00 PM-03:30 PM",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "09:00 AM-10:30 AM",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         }
     },
     {
@@ -538,8 +538,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "11:00 AM-12:30 PM",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "01:30 PM-03:00 PM",
             "thursday": "",
             "friday": "10:30 AM-12:00 PM"
@@ -559,10 +559,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "01:00 PM-02:30 PM",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "09:30 AM-11:00 AM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         }
     },
@@ -582,9 +582,9 @@
         "officeHours": {
             "monday": "10:30 AM-12:00 PM",
             "tuesday": "12:00 PM-01:30 PM",
-            "wednesday": "",
+            "wednesday": "02:30 PM-04:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "03:00 PM-04:30 PM"
         }
     },
     {
@@ -601,10 +601,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "02:00 PM-03:30 PM",
-            "thursday": "",
+            "thursday": "02:00 PM-03:30 PM",
             "friday": "03:30 PM-05:00 PM"
         }
     },
@@ -625,8 +625,8 @@
             "monday": "",
             "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "01:30 PM-03:00 PM",
-            "thursday": "",
-            "friday": ""
+            "thursday": "11:00 AM-12:30 PM",
+            "friday": "09:30 AM-11:00 AM"
         }
     },
     {
@@ -643,11 +643,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "01:00 PM-02:30 PM",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": ""
+            "friday": "10:00 AM-11:30 AM"
         }
     },
     {
@@ -664,9 +664,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
-            "wednesday": "11:30 AM-01:00 PM",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
             "friday": "02:30 PM-04:00 PM"
         }
@@ -686,8 +686,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "12:00 PM-01:30 PM",
+            "tuesday": "09:00 AM-10:30 AM",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
             "friday": "11:30 AM-01:00 PM"
         }
@@ -706,11 +706,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "03:30 PM-05:00 PM",
+            "monday": "01:00 PM-02:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": "01:00 PM-02:30 PM"
+            "friday": "03:30 PM-05:00 PM"
         }
     },
     {
@@ -728,9 +728,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "10:30 AM-12:00 PM",
             "wednesday": "11:00 AM-12:30 PM",
-            "thursday": "",
+            "thursday": "12:30 PM-02:00 PM",
             "friday": "03:30 PM-05:00 PM"
         }
     },
@@ -750,8 +750,8 @@
         "officeHours": {
             "monday": "09:30 AM-11:00 AM",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "01:00 PM-02:30 PM",
+            "thursday": "12:00 PM-01:30 PM",
             "friday": "10:30 AM-12:00 PM"
         }
     },
@@ -769,8 +769,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "03:00 PM-04:30 PM",
+            "monday": "10:30 AM-12:00 PM",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": "10:30 AM-12:00 PM"
@@ -790,8 +790,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "09:00 AM-10:30 AM",
-            "tuesday": "03:30 PM-05:00 PM",
+            "monday": "11:00 AM-12:30 PM",
+            "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -812,8 +812,8 @@
         "office": "",
         "officeHours": {
             "monday": "12:00 PM-01:30 PM",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "09:00 AM-10:30 AM",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "12:30 PM-02:00 PM",
             "friday": ""
         }
@@ -832,9 +832,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "03:00 PM-04:30 PM",
             "friday": "01:30 PM-03:00 PM"
         }
@@ -855,9 +855,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "02:00 PM-03:30 PM",
-            "wednesday": "12:30 PM-02:00 PM",
+            "wednesday": "10:30 AM-12:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "09:00 AM-10:30 AM"
         }
     },
     {
@@ -875,9 +875,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "02:00 PM-03:30 PM",
+            "tuesday": "03:30 PM-05:00 PM",
             "wednesday": "12:00 PM-01:30 PM",
-            "thursday": "",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         }
     },
@@ -895,9 +895,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:00 PM-02:30 PM",
             "tuesday": "11:00 AM-12:30 PM",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "09:30 AM-11:00 AM",
             "friday": ""
         }
@@ -916,9 +916,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "11:30 AM-01:00 PM",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
             "friday": "01:30 PM-03:00 PM"
         }
@@ -939,9 +939,9 @@
         "officeHours": {
             "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "03:00 PM-04:30 PM",
-            "friday": ""
+            "friday": "10:30 AM-12:00 PM"
         }
     },
     {
@@ -960,8 +960,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "03:30 PM-05:00 PM",
+            "wednesday": "10:00 AM-11:30 AM",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": "01:30 PM-03:00 PM"
         }
     },
@@ -979,10 +979,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "11:30 AM-01:00 PM",
+            "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": "02:00 PM-03:30 PM"
         }
     },
@@ -1002,9 +1002,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "03:00 PM-04:30 PM",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "12:30 PM-02:00 PM",
-            "friday": ""
+            "friday": "03:30 PM-05:00 PM"
         }
     },
     {
@@ -1021,11 +1021,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "12:30 PM-02:00 PM",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "12:30 PM-02:00 PM",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         }
     },
     {
@@ -1042,8 +1042,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "11:30 AM-01:00 PM",
-            "tuesday": "",
+            "monday": "11:00 AM-12:30 PM",
+            "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
             "friday": ""
@@ -1063,9 +1063,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "01:30 PM-03:00 PM",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "01:30 PM-03:00 PM",
-            "wednesday": "",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
             "friday": ""
         }
@@ -1086,8 +1086,8 @@
         "officeHours": {
             "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "10:00 AM-11:30 AM",
+            "thursday": "02:30 PM-04:00 PM",
             "friday": "01:00 PM-02:30 PM"
         }
     },
@@ -1105,10 +1105,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:00 PM-02:30 PM",
             "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": "03:00 PM-04:30 PM"
         }
     },
@@ -1129,8 +1129,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "01:00 PM-02:30 PM",
-            "thursday": "02:00 PM-03:30 PM",
-            "friday": ""
+            "thursday": "12:00 PM-01:30 PM",
+            "friday": "09:00 AM-10:30 AM"
         }
     },
     {
@@ -1149,9 +1149,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "11:00 AM-12:30 PM",
-            "wednesday": "09:30 AM-11:00 AM",
+            "wednesday": "11:00 AM-12:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "01:30 PM-03:00 PM"
         }
     },
     {
@@ -1171,8 +1171,8 @@
             "monday": "",
             "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "",
-            "thursday": "12:30 PM-02:00 PM",
-            "friday": ""
+            "thursday": "09:30 AM-11:00 AM",
+            "friday": "01:30 PM-03:00 PM"
         }
     },
     {
@@ -1190,8 +1190,8 @@
         "office": "",
         "officeHours": {
             "monday": "03:30 PM-05:00 PM",
-            "tuesday": "02:30 PM-04:00 PM",
-            "wednesday": "",
+            "tuesday": "01:30 PM-03:00 PM",
+            "wednesday": "11:00 AM-12:30 PM",
             "thursday": "",
             "friday": ""
         }
@@ -1210,8 +1210,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "10:30 AM-12:00 PM",
+            "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "11:00 AM-12:30 PM",
             "thursday": "01:00 PM-02:30 PM",
             "friday": ""
@@ -1232,8 +1232,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "09:00 AM-10:30 AM",
+            "wednesday": "10:30 AM-12:00 PM",
             "thursday": "03:30 PM-05:00 PM",
             "friday": "09:30 AM-11:00 AM"
         }
@@ -1252,9 +1252,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
-            "wednesday": "10:30 AM-12:00 PM",
+            "wednesday": "01:30 PM-03:00 PM",
             "thursday": "02:30 PM-04:00 PM",
             "friday": ""
         }
@@ -1275,9 +1275,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "11:00 AM-12:30 PM",
-            "friday": "01:30 PM-03:00 PM"
+            "friday": "11:00 AM-12:30 PM"
         }
     },
     {
@@ -1294,9 +1294,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:00 PM-02:30 PM",
             "tuesday": "02:00 PM-03:30 PM",
-            "wednesday": "01:30 PM-03:00 PM",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
             "friday": ""
         }
@@ -1315,9 +1315,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
-            "wednesday": "09:30 AM-11:00 AM",
+            "wednesday": "02:30 PM-04:00 PM",
             "thursday": "03:30 PM-05:00 PM",
             "friday": ""
         }
@@ -1336,11 +1336,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:00 AM-10:30 AM",
             "tuesday": "",
             "wednesday": "10:00 AM-11:30 AM",
             "thursday": "02:00 PM-03:30 PM",
-            "friday": ""
+            "friday": "02:30 PM-04:00 PM"
         }
     },
     {
@@ -1357,9 +1357,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
-            "wednesday": "10:00 AM-11:30 AM",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         }
@@ -1380,9 +1380,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "09:00 AM-10:30 AM",
-            "wednesday": "10:00 AM-11:30 AM",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "03:30 PM-05:00 PM"
         }
     },
     {
@@ -1401,8 +1401,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "09:30 AM-11:00 AM",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "11:00 AM-12:30 PM",
+            "thursday": "02:30 PM-04:00 PM",
             "friday": "09:00 AM-10:30 AM"
         }
     },
@@ -1421,9 +1421,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "03:00 PM-04:30 PM",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": "12:30 PM-02:00 PM"
         }
     },
@@ -1444,8 +1444,8 @@
             "monday": "02:00 PM-03:30 PM",
             "tuesday": "03:30 PM-05:00 PM",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "03:30 PM-05:00 PM",
+            "friday": "03:30 PM-05:00 PM"
         }
     },
     {
@@ -1465,8 +1465,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "09:30 AM-11:00 AM",
-            "thursday": "",
-            "friday": "11:00 AM-12:30 PM"
+            "thursday": "02:00 PM-03:30 PM",
+            "friday": "03:00 PM-04:30 PM"
         }
     },
     {
@@ -1484,9 +1484,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "11:00 AM-12:30 PM",
+            "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "12:00 PM-01:30 PM",
             "friday": "10:00 AM-11:30 AM"
         }
     },
@@ -1505,9 +1505,9 @@
         "office": "",
         "officeHours": {
             "monday": "01:00 PM-02:30 PM",
-            "tuesday": "",
+            "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "",
-            "thursday": "02:00 PM-03:30 PM",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         }
     },
@@ -1525,8 +1525,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "10:30 AM-12:00 PM",
+            "monday": "10:00 AM-11:30 AM",
+            "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "",
             "thursday": "02:00 PM-03:30 PM",
             "friday": ""
@@ -1548,8 +1548,8 @@
         "officeHours": {
             "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "02:00 PM-03:30 PM",
+            "wednesday": "11:30 AM-01:00 PM",
+            "thursday": "12:00 PM-01:30 PM",
             "friday": ""
         }
     },
@@ -1569,9 +1569,9 @@
         "officeHours": {
             "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "09:30 AM-11:00 AM",
-            "friday": ""
+            "friday": "12:30 PM-02:00 PM"
         }
     },
     {
@@ -1589,9 +1589,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "02:00 PM-03:30 PM",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "09:00 AM-10:30 AM",
-            "thursday": "",
+            "thursday": "03:30 PM-05:00 PM",
             "friday": ""
         }
     },
@@ -1611,8 +1611,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "10:30 AM-12:00 PM",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "09:00 AM-10:30 AM",
+            "thursday": "03:30 PM-05:00 PM",
             "friday": "12:30 PM-02:00 PM"
         }
     },
@@ -1631,10 +1631,10 @@
         "office": "",
         "officeHours": {
             "monday": "09:30 AM-11:00 AM",
-            "tuesday": "",
+            "tuesday": "09:30 AM-11:00 AM",
             "wednesday": "",
             "thursday": "",
-            "friday": "03:00 PM-04:30 PM"
+            "friday": "11:00 AM-12:30 PM"
         }
     },
     {
@@ -1652,8 +1652,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "09:00 AM-10:30 AM",
-            "wednesday": "",
+            "tuesday": "02:30 PM-04:00 PM",
+            "wednesday": "01:30 PM-03:00 PM",
             "thursday": "12:00 PM-01:30 PM",
             "friday": ""
         }
@@ -1672,9 +1672,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "09:30 AM-11:00 AM",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "11:00 AM-12:30 PM",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
             "friday": ""
         }
@@ -1696,7 +1696,7 @@
             "monday": "09:30 AM-11:00 AM",
             "tuesday": "",
             "wednesday": "03:00 PM-04:30 PM",
-            "thursday": "",
+            "thursday": "12:30 PM-02:00 PM",
             "friday": ""
         }
     },
@@ -1717,8 +1717,8 @@
             "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
             "wednesday": "01:00 PM-02:30 PM",
-            "thursday": "",
-            "friday": ""
+            "thursday": "11:30 AM-01:00 PM",
+            "friday": "10:00 AM-11:30 AM"
         }
     },
     {
@@ -1738,8 +1738,8 @@
             "monday": "",
             "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "",
-            "thursday": "",
-            "friday": "12:30 PM-02:00 PM"
+            "thursday": "02:30 PM-04:00 PM",
+            "friday": "02:30 PM-04:00 PM"
         }
     },
     {
@@ -1758,9 +1758,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "03:30 PM-05:00 PM",
-            "wednesday": "02:00 PM-03:30 PM",
+            "wednesday": "11:30 AM-01:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "10:30 AM-12:00 PM"
         }
     },
     {
@@ -1777,9 +1777,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "11:30 AM-01:00 PM",
             "friday": "10:30 AM-12:00 PM"
         }
@@ -1798,9 +1798,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "09:00 AM-10:30 AM",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
             "friday": "01:30 PM-03:00 PM"
         }
@@ -1820,9 +1820,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "09:30 AM-11:00 AM",
+            "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "",
-            "thursday": "01:00 PM-02:30 PM",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": ""
         }
     },
@@ -1840,9 +1840,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "12:30 PM-02:00 PM",
-            "wednesday": "01:00 PM-02:30 PM",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
             "friday": ""
         }
@@ -1863,9 +1863,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "10:00 AM-11:30 AM",
-            "wednesday": "",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "01:00 PM-02:30 PM",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         }
     },
     {
@@ -1882,9 +1882,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "11:30 AM-01:00 PM",
             "thursday": "01:30 PM-03:00 PM",
             "friday": "12:00 PM-01:30 PM"
         }
@@ -1904,10 +1904,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "11:30 AM-01:00 PM",
+            "tuesday": "10:30 AM-12:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": "12:00 PM-01:30 PM"
+            "friday": "12:30 PM-02:00 PM"
         }
     },
     {
@@ -1927,8 +1927,8 @@
             "monday": "09:00 AM-10:30 AM",
             "tuesday": "",
             "wednesday": "11:30 AM-01:00 PM",
-            "thursday": "",
-            "friday": ""
+            "thursday": "01:30 PM-03:00 PM",
+            "friday": "10:00 AM-11:30 AM"
         }
     },
     {
@@ -1945,9 +1945,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
-            "wednesday": "12:00 PM-01:30 PM",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
             "friday": "09:30 AM-11:00 AM"
         }
@@ -1967,10 +1967,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "",
             "thursday": "03:00 PM-04:30 PM",
-            "friday": "03:30 PM-05:00 PM"
+            "friday": "09:00 AM-10:30 AM"
         }
     },
     {
@@ -1987,9 +1987,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "10:00 AM-11:30 AM",
-            "wednesday": "",
+            "wednesday": "11:30 AM-01:00 PM",
             "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         }
@@ -2011,8 +2011,8 @@
             "monday": "",
             "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "10:30 AM-12:00 PM",
-            "thursday": "",
-            "friday": ""
+            "thursday": "03:30 PM-05:00 PM",
+            "friday": "11:00 AM-12:30 PM"
         }
     },
     {
@@ -2029,8 +2029,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "09:30 AM-11:00 AM",
-            "tuesday": "",
+            "monday": "11:30 AM-01:00 PM",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": "11:30 AM-01:00 PM"
@@ -2053,8 +2053,8 @@
             "monday": "",
             "tuesday": "10:30 AM-12:00 PM",
             "wednesday": "",
-            "thursday": "",
-            "friday": "10:30 AM-12:00 PM"
+            "thursday": "02:00 PM-03:30 PM",
+            "friday": "12:30 PM-02:00 PM"
         }
     },
     {
@@ -2072,8 +2072,8 @@
         "office": "",
         "officeHours": {
             "monday": "11:30 AM-01:00 PM",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "11:00 AM-12:30 PM",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "10:30 AM-12:00 PM",
             "friday": ""
         }
@@ -2092,9 +2092,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "11:30 AM-01:00 PM",
+            "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "11:00 AM-12:30 PM",
             "thursday": "",
             "friday": "01:00 PM-02:30 PM"
         }
@@ -2113,11 +2113,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "12:00 PM-01:30 PM",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": "02:00 PM-03:30 PM"
+            "friday": "10:00 AM-11:30 AM"
         }
     },
     {
@@ -2136,8 +2136,8 @@
         "officeHours": {
             "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
-            "wednesday": "03:30 PM-05:00 PM",
-            "thursday": "",
+            "wednesday": "03:00 PM-04:30 PM",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         }
     },
@@ -2155,9 +2155,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "",
-            "wednesday": "09:30 AM-11:00 AM",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "11:30 AM-01:00 PM",
             "friday": ""
         }
@@ -2177,9 +2177,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "02:30 PM-04:00 PM",
-            "thursday": "",
+            "thursday": "12:00 PM-01:30 PM",
             "friday": "12:00 PM-01:30 PM"
         }
     },
@@ -2199,8 +2199,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "02:00 PM-03:30 PM",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "11:00 AM-12:30 PM",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": "12:00 PM-01:30 PM"
         }
     },
@@ -2221,8 +2221,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "12:00 PM-01:30 PM",
-            "thursday": "03:00 PM-04:30 PM",
-            "friday": ""
+            "thursday": "03:30 PM-05:00 PM",
+            "friday": "03:30 PM-05:00 PM"
         }
     },
     {
@@ -2240,9 +2240,9 @@
         "office": "",
         "officeHours": {
             "monday": "01:00 PM-02:30 PM",
-            "tuesday": "",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
-            "thursday": "03:00 PM-04:30 PM",
+            "thursday": "03:30 PM-05:00 PM",
             "friday": ""
         }
     },
@@ -2261,9 +2261,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "11:00 AM-12:30 PM",
-            "thursday": "",
+            "thursday": "02:00 PM-03:30 PM",
             "friday": "09:30 AM-11:00 AM"
         }
     },
@@ -2281,10 +2281,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
             "wednesday": "12:00 PM-01:30 PM",
-            "thursday": "11:30 AM-01:00 PM",
+            "thursday": "02:00 PM-03:30 PM",
             "friday": ""
         }
     },
@@ -2305,8 +2305,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "10:00 AM-11:30 AM",
-            "thursday": "",
-            "friday": "03:00 PM-04:30 PM"
+            "thursday": "12:00 PM-01:30 PM",
+            "friday": "01:30 PM-03:00 PM"
         }
     },
     {
@@ -2323,10 +2323,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "",
-            "thursday": "09:00 AM-10:30 AM",
+            "thursday": "02:30 PM-04:00 PM",
             "friday": ""
         }
     },
@@ -2347,8 +2347,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "10:30 AM-12:00 PM",
-            "thursday": "03:30 PM-05:00 PM",
-            "friday": ""
+            "thursday": "09:30 AM-11:00 AM",
+            "friday": "09:30 AM-11:00 AM"
         }
     },
     {
@@ -2368,8 +2368,8 @@
             "monday": "",
             "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "01:30 PM-03:00 PM",
-            "thursday": "",
-            "friday": ""
+            "thursday": "11:00 AM-12:30 PM",
+            "friday": "11:30 AM-01:00 PM"
         }
     },
     {
@@ -2387,9 +2387,9 @@
         "office": "",
         "officeHours": {
             "monday": "10:00 AM-11:30 AM",
-            "tuesday": "12:00 PM-01:30 PM",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "01:00 PM-02:30 PM",
             "friday": ""
         }
     },
@@ -2407,10 +2407,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "11:30 AM-01:00 PM",
-            "thursday": "",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": ""
         }
     },
@@ -2429,9 +2429,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "03:30 PM-05:00 PM",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "10:00 AM-11:30 AM",
             "friday": "01:00 PM-02:30 PM"
         }
     },
@@ -2449,8 +2449,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "10:00 AM-11:30 AM",
+            "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "03:30 PM-05:00 PM",
             "thursday": "02:30 PM-04:00 PM",
             "friday": ""
@@ -2470,11 +2470,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "10:00 AM-11:30 AM",
             "wednesday": "",
             "thursday": "",
-            "friday": "01:00 PM-02:30 PM"
+            "friday": "11:30 AM-01:00 PM"
         }
     },
     {
@@ -2491,11 +2491,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "11:00 AM-12:30 PM",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": "11:30 AM-01:00 PM"
+            "friday": "12:00 PM-01:30 PM"
         }
     },
     {
@@ -2513,10 +2513,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "01:00 PM-02:30 PM",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
             "thursday": "09:00 AM-10:30 AM",
-            "friday": ""
+            "friday": "02:30 PM-04:00 PM"
         }
     },
     {
@@ -2534,9 +2534,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "01:30 PM-03:00 PM",
+            "tuesday": "10:00 AM-11:30 AM",
             "wednesday": "10:30 AM-12:00 PM",
-            "thursday": "",
+            "thursday": "09:30 AM-11:00 AM",
             "friday": ""
         }
     },
@@ -2556,8 +2556,8 @@
         "officeHours": {
             "monday": "02:30 PM-04:00 PM",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "11:00 AM-12:30 PM",
+            "wednesday": "01:00 PM-02:30 PM",
+            "thursday": "03:30 PM-05:00 PM",
             "friday": ""
         }
     },
@@ -2575,8 +2575,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "11:30 AM-01:00 PM",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
             "thursday": "11:30 AM-01:00 PM",
             "friday": "01:30 PM-03:00 PM"
@@ -2596,9 +2596,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:00 PM-04:30 PM",
             "tuesday": "12:30 PM-02:00 PM",
-            "wednesday": "03:00 PM-04:30 PM",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "",
             "friday": ""
         }
@@ -2617,10 +2617,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "",
             "wednesday": "11:00 AM-12:30 PM",
-            "thursday": "03:30 PM-05:00 PM",
+            "thursday": "01:00 PM-02:30 PM",
             "friday": ""
         }
     },
@@ -2639,8 +2639,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "01:00 PM-02:30 PM",
-            "wednesday": "01:00 PM-02:30 PM",
+            "tuesday": "10:30 AM-12:00 PM",
+            "wednesday": "11:30 AM-01:00 PM",
             "thursday": "",
             "friday": ""
         }

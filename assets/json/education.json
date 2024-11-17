@@ -16,7 +16,7 @@
             "tuesday": "",
             "wednesday": "",
             "thursday": "03:00 PM-04:30 PM",
-            "friday": ""
+            "friday": "11:30 AM-01:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/adams_angela.php"
     },
@@ -36,8 +36,8 @@
             "monday": "02:30 PM-04:00 PM",
             "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "02:30 PM-04:00 PM",
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/anders_allison.php"
     },
@@ -55,8 +55,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "12:00 PM-01:30 PM",
+            "wednesday": "11:00 AM-12:30 PM",
             "thursday": "02:00 PM-03:30 PM",
             "friday": "10:30 AM-12:00 PM"
         },
@@ -75,11 +75,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "09:00 AM-10:30 AM",
-            "friday": "09:00 AM-10:30 AM"
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/ari_fatih.php"
     },
@@ -97,9 +97,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "09:30 AM-11:00 AM",
-            "thursday": "11:00 AM-12:30 PM",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/arrasmith_kat.php"
@@ -117,11 +117,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "",
             "thursday": "09:00 AM-10:30 AM",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/arslan_ari.php"
     },
@@ -140,9 +140,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "03:00 PM-04:30 PM",
+            "wednesday": "11:00 AM-12:30 PM",
             "thursday": "09:00 AM-10:30 AM",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/ascetta_kate.php"
     },
@@ -159,8 +159,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "11:00 AM-12:30 PM",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "02:00 PM-03:30 PM",
             "thursday": "10:00 AM-11:30 AM",
             "friday": ""
@@ -181,9 +181,9 @@
         "office": "",
         "officeHours": {
             "monday": "03:00 PM-04:30 PM",
-            "tuesday": "",
+            "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "02:30 PM-04:00 PM",
             "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/baker_maggie.php"
@@ -201,8 +201,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "12:00 PM-01:30 PM",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "02:30 PM-04:00 PM",
             "thursday": "",
             "friday": "11:00 AM-12:30 PM"
@@ -224,8 +224,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "02:30 PM-04:00 PM",
+            "wednesday": "03:30 PM-05:00 PM",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/baum_angela.php"
@@ -243,10 +243,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "12:00 PM-01:30 PM",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "10:30 AM-12:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "10:00 AM-11:30 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/becton_yasha.php"
@@ -264,10 +264,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "03:30 PM-05:00 PM",
+            "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
             "wednesday": "09:00 AM-10:30 AM",
-            "thursday": "",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/bell_queenie.php"
@@ -289,7 +289,7 @@
             "tuesday": "",
             "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/blakeney_roy.php"
     },
@@ -306,9 +306,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "02:00 PM-03:30 PM",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "02:00 PM-03:30 PM",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -327,10 +327,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "02:00 PM-03:30 PM",
-            "thursday": "",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/bosier_cassandra.php"
@@ -348,11 +348,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:00 PM-01:30 PM",
             "tuesday": "10:30 AM-12:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": "11:00 AM-12:30 PM"
+            "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/bottoms_bryndle.php"
     },
@@ -371,8 +371,8 @@
         "officeHours": {
             "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "12:30 PM-02:00 PM",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/boutte_gloria.php"
@@ -391,10 +391,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "03:30 PM-05:00 PM",
             "wednesday": "10:30 AM-12:00 PM",
             "thursday": "",
-            "friday": "11:30 AM-01:00 PM"
+            "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/boyd_fenice.php"
     },
@@ -411,10 +411,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "11:30 AM-01:00 PM",
+            "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "01:00 PM-02:30 PM",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/allen_eliza.php"
@@ -433,8 +433,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "10:30 AM-12:00 PM",
+            "tuesday": "03:30 PM-05:00 PM",
+            "wednesday": "02:30 PM-04:00 PM",
             "thursday": "",
             "friday": "12:30 PM-02:00 PM"
         },
@@ -453,10 +453,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "02:30 PM-04:00 PM",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/brian_ali.php"
@@ -474,8 +474,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "11:30 AM-01:00 PM",
-            "tuesday": "",
+            "monday": "11:00 AM-12:30 PM",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": "10:30 AM-12:00 PM"
@@ -496,8 +496,8 @@
         "office": "",
         "officeHours": {
             "monday": "12:00 PM-01:30 PM",
-            "tuesday": "02:00 PM-03:30 PM",
-            "wednesday": "",
+            "tuesday": "02:30 PM-04:00 PM",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
             "friday": ""
         },
@@ -516,11 +516,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
             "wednesday": "09:00 AM-10:30 AM",
             "thursday": "12:00 PM-01:30 PM",
-            "friday": ""
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/bryan_michelle.php"
     },
@@ -537,11 +537,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "10:30 AM-12:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "11:30 AM-01:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/burkett_christopher.php"
     },
@@ -559,7 +559,7 @@
         "office": "",
         "officeHours": {
             "monday": "02:30 PM-04:00 PM",
-            "tuesday": "",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": "11:00 AM-12:30 PM"
@@ -581,7 +581,7 @@
         "officeHours": {
             "monday": "",
             "tuesday": "03:00 PM-04:30 PM",
-            "wednesday": "",
+            "wednesday": "11:00 AM-12:30 PM",
             "thursday": "",
             "friday": "03:00 PM-04:30 PM"
         },
@@ -603,8 +603,8 @@
             "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": "09:30 AM-11:00 AM"
+            "thursday": "01:00 PM-02:30 PM",
+            "friday": "12:30 PM-02:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/carlson_ryan.php"
     },
@@ -622,7 +622,7 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "12:00 PM-01:30 PM",
             "friday": "12:30 PM-02:00 PM"
@@ -645,8 +645,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "11:30 AM-01:00 PM",
-            "friday": "10:30 AM-12:00 PM"
+            "thursday": "02:30 PM-04:00 PM",
+            "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/cartiff_brian.php"
     },
@@ -663,8 +663,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "03:30 PM-05:00 PM",
+            "monday": "09:30 AM-11:00 AM",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": "10:30 AM-12:00 PM"
@@ -684,11 +684,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "11:30 AM-01:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/chaplin_paul.php"
     },
@@ -706,10 +706,10 @@
         "office": "",
         "officeHours": {
             "monday": "02:00 PM-03:30 PM",
-            "tuesday": "",
+            "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "",
             "thursday": "12:30 PM-02:00 PM",
-            "friday": ""
+            "friday": "12:30 PM-02:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/chapman_kourtney.php"
     },
@@ -729,8 +729,8 @@
             "monday": "01:30 PM-03:00 PM",
             "tuesday": "10:30 AM-12:00 PM",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "09:30 AM-11:00 AM",
+            "friday": "12:30 PM-02:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/coleman_dawn.php"
     },
@@ -748,10 +748,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "12:30 PM-02:00 PM",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "11:30 AM-01:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "11:30 AM-01:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/comley_melissa.php"
     },
@@ -769,9 +769,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "12:30 PM-02:00 PM",
+            "tuesday": "10:00 AM-11:30 AM",
             "wednesday": "",
-            "thursday": "12:30 PM-02:00 PM",
+            "thursday": "12:00 PM-01:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/compton_lilly_catherine.php"
@@ -791,8 +791,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "02:00 PM-03:30 PM",
+            "wednesday": "12:30 PM-02:00 PM",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/cook_marie.php"
@@ -813,8 +813,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "03:30 PM-05:00 PM",
-            "thursday": "12:00 PM-01:30 PM",
-            "friday": ""
+            "thursday": "03:30 PM-05:00 PM",
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/cox_edward.php"
     },
@@ -831,11 +831,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "",
             "thursday": "12:30 PM-02:00 PM",
-            "friday": ""
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/crocker_elizabeth.php"
     },
@@ -852,8 +852,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "12:00 PM-01:30 PM",
-            "tuesday": "09:00 AM-10:30 AM",
+            "monday": "03:30 PM-05:00 PM",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -875,9 +875,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "10:30 AM-12:00 PM",
+            "wednesday": "11:30 AM-01:00 PM",
             "thursday": "",
-            "friday": "12:00 PM-01:30 PM"
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/cunningham_kathleen.php"
     },
@@ -894,10 +894,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "11:30 AM-01:00 PM",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
             "wednesday": "09:30 AM-11:00 AM",
-            "thursday": "",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/cunningham_matthew.php"
@@ -915,9 +915,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "01:00 PM-02:30 PM",
-            "wednesday": "",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
             "friday": "09:00 AM-10:30 AM"
         },
@@ -938,9 +938,9 @@
         "officeHours": {
             "monday": "12:00 PM-01:30 PM",
             "tuesday": "09:30 AM-11:00 AM",
-            "wednesday": "",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/damico_leigh.php"
     },
@@ -959,8 +959,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "03:00 PM-04:30 PM",
+            "wednesday": "11:00 AM-12:30 PM",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": "11:30 AM-01:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/davis_rene.php"
@@ -978,8 +978,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "03:00 PM-04:30 PM",
-            "tuesday": "",
+            "monday": "03:30 PM-05:00 PM",
+            "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
             "friday": ""
@@ -1001,9 +1001,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "11:30 AM-01:00 PM",
-            "wednesday": "12:00 PM-01:30 PM",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/dawes_molly.php"
     },
@@ -1021,10 +1021,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "01:30 PM-03:00 PM",
+            "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "03:30 PM-05:00 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "02:30 PM-04:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/de_meester_an.php"
     },
@@ -1044,8 +1044,8 @@
             "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": "02:00 PM-03:30 PM"
+            "thursday": "01:00 PM-02:30 PM",
+            "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/dedmon_rob.php"
     },
@@ -1064,9 +1064,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "02:00 PM-03:30 PM",
-            "wednesday": "11:30 AM-01:00 PM",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/distefano.php"
     },
@@ -1085,7 +1085,7 @@
         "officeHours": {
             "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
@@ -1106,9 +1106,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "03:00 PM-04:30 PM",
+            "wednesday": "01:30 PM-03:00 PM",
             "thursday": "",
-            "friday": "10:30 AM-12:00 PM"
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/dixon_stacy.php"
     },
@@ -1128,8 +1128,8 @@
             "monday": "",
             "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "12:30 PM-02:00 PM",
-            "thursday": "",
-            "friday": ""
+            "thursday": "03:00 PM-04:30 PM",
+            "friday": "01:30 PM-03:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/dmitrieva_svetlana.php"
     },
@@ -1147,10 +1147,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "01:00 PM-02:30 PM",
+            "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/doutis_panayiotis.php"
     },
@@ -1167,10 +1167,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "12:00 PM-01:30 PM",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/drasgow_erik.php"
@@ -1188,7 +1188,7 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "01:00 PM-02:30 PM",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "",
             "wednesday": "01:00 PM-02:30 PM",
             "thursday": "",
@@ -1209,8 +1209,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "10:30 AM-12:00 PM",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "11:30 AM-01:00 PM",
             "thursday": "",
             "friday": "11:30 AM-01:00 PM"
@@ -1230,9 +1230,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
-            "wednesday": "02:00 PM-03:30 PM",
+            "wednesday": "02:30 PM-04:00 PM",
             "thursday": "02:30 PM-04:00 PM",
             "friday": ""
         },
@@ -1252,9 +1252,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "10:30 AM-12:00 PM",
-            "thursday": "",
+            "thursday": "10:30 AM-12:00 PM",
             "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/ene_mihaela.php"
@@ -1274,9 +1274,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "11:00 AM-12:30 PM",
             "thursday": "03:30 PM-05:00 PM",
-            "friday": "09:30 AM-11:00 AM"
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/escoria_jessica.php"
     },
@@ -1295,9 +1295,9 @@
         "officeHours": {
             "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "02:30 PM-04:00 PM",
-            "friday": ""
+            "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/fleming_andrea.php"
     },
@@ -1314,11 +1314,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:00 PM-04:30 PM",
             "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "01:00 PM-02:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/fontenot_manda.php"
     },
@@ -1336,8 +1336,8 @@
         "office": "",
         "officeHours": {
             "monday": "11:00 AM-12:30 PM",
-            "tuesday": "03:30 PM-05:00 PM",
-            "wednesday": "",
+            "tuesday": "10:00 AM-11:30 AM",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -1358,8 +1358,8 @@
         "officeHours": {
             "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
-            "wednesday": "",
-            "thursday": "10:30 AM-12:00 PM",
+            "wednesday": "09:00 AM-10:30 AM",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/gams_sarah.php"
@@ -1377,8 +1377,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "01:30 PM-03:00 PM",
-            "tuesday": "",
+            "monday": "03:00 PM-04:30 PM",
+            "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": "11:00 AM-12:30 PM"
@@ -1398,8 +1398,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "11:00 AM-12:30 PM",
+            "monday": "11:00 AM-12:30 PM",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
             "thursday": "10:30 AM-12:00 PM",
             "friday": ""
@@ -1420,8 +1420,8 @@
         "office": "",
         "officeHours": {
             "monday": "02:30 PM-04:00 PM",
-            "tuesday": "09:00 AM-10:30 AM",
-            "wednesday": "",
+            "tuesday": "03:30 PM-05:00 PM",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
             "friday": ""
         },
@@ -1441,9 +1441,9 @@
         "office": "",
         "officeHours": {
             "monday": "03:00 PM-04:30 PM",
-            "tuesday": "11:00 AM-12:30 PM",
+            "tuesday": "03:30 PM-05:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/grant_michael.php"
@@ -1461,9 +1461,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "09:30 AM-11:00 AM",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "11:30 AM-01:00 PM",
             "thursday": "",
             "friday": "01:30 PM-03:00 PM"
         },
@@ -1483,10 +1483,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "",
             "thursday": "03:30 PM-05:00 PM",
-            "friday": "12:00 PM-01:30 PM"
+            "friday": "02:30 PM-04:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/greer_marciann.php"
     },
@@ -1504,8 +1504,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "11:00 AM-12:30 PM",
+            "tuesday": "09:30 AM-11:00 AM",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "03:30 PM-05:00 PM",
             "friday": ""
         },
@@ -1524,8 +1524,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "09:30 AM-11:00 AM",
+            "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "11:00 AM-12:30 PM",
             "thursday": "02:00 PM-03:30 PM",
             "friday": ""
@@ -1547,9 +1547,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "09:00 AM-10:30 AM",
-            "wednesday": "",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
-            "friday": "11:00 AM-12:30 PM"
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/hall_brittney.php"
     },
@@ -1567,9 +1567,9 @@
         "office": "",
         "officeHours": {
             "monday": "12:30 PM-02:00 PM",
-            "tuesday": "",
+            "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "02:30 PM-04:00 PM",
             "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/harbour_kristin.php"
@@ -1590,8 +1590,8 @@
             "monday": "",
             "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "",
-            "thursday": "",
-            "friday": "12:30 PM-02:00 PM"
+            "thursday": "01:30 PM-03:00 PM",
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/hardie_suzy.php"
     },
@@ -1608,7 +1608,7 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
             "wednesday": "12:30 PM-02:00 PM",
             "thursday": "10:00 AM-11:30 AM",
@@ -1630,10 +1630,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "03:00 PM-04:30 PM",
             "thursday": "",
-            "friday": "02:00 PM-03:30 PM"
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/herron_beth.php"
     },
@@ -1650,9 +1650,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "09:30 AM-11:00 AM",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "09:00 AM-10:30 AM",
-            "wednesday": "",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
             "friday": ""
         },
@@ -1671,9 +1671,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "11:30 AM-01:00 PM",
             "friday": "03:30 PM-05:00 PM"
         },
@@ -1695,8 +1695,8 @@
             "monday": "02:30 PM-04:00 PM",
             "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "03:00 PM-04:30 PM",
+            "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/hines_derrick.php"
     },
@@ -1716,8 +1716,8 @@
             "monday": "",
             "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "",
-            "thursday": "",
-            "friday": "01:00 PM-02:30 PM"
+            "thursday": "01:30 PM-03:00 PM",
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/hodge_julia.php"
     },
@@ -1735,8 +1735,8 @@
         "office": "",
         "officeHours": {
             "monday": "03:00 PM-04:30 PM",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "03:00 PM-04:30 PM",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         },
@@ -1755,11 +1755,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "",
             "wednesday": "12:00 PM-01:30 PM",
             "thursday": "01:30 PM-03:00 PM",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/holt_ashley.php"
     },
@@ -1779,8 +1779,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "10:30 AM-12:00 PM",
-            "friday": "02:30 PM-04:00 PM"
+            "thursday": "02:00 PM-03:30 PM",
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/horton_sheryl.php"
     },
@@ -1798,8 +1798,8 @@
         "office": "",
         "officeHours": {
             "monday": "11:30 AM-01:00 PM",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "11:30 AM-01:00 PM",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "",
             "friday": "01:30 PM-03:00 PM"
         },
@@ -1818,10 +1818,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:00 PM-01:30 PM",
             "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "01:30 PM-03:00 PM",
-            "thursday": "",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/irvin_matt.php"
@@ -1841,9 +1841,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "09:30 AM-11:00 AM",
-            "wednesday": "",
+            "wednesday": "01:30 PM-03:00 PM",
             "thursday": "",
-            "friday": "01:30 PM-03:00 PM"
+            "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/jeffries_rhonda.php"
     },
@@ -1860,9 +1860,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "09:00 AM-10:30 AM",
-            "wednesday": "",
+            "wednesday": "11:30 AM-01:00 PM",
             "thursday": "",
             "friday": "09:00 AM-10:30 AM"
         },
@@ -1882,9 +1882,9 @@
         "office": "",
         "officeHours": {
             "monday": "09:00 AM-10:30 AM",
-            "tuesday": "01:00 PM-02:30 PM",
+            "tuesday": "10:30 AM-12:00 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "01:00 PM-02:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/johnson_carolyn.php"
@@ -1905,7 +1905,7 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "10:30 AM-12:00 PM",
-            "thursday": "03:00 PM-04:30 PM",
+            "thursday": "02:00 PM-03:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/johnson_jamil.php"
@@ -1923,9 +1923,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "10:30 AM-12:00 PM",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "",
             "friday": "12:30 PM-02:00 PM"
         },
@@ -1947,7 +1947,7 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "12:00 PM-01:30 PM",
-            "thursday": "09:30 AM-11:00 AM",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/johnson_zoey.php"
@@ -1966,10 +1966,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "11:30 AM-01:00 PM",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "",
             "thursday": "01:00 PM-02:30 PM",
-            "friday": ""
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/judge_tara.php"
     },
@@ -1989,8 +1989,8 @@
             "monday": "03:30 PM-05:00 PM",
             "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "",
-            "thursday": "",
-            "friday": ""
+            "thursday": "10:30 AM-12:00 PM",
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/kannengieser_kerri.php"
     },
@@ -2009,8 +2009,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "12:30 PM-02:00 PM",
-            "thursday": "",
+            "wednesday": "03:30 PM-05:00 PM",
+            "thursday": "01:00 PM-02:30 PM",
             "friday": "11:30 AM-01:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/calamak_elif.php"
@@ -2028,9 +2028,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "03:30 PM-05:00 PM",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
             "friday": "01:30 PM-03:00 PM"
         },
@@ -2049,9 +2049,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "10:00 AM-11:30 AM",
-            "wednesday": "11:30 AM-01:00 PM",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "",
             "friday": ""
         },
@@ -2070,9 +2070,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "11:00 AM-12:30 PM",
-            "wednesday": "",
+            "wednesday": "02:30 PM-04:00 PM",
             "thursday": "",
             "friday": "02:30 PM-04:00 PM"
         },
@@ -2092,8 +2092,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "12:00 PM-01:30 PM",
+            "tuesday": "11:30 AM-01:00 PM",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
             "friday": "12:00 PM-01:30 PM"
         },
@@ -2112,11 +2112,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "09:30 AM-11:00 AM",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "02:00 PM-03:30 PM",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/leighton_elizabeth.php"
     },
@@ -2133,10 +2133,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "11:00 AM-12:30 PM",
+            "monday": "09:30 AM-11:00 AM",
             "tuesday": "",
             "wednesday": "01:30 PM-03:00 PM",
-            "thursday": "",
+            "thursday": "10:30 AM-12:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/lewis_ashlee.php"
@@ -2157,8 +2157,8 @@
             "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "03:30 PM-05:00 PM",
-            "friday": ""
+            "thursday": "03:00 PM-04:30 PM",
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/lilly_todd.php"
     },
@@ -2177,7 +2177,7 @@
         "officeHours": {
             "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "",
             "friday": "01:30 PM-03:00 PM"
         },
@@ -2198,9 +2198,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "12:00 PM-01:30 PM",
-            "friday": "09:30 AM-11:00 AM"
+            "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/liu_jin.php"
     },
@@ -2219,8 +2219,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "03:00 PM-04:30 PM",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "01:30 PM-03:00 PM",
+            "thursday": "10:00 AM-11:30 AM",
             "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/liu_xiaofeng_steven.php"
@@ -2241,8 +2241,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "11:30 AM-01:00 PM",
-            "thursday": "",
-            "friday": "03:00 PM-04:30 PM"
+            "thursday": "01:30 PM-03:00 PM",
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/long_camryn.php"
     },
@@ -2260,9 +2260,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "10:30 AM-12:00 PM",
-            "thursday": "",
+            "thursday": "02:00 PM-03:30 PM",
             "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/lorinovich_gwen.php"
@@ -2280,10 +2280,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "09:30 AM-11:00 AM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "03:30 PM-05:00 PM",
             "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/lotter_christine.php"
@@ -2301,8 +2301,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "11:00 AM-12:30 PM",
-            "tuesday": "09:30 AM-11:00 AM",
+            "monday": "11:30 AM-01:00 PM",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -2324,8 +2324,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "01:30 PM-03:00 PM",
-            "wednesday": "09:00 AM-10:30 AM",
-            "thursday": "",
+            "wednesday": "12:30 PM-02:00 PM",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/marshall_kathleen.php"
@@ -2344,10 +2344,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "10:00 AM-11:30 AM",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "01:00 PM-02:30 PM",
-            "friday": ""
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/martin_adam.php"
     },
@@ -2365,8 +2365,8 @@
         "office": "",
         "officeHours": {
             "monday": "02:00 PM-03:30 PM",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "10:30 AM-12:00 PM",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         },
@@ -2387,9 +2387,9 @@
         "officeHours": {
             "monday": "09:00 AM-10:30 AM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "11:30 AM-01:00 PM",
             "thursday": "12:00 PM-01:30 PM",
-            "friday": ""
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/martinez_david_g.php"
     },
@@ -2407,10 +2407,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "01:30 PM-03:00 PM",
             "thursday": "",
-            "friday": "01:30 PM-03:00 PM"
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/mcadoo_terrance.php"
     },
@@ -2427,8 +2427,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "09:00 AM-10:30 AM",
+            "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "",
             "thursday": "12:30 PM-02:00 PM",
             "friday": "01:00 PM-02:30 PM"
@@ -2449,9 +2449,9 @@
         "office": "",
         "officeHours": {
             "monday": "12:00 PM-01:30 PM",
-            "tuesday": "",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "03:30 PM-05:00 PM",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/harris_joan.php"
@@ -2470,10 +2470,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "09:30 AM-11:00 AM",
             "thursday": "10:30 AM-12:00 PM",
-            "friday": ""
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/mckenzie_wendy.php"
     },
@@ -2490,11 +2490,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "10:00 AM-11:30 AM",
             "wednesday": "01:00 PM-02:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/miedema_sally.php"
     },
@@ -2512,8 +2512,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "01:30 PM-03:00 PM",
+            "wednesday": "02:30 PM-04:00 PM",
             "thursday": "10:00 AM-11:30 AM",
             "friday": "10:00 AM-11:30 AM"
         },
@@ -2532,9 +2532,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:00 AM-10:30 AM",
             "tuesday": "",
-            "wednesday": "09:30 AM-11:00 AM",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "10:00 AM-11:30 AM",
             "friday": ""
         },
@@ -2555,9 +2555,9 @@
         "officeHours": {
             "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
-            "wednesday": "11:00 AM-12:30 PM",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/mitchell_murray.php"
     },
@@ -2575,9 +2575,9 @@
         "office": "",
         "officeHours": {
             "monday": "01:00 PM-02:30 PM",
-            "tuesday": "",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
-            "thursday": "02:00 PM-03:30 PM",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/monsma_eva.php"
@@ -2595,11 +2595,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "11:00 AM-12:30 PM",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": "10:30 AM-12:00 PM"
+            "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/montpeirous_bryanna.php"
     },
@@ -2616,10 +2616,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
             "wednesday": "02:30 PM-04:00 PM",
-            "thursday": "",
+            "thursday": "02:30 PM-04:00 PM",
             "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/morgan_rebecca.php"
@@ -2641,7 +2641,7 @@
             "tuesday": "",
             "wednesday": "01:00 PM-02:30 PM",
             "thursday": "09:30 AM-11:00 AM",
-            "friday": ""
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/morris_william.php"
     },
@@ -2661,8 +2661,8 @@
             "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "01:00 PM-02:30 PM",
-            "friday": ""
+            "thursday": "02:30 PM-04:00 PM",
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/moyi_peter.php"
     },
@@ -2681,8 +2681,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "02:00 PM-03:30 PM",
-            "thursday": "03:30 PM-05:00 PM",
+            "wednesday": "12:00 PM-01:30 PM",
+            "thursday": "12:30 PM-02:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/muller_meir.php"
@@ -2700,8 +2700,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "09:00 AM-10:30 AM",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "11:30 AM-01:00 PM",
             "thursday": "",
             "friday": "10:30 AM-12:00 PM"
@@ -2722,7 +2722,7 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "02:30 PM-04:00 PM",
+            "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": "01:30 PM-03:00 PM"
@@ -2742,9 +2742,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:00 AM-10:30 AM",
             "tuesday": "",
-            "wednesday": "03:30 PM-05:00 PM",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
             "friday": "11:00 AM-12:30 PM"
         },
@@ -2763,10 +2763,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "02:00 PM-03:30 PM",
+            "monday": "12:00 PM-01:30 PM",
             "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/oglan_victoria.php"
@@ -2785,8 +2785,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "01:30 PM-03:00 PM",
-            "wednesday": "",
+            "tuesday": "12:00 PM-01:30 PM",
+            "wednesday": "11:30 AM-01:00 PM",
             "thursday": "12:30 PM-02:00 PM",
             "friday": ""
         },
@@ -2805,9 +2805,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:00 AM-11:30 AM",
             "thursday": "09:30 AM-11:00 AM",
             "friday": "11:00 AM-12:30 PM"
         },
@@ -2826,9 +2826,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
-            "wednesday": "12:00 PM-01:30 PM",
+            "wednesday": "03:30 PM-05:00 PM",
             "thursday": "10:30 AM-12:00 PM",
             "friday": ""
         },
@@ -2847,11 +2847,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
             "wednesday": "10:00 AM-11:30 AM",
             "thursday": "",
-            "friday": "02:30 PM-04:00 PM"
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/peak_hannah.php"
     },
@@ -2868,9 +2868,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "09:00 AM-10:30 AM",
-            "wednesday": "02:30 PM-04:00 PM",
+            "wednesday": "10:30 AM-12:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -2889,10 +2889,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "09:00 AM-10:30 AM",
+            "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "12:00 PM-01:30 PM",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/plotner_anthony.php"
@@ -2911,8 +2911,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "09:30 AM-11:00 AM",
-            "wednesday": "03:30 PM-05:00 PM",
+            "tuesday": "03:00 PM-04:30 PM",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
             "friday": ""
         },
@@ -2931,10 +2931,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "",
             "wednesday": "03:30 PM-05:00 PM",
-            "thursday": "03:30 PM-05:00 PM",
+            "thursday": "01:00 PM-02:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/powell_jenny.php"
@@ -2952,8 +2952,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "03:30 PM-05:00 PM",
+            "monday": "01:00 PM-02:30 PM",
+            "tuesday": "03:00 PM-04:30 PM",
             "wednesday": "",
             "thursday": "12:00 PM-01:30 PM",
             "friday": ""
@@ -2975,9 +2975,9 @@
         "officeHours": {
             "monday": "02:30 PM-04:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "01:30 PM-03:00 PM",
             "thursday": "",
-            "friday": "02:00 PM-03:30 PM"
+            "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/raja_waleed.php"
     },
@@ -2996,8 +2996,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "11:30 AM-01:00 PM",
-            "wednesday": "",
-            "thursday": "03:30 PM-05:00 PM",
+            "wednesday": "09:30 AM-11:00 AM",
+            "thursday": "09:00 AM-10:30 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/randolph_devin.php"
@@ -3016,8 +3016,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "09:00 AM-10:30 AM",
+            "tuesday": "02:00 PM-03:30 PM",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
             "friday": "09:30 AM-11:00 AM"
         },
@@ -3036,11 +3036,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "10:30 AM-12:00 PM",
-            "friday": "09:30 AM-11:00 AM"
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/reichert_brytnee.php"
     },
@@ -3059,8 +3059,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "09:30 AM-11:00 AM",
-            "thursday": "12:00 PM-01:30 PM",
+            "wednesday": "01:30 PM-03:00 PM",
+            "thursday": "02:00 PM-03:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/reyes_elizabeth.php"
@@ -3081,8 +3081,8 @@
             "monday": "02:30 PM-04:00 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "",
-            "friday": "12:30 PM-02:00 PM"
+            "thursday": "01:30 PM-03:00 PM",
+            "friday": "01:30 PM-03:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/richburg_leanna.php"
     },
@@ -3099,8 +3099,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "01:30 PM-03:00 PM",
+            "monday": "02:00 PM-03:30 PM",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "03:00 PM-04:30 PM",
             "thursday": "",
             "friday": ""
@@ -3120,8 +3120,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "03:00 PM-04:30 PM",
+            "monday": "09:00 AM-10:30 AM",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "01:00 PM-02:30 PM",
             "thursday": "",
             "friday": ""
@@ -3141,10 +3141,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:30 AM-01:00 PM",
             "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
-            "thursday": "03:00 PM-04:30 PM",
+            "thursday": "09:30 AM-11:00 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/roddy_crissy.php"
@@ -3162,11 +3162,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "01:30 PM-03:00 PM",
-            "friday": "12:00 PM-01:30 PM"
+            "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/ross_robbie.php"
     },
@@ -3184,9 +3184,9 @@
         "office": "",
         "officeHours": {
             "monday": "03:30 PM-05:00 PM",
-            "tuesday": "",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "",
-            "thursday": "",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/roy_george.php"
@@ -3207,7 +3207,7 @@
             "monday": "09:30 AM-11:00 AM",
             "tuesday": "",
             "wednesday": "01:00 PM-02:30 PM",
-            "thursday": "",
+            "thursday": "12:00 PM-01:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/sanborn_lauren.php"
@@ -3227,8 +3227,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "03:30 PM-05:00 PM",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "09:00 AM-10:30 AM",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/scarbrough_elizabeth.php"
@@ -3246,9 +3246,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "01:30 PM-03:00 PM",
             "friday": "03:00 PM-04:30 PM"
         },
@@ -3267,7 +3267,7 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "11:00 AM-12:30 PM",
             "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
@@ -3289,8 +3289,8 @@
         "office": "",
         "officeHours": {
             "monday": "10:00 AM-11:30 AM",
-            "tuesday": "",
-            "wednesday": "",
+            "tuesday": "11:30 AM-01:00 PM",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
@@ -3311,8 +3311,8 @@
         "officeHours": {
             "monday": "10:00 AM-11:30 AM",
             "tuesday": "",
-            "wednesday": "02:00 PM-03:30 PM",
-            "thursday": "",
+            "wednesday": "12:00 PM-01:30 PM",
+            "thursday": "10:30 AM-12:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/shepard_jason.php"
@@ -3332,8 +3332,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "09:30 AM-11:00 AM",
-            "thursday": "",
+            "wednesday": "09:00 AM-10:30 AM",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": "01:30 PM-03:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/shingler_dalisha.php"
@@ -3354,7 +3354,7 @@
             "monday": "",
             "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "03:00 PM-04:30 PM",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/silverio_nicole.php"
@@ -3374,8 +3374,8 @@
         "officeHours": {
             "monday": "",
             "tuesday": "11:30 AM-01:00 PM",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "03:00 PM-04:30 PM",
+            "thursday": "03:00 PM-04:30 PM",
             "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/silvernail_linda.php"
@@ -3393,8 +3393,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "01:30 PM-03:00 PM",
-            "tuesday": "11:30 AM-01:00 PM",
+            "monday": "01:00 PM-02:30 PM",
+            "tuesday": "10:30 AM-12:00 PM",
             "wednesday": "",
             "thursday": "",
             "friday": ""
@@ -3414,11 +3414,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "12:00 PM-01:30 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": "09:30 AM-11:00 AM"
+            "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/skeen_nicole.php"
     },
@@ -3435,11 +3435,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:30 PM-02:00 PM",
             "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/smith-hill_rebecca.php"
     },
@@ -3456,7 +3456,7 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:00 PM-03:30 PM",
             "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "",
             "thursday": "",
@@ -3478,9 +3478,9 @@
         "office": "",
         "officeHours": {
             "monday": "10:30 AM-12:00 PM",
-            "tuesday": "",
+            "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "",
-            "thursday": "09:00 AM-10:30 AM",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/sokol_kristy.php"
@@ -3500,9 +3500,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "03:30 PM-05:00 PM",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "11:00 AM-12:30 PM",
-            "friday": ""
+            "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/spence_lucy.php"
     },
@@ -3519,8 +3519,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "",
+            "monday": "09:30 AM-11:00 AM",
+            "tuesday": "09:30 AM-11:00 AM",
             "wednesday": "01:30 PM-03:00 PM",
             "thursday": "",
             "friday": "01:30 PM-03:00 PM"
@@ -3540,11 +3540,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "09:30 AM-11:00 AM",
             "wednesday": "",
             "thursday": "",
-            "friday": "01:00 PM-02:30 PM"
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/starrett_angie.php"
     },
@@ -3561,7 +3561,7 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
             "wednesday": "10:30 AM-12:00 PM",
             "thursday": "12:00 PM-01:30 PM",
@@ -3582,7 +3582,7 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "03:30 PM-05:00 PM",
             "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
@@ -3603,8 +3603,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
-            "tuesday": "01:00 PM-02:30 PM",
+            "monday": "01:00 PM-02:30 PM",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "",
             "thursday": "",
             "friday": "01:00 PM-02:30 PM"
@@ -3626,7 +3626,7 @@
         "officeHours": {
             "monday": "",
             "tuesday": "01:30 PM-03:00 PM",
-            "wednesday": "",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
             "friday": "10:30 AM-12:00 PM"
         },
@@ -3648,8 +3648,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "10:00 AM-11:30 AM",
-            "thursday": "03:30 PM-05:00 PM",
-            "friday": ""
+            "thursday": "09:30 AM-11:00 AM",
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/strickland_poole.php"
     },
@@ -3667,9 +3667,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "12:30 PM-02:00 PM",
             "wednesday": "12:30 PM-02:00 PM",
-            "thursday": "",
+            "thursday": "10:30 AM-12:00 PM",
             "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/styslinger_mary.php"
@@ -3688,8 +3688,8 @@
         "office": "",
         "officeHours": {
             "monday": "12:00 PM-01:30 PM",
-            "tuesday": "01:30 PM-03:00 PM",
-            "wednesday": "",
+            "tuesday": "02:00 PM-03:30 PM",
+            "wednesday": "12:30 PM-02:00 PM",
             "thursday": "",
             "friday": ""
         },
@@ -3708,9 +3708,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:00 PM-01:30 PM",
             "tuesday": "09:30 AM-11:00 AM",
-            "wednesday": "",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
             "friday": "01:00 PM-02:30 PM"
         },
@@ -3732,8 +3732,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "10:00 AM-11:30 AM",
-            "thursday": "",
-            "friday": "12:00 PM-01:30 PM"
+            "thursday": "02:00 PM-03:30 PM",
+            "friday": "12:30 PM-02:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/sanchez_lenny.php"
     },
@@ -3751,7 +3751,7 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "10:00 AM-11:30 AM",
             "wednesday": "11:30 AM-01:00 PM",
             "thursday": "12:30 PM-02:00 PM",
             "friday": ""
@@ -3771,10 +3771,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "12:00 PM-01:30 PM",
             "tuesday": "",
             "wednesday": "03:30 PM-05:00 PM",
-            "thursday": "",
+            "thursday": "02:00 PM-03:30 PM",
             "friday": "10:30 AM-12:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/tamim_suha.php"
@@ -3795,8 +3795,8 @@
             "monday": "02:00 PM-03:30 PM",
             "tuesday": "",
             "wednesday": "03:30 PM-05:00 PM",
-            "thursday": "",
-            "friday": ""
+            "thursday": "01:30 PM-03:00 PM",
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/tang_hengtao.php"
     },
@@ -3815,9 +3815,9 @@
         "officeHours": {
             "monday": "01:30 PM-03:00 PM",
             "tuesday": "09:30 AM-11:00 AM",
-            "wednesday": "",
+            "wednesday": "01:00 PM-02:30 PM",
             "thursday": "",
-            "friday": ""
+            "friday": "03:30 PM-05:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/taylor_thurman.php"
     },
@@ -3837,8 +3837,8 @@
             "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "11:30 AM-01:00 PM",
-            "friday": ""
+            "thursday": "12:30 PM-02:00 PM",
+            "friday": "02:30 PM-04:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/thompson_chas.php"
     },
@@ -3855,10 +3855,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "",
             "wednesday": "02:00 PM-03:30 PM",
-            "thursday": "",
+            "thursday": "11:30 AM-01:00 PM",
             "friday": "09:30 AM-11:00 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/thompson_stephen.php"
@@ -3877,9 +3877,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "02:30 PM-04:00 PM",
-            "thursday": "",
+            "thursday": "01:30 PM-03:00 PM",
             "friday": "02:30 PM-04:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/thorne_preston.php"
@@ -3898,10 +3898,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "11:00 AM-12:30 PM",
             "thursday": "12:00 PM-01:30 PM",
-            "friday": ""
+            "friday": "02:00 PM-03:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/toliver_carli.php"
     },
@@ -3920,9 +3920,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "01:00 PM-02:30 PM",
-            "wednesday": "12:30 PM-02:00 PM",
+            "wednesday": "09:00 AM-10:30 AM",
             "thursday": "",
-            "friday": ""
+            "friday": "12:30 PM-02:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/tran_henry.php"
     },
@@ -3942,8 +3942,8 @@
             "monday": "",
             "tuesday": "",
             "wednesday": "",
-            "thursday": "02:30 PM-04:00 PM",
-            "friday": "10:00 AM-11:30 AM"
+            "thursday": "11:30 AM-01:00 PM",
+            "friday": "03:00 PM-04:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/trevors_gregory.php"
     },
@@ -3962,7 +3962,7 @@
         "officeHours": {
             "monday": "03:00 PM-04:30 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "01:30 PM-03:00 PM",
             "thursday": "02:30 PM-04:00 PM",
             "friday": ""
         },
@@ -3981,11 +3981,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "09:00 AM-10:30 AM",
             "tuesday": "02:30 PM-04:00 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": "03:30 PM-05:00 PM"
+            "friday": "09:00 AM-10:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/utter_karen.php"
     },
@@ -4003,9 +4003,9 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "02:30 PM-04:00 PM",
+            "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "",
-            "thursday": "11:30 AM-01:00 PM",
+            "thursday": "12:00 PM-01:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/vail_ann.php"
@@ -4023,9 +4023,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "10:30 AM-12:00 PM",
             "tuesday": "",
-            "wednesday": "12:00 PM-01:30 PM",
+            "wednesday": "03:00 PM-04:30 PM",
             "thursday": "11:30 AM-01:00 PM",
             "friday": ""
         },
@@ -4044,9 +4044,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "03:00 PM-04:30 PM",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "",
-            "wednesday": "12:30 PM-02:00 PM",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
             "friday": ""
         },
@@ -4066,9 +4066,9 @@
         "office": "",
         "officeHours": {
             "monday": "01:30 PM-03:00 PM",
-            "tuesday": "",
+            "tuesday": "11:00 AM-12:30 PM",
             "wednesday": "12:30 PM-02:00 PM",
-            "thursday": "",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/vinson_susan.php"
@@ -4086,11 +4086,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
             "wednesday": "02:00 PM-03:30 PM",
             "thursday": "",
-            "friday": "03:30 PM-05:00 PM"
+            "friday": "01:30 PM-03:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/vogler_kenneth.php"
     },
@@ -4108,10 +4108,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "01:00 PM-02:30 PM",
+            "tuesday": "09:00 AM-10:30 AM",
             "wednesday": "",
             "thursday": "02:00 PM-03:30 PM",
-            "friday": ""
+            "friday": "12:00 PM-01:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/wang_yang.php"
     },
@@ -4128,8 +4128,8 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "10:30 AM-12:00 PM",
-            "tuesday": "",
+            "monday": "11:30 AM-01:00 PM",
+            "tuesday": "11:30 AM-01:00 PM",
             "wednesday": "",
             "thursday": "03:00 PM-04:30 PM",
             "friday": ""
@@ -4150,10 +4150,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "01:00 PM-02:30 PM",
             "thursday": "11:00 AM-12:30 PM",
-            "friday": ""
+            "friday": "11:00 AM-12:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/wells_justin.php"
     },
@@ -4170,10 +4170,10 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "01:00 PM-02:30 PM",
             "tuesday": "",
             "wednesday": "02:00 PM-03:30 PM",
-            "thursday": "02:00 PM-03:30 PM",
+            "thursday": "09:30 AM-11:00 AM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/west_hall.php"
@@ -4192,8 +4192,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "02:30 PM-04:00 PM",
-            "wednesday": "",
+            "tuesday": "10:00 AM-11:30 AM",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "03:00 PM-04:30 PM",
             "friday": ""
         },
@@ -4213,8 +4213,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "09:30 AM-11:00 AM",
-            "wednesday": "",
+            "tuesday": "12:30 PM-02:00 PM",
+            "wednesday": "11:00 AM-12:30 PM",
             "thursday": "09:30 AM-11:00 AM",
             "friday": ""
         },
@@ -4235,9 +4235,9 @@
         "officeHours": {
             "monday": "",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "02:00 PM-03:30 PM",
             "thursday": "02:00 PM-03:30 PM",
-            "friday": "12:30 PM-02:00 PM"
+            "friday": "02:30 PM-04:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/williams_milton_toni.php"
     },
@@ -4255,10 +4255,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
+            "tuesday": "09:30 AM-11:00 AM",
             "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
-            "friday": "01:30 PM-03:00 PM"
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/wilson_quamaisha.php"
     },
@@ -4275,11 +4275,11 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "01:00 PM-02:30 PM",
+            "monday": "01:30 PM-03:00 PM",
             "tuesday": "",
             "wednesday": "",
             "thursday": "",
-            "friday": "03:00 PM-04:30 PM"
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/wolfe_katie.php"
     },
@@ -4297,10 +4297,10 @@
         "office": "",
         "officeHours": {
             "monday": "09:00 AM-10:30 AM",
-            "tuesday": "",
+            "tuesday": "01:00 PM-02:30 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": "10:00 AM-11:30 AM"
+            "friday": "01:00 PM-02:30 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/wright_angela.php"
     },
@@ -4319,8 +4319,8 @@
         "officeHours": {
             "monday": "02:30 PM-04:00 PM",
             "tuesday": "09:00 AM-10:30 AM",
-            "wednesday": "",
-            "thursday": "",
+            "wednesday": "12:00 PM-01:30 PM",
+            "thursday": "11:00 AM-12:30 PM",
             "friday": ""
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/wynter_hoyte.php"
@@ -4338,9 +4338,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "03:30 PM-05:00 PM",
             "tuesday": "",
-            "wednesday": "",
+            "wednesday": "10:30 AM-12:00 PM",
             "thursday": "02:00 PM-03:30 PM",
             "friday": "12:00 PM-01:30 PM"
         },
@@ -4362,8 +4362,8 @@
             "monday": "",
             "tuesday": "01:30 PM-03:00 PM",
             "wednesday": "",
-            "thursday": "",
-            "friday": "12:00 PM-01:30 PM"
+            "thursday": "01:30 PM-03:00 PM",
+            "friday": "01:30 PM-03:00 PM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/yee_sean.php"
     },
@@ -4381,8 +4381,8 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "",
-            "wednesday": "02:00 PM-03:30 PM",
+            "tuesday": "02:00 PM-03:30 PM",
+            "wednesday": "09:30 AM-11:00 AM",
             "thursday": "",
             "friday": "12:00 PM-01:30 PM"
         },
@@ -4401,9 +4401,9 @@
         "image": "",
         "office": "",
         "officeHours": {
-            "monday": "",
+            "monday": "02:30 PM-04:00 PM",
             "tuesday": "",
-            "wednesday": "09:30 AM-11:00 AM",
+            "wednesday": "12:00 PM-01:30 PM",
             "thursday": "",
             "friday": "10:00 AM-11:30 AM"
         },
@@ -4423,10 +4423,10 @@
         "office": "",
         "officeHours": {
             "monday": "",
-            "tuesday": "02:30 PM-04:00 PM",
+            "tuesday": "02:00 PM-03:30 PM",
             "wednesday": "",
             "thursday": "",
-            "friday": "02:30 PM-04:00 PM"
+            "friday": "10:00 AM-11:30 AM"
         },
         "website": "https://www.sc.edu/study/colleges_schools/education/faculty-staff/zheng_jiali.php"
     }
