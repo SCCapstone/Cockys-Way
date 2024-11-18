@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { StyleSheet, SafeAreaView, Alert } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
@@ -18,6 +18,7 @@ import { useRouter } from "expo-router";
 export default function HomeScreen() {
   const router = useRouter();
   const [markers, setMarkers] = useState([]);
+  const mapRef = useRef(null);
 
   //fetch markers from Firebase
   useEffect(() => {
@@ -47,6 +48,16 @@ export default function HomeScreen() {
 
   const onMarkerSelected = (marker) => {
     Alert.alert(marker.title || "Marker Selected");
+
+    //zoom in on marker region
+    if(mapRef.current){
+      mapRef.current.animateToRegion({
+        latitude: marker.latitude,
+        longitude: marker.longitude,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+      }, 2500); //2500 is dur of zoom in ms
+    }
   };
 
   return (
@@ -56,6 +67,7 @@ export default function HomeScreen() {
         initialRegion={INITIAL_REGION}
         showsUserLocation
         showsMyLocationButton
+        ref={mapRef}
       >
         {markers.map((marker) => (
           <Marker
@@ -66,7 +78,7 @@ export default function HomeScreen() {
             }}
             title={marker.title}
             description={marker.description}
-            pinColor={marker.color || "red"}
+            pinColor={marker.color ? marker.color : "red"}
             onPress={() => onMarkerSelected(marker)}
           />
         ))}
