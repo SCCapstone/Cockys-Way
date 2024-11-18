@@ -66,7 +66,7 @@ export default function HomeScreen() {
             }}
             title={marker.title}
             description={marker.description}
-            pinColor={marker.color}
+            pinColor={marker.color || "red"}
             onPress={() => onMarkerSelected(marker)}
           />
         ))}
