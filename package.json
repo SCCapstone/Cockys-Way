@@ -25,7 +25,9 @@
     "react-native-maps": "1.14.0",
     "react-native-section-list": "^0.0.3",
     "react-native-section-list-get-item-layout": "^2.2.3",
-    "typescript": "~5.3.3"
+    "typescript": "~5.3.3",
+    "expo-auth-session": "~5.5.2",
+    "expo-crypto": "~13.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
