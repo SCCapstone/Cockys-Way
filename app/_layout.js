@@ -1,6 +1,7 @@
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 
 export default function Layout() {
+  const router = useRouter();
   return (
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -8,8 +9,7 @@ export default function Layout() {
         name="login"
         options={{
           title: "Login",
-          headerBackTitleVisible: false,
-          headerBackButtonMenuEnabled: true,
+          headerBackTitle: "Back",
           headerTintColor: "#73000A",
         }}
       />
@@ -25,8 +25,8 @@ export default function Layout() {
         name="professorInfo"
         options={{
           title: "",
-          headerBackTitleVisible: false,
           headerTintColor: "#73000A",
+          headerBackTitle: "Back",
         }}
       />
       <Stack.Screen
@@ -45,12 +45,12 @@ export default function Layout() {
           headerTintColor: "#73000A",
         }}
       />
-      <Stack.Screen 
+      <Stack.Screen
         name="addClassSearchResults"
         options={{
           title: "Search Results",
           headerBackTitleVisible: false,
-          headerTintColor: "#73000A"
+          headerTintColor: "#73000A",
         }}
       />
     </Stack>

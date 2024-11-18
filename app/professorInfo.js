@@ -5,6 +5,7 @@ import {
   Image,
   SafeAreaView,
   Linking,
+  ScrollView,
 } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
@@ -14,9 +15,6 @@ import defaultImage from "../assets/professorInfo/200x200.png";
 export default function ProfessorInfo() {
   const { item } = useLocalSearchParams();
   const professor = JSON.parse(item);
-
-  // Manage office hours indicator
-  // Need to import office hour schedules
 
   const checkHours = (officeHours) => {
     const currentDay = new Date()
@@ -47,7 +45,7 @@ export default function ProfessorInfo() {
   const circleColor = indicator === "Available" ? "#39C75A" : "#FF0000";
 
   return (
-    <SafeAreaView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>{professor.name}</Text>
       <Text style={styles.subtitle}>{professor.title}</Text>
       <View style={styles.topInfo}>
@@ -111,7 +109,12 @@ export default function ProfessorInfo() {
         {/* TODO: NEED TO UPDATE WITH OFFICE INFO IN DB */}
         <View style={[styles.flexRow, styles.spacer]}>
           <FontAwesome name="at" size={30} color="#73000A" />
-          <Text style={[styles.social]}>{professor.email}</Text>
+          <Text
+            style={[styles.social]}
+            onPress={() => Linking.openURL(`mailto:${professor.email}`)}
+          >
+            {professor.email}
+          </Text>
         </View>
         <View style={[styles.flexRow, styles.spacer]}>
           <FontAwesome name="phone" size={30} color="#73000A" />
@@ -127,7 +130,7 @@ export default function ProfessorInfo() {
           </Text>
         </View>
       </View>
-    </SafeAreaView>
+    </ScrollView>
   );
 }
 
@@ -162,8 +165,8 @@ const styles = StyleSheet.create({
     margin: 5,
   },
   image: {
-    minWidth: 200,
-    minHeight: 200,
+    height: 225,
+    width: 200,
   },
   quickLook: {
     backgroundColor: "#D5B4BA",
