@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     paddingHorizontal: 10,
     margin: 10,
-    width: "90%",
+    width: "95%",
   },
   staffBox: {
     padding: 20,

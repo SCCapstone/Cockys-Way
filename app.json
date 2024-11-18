@@ -2,6 +2,7 @@
   "expo": {
     "name": "Cockys-Way",
     "slug": "cockys-way",
+    "newArchEnabled": true,
     "version": "1.0.0",
     "scheme": "cockysway",
     "orientation": "portrait",
