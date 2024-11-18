@@ -1,22 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
-import { useNavigation } from "expo-router";
-import { markers } from "../../assets/markers";
-//import Geolocation from '@react-native-community/geolocation';
+import { StyleSheet, SafeAreaView, Alert } from "react-native";
+import { collection, getDocs } from "firebase/firestore";
+import { FIRESTORE_DB } from "../../FirebaseConfig";
+import { useRouter } from "expo-router";
+//import { GOOGLE_API_KEY } from "@env";
 
 //Map page
-
-const INITIAL_REGION = {
-  latitude: 34.00039991787572,
-  longitude: -81.03594096158815,
-  latitudeDelta: 0.05,
-  longitudeDelta: 0.05,
-};
-
-const onMarkerSelected = (marker) => {
-  Alert.alert(marker.name);
-};
 
 // need to get permissions of user
 // const getUserCurrentLocation = () => {
@@ -26,25 +16,57 @@ const onMarkerSelected = (marker) => {
 // };
 
 export default function HomeScreen() {
-  const navigation = useNavigation();
-  // getUserCurrentLocation();
+  const router = useRouter();
+  const [markers, setMarkers] = useState([]);
+
+  //fetch markers from Firebase
+  useEffect(() => {
+    const fetchMarkers = async () => {
+      try {
+        const query = await getDocs(collection(FIRESTORE_DB, "markers"));
+        const db_data = query.docs.map((doc) => {
+          return {
+            id: doc.id,
+            ...doc.data(),
+          };
+        });
+
+        setMarkers(db_data);
+      } catch (err) {
+        Alert.alert("Error fetching data");
+      }
+    };
+
+    fetchMarkers();
+  }, []);
+
+  const INITIAL_REGION = {
+    latitude: 34.00039991787572,
+    longitude: -81.03594096158815,
+    latitudeDelta: 0.05,
+    longitudeDelta: 0.05,
+  };
+
+  const onMarkerSelected = (marker) => {
+    Alert.alert(marker.title || "Marker Selected");
+  };
 
   return (
-    // provider={PROVIDER_GOOGLE}
-    // this requires using Google's Map APIs, which has a free trial
-    // trial is a very key word
     <SafeAreaView style={styles.container}>
       <MapView
         style={styles.map}
         initialRegion={INITIAL_REGION}
         showsUserLocation
         showsMyLocationButton
-        mapType="mutedStandard"
       >
         {markers.map((marker, index) => (
           <Marker
             key={index}
-            coordinate={marker}
+            coordinate={{
+              latitude: marker.latitude,
+              longitude: marker.longitude,
+            }}
+            pinColor={marker.color}
             onPress={() => onMarkerSelected(marker)}
           />
         ))}
