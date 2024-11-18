@@ -45,6 +45,14 @@ export default function Layout() {
           headerTintColor: "#73000A",
         }}
       />
+      <Stack.Screen 
+        name="addClassSearchResults"
+        options={{
+          title: "Search Results",
+          headerBackTitleVisible: false,
+          headerTintColor: "#73000A"
+        }}
+      />
     </Stack>
   );
 }
