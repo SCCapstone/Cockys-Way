@@ -24,12 +24,10 @@ export default function HomeScreen() {
     const fetchMarkers = async () => {
       try {
         const query = await getDocs(collection(FIRESTORE_DB, "markers"));
-        const db_data = query.docs.map((doc) => {
-          return {
+        const db_data = query.docs.map((doc) => ({
             id: doc.id,
             ...doc.data(),
-          };
-        });
+        }));
 
         setMarkers(db_data);
       } catch (err) {
@@ -59,13 +57,15 @@ export default function HomeScreen() {
         showsUserLocation
         showsMyLocationButton
       >
-        {markers.map((marker, index) => (
+        {markers.map((marker) => (
           <Marker
-            key={index}
+            key={marker.id}
             coordinate={{
               latitude: marker.latitude,
               longitude: marker.longitude,
             }}
+            title={marker.title}
+            description={marker.description}
             pinColor={marker.color}
             onPress={() => onMarkerSelected(marker)}
           />
