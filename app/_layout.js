@@ -1,6 +1,4 @@
 import { Stack, useRouter } from "expo-router";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
-import { TouchableOpacity } from "react-native";
 
 export default function Layout() {
   const router = useRouter();
@@ -11,7 +9,7 @@ export default function Layout() {
         name="login"
         options={{
           title: "Login",
-          headerBackTitleVisible: false,
+          headerBackTitle: "Back",
           headerTintColor: "#73000A",
         }}
       />
@@ -27,7 +25,6 @@ export default function Layout() {
         name="professorInfo"
         options={{
           title: "",
-          headerBackTitleVisible: false,
           headerTintColor: "#73000A",
           headerBackTitle: "Back",
         }}
