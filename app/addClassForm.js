@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { Dropdown } from 'react-native-element-dropdown';
+import { useRouter } from 'expo-router';
 
 const data = [
   { label: 'Fall 2024', value: 'fall2024' },
@@ -8,6 +9,8 @@ const data = [
 ];
 
 const AddClassForm = () => {
+  const router = useRouter();
+
   const [semester, setSemester] = useState(null);
   const [subject, setSubject] = useState("");
   const [number, setNumber] = useState("");
@@ -46,6 +49,10 @@ const AddClassForm = () => {
         />
         <TouchableOpacity
           style={styles.submit}
+          onPress={() => {
+            console.log('hello its pressed')
+            router.push("/addClassSearchResults");
+          }}
         >
           <Text style={styles.submitText}>Search For Classes</Text>
         </TouchableOpacity>
