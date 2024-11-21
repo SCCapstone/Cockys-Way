@@ -51,7 +51,11 @@ const AddClassForm = () => {
           style={styles.submit}
           onPress={() => {
             console.log('hello its pressed')
-            router.push("/addClassSearchResults");
+            // router.push("/addClassSearchResults");
+            router.push({
+              pathname: "/addClassSearchResults",
+              params: { semester, subject, number },
+            });
           }}
         >
           <Text style={styles.submitText}>Search For Classes</Text>

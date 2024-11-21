@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const fetchInfo = () => {
+const fetchInfo = (subject) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
 
   // We will have to change this to take in a subject as a parameter
@@ -16,7 +17,7 @@ const fetchInfo = () => {
       const response = await axios({
         method: "post",
         maxBodyLength: Infinity,
-        url: "https://classes.sc.edu/api/?page=fose&route=search&subject=CSCE",
+        url: `https://classes.sc.edu/api/?page=fose&route=search&subject=${subject}`,
         headers: {
           "Content-Type": "application/json",
         },
@@ -27,7 +28,7 @@ const fetchInfo = () => {
           criteria: [
             {
               field: "subject",
-              value: "CSCE",
+              value: `${subject}`,
             },
           ],
         }),
@@ -45,6 +46,7 @@ const fetchInfo = () => {
       setError(error);
     } finally {
       setIsLoading(false);
+      setIsLoaded(true);
     }
   };
 
@@ -53,7 +55,7 @@ const fetchInfo = () => {
   }, []);
 
   // Return the data
-  return { data, isLoading, error };
+  return { data, isLoading, isLoaded, error };
 };
 
 export default fetchInfo;

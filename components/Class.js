@@ -4,13 +4,13 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { useState } from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-const Class = ({ subject, number, section, name, instructor, meeting, fromSearch = false }) => {
+const Class = ({ code, section, name, instructor, meeting, fromSearch = false }) => {
     const [notification, setNotification] = useState(false);
 
     return (
     <View style={styles.course}>
       <View style={styles.courseText}>
-        <Text style={styles.courseHeader}>{subject} {number}-{section}</Text>
+        <Text style={styles.courseHeader}>{code}-{section}</Text>
         <Text style={styles.courseInfo}>{name}</Text>
         <Text style={styles.courseInfo}>{instructor}</Text>
         <Text style={styles.courseInfo}>{meeting}</Text>
