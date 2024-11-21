@@ -15,60 +15,6 @@ const AddClassSearchResults = () => {
         setCourses(info.data)
     }, [info])
 
-    // const arr = [
-    //     {
-    //         id: 1,
-    //         text: "hello",
-    //     },
-    //     {
-    //         id: 2,
-    //         text: "hello",
-    //     },
-    //     {
-    //         id: 3,
-    //         text: "hello",
-    //     },
-    //     {
-    //         id: 4,
-    //         text: "hello",
-    //     },
-    //     {
-    //         id: 2,
-    //         text: "hello",
-    //     },
-    //     {
-    //         id: 2,
-    //         text: "hello",
-    //     },
-    //     {
-    //         id: 2,
-    //         text: "hello",
-    //     },
-        
-    // ];
-
-    // const renderItem = (course) => {
-
-    //     console.log(course);
-    //     // console.log(course.text);
-    //     return (
-    //         // <Class 
-    //         //     subject={course.item.code}
-    //         //     number={course.item.no}
-    //         //     section={course.item.section}
-    //         //     name={course.item.title}
-    //         //     instructor={course.item.instr}
-    //         //     meeting={course.item.meets}
-    //         //     fromSearch
-    //         // />
-    //         <View style={styles.red}>
-    //             <Text>{course.item.id}</Text>
-    //             <Text>{course.item.text}</Text>
-    //             {/* <Text>{course.item.code}</Text> */}
-    //         </View>
-    //     )
-    // }
-
     const renderCourse = (course) => {
         return (
             <Class 
@@ -94,14 +40,6 @@ const AddClassSearchResults = () => {
             renderItem={(courses) => renderCourse(courses)}
             contentContainerStyle={{ gap: 20 }}
         />
-        
-        {/* <FlatList 
-            data={courses}
-            renderItem={({ item }) => renderCourse({ item })}
-            style={styles.list}
-        /> */}
-
-        <Text>end</Text>
     </View>
     )
 }
