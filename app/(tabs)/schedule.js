@@ -12,24 +12,21 @@ export default function Schedule() {
       <View>
         <View style={styles.courses}>
           <Class 
-            subject={"CSCE"}
-            number={"355"}
+            code={"CSCE 355"}
             section={"001"}
             name={"Foundations of Computation"}
             instructor={"James O'Reilly"}
             meeting={"TuTh, 11:40am - 12:55pm"}
           />
-          <Class 
-            subject={"CSCE"}
-            number={"567"}
+          <Class
+            code={"CSCE 567"} 
             section={"001"}
             name={"Visualization Tools"}
             instructor={"Brian Hipp"}
             meeting={"MW, 2:30pm - 3:35pm"}
           />
-          <Class 
-            subject={"MATH"}
-            number={"344"}
+          <Class
+            code={"MATH 344"} 
             section={"001"}
             name={"Applied Linear Algebra"}
             instructor={"Changhui Tan"}
