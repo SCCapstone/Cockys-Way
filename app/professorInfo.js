@@ -17,33 +17,32 @@ export default function ProfessorInfo() {
   const professor = JSON.parse(item);
 
   const checkHours = (officeHours) => {
-    const currentDay = new Date()
-      .toLocaleString("en-US", { weekday: "long" })
-      .toLowerCase();
-    const currentTime = new Date();
-    const currentHour = currentTime.getHours();
-    const officeHoursToday = officeHours[currentDay];
+    const daysOfWeek = ["monday", "tuesday", "wednesday", "thursday", "friday"];
+    const currentDay = daysOfWeek[new Date().getDay()];
+    const hours = officeHours[currentDay];
 
-    if (!officeHoursToday) return false;
+    if (!hours) return false;
 
-    const [start, end] = officeHoursToday
-      .split(" - ")
-      .map(
-        (time) =>
-          new Date(
-            `1970-01-01T${time.replace(/ (AM|PM)/, "")}:00${
-              time.includes("PM") && !time.startsWith("12") ? " PM" : " AM"
-            }`
-          )
-      );
-    return currentTime >= start && currentTime <= end;
+    const [start, end] = hours.split("-").map((time) => {
+      let [hour, minute] = time
+        .trim()
+        .replace(/ (AM|PM)/, "")
+        .split(":")
+        .map(Number);
+      if (time.includes("PM") && hour !== 12) hour += 12;
+      return hour * 60 + minute;
+    });
+
+    const now = new Date();
+    const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+    return currentMinutes >= start && currentMinutes <= end;
   };
-
   const indicator = checkHours(professor.officeHours)
     ? "Available"
     : "Unavailable";
   const circleColor = indicator === "Available" ? "#39C75A" : "#FF0000";
-
+  console.log(professor.officeHours);
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>{professor.name}</Text>
