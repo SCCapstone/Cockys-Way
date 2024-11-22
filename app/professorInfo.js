@@ -17,9 +17,17 @@ export default function ProfessorInfo() {
   const professor = JSON.parse(item);
 
   const checkHours = (officeHours) => {
-    const daysOfWeek = ["monday", "tuesday", "wednesday", "thursday", "friday"];
+    const daysOfWeek = [
+      "sunday",
+      "monday",
+      "tuesday",
+      "wednesday",
+      "thursday",
+      "friday",
+      "saturday",
+    ];
     const currentDay = daysOfWeek[new Date().getDay()];
-    if (!currentDay) return false;
+    if (currentDay == "saturday" || currentDay == "sunday") return false;
     const hours = officeHours[currentDay];
 
     if (!hours) return false;
@@ -32,6 +40,7 @@ export default function ProfessorInfo() {
         .split(":")
         .map(Number);
       if (time.includes("PM") && hour !== 12) hour += 12;
+      if (time.includes("AM") && hour === 12) hour = 0; // Handle midnight case
       return hour * 60 + minute;
     });
 
@@ -44,7 +53,6 @@ export default function ProfessorInfo() {
     ? "Available"
     : "Unavailable";
   const circleColor = indicator === "Available" ? "#39C75A" : "#FF0000";
-  console.log(professor.officeHours);
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>{professor.name}</Text>
