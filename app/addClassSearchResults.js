@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useLocalSearchParams } from 'expo-router';
 import fetchInfo from '../hook/fetchInfo';
 import Class from '../components/Class';
@@ -10,10 +10,18 @@ const AddClassSearchResults = () => {
     const [courses, setCourses] = useState([]);
 
     const info = fetchInfo(subject);
+    const courseList = info.data;
     useEffect(() => {
-        console.log(info.data[0]);
-        setCourses(info.data)
+
+        if(courseList && number) {
+            setCourses(courseList.filter(course => course.code === `${subject} ${number}`));
+        } else {
+            console.log('ayy lmao')
+            setCourses(courseList);
+        }
+
     }, [info])
+
 
     const renderCourse = (course) => {
         return (
