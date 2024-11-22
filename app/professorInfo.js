@@ -19,10 +19,12 @@ export default function ProfessorInfo() {
   const checkHours = (officeHours) => {
     const daysOfWeek = ["monday", "tuesday", "wednesday", "thursday", "friday"];
     const currentDay = daysOfWeek[new Date().getDay()];
+    if (!currentDay) return false;
     const hours = officeHours[currentDay];
 
     if (!hours) return false;
 
+    // Convert string of time into minutes to compare to current
     const [start, end] = hours.split("-").map((time) => {
       let [hour, minute] = time
         .trim()
