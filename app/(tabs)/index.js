@@ -63,6 +63,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <MapView
+        key={markers.length}
         style={styles.map}
         initialRegion={INITIAL_REGION}
         showsUserLocation
