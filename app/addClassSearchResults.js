@@ -10,15 +10,15 @@ const AddClassSearchResults = () => {
     const [courses, setCourses] = useState([]);
 
     const info = fetchInfo(subject);
-    const courseList = info.data;
+    let courseList = info.data;
     useEffect(() => {
+        console.log(courseList[0]);
 
         if(courseList && number) {
-            setCourses(courseList.filter(course => course.code === `${subject} ${number}`));
-        } else {
-            console.log('ayy lmao')
-            setCourses(courseList);
+            courseList = courseList.filter(course => course.code === `${subject} ${number}`);
         }
+
+        setCourses(courseList)
 
     }, [info])
 
