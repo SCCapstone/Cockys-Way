@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const fetchInfo = (subject) => {
+const fetchInfo = (subject, semester) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -23,7 +23,7 @@ const fetchInfo = (subject) => {
         },
         data: JSON.stringify({
           other: {
-            srcdb: "999999",
+            srcdb: `${semester}`,
           },
           criteria: [
             {
