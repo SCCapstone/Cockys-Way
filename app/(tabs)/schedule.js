@@ -3,47 +3,62 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { useRouter } from "expo-router";
 
 import Class from "../../components/Class";
+import { getAuth } from "firebase/auth";
 
 export default function Schedule() {
   const router = useRouter();
 
+  const auth = getAuth();
+  const user = auth.currentUser;
+  let example = "";
+
+  if(user) {
+    example = "yes logged in";
+  } else {
+    example = "no logged in"
+  }
+
   return (
     <>
-      <View>
-        <View style={styles.courses}>
-          <Class 
-            code={"CSCE 355"}
-            section={"001"}
-            name={"Foundations of Computation"}
-            instructor={"James O'Reilly"}
-            meeting={"TuTh, 11:40am - 12:55pm"}
-          />
-          <Class
-            code={"CSCE 567"} 
-            section={"001"}
-            name={"Visualization Tools"}
-            instructor={"Brian Hipp"}
-            meeting={"MW, 2:30pm - 3:35pm"}
-          />
-          <Class
-            code={"MATH 344"} 
-            section={"001"}
-            name={"Applied Linear Algebra"}
-            instructor={"Changhui Tan"}
-            meeting={"TuTh, 2:50pm - 4:05pm"}
-            fromSearch
-          />
-        </View>
-      </View>
-        <TouchableOpacity
-          onPress={() => {
-            router.push("../addClassForm");
-          }}
-          style={styles.addButton}
-        >
-          <Text style={styles.addText}>Add a Class</Text>
-          <FontAwesome5 style={styles.addIcon} name="plus" size={20} color="black" />
-        </TouchableOpacity>
+        {user ? 
+          <>
+            <View style={styles.courses}>
+              <Class 
+                code={"CSCE 355"}
+                section={"001"}
+                name={"Foundations of Computation"}
+                instructor={"James O'Reilly"}
+                meeting={"TuTh, 11:40am - 12:55pm"}
+              />
+              <Class
+                code={"CSCE 567"} 
+                section={"001"}
+                name={"Visualization Tools"}
+                instructor={"Brian Hipp"}
+                meeting={"MW, 2:30pm - 3:35pm"}
+              />
+              <Class
+                code={"MATH 344"} 
+                section={"001"}
+                name={"Applied Linear Algebra"}
+                instructor={"Changhui Tan"}
+                meeting={"TuTh, 2:50pm - 4:05pm"}
+                fromSearch
+              />
+            </View> 
+              <TouchableOpacity
+                onPress={() => {
+                  router.push("../addClassForm");
+                }}
+                style={styles.addButton}
+              >
+                <Text style={styles.addText}>Add a Class</Text>
+                <FontAwesome5 style={styles.addIcon} name="plus" size={20} color="black" />
+              </TouchableOpacity>
+            </>
+          :
+            <Text style={styles.noUser}>Tap the Profile icon in the top right corner to login and view/edit your schedule!</Text>         
+        }
     </>
   );
 }
@@ -74,5 +89,11 @@ const styles = StyleSheet.create({
 
   addIcon: {
     // marginLeft: 10
+  },
+  noUser: {
+    fontSize: 30,
+    paddingHorizontal: 20,
+    alignItems: "center",
+    justifyContent: "center"
   }
 });
