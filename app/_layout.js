@@ -59,6 +59,20 @@ export default function Layout() {
           headerTintColor: "#73000A",
         }}
       />
+      <Stack.Screen
+        name="favLocations"
+        options={{
+          title: "Favorite Locations",
+          headerTintColor: "#73000A",
+        }}
+      />
+      <Stack.Screen
+        name="accessibility"
+        options={{
+          title: "Accessibility",
+          headerTintColor: "#73000A",
+        }}
+      />
     </Stack>
   );
 }

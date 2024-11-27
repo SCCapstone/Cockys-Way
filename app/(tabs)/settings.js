@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Switch, ScrollView, TouchableOpacity } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
-import AppLoading from 'expo-app-loading';
+import * as SplashScreen from 'expo-splash-screen';
 import { useRouter } from 'expo-router';
 import { FIREBASE_AUTH } from '../../FirebaseConfig';
+
+SplashScreen.preventAutoHideAsync();
 
 export default function SettingsScreen() {
   const router = useRouter();
@@ -14,8 +16,14 @@ export default function SettingsScreen() {
     Abel_400Regular,
   });
 
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return null;
   }
 
   return (
@@ -26,15 +34,15 @@ export default function SettingsScreen() {
           <Text style={styles.settingText}>Privacy and Security</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/index')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/favLocations')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Favorite Locations</Text>
         </View>
       </TouchableOpacity>
       <View style={styles.settingItem}>
-        <View style={styles.accentBox}>
+        <TouchableOpacity style={styles.accentBox} onPress={() => router.push('/accessibility')}>
           <Text style={styles.settingText}>Accessibility</Text>
-        </View>
+        </TouchableOpacity>
       </View>
       <View style={styles.settingItem}>
         <TouchableOpacity style={styles.accentBox} onPress={() => router.push('/login')}>
