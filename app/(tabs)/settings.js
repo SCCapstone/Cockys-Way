@@ -1,9 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, Switch, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Switch, ScrollView, TouchableOpacity } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import AppLoading from 'expo-app-loading';
+import { useNavigation } from '@react-navigation/native';
 
 export default function SettingsScreen() {
+  const navigation = useNavigation();
   const [isEnabled, setIsEnabled] = React.useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -18,11 +20,11 @@ export default function SettingsScreen() {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Settings</Text>
-      <View style={styles.settingItem}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => navigation.navigate('PrivacySecurity')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Privacy and Security</Text>
         </View>
-      </View>
+      </TouchableOpacity>
       <View style={styles.settingItem}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Favorite Locations</Text>
@@ -40,7 +42,7 @@ export default function SettingsScreen() {
       </View>
       <View style={styles.settingItem}>
         <View style={styles.accentBoxSmall}>
-          <Text style={styles.settingTextSmall}>Enable Notifications</Text>
+          <Text style={styles.settingText}>Enable Notifications</Text>
           <Switch
             trackColor={{ false: "#767577", true: "#81b0ff" }}
             thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
@@ -91,12 +93,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   settingText: {
-    fontSize: 22.5, 
-    color: '#FFFFFF', // White text color for contrast
-    fontFamily: 'Abel_400Regular',
-  },
-  settingTextSmall: {
-    fontSize: 22.5,
+    fontSize: 22.5, // Increased by 25%
     color: '#FFFFFF', // White text color for contrast
     fontFamily: 'Abel_400Regular',
   },
