@@ -112,7 +112,7 @@ export default function ProfessorInfo() {
           )}
       </View>
       <View style={styles.line}></View>
-      <View style={[styles.officeInfo, styles.quickLook]}>
+      <View style={[styles.officeInfo, styles.quickLook, styles.radius]}>
         <Text style={[styles.quickLookHeader]}>Let's Connect:</Text>
 
         {/* TODO: NEED TO UPDATE WITH OFFICE INFO IN DB */}
@@ -145,8 +145,8 @@ export default function ProfessorInfo() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
+    paddingBottom: 30,
   },
   title: {
     fontSize: 30,
@@ -211,5 +211,9 @@ const styles = StyleSheet.create({
   social: {
     marginLeft: 30,
     fontSize: 20,
+  },
+  radius: {
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
   },
 });

@@ -4,8 +4,8 @@ import { Dropdown } from 'react-native-element-dropdown';
 import { useRouter } from 'expo-router';
 
 const data = [
-  { label: 'Fall 2024', value: 'fall2024' },
-  { label: 'Spring 2025', value: 'spring2025' }
+  { label: 'Fall 2024', value: '202408' },
+  { label: 'Spring 2025', value: '202501' }
 ];
 
 const AddClassForm = () => {

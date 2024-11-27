@@ -126,7 +126,6 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     justifyContent: "center",
-    // alignItems: "center",
   },
   searchBar: {
     height: 40,
@@ -150,5 +149,6 @@ const styles = StyleSheet.create({
   staffText: {
     color: "#fff",
     fontSize: 30,
+    fontFamily: "Abel",
   },
 });

@@ -8,10 +8,10 @@ const AddClassSearchResults = () => {
   const { semester, subject, number } = useLocalSearchParams();
   const [courses, setCourses] = useState([]);
 
-  const info = fetchInfo(subject);
+  const info = fetchInfo(subject, semester);
   let courseList = info.data;
   useEffect(() => {
-    console.log(courseList[0]);
+    // console.log(courseList[0]);
 
     if (courseList && number) {
       courseList = courseList.filter(
