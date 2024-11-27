@@ -31,6 +31,9 @@
         "projectId": "25d82025-901e-4d91-84eb-966383bd4984"
       }
     },
-    "owner": "cockys-way"
+    "owner": "cockys-way",
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
