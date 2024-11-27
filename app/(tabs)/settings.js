@@ -37,9 +37,9 @@ export default function SettingsScreen() {
         </View>
       </View>
       <View style={styles.settingItem}>
-        <View style={styles.accentBox}>
+        <TouchableOpacity style={styles.accentBox} onPress={() => router.push('/login')}>
           <Text style={styles.settingText}>My Account</Text>
-        </View>
+        </TouchableOpacity>
       </View>
       <View style={styles.settingItem}>
         <View style={styles.accentBoxSmall}>
