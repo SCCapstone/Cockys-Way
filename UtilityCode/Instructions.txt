@@ -8,4 +8,4 @@ eg. python3 times.py arts.json,cec.json,law.json
 
 MatchStrings.py takes args as two MatchString
 eg. python3 "abc123" "ABC123"
-It ignores case.
+It lets you know if they are case matching as well.
