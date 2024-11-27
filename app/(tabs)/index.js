@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import { StyleSheet, SafeAreaView, Alert } from "react-native";
+import { StyleSheet, SafeAreaView, Alert, View } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { useRouter } from "expo-router";
+import { SearchBar } from "react-native-elements";
 //import { GOOGLE_API_KEY } from "@env";
 
-//Map page
+// Map page
 
 // need to get permissions of user
 // const getUserCurrentLocation = () => {
@@ -18,26 +19,9 @@ import { useRouter } from "expo-router";
 export default function HomeScreen() {
   const router = useRouter();
   const [markers, setMarkers] = useState([]);
+  const [filteredMarkers, setFilteredMarkers] = useState([]);
+  const [search, setSearch] = useState("");
   const mapRef = useRef(null);
-
-  //fetch markers from Firebase
-  useEffect(() => {
-    const fetchMarkers = async () => {
-      try {
-        const query = await getDocs(collection(FIRESTORE_DB, "markers"));
-        const db_data = query.docs.map((doc) => ({
-            id: doc.id,
-            ...doc.data(),
-        }));
-
-        setMarkers(db_data);
-      } catch (err) {
-        Alert.alert("Error fetching data");
-      }
-    };
-
-    fetchMarkers();
-  }, []);
 
   const INITIAL_REGION = {
     latitude: 34.00039991787572,
@@ -49,28 +33,68 @@ export default function HomeScreen() {
   const onMarkerSelected = (marker) => {
     Alert.alert(marker.title || "Marker Selected");
 
-    //zoom in on marker region
-    if(mapRef.current){
-      mapRef.current.animateToRegion({
-        latitude: marker.latitude,
-        longitude: marker.longitude,
-        latitudeDelta: 0.01,
-        longitudeDelta: 0.01,
-      }, 2500); //2500 is dur of zoom in ms
+    // Zoom in on marker region
+    if (mapRef.current) {
+      mapRef.current.animateToRegion(
+        {
+          latitude: marker.latitude,
+          longitude: marker.longitude,
+          latitudeDelta: 0.01,
+          longitudeDelta: 0.01,
+        },
+        2500 // 2500 is duration of zoom in ms
+      );
     }
   };
 
+  // Fetch markers from Firebase
+  useEffect(() => {
+    const fetchMarkers = async () => {
+      try {
+        const query = await getDocs(collection(FIRESTORE_DB, "markers"));
+        const db_data = query.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+
+        setMarkers(db_data);
+        setFilteredMarkers(db_data);
+      } catch (err) {
+        Alert.alert("Error fetching data");
+      }
+    };
+
+    fetchMarkers();
+  }, []);
+
+  // Update filtered markers based on search input
+  useEffect(() => {
+    if (search === "") {
+      setFilteredMarkers(markers);
+    } else {
+      const filtered = markers.filter((marker) =>
+        marker.title.toLowerCase().includes(search.toLowerCase())
+      );
+      setFilteredMarkers(filtered);
+    }
+  }, [search, markers]);
+
   return (
     <SafeAreaView style={styles.container}>
+      <SearchBar
+        placeholder="Search Here..."
+        onChangeText={(text) => setSearch(text)}
+        value={search}
+        containerStyle={styles.searchContainer}
+        inputContainerStyle={styles.searchInputContainer}
+      />
       <MapView
-        key={markers.length}
-        style={styles.map}
-        initialRegion={INITIAL_REGION}
-        showsUserLocation
-        showsMyLocationButton
         ref={mapRef}
+        style={styles.map}
+        provider={PROVIDER_GOOGLE}
+        initialRegion={INITIAL_REGION}
       >
-        {markers.map((marker) => (
+        {filteredMarkers.map((marker) => (
           <Marker
             key={marker.id}
             coordinate={{
@@ -79,7 +103,6 @@ export default function HomeScreen() {
             }}
             title={marker.title}
             description={marker.description}
-            pinColor={marker.color ? marker.color : "red"}
             onPress={() => onMarkerSelected(marker)}
           />
         ))}
@@ -91,11 +114,16 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+  },
+  searchContainer: {
+    backgroundColor: 'white',
+    borderBottomColor: 'transparent',
+    borderTopColor: 'transparent',
+  },
+  searchInputContainer: {
+    backgroundColor: '#EDEDED',
   },
   map: {
-    width: "100%",
-    height: "100%",
+    flex: 1,
   },
 });

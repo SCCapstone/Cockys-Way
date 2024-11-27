@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Switch, ScrollView, TouchableOpacity } from 're
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import AppLoading from 'expo-app-loading';
 import { useRouter } from 'expo-router';
+import { FIREBASE_AUTH } from '../../FirebaseConfig';
 
 export default function SettingsScreen() {
   const router = useRouter();
