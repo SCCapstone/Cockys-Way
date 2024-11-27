@@ -1,7 +1,6 @@
-import { Stack, useRouter } from "expo-router";
+import { Stack } from 'expo-router';
 
 export default function Layout() {
-  const router = useRouter();
   return (
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -50,6 +49,13 @@ export default function Layout() {
         options={{
           title: "Search Results",
           headerBackTitleVisible: false,
+          headerTintColor: "#73000A",
+        }}
+      />
+      <Stack.Screen
+        name="PrivacySecurity"
+        options={{
+          title: "Privacy and Security",
           headerTintColor: "#73000A",
         }}
       />

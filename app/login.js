@@ -91,7 +91,7 @@ const Login = () => {
         </View>
       </View>
       <TouchableOpacity
-        style={[styles.registerButton, styles.registerButtonPosition]}
+        style={styles.registerButton} // Removed 'styles.registerButtonPosition' ; causes bug where the text is not visible.
         title="Register"
         onPress={() => {
           router.push("/register");

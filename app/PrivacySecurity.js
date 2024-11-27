@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text, StyleSheet, Switch, ScrollView, TouchableOpacity } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import AppLoading from 'expo-app-loading';
-import { useRouter } from 'expo-router';
+import { useNavigation } from '@react-navigation/native';
 
-export default function SettingsScreen() {
-  const router = useRouter();
+export default function PrivacySecurityScreen() {
+  const navigation = useNavigation();
   const [isEnabled, setIsEnabled] = React.useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -19,30 +19,25 @@ export default function SettingsScreen() {
 
   return (
     <ScrollView style={styles.container}>
-      <Text style={styles.header}>Settings</Text>
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
-        <View style={styles.accentBox}>
-          <Text style={styles.settingText}>Privacy and Security</Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/index')}>
-        <View style={styles.accentBox}>
-          <Text style={styles.settingText}>Favorite Locations</Text>
-        </View>
-      </TouchableOpacity>
+      <Text style={styles.header}>Privacy and Security</Text>
       <View style={styles.settingItem}>
         <View style={styles.accentBox}>
-          <Text style={styles.settingText}>Accessibility</Text>
+          <Text style={styles.settingText}>Delete my data</Text>
         </View>
       </View>
       <View style={styles.settingItem}>
         <View style={styles.accentBox}>
-          <Text style={styles.settingText}>My Account</Text>
+          <Text style={styles.settingText}>Option 2</Text>
+        </View>
+      </View>
+      <View style={styles.settingItem}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Option 3</Text>
         </View>
       </View>
       <View style={styles.settingItem}>
         <View style={styles.accentBoxSmall}>
-          <Text style={styles.settingText}>Enable Notifications</Text>
+          <Text style={styles.settingText}>Location Services</Text>
           <Switch
             trackColor={{ false: "#767577", true: "#81b0ff" }}
             thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4" }
