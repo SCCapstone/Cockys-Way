@@ -5,6 +5,11 @@ import { collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { useRouter } from "expo-router";
 import { SearchBar } from "react-native-elements";
+import * as SplashScreen from "expo-splash-screen";
+
+// Prevent the splash screen from auto-hiding
+SplashScreen.preventAutoHideAsync();
+
 //import { GOOGLE_API_KEY } from "@env";
 
 // Map page
@@ -17,6 +22,15 @@ import { SearchBar } from "react-native-elements";
 // };
 
 export default function HomeScreen() {
+  useEffect(() => {
+    async function prepare() {
+      console.log("TESTING TO HIDE SPLASH SCREEN");
+      // Hide the splash screen once the app is ready
+      await SplashScreen.hideAsync();
+    }
+
+    prepare();
+  }, []);
   const router = useRouter();
   const [markers, setMarkers] = useState([]);
   const [filteredMarkers, setFilteredMarkers] = useState([]);
@@ -116,12 +130,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   searchContainer: {
-    backgroundColor: 'white',
-    borderBottomColor: 'transparent',
-    borderTopColor: 'transparent',
+    backgroundColor: "white",
+    borderBottomColor: "transparent",
+    borderTopColor: "transparent",
   },
   searchInputContainer: {
-    backgroundColor: '#EDEDED',
+    backgroundColor: "#EDEDED",
   },
   map: {
     flex: 1,
