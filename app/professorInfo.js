@@ -15,17 +15,33 @@ import defaultImage from "../assets/professorInfo/200x200.png";
 export default function ProfessorInfo() {
   const { item } = useLocalSearchParams();
   const professor = JSON.parse(item);
+  const daysOfWeek = [
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+  ];
 
+  // Handles sorting the office hours by day of the week so
+  // that they are displayed in the correct order
+  const sortOfficeHours = (officeHours) => {
+    const sortedOfficeHours = {};
+    daysOfWeek.forEach((day) => {
+      if (officeHours[day]) {
+        sortedOfficeHours[day] = officeHours[day];
+      }
+    });
+    return sortedOfficeHours;
+  };
+
+  // saves the sorted office hours to a variable
+  const officeHours = sortOfficeHours(professor.officeHours);
+
+  // Checks if the professor is currently in their office
   const checkHours = (officeHours) => {
-    const daysOfWeek = [
-      "sunday",
-      "monday",
-      "tuesday",
-      "wednesday",
-      "thursday",
-      "friday",
-      "saturday",
-    ];
     const currentDay = daysOfWeek[new Date().getDay()];
     if (currentDay == "saturday" || currentDay == "sunday") return false;
     const hours = officeHours[currentDay];
@@ -49,9 +65,9 @@ export default function ProfessorInfo() {
 
     return currentMinutes >= start && currentMinutes <= end;
   };
-  const indicator = checkHours(professor.officeHours)
-    ? "Available"
-    : "Unavailable";
+
+  // updates the indicator and circle color based on the professor's office hours
+  const indicator = checkHours(officeHours) ? "Available" : "Unavailable";
   const circleColor = indicator === "Available" ? "#39C75A" : "#FF0000";
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -102,8 +118,8 @@ export default function ProfessorInfo() {
       <View style={styles.line}></View>
       <View style={[styles.officeInfo, styles.quickLook]}>
         <Text style={styles.quickLookHeader}>Office Hours:</Text>
-        {professor.officeHours &&
-          Object.entries(professor.officeHours).map(([day, hours]) =>
+        {officeHours &&
+          Object.entries(officeHours).map(([day, hours]) =>
             hours ? (
               <Text key={day} style={styles.quickLookText}>
                 {day.charAt(0).toUpperCase() + day.slice(1)}: {hours}
