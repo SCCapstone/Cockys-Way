@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { Marker, PROVIDER_DEFAULT, PROVIDER_GOOGLE } from "react-native-maps";
 import { StyleSheet, SafeAreaView, Alert, View, Text, Switch, ScrollView, TouchableOpacity } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
@@ -8,11 +8,10 @@ import { SearchBar } from "react-native-elements";
 import * as SplashScreen from "expo-splash-screen";
 import * as Location from 'expo-location';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { GOOGLE_API_KEY } from "@env";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
-
-//import { GOOGLE_API_KEY } from "@env";
 
 // Map page
 
@@ -105,9 +104,13 @@ export default function HomeScreen() {
 
   useEffect(() => {
     async function prepare() {
-      console.log("TESTING TO HIDE SPLASH SCREEN");
-      // Hide the splash screen once the app is ready
-      await SplashScreen.hideAsync();
+      try{
+        console.log("TESTING TO HIDE SPLASH SCREEN");
+        // Hide the splash screen once the app is ready
+        await SplashScreen.hideAsync();
+      } catch (e){
+        console.warn(e);
+      }
     }
 
     prepare();
@@ -132,6 +135,7 @@ export default function HomeScreen() {
       <MapView
         ref={mapRef}
         style={styles.map}
+        apiKey={GOOGLE_API_KEY}
         provider={PROVIDER_GOOGLE}
         initialRegion={INITIAL_REGION}
       >
