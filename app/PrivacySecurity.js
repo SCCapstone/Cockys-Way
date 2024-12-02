@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Switch, ScrollView, TouchableOpacity } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
-import AppLoading from 'expo-app-loading';
 import { router } from 'expo-router';
 import { FIREBASE_AUTH, FIREBASE_DB } from "../FirebaseConfig";
 import { updateProfile } from "firebase/auth";
@@ -17,10 +16,6 @@ export default function PrivacySecurityScreen() {
   let [fontsLoaded] = useFonts({
     Abel_400Regular,
   });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
 
   return (
     <ScrollView style={styles.container}>
