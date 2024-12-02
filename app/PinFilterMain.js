@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, Switch, TouchableOpacity } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import * as SplashScreen from 'expo-splash-screen';
 import { FIREBASE_AUTH, FIREBASE_DB } from "../FirebaseConfig";
@@ -14,6 +14,17 @@ SplashScreen.preventAutoHideAsync();
         Main page has all the main categories.
         Clicking them opens all the subcategories.
         Opening subcategory opens all the locations there.
+
+
+        Chloe To-Do:
+        -   Get all the locations in there
+        -   Get their data, then add a favorites & visibility variable
+                -   NEED Visibility, maybe not Favorites yet
+        -   Get locations to have all current & old names
+
+        -   Search looks through location array & returns list of all locations
+            whose names or address strings include the characters in the search
+                    Later, can adjust to have google-like search (accounting for typos)
 
 */
 
@@ -33,10 +44,94 @@ export default function FilterPinsMainScreen() {
   }
 
   return (
+    /*  Using '/PrivacySecurity' as a placeholder for each tab 
+        This should later be replaced to instead be dropdowns of sub-categories.
+        Then, following the same format, under sub-categories, list out each location
+    
+    */
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Filter Pins</Text>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Self-Made Pins</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Favorited Pins</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Academic Buildings</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Administrative Buildings</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Athletic Buildings</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>College Buildings</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Dining</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Housing</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Parking</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Shuttle Stops</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Rentables</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Bike Racks</Text>
+        </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>Multipurpose Buildings</Text>
+        </View>
+      </TouchableOpacity>
+
       <View style={styles.content}>
-        <Text style={styles.text}>Here you can look at all the upper-level categories for pins.</Text>
+        <Text style={styles.text}>Here you can look at all the upper-level categories for pins. (remove this text when done)</Text>
         {/* Add more content as needed */}
       </View>
     </ScrollView>
@@ -84,3 +179,14 @@ const styles = StyleSheet.create({
 });
 
 export { updateAccessibilitySettings };
+
+
+
+/*
+        For Chloe because her memory is shite
+
+        To commit:
+        git commit -m "Message"
+
+
+*/
