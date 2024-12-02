@@ -13,7 +13,6 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import { useRouter } from "expo-router";
-import getItemLayout from "react-native-section-list-get-item-layout";
 
 export default function Directory() {
   // Used for navigation
