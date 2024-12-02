@@ -2,15 +2,44 @@ import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Switch, ScrollView, TouchableOpacity } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import * as SplashScreen from 'expo-splash-screen';
-import { useRouter } from 'expo-router';
-import { FIREBASE_AUTH } from '../../FirebaseConfig';
+
+import { doc, setDoc } from "firebase/firestore"; 
+import { getFirestore } from "firebase/firestore";
+import { router } from 'expo-router';
+import { getAuth } from 'firebase/auth';
 
 SplashScreen.preventAutoHideAsync();
 
 export default function SettingsScreen() {
-  const router = useRouter();
   const [isEnabled, setIsEnabled] = React.useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const firestore = getFirestore(); // Initialize Firestore
+
+  const toggleSwitch = async () => {
+    setIsEnabled(async (previousState) => {
+      const newState = !previousState;
+      const user = getAuth().currentUser;
+
+      if (user) {
+        const uid = user.uid; // Get the user's UID
+        try {
+          // Update Firestore document for this user
+          const userDocRef = doc(firestore, "settings", uid);
+          await setDoc(
+            userDocRef,
+            { settings: { notificationsEnabled: newState } },
+            { merge: true } // Ensure we only update the necessary fields
+          );
+          console.log("Notification settings updated in Firestore.");
+        } catch (error) {
+          console.error("Error updating Firestore settings: ", error);
+        }
+      } else {
+        console.error("No user is signed in.");
+      }
+
+      return newState;
+    });
+  };
 
   let [fontsLoaded] = useFonts({
     Abel_400Regular,
@@ -54,7 +83,7 @@ export default function SettingsScreen() {
           <Text style={styles.settingText}>Enable Notifications</Text>
           <Switch
             trackColor={{ false: "#767577", true: "#81b0ff" }}
-            thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4" }
+            thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
             ios_backgroundColor="#3e3e3e"
             onValueChange={toggleSwitch}
             value={isEnabled}

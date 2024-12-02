@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import * as SplashScreen from 'expo-splash-screen';
+import { FIREBASE_AUTH, FIREBASE_DB } from "../FirebaseConfig";
+import { updateProfile, getAuth } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { router } from 'expo-router';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -31,6 +35,21 @@ export default function AccessibilityScreen() {
   );
 }
 
+const updateAccessibilitySettings = async (newSettings) => {
+  const user = getAuth().currentUser;
+  if (user) {
+    try {
+      const userDoc = doc(FIREBASE_DB, "users", user.uid);
+      await setDoc(userDoc, newSettings, { merge: true });
+      console.log("Accessibility settings updated successfully");
+    } catch (error) {
+      console.error("Error updating accessibility settings:", error);
+    }
+  } else {
+    console.error("No UID provided");
+  }
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -55,3 +74,5 @@ const styles = StyleSheet.create({
     fontFamily: 'Abel_400Regular',
   },
 });
+
+export { updateAccessibilitySettings };

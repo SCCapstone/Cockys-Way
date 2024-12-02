@@ -2,12 +2,17 @@ import React from 'react';
 import { View, Text, StyleSheet, Switch, ScrollView, TouchableOpacity } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import AppLoading from 'expo-app-loading';
-import { useNavigation } from '@react-navigation/native';
+import { router } from 'expo-router';
+import { FIREBASE_AUTH, FIREBASE_DB } from "../FirebaseConfig";
+import { updateProfile } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { getAuth } from 'firebase/auth';
 
 export default function PrivacySecurityScreen() {
   const navigation = useNavigation();
   const [isEnabled, setIsEnabled] = React.useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const user = getAuth().currentUser;
 
   let [fontsLoaded] = useFonts({
     Abel_400Regular,
@@ -51,6 +56,21 @@ export default function PrivacySecurityScreen() {
   );
 }
 
+const updatePrivacySecuritySettings = async (newSettings) => {
+  const user = getAuth().currentUser;
+  if (user) {
+    try {
+      const userDoc = doc(FIREBASE_DB, "users", user.uid);
+      await setDoc(userDoc, newSettings, { merge: true });
+      console.log("Privacy and Security settings updated successfully");
+    } catch (error) {
+      console.error("Error updating privacy and security settings:", error);
+    }
+  } else {
+    console.error("No UID provided");
+  }
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -93,3 +113,5 @@ const styles = StyleSheet.create({
     fontFamily: 'Abel_400Regular',
   },
 });
+
+export { updatePrivacySecuritySettings };
