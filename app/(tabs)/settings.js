@@ -15,31 +15,29 @@ export default function SettingsScreen() {
   const firestore = getFirestore(); // Initialize Firestore
 
   const toggleSwitch = async () => {
-    setIsEnabled(async (previousState) => {
-      const newState = !previousState;
-      const user = getAuth().currentUser;
-
-      if (user) {
-        const uid = user.uid; // Get the user's UID
-        try {
-          // Update Firestore document for this user
-          const userDocRef = doc(firestore, "settings", uid);
-          await setDoc(
-            userDocRef,
-            { settings: { notificationsEnabled: newState } },
-            { merge: true } // Ensure we only update the necessary fields
-          );
-          console.log("Notification settings updated in Firestore.");
-        } catch (error) {
-          console.error("Error updating Firestore settings: ", error);
-        }
-      } else {
-        console.error("No user is signed in.");
+    const newState = !isEnabled; // Calculate the new state
+    setIsEnabled(newState); // Update the state
+  
+    const user = getAuth().currentUser;
+    if (user) {
+      const uid = user.uid; // Get the user's UID
+      try {
+        // Update Firestore document for this user
+        const userDocRef = doc(firestore, "settings", uid);
+        await setDoc(
+          userDocRef,
+          { settings: { notificationsEnabled: newState } },
+          { merge: true } // Ensure only necessary fields are updated
+        );
+        console.log("Notification settings updated in Firestore.");
+      } catch (error) {
+        console.error("Error updating Firestore settings: ", error);
       }
-
-      return newState;
-    });
+    } else {
+      console.error("No user is signed in.");
+    }
   };
+  
 
   let [fontsLoaded] = useFonts({
     Abel_400Regular,
@@ -82,9 +80,9 @@ export default function SettingsScreen() {
         <View style={styles.accentBoxSmall}>
           <Text style={styles.settingText}>Enable Notifications</Text>
           <Switch
-            trackColor={{ false: "#767577", true: "#81b0ff" }}
-            thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-            ios_backgroundColor="#3e3e3e"
+            trackColor={{ false: "#000000", true: "#FFFFFF" }} // Black for off, Accent color for on
+            thumbColor={isEnabled ? "#F3F3F3" : "#FFFFFF"} // Garnet for on, White for off
+            ios_backgroundColor="#F3F3F3" // Background color
             onValueChange={toggleSwitch}
             value={isEnabled}
           />
