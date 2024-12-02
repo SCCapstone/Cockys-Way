@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import { StyleSheet, SafeAreaView, Alert, View } from "react-native";
+import { StyleSheet, SafeAreaView, Alert, View, Text, Switch, ScrollView, TouchableOpacity } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { useRouter } from "expo-router";
@@ -102,6 +102,13 @@ export default function HomeScreen() {
         containerStyle={styles.searchContainer}
         inputContainerStyle={styles.searchInputContainer}
       />
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PinFilterMain')}>
+        <View style={styles.accentBox}>
+          <Text style={styles.settingText}>This is a Test Button for Filter Pins</Text>
+        </View>
+      </TouchableOpacity>
+
+
       <MapView
         ref={mapRef}
         style={styles.map}
@@ -120,7 +127,9 @@ export default function HomeScreen() {
             onPress={() => onMarkerSelected(marker)}
           />
         ))}
+      
       </MapView>
+
     </SafeAreaView>
   );
 }
