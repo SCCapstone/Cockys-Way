@@ -15,31 +15,29 @@ export default function SettingsScreen() {
   const firestore = getFirestore(); // Initialize Firestore
 
   const toggleSwitch = async () => {
-    setIsEnabled(async (previousState) => {
-      const newState = !previousState;
-      const user = getAuth().currentUser;
-
-      if (user) {
-        const uid = user.uid; // Get the user's UID
-        try {
-          // Update Firestore document for this user
-          const userDocRef = doc(firestore, "settings", uid);
-          await setDoc(
-            userDocRef,
-            { settings: { notificationsEnabled: newState } },
-            { merge: true } // Ensure we only update the necessary fields
-          );
-          console.log("Notification settings updated in Firestore.");
-        } catch (error) {
-          console.error("Error updating Firestore settings: ", error);
-        }
-      } else {
-        console.error("No user is signed in.");
+    const newState = !isEnabled; // Calculate the new state
+    setIsEnabled(newState); // Update the state
+  
+    const user = getAuth().currentUser;
+    if (user) {
+      const uid = user.uid; // Get the user's UID
+      try {
+        // Update Firestore document for this user
+        const userDocRef = doc(firestore, "settings", uid);
+        await setDoc(
+          userDocRef,
+          { settings: { notificationsEnabled: newState } },
+          { merge: true } // Ensure only necessary fields are updated
+        );
+        console.log("Notification settings updated in Firestore.");
+      } catch (error) {
+        console.error("Error updating Firestore settings: ", error);
       }
-
-      return newState;
-    });
+    } else {
+      console.error("No user is signed in.");
+    }
   };
+  
 
   let [fontsLoaded] = useFonts({
     Abel_400Regular,
