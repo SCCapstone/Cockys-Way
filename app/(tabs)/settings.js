@@ -80,9 +80,9 @@ export default function SettingsScreen() {
         <View style={styles.accentBoxSmall}>
           <Text style={styles.settingText}>Enable Notifications</Text>
           <Switch
-            trackColor={{ false: "#767577", true: "#81b0ff" }}
-            thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-            ios_backgroundColor="#3e3e3e"
+            trackColor={{ false: "#000000", true: "#FFFFFF" }} // Black for off, Accent color for on
+            thumbColor={isEnabled ? "#F3F3F3" : "#FFFFFF"} // Garnet for on, White for off
+            ios_backgroundColor="#F3F3F3" // Background color
             onValueChange={toggleSwitch}
             value={isEnabled}
           />
