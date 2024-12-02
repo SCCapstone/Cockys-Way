@@ -6,6 +6,8 @@ import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { useRouter } from "expo-router";
 import { SearchBar } from "react-native-elements";
 import * as SplashScreen from "expo-splash-screen";
+import { check, request, PERMISSIONS, RESULTS } from "react-native-permissions";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -14,23 +16,7 @@ SplashScreen.preventAutoHideAsync();
 
 // Map page
 
-// need to get permissions of user
-// const getUserCurrentLocation = () => {
-//   Geolocation.getCurrentPosition(position => {
-//     console.log(position);
-//   });
-// };
-
 export default function HomeScreen() {
-  useEffect(() => {
-    async function prepare() {
-      console.log("TESTING TO HIDE SPLASH SCREEN");
-      // Hide the splash screen once the app is ready
-      await SplashScreen.hideAsync();
-    }
-
-    prepare();
-  }, []);
   const router = useRouter();
   const [markers, setMarkers] = useState([]);
   const [filteredMarkers, setFilteredMarkers] = useState([]);
@@ -93,6 +79,46 @@ export default function HomeScreen() {
     }
   }, [search, markers]);
 
+  // request location permissions
+  useEffect(() => {
+    const checkPermission = async () => {
+      const savedPermission = await AsyncStorage.getItem("locationPermission");
+      // check if user has already granted location permission
+      if (savedPermission){
+        setLocationPermission(savedPermission === "granted");
+        return;
+      }
+
+      // request if no perm saved
+      const status = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
+      if (status === RESULTS.GRANTED){
+        setLocationPermission(true);
+        AsyncStorage.setItem("locationPermission", "granted");
+      } else {
+        const requestStatus = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
+        if (requestStatus === RESULTS.GRANTED){
+          setLocationPermission(true);
+          AsyncStorage.setItem("locationPermission", "granted");
+        } else {
+          setLocationPermission(true);
+          AsyncStorage.setItem("locationPermission", "denied");
+        }
+      }
+    };
+
+    checkPermission();
+  }, []);
+
+  useEffect(() => {
+    async function prepare() {
+      console.log("TESTING TO HIDE SPLASH SCREEN");
+      // Hide the splash screen once the app is ready
+      await SplashScreen.hideAsync();
+    }
+
+    prepare();
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <SearchBar
@@ -127,9 +153,7 @@ export default function HomeScreen() {
             onPress={() => onMarkerSelected(marker)}
           />
         ))}
-      
       </MapView>
-
     </SafeAreaView>
   );
 }
