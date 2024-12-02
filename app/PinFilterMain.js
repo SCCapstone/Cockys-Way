@@ -10,6 +10,12 @@ import { router } from 'expo-router';
 SplashScreen.preventAutoHideAsync();
 
 /*
+        Originally took this code from the Accessibility page.
+        Need to edit to be Filter Pins instead
+
+
+
+
         This will be the page for the overall Pin Filters.
         Main page has all the main categories.
         Clicking them opens all the subcategories.
