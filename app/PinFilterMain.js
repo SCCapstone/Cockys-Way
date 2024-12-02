@@ -1,13 +1,18 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, Switch, TouchableOpacity } from 'react-native';
-import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
-import * as SplashScreen from 'expo-splash-screen';
+import React, { useEffect } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
+  Alert,
+  Switch,
+  TouchableOpacity,
+} from "react-native";
 import { FIREBASE_AUTH, FIREBASE_DB } from "../FirebaseConfig";
 import { updateProfile, getAuth } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import { router } from 'expo-router';
-
-SplashScreen.preventAutoHideAsync();
+import { router } from "expo-router";
 
 /*
         Originally took this code from the Accessibility page.
@@ -35,20 +40,6 @@ SplashScreen.preventAutoHideAsync();
 */
 
 export default function FilterPinsMainScreen() {
-  let [fontsLoaded] = useFonts({
-    Abel_400Regular,
-  });
-
-  useEffect(() => {
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-
-  if (!fontsLoaded) {
-    return null;
-  }
-
   return (
     /*  Using '/PrivacySecurity' as a placeholder for each tab 
         This should later be replaced to instead be dropdowns of sub-categories.
@@ -58,86 +49,128 @@ export default function FilterPinsMainScreen() {
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Filter Pins</Text>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Self-Made Pins</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Favorited Pins</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Academic Buildings</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Administrative Buildings</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Athletic Buildings</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>College Buildings</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Dining</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Housing</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Parking</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Shuttle Stops</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Rentables</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Bike Racks</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PrivacySecurity")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Multipurpose Buildings</Text>
         </View>
       </TouchableOpacity>
 
       <View style={styles.content}>
-        <Text style={styles.text}>Here you can look at all the upper-level categories for pins. (remove this text when done)</Text>
+        <Text style={styles.text}>
+          Here you can look at all the upper-level categories for pins. (remove
+          this text when done)
+        </Text>
         {/* Add more content as needed */}
       </View>
     </ScrollView>
@@ -163,30 +196,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#F3F3F3',
+    backgroundColor: "#F3F3F3",
   },
   header: {
     fontSize: 30,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 20,
-    color: '#73000A',
-    fontFamily: 'Abel_400Regular',
+    color: "#73000A",
   },
   content: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
     padding: 20,
     borderRadius: 5,
   },
   text: {
     fontSize: 18,
-    color: '#000000',
-    fontFamily: 'Abel_400Regular',
+    color: "#000000",
   },
 });
 
 export { updateAccessibilitySettings };
-
-
 
 /*
         For Chloe because her memory is shite

@@ -1,20 +1,21 @@
 import React, { useEffect, useState, useRef } from "react";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-import { StyleSheet, SafeAreaView, Alert, View, Text, Switch, ScrollView, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  Alert,
+  View,
+  Text,
+  Switch,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { useRouter } from "expo-router";
 import { SearchBar } from "react-native-elements";
-import * as SplashScreen from "expo-splash-screen";
-import * as Location from 'expo-location';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-// Prevent the splash screen from auto-hiding
-SplashScreen.preventAutoHideAsync();
-
-//import { GOOGLE_API_KEY } from "@env";
-
-// Map page
+import * as Location from "expo-location";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -79,17 +80,17 @@ export default function HomeScreen() {
     }
   }, [search, markers]);
 
-  // request location permissions
+  // Request location permissions
   useEffect(() => {
     const checkPermission = async () => {
       const savedPermission = await AsyncStorage.getItem("locationPermission");
-      // check if user has already granted location permission
-      if (savedPermission){
+      // Check if user has already granted location permission
+      if (savedPermission) {
         setLocationPermission(savedPermission === "granted");
         return;
       }
 
-      // request if no perm saved
+      // Request if no permission saved
       const { status } = await Location.requestForegroundPermissionsAsync();
       if (status === "granted") {
         setLocationPermission(true);
@@ -103,16 +104,6 @@ export default function HomeScreen() {
     checkPermission();
   }, []);
 
-  useEffect(() => {
-    async function prepare() {
-      console.log("TESTING TO HIDE SPLASH SCREEN");
-      // Hide the splash screen once the app is ready
-      await SplashScreen.hideAsync();
-    }
-
-    prepare();
-  }, []);
-
   return (
     <SafeAreaView style={styles.container}>
       <SearchBar
@@ -122,12 +113,16 @@ export default function HomeScreen() {
         containerStyle={styles.searchContainer}
         inputContainerStyle={styles.searchInputContainer}
       />
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PinFilterMain')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PinFilterMain")}
+      >
         <View style={styles.accentBox}>
-          <Text style={styles.settingText}>This is a Test Button for Filter Pins</Text>
+          <Text style={styles.settingText}>
+            This is a Test Button for Filter Pins
+          </Text>
         </View>
       </TouchableOpacity>
-
 
       <MapView
         ref={mapRef}
