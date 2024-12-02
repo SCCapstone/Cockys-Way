@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Switch, ScrollView, TouchableOpacity } from 're
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import * as SplashScreen from 'expo-splash-screen';
 
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc, getDoc } from "firebase/firestore"; 
 import { getFirestore } from "firebase/firestore";
 import { router } from 'expo-router';
 import { getAuth } from 'firebase/auth';
@@ -13,6 +13,34 @@ SplashScreen.preventAutoHideAsync();
 export default function SettingsScreen() {
   const [isEnabled, setIsEnabled] = React.useState(false);
   const firestore = getFirestore(); // Initialize Firestore
+
+  // Fetch the notification setting on component mount
+  useEffect(() => {
+    const fetchNotificationSetting = async () => {
+      const user = getAuth().currentUser;
+      if (user) {
+        const uid = user.uid;
+        try {
+          const userDocRef = doc(firestore, "settings", uid);
+          const userDoc = await getDoc(userDocRef);
+
+          if (userDoc.exists()) {
+            const data = userDoc.data();
+            const notificationsEnabled = data.settings?.notificationsEnabled || false; // Default to false
+            setIsEnabled(notificationsEnabled);
+          } else {
+            console.log("No settings document found for user.");
+          }
+        } catch (error) {
+          console.error("Error fetching Firestore settings: ", error);
+        }
+      } else {
+        console.error("No user is signed in.");
+      }
+    };
+
+    fetchNotificationSetting();
+  }, [firestore]);
 
   const toggleSwitch = async () => {
     const newState = !isEnabled; // Calculate the new state
@@ -37,7 +65,6 @@ export default function SettingsScreen() {
       console.error("No user is signed in.");
     }
   };
-  
 
   let [fontsLoaded] = useFonts({
     Abel_400Regular,

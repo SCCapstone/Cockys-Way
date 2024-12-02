@@ -1,22 +1,61 @@
-import React from 'react';
-import { View, Text, StyleSheet, Switch, ScrollView } from 'react-native';
+import React, { useEffect } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Switch,
+  ScrollView,
+  TouchableOpacity,
+  Modal,
+  Alert,
+  Pressable,
+} from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
-import { FIREBASE_AUTH, FIREBASE_DB } from "../FirebaseConfig";
-import { getAuth } from 'firebase/auth';
+import { getFirestore, doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 import { useNavigation } from '@react-navigation/native';
-import { getFirestore, doc, setDoc } from "firebase/firestore";
-const firestore = getFirestore();
+
 export default function PrivacySecurityScreen() {
   const navigation = useNavigation();
   const [isEnabled, setIsEnabled] = React.useState(false);
+  const [modalVisible, setModalVisible] = React.useState(false); // State for dialog visibility
   const user = getAuth().currentUser;
+
+  // Initialize Firestore
+  const firestore = getFirestore();
+
+  // Fetch settings from Firestore on component mount
+  useEffect(() => {
+    const fetchSettings = async () => {
+      if (user) {
+        try {
+          const userDoc = doc(firestore, "settings", user.uid);
+          const userSnapshot = await getDoc(userDoc);
+
+          if (userSnapshot.exists()) {
+            const userData = userSnapshot.data();
+            const locationEnabled = userData.settings?.locationEnabled || false;
+            setIsEnabled(locationEnabled); // Set initial toggle state
+          } else {
+            console.log("No settings document found for user.");
+          }
+        } catch (error) {
+          console.error("Error fetching user settings:", error);
+        }
+      } else {
+        console.error("No UID provided");
+      }
+    };
+
+    fetchSettings();
+  }, [user]); // Depend on user to ensure fetching happens after user is authenticated
 
   // Function to update privacy and security settings
   const updatePrivacySecuritySettings = async (newSettings) => {
     if (user) {
       try {
         const userDoc = doc(firestore, "settings", user.uid); // Collection: "settings", Document: UID
-        await setDoc(userDoc, newSettings, { merge: true });
+        await setDoc(userDoc, { settings: newSettings }, { merge: true }); // Nested under "settings" field
         console.log("Privacy and Security settings updated successfully");
       } catch (error) {
         console.error("Error updating privacy and security settings:", error);
@@ -33,6 +72,24 @@ export default function PrivacySecurityScreen() {
     updatePrivacySecuritySettings({ locationEnabled: newState });
   };
 
+  // Function to handle deleting user data
+  const deleteUserData = async () => {
+    if (user) {
+      try {
+        const userDoc = doc(firestore, "settings", user.uid);
+        await deleteDoc(userDoc);
+        console.log("User data deleted successfully");
+        Alert.alert("Data Deleted", "Your data has been successfully deleted.");
+        setModalVisible(false); // Close the dialog
+      } catch (error) {
+        console.error("Error deleting user data:", error);
+        Alert.alert("Error", "There was an error deleting your data.");
+      }
+    } else {
+      console.error("No UID provided");
+    }
+  };
+
   let [fontsLoaded] = useFonts({
     Abel_400Regular,
   });
@@ -40,21 +97,50 @@ export default function PrivacySecurityScreen() {
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Privacy and Security</Text>
+
+      {/* Delete My Data Button */}
       <View style={styles.settingItem}>
-        <View style={styles.accentBox}>
-          <Text style={styles.settingText}>Delete my data</Text>
-        </View>
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={() => setModalVisible(true)}
+        >
+          <Text style={styles.deleteButtonText}>Delete my data</Text>
+        </TouchableOpacity>
       </View>
-      <View style={styles.settingItem}>
-        <View style={styles.accentBox}>
-          <Text style={styles.settingText}>Option 2</Text>
+
+      {/* Modal for confirmation */}
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContainer}>
+            <Text style={styles.modalTitle}>Warning</Text>
+            <Text style={styles.modalText}>
+              Are you sure you want to delete all your data? This action cannot
+              be undone.
+            </Text>
+            <View style={styles.modalActions}>
+              <Pressable
+                style={styles.modalButton}
+                onPress={() => setModalVisible(false)}
+              >
+                <Text style={styles.modalButtonText}>Cancel</Text>
+              </Pressable>
+              <Pressable
+                style={[styles.modalButton, styles.modalButtonDanger]}
+                onPress={deleteUserData}
+              >
+                <Text style={styles.modalButtonText}>Delete</Text>
+              </Pressable>
+            </View>
+          </View>
         </View>
-      </View>
-      <View style={styles.settingItem}>
-        <View style={styles.accentBox}>
-          <Text style={styles.settingText}>Option 3</Text>
-        </View>
-      </View>
+      </Modal>
+
+      {/* Location Services Toggle */}
       <View style={styles.settingItem}>
         <View style={styles.accentBoxSmall}>
           <Text style={styles.settingText}>Location Services</Text>
@@ -92,11 +178,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#E0E0E0',
   },
-  accentBox: {
+  deleteButton: {
     backgroundColor: '#73000A',
     padding: 10,
     borderRadius: 5,
     flex: 1,
+  },
+  deleteButtonText: {
+    fontSize: 20,
+    color: '#FFFFFF',
+    textAlign: 'center',
   },
   accentBoxSmall: {
     backgroundColor: '#73000A',
@@ -111,5 +202,47 @@ const styles = StyleSheet.create({
     fontSize: 22.5,
     color: '#FFFFFF',
     fontFamily: 'Abel_400Regular',
+  },
+  modalOverlay: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalContainer: {
+    backgroundColor: '#FFFFFF',
+    padding: 20,
+    borderRadius: 10,
+    alignItems: 'center',
+    width: '80%',
+  },
+  modalTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  modalText: {
+    fontSize: 16,
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  modalActions: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+  },
+  modalButton: {
+    padding: 10,
+    borderRadius: 5,
+    backgroundColor: '#E0E0E0',
+    width: '45%',
+    alignItems: 'center',
+  },
+  modalButtonDanger: {
+    backgroundColor: '#FF5C5C',
+  },
+  modalButtonText: {
+    color: '#FFFFFF',
+    fontWeight: 'bold',
   },
 });
