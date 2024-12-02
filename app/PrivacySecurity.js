@@ -6,6 +6,8 @@ import { FIREBASE_AUTH, FIREBASE_DB } from "../FirebaseConfig";
 import { updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { getAuth } from 'firebase/auth';
+import { useNavigation } from '@react-navigation/native';
+
 
 export default function PrivacySecurityScreen() {
   const navigation = useNavigation();
