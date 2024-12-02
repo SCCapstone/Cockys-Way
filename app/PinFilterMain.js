@@ -192,9 +192,11 @@ export { updateAccessibilitySettings };
         For Chloe because her memory is shite
 
         To commit:
+        git pull
         git add .
         git commit -m "Message"
         git pull
+        git push
     
 
 */
