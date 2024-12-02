@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
@@ -9,14 +9,9 @@ import {
   Modal,
   Alert,
   Pressable,
-} from "react-native";
-import {
-  getFirestore,
-  doc,
-  getDoc,
-  setDoc,
-  deleteDoc,
-} from "firebase/firestore";
+} from 'react-native';
+import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
+import { getFirestore, doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 
@@ -32,8 +27,7 @@ export default function PrivacySecurityScreen() {
   // Fetch settings from Firestore when the component mounts
   useEffect(() => {
     const fetchSettings = async () => {
-      if (user) {
-        // Ensure user is authenticated
+      if (user) { // Ensure user is authenticated
         try {
           const userDoc = doc(firestore, "settings", user.uid); // Reference user's document
           const userSnapshot = await getDoc(userDoc); // Fetch the document from Firestore
@@ -96,6 +90,11 @@ export default function PrivacySecurityScreen() {
       console.error("No UID provided");
     }
   };
+
+  // Load custom fonts and ensure splash screen hides after fonts are ready
+  let [fontsLoaded] = useFonts({
+    Abel_400Regular,
+  });
 
   return (
     <ScrollView style={styles.container}>
@@ -165,85 +164,88 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#F3F3F3",
+    backgroundColor: '#F3F3F3',
   },
   header: {
     fontSize: 30,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
+    color: '#73000A', // Garnet color for header
+    fontFamily: 'Abel_400Regular',
   },
   settingItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingVertical: 15,
     borderBottomWidth: 1,
-    borderBottomColor: "#E0E0E0", // Light grey divider
+    borderBottomColor: '#E0E0E0', // Light grey divider
   },
   deleteButton: {
-    backgroundColor: "#73000A", // Garnet background
+    backgroundColor: '#73000A', // Garnet background
     padding: 10,
     borderRadius: 5,
     flex: 1,
   },
   deleteButtonText: {
     fontSize: 20,
-    color: "#FFFFFF", // White text
-    textAlign: "center",
+    color: '#FFFFFF', // White text
+    textAlign: 'center',
   },
   accentBoxSmall: {
-    backgroundColor: "#73000A", // Garnet background
+    backgroundColor: '#73000A', // Garnet background
     padding: 5,
     borderRadius: 5,
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   settingText: {
     fontSize: 22.5,
-    color: "#FFFFFF", // White text
+    color: '#FFFFFF', // White text
+    fontFamily: 'Abel_400Regular',
   },
   modalOverlay: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent background
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
   },
   modalContainer: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: '#FFFFFF',
     padding: 20,
     borderRadius: 10,
-    alignItems: "center",
-    width: "80%",
+    alignItems: 'center',
+    width: '80%',
   },
   modalTitle: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 10,
   },
   modalText: {
     fontSize: 16,
     marginBottom: 20,
-    textAlign: "center",
+    textAlign: 'center',
   },
   modalActions: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
   },
   modalButton: {
     padding: 10,
     borderRadius: 5,
-    backgroundColor: "#E0E0E0",
-    width: "45%",
-    alignItems: "center",
+    backgroundColor: '#E0E0E0',
+    width: '45%',
+    alignItems: 'center',
   },
   modalButtonDanger: {
-    backgroundColor: "#FF5C5C", // Red background for delete
+    backgroundColor: '#FF5C5C', // Red background for delete
   },
   modalButtonText: {
-    color: "#FFFFFF", // White text
-    fontWeight: "bold",
+    color: '#FFFFFF', // White text
+    fontWeight: 'bold',
   },
 });

@@ -32,6 +32,8 @@
       }
     },
     "owner": "cockys-way",
-    "plugins": ["expo-font"]
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

@@ -1,16 +1,15 @@
-import React, { useEffect } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Switch,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
-import { doc, setDoc, getDoc } from "firebase/firestore";
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet, Switch, ScrollView, TouchableOpacity } from 'react-native';
+import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
+import * as SplashScreen from 'expo-splash-screen';
+
+import { doc, setDoc, getDoc } from "firebase/firestore"; 
 import { getFirestore } from "firebase/firestore";
-import { router } from "expo-router";
-import { getAuth } from "firebase/auth";
+import { router } from 'expo-router';
+import { getAuth } from 'firebase/auth';
+
+// Prevent the splash screen from hiding until fonts are loaded
+SplashScreen.preventAutoHideAsync();
 
 export default function SettingsScreen() {
   // State to track whether notifications are enabled
@@ -33,8 +32,7 @@ export default function SettingsScreen() {
           if (userDoc.exists()) {
             // Extract the notificationsEnabled setting or default to false
             const data = userDoc.data();
-            const notificationsEnabled =
-              data.settings?.notificationsEnabled || false;
+            const notificationsEnabled = data.settings?.notificationsEnabled || false;
             setIsEnabled(notificationsEnabled); // Update the toggle state
           } else {
             console.log("No settings document found for user.");
@@ -75,42 +73,46 @@ export default function SettingsScreen() {
     }
   };
 
+  // Load custom fonts and hide splash screen when fonts are ready
+  let [fontsLoaded] = useFonts({
+    Abel_400Regular,
+  });
+
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync(); // Hide the splash screen
+    }
+  }, [fontsLoaded]);
+
+  // Show nothing until fonts are loaded
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Settings</Text>
       {/* Navigate to Privacy and Security screen */}
-      <TouchableOpacity
-        style={styles.settingItem}
-        onPress={() => router.push("/PrivacySecurity")}
-      >
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Privacy and Security</Text>
         </View>
       </TouchableOpacity>
       {/* Navigate to Favorite Locations screen */}
-      <TouchableOpacity
-        style={styles.settingItem}
-        onPress={() => router.push("/favLocations")}
-      >
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/favLocations')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Favorite Locations</Text>
         </View>
       </TouchableOpacity>
       {/* Navigate to Accessibility settings */}
       <View style={styles.settingItem}>
-        <TouchableOpacity
-          style={styles.accentBox}
-          onPress={() => router.push("/accessibility")}
-        >
+        <TouchableOpacity style={styles.accentBox} onPress={() => router.push('/accessibility')}>
           <Text style={styles.settingText}>Accessibility</Text>
         </TouchableOpacity>
       </View>
       {/* Navigate to My Account settings */}
       <View style={styles.settingItem}>
-        <TouchableOpacity
-          style={styles.accentBox}
-          onPress={() => router.push("/login")}
-        >
+        <TouchableOpacity style={styles.accentBox} onPress={() => router.push('/login')}>
           <Text style={styles.settingText}>My Account</Text>
         </TouchableOpacity>
       </View>
@@ -136,39 +138,41 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: "#F3F3F3", // Light grey background
+    backgroundColor: '#F3F3F3', // Light grey background
   },
   header: {
     fontSize: 30,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
-    color: "#73000A", // Garnet color for header text
+    color: '#73000A', // Garnet color for header text
+    fontFamily: 'Abel_400Regular',
   },
   settingItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingVertical: 15,
     borderBottomWidth: 1,
-    borderBottomColor: "#E0E0E0", // Light grey border
+    borderBottomColor: '#E0E0E0', // Light grey border
   },
   accentBox: {
-    backgroundColor: "#73000A", // Garnet background for buttons
+    backgroundColor: '#73000A', // Garnet background for buttons
     padding: 10,
     borderRadius: 5,
     flex: 1,
   },
   accentBoxSmall: {
-    backgroundColor: "#73000A", // Garnet background for smaller sections
+    backgroundColor: '#73000A', // Garnet background for smaller sections
     padding: 5,
     borderRadius: 5,
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   settingText: {
     fontSize: 22.5,
-    color: "#FFFFFF", // White text
+    color: '#FFFFFF', // White text
+    fontFamily: 'Abel_400Regular',
   },
 });
