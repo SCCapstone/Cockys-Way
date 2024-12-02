@@ -6,7 +6,7 @@ import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { useRouter } from "expo-router";
 import { SearchBar } from "react-native-elements";
 import * as SplashScreen from "expo-splash-screen";
-import { check, request, PERMISSIONS, RESULTS } from "react-native-permissions";
+import * as Location from 'expo-location';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Prevent the splash screen from auto-hiding
@@ -90,19 +90,13 @@ export default function HomeScreen() {
       }
 
       // request if no perm saved
-      const status = await check(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
-      if (status === RESULTS.GRANTED){
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status === "granted") {
         setLocationPermission(true);
         AsyncStorage.setItem("locationPermission", "granted");
       } else {
-        const requestStatus = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION);
-        if (requestStatus === RESULTS.GRANTED){
-          setLocationPermission(true);
-          AsyncStorage.setItem("locationPermission", "granted");
-        } else {
-          setLocationPermission(true);
-          AsyncStorage.setItem("locationPermission", "denied");
-        }
+        setLocationPermission(false);
+        AsyncStorage.setItem("locationPermission", "denied");
       }
     };
 
