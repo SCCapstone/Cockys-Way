@@ -20,6 +20,7 @@ export default function HomeScreen() {
   const [markers, setMarkers] = useState([]);
   const [filteredMarkers, setFilteredMarkers] = useState([]);
   const [search, setSearch] = useState("");
+  const [userLocation, setUserLocation] = useState(null);
   const mapRef = useRef(null);
 
   const INITIAL_REGION = {
@@ -116,6 +117,23 @@ export default function HomeScreen() {
     prepare();
   }, []);
 
+  // Display user's current location on map
+  useEffect(() => {
+    const getLocation = async () => {
+      // check if user granted access to location
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      console.log(status);
+      if (status === "granted"){
+        const location = await Location.getCurrentPositionAsync({});
+        setUserLocation(location.coords);
+      } else {
+        Alert.alert("Permission denied, please grant location access");
+      }
+    };
+
+    getLocation();
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       <SearchBar
@@ -138,6 +156,8 @@ export default function HomeScreen() {
         apiKey={GOOGLE_API_KEY}
         provider={PROVIDER_GOOGLE}
         initialRegion={INITIAL_REGION}
+        showsUserLocation={true}
+        followsUserLocation={true}
       >
         {filteredMarkers.map((marker) => (
           <Marker
