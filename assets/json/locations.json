@@ -1,0 +1,518 @@
+[
+    {
+        "name": "1000 Catawba Street",
+        "lat": 33.987514,
+        "lng": -81.03051,
+        "id": 223277
+    },
+    {
+        "lat": 33.989014,
+        "lng": -81.02774,
+        "id": 223278,
+        "name": "1200 Catawba Street"
+    },
+    {
+        "lat": 33.995152,
+        "lng": -81.030029,
+        "id": 223279,
+        "name": "1215 Devine Street (Neutron Generator)"
+    },
+    {
+        "lat": 33.989799,
+        "lng": -81.026947,
+        "id": 223280,
+        "name": "1223 Catawba Street"
+    },
+    {
+        "lat": 34.004467,
+        "lng": -81.03392,
+        "id": 223281,
+        "name": "1233 Washington Street"
+    },
+    {
+        "lat": 33.999599,
+        "lng": -81.029938,
+        "id": 223282,
+        "name": "1321 Pendleton Street (S.C. Institute of Archaeology and Anthropology)"
+    },
+    {
+        "lat": 34.00087,
+        "lng": -81.028252,
+        "id": 223283,
+        "name": "1430 Senate Street"
+    },
+    {
+        "lat": 34.004177,
+        "lng": -81.023346,
+        "id": 223284,
+        "name": "1800 Gervais Street (Institute for Mind and Brain)"
+    },
+    {
+        "lat": 33.999191,
+        "lng": -81.013397,
+        "id": 223285,
+        "name": "2221 Devine Street"
+    },
+    {
+        "lat": 33.990192,
+        "lng": -81.028061,
+        "id": 223286,
+        "name": "300 Main Street (Civil and Mechanical Engineering Building)"
+    },
+    {
+        "lat": 33.990017,
+        "lng": -81.026222,
+        "id": 223287,
+        "name": "300 Sumter Street"
+    },
+    {
+        "lat": 33.994106,
+        "lng": -81.023727,
+        "id": 223288,
+        "name": "513 Pickens Street (ROTC)"
+    },
+    {
+        "lat": 33.993935,
+        "lng": -81.024055,
+        "id": 223289,
+        "name": "513 Pickens Street Annex (ROTC Annex)"
+    },
+    {
+        "lat": 33.987179,
+        "lng": -81.035484,
+        "id": 223290,
+        "name": "707 Catawba Street"
+    },
+    {
+        "lat": 33.993099,
+        "lng": -81.042084,
+        "id": 223292,
+        "name": "800-A Huger Street"
+    },
+    {
+        "lat": 33.99939,
+        "lng": -81.022095,
+        "id": 223293,
+        "name": "819 Barnwell Street"
+    },
+    {
+        "lat": 33.999638,
+        "lng": -81.026459,
+        "id": 223294,
+        "name": "Barnwell College"
+    },
+    {
+        "lat": 33.99052,
+        "lng": -81.022484,
+        "id": 223295,
+        "name": "Benson"
+    },
+    {
+        "lat": 33.988884,
+        "lng": -81.026558,
+        "id": 223296,
+        "name": "1220 Catawba"
+    },
+    {
+        "lat": 33.993252,
+        "lng": -81.025612,
+        "id": 223297,
+        "name": "Booker T. Washington"
+    },
+    {
+        "lat": 33.996254,
+        "lng": -81.026222,
+        "id": 223298,
+        "name": "Callcott Social Sciences Center"
+    },
+    {
+        "lat": 33.993839,
+        "lng": -81.033066,
+        "id": 223299,
+        "name": "Carolina Coliseum"
+    },
+    {
+        "lat": 33.997475,
+        "lng": -81.028084,
+        "id": 223300,
+        "name": "Preston Greenhouse"
+    },
+    {
+        "lat": 34.000607,
+        "lng": -81.023232,
+        "id": 223301,
+        "name": "Close-Hipp Buildings"
+    },
+    {
+        "lat": 33.995358,
+        "lng": -81.029617,
+        "id": 223304,
+        "name": "Coker Life Sciences Building"
+    },
+    {
+        "lat": 33.997669,
+        "lng": -81.02774,
+        "id": 223305,
+        "name": "Currell Annex"
+    },
+    {
+        "lat": 33.997753,
+        "lng": -81.027168,
+        "id": 223306,
+        "name": "Currell College"
+    },
+    {
+        "lat": 33.994537,
+        "lng": -81.033485,
+        "id": 223307,
+        "name": "Darla Moore School of Business"
+    },
+    {
+        "lat": 33.997997,
+        "lng": -81.026215,
+        "id": 223308,
+        "name": "Davis College"
+    },
+    {
+        "lat": 33.994968,
+        "lng": -81.03521,
+        "id": 223310,
+        "name": "Discovery I Building"
+    },
+    {
+        "lat": 33.995365,
+        "lng": -81.030052,
+        "id": 223311,
+        "name": "Earth and Water Sciences Building"
+    },
+    {
+        "lat": 33.991482,
+        "lng": -81.025063,
+        "id": 223312,
+        "name": "Challenge Course Building"
+    },
+    {
+        "lat": 33.998863,
+        "lng": -81.029648,
+        "id": 223313,
+        "name": "Flinn Hall"
+    },
+    {
+        "lat": 33.998821,
+        "lng": -81.023834,
+        "id": 223314,
+        "name": "Gambrell Hall"
+    },
+    {
+        "lat": 33.987312,
+        "lng": -81.022606,
+        "id": 223315,
+        "name": "Greenhouse No. 2"
+    },
+    {
+        "lat": 34.000034,
+        "lng": -81.026161,
+        "id": 223316,
+        "name": "Hamilton College"
+    },
+    {
+        "lat": 33.994488,
+        "lng": -81.027763,
+        "id": 223317,
+        "name": "Hollings Special Collections Library"
+    },
+    {
+        "lat": 33.992722,
+        "lng": -81.030067,
+        "id": 223318,
+        "name": "Horizon I Building"
+    },
+    {
+        "lat": 33.998833,
+        "lng": -81.024811,
+        "id": 223319,
+        "name": "Welsh Humanities Classroom Building"
+    },
+    {
+        "lat": 33.992462,
+        "lng": -81.030968,
+        "id": 223320,
+        "name": "Innovation Center Building"
+    },
+    {
+        "lat": 33.999058,
+        "lng": -81.024391,
+        "id": 223321,
+        "name": "J. Welsh Humanities Building"
+    },
+    {
+        "lat": 33.997822,
+        "lng": -81.030396,
+        "id": 223322,
+        "name": "James F. Byrnes Building"
+    },
+    {
+        "lat": 33.995277,
+        "lng": -81.030434,
+        "id": 223323,
+        "name": "Jones Physical Sciences Center"
+    },
+    {
+        "lat": 34.003017,
+        "lng": -81.032074,
+        "id": 223324,
+        "name": "Keenan Building"
+    },
+    {
+        "lat": 33.99836,
+        "lng": -81.025406,
+        "id": 223325,
+        "name": "LeConte College"
+    },
+    {
+        "lat": 33.995453,
+        "lng": -81.029099,
+        "id": 223327,
+        "name": "Longstreet Annex"
+    },
+    {
+        "lat": 33.998718,
+        "lng": -81.027,
+        "id": 223328,
+        "name": "McKissick"
+    },
+    {
+        "lat": 34.00267,
+        "lng": -81.0261,
+        "id": 223329,
+        "name": "McMaster College"
+    },
+    {
+        "lat": 33.997547,
+        "lng": -81.026413,
+        "id": 223330,
+        "name": "Melton Observatory"
+    },
+    {
+        "lat": 34.088989,
+        "lng": -80.967583,
+        "id": 223331,
+        "name": "Library Annex and Conservation Facility"
+    },
+    {
+        "lat": 33.994484,
+        "lng": -81.029366,
+        "id": 223332,
+        "name": "John M. Palms Center for Graduate Science Research"
+    },
+    {
+        "lat": 33.997772,
+        "lng": -81.02562,
+        "id": 223333,
+        "name": "Petigru College"
+    },
+    {
+        "lat": 33.996922,
+        "lng": -81.033974,
+        "id": 223334,
+        "name": "Public Health Research Center"
+    },
+    {
+        "lat": 33.996841,
+        "lng": -81.029388,
+        "id": 223335,
+        "name": "School of Journalism and Mass Communications"
+    },
+    {
+        "lat": 33.99612,
+        "lng": -81.034225,
+        "id": 223337,
+        "name": "School of Music"
+    },
+    {
+        "lat": 33.99939,
+        "lng": -81.025879,
+        "id": 223338,
+        "name": "Sloan College"
+    },
+    {
+        "lat": 33.998318,
+        "lng": -81.029961,
+        "id": 223339,
+        "name": "South Caroliniana Library"
+    },
+    {
+        "lat": 33.995792,
+        "lng": -81.030273,
+        "id": 223341,
+        "name": "Sumwalt College"
+    },
+    {
+        "lat": 33.989532,
+        "lng": -81.029297,
+        "id": 223342,
+        "name": "Swearingen Engineering Center"
+    },
+    {
+        "lat": 33.995224,
+        "lng": -81.028137,
+        "id": 223343,
+        "name": "Thomas Cooper Library"
+    },
+    {
+        "lat": 33.996643,
+        "lng": -81.030785,
+        "id": 223344,
+        "name": "Wardlaw College"
+    },
+    {
+        "lat": 33.998177,
+        "lng": -81.024376,
+        "id": 223345,
+        "name": "Williams-Brice Building"
+    },
+    {
+        "lat": 33.997143,
+        "lng": -81.030647,
+        "id": 223371,
+        "name": "Drayton Hall"
+    },
+    {
+        "lat": 33.998753,
+        "lng": -81.028755,
+        "id": 224604,
+        "name": "McCutchen House"
+    },
+    {
+        "lat": 33.977524,
+        "lng": -80.961006,
+        "id": 227528,
+        "name": "Medicine VA Campus, Building No. 1"
+    },
+    {
+        "lat": 33.978092,
+        "lng": -80.961693,
+        "id": 227529,
+        "name": "Medicine VA Campus, Building No. 2"
+    },
+    {
+        "lat": 33.977543,
+        "lng": -80.962257,
+        "id": 227530,
+        "name": "Medicine VA Campus, Building No. 3"
+    },
+    {
+        "lat": 33.977097,
+        "lng": -80.96151,
+        "id": 227531,
+        "name": "Medicine VA Campus, Building No. 4"
+    },
+    {
+        "lat": 33.976704,
+        "lng": -80.960976,
+        "id": 227532,
+        "name": "Medicine VA Campus, Building No. 101"
+    },
+    {
+        "lat": 33.976997,
+        "lng": -80.961136,
+        "id": 227533,
+        "name": "Medicine VA Campus, Building No. 104"
+    },
+    {
+        "lat": 33.978477,
+        "lng": -80.962349,
+        "id": 227534,
+        "name": "Medicine VA Campus, Building No. 28"
+    },
+    {
+        "lat": 34.002518,
+        "lng": -81.027779,
+        "id": 227607,
+        "name": "Joseph F. Rice School of Law"
+    },
+    {
+        "lat": 33.990601,
+        "lng": -81.026184,
+        "id": 229055,
+        "name": "Copenhaver Band Hall/Dance Facility"
+    },
+    {
+        "lat": 33.997261,
+        "lng": -81.029633,
+        "id": 230352,
+        "name": "Broadcast Studio"
+    },
+    {
+        "lat": 33.996109,
+        "lng": -81.029404,
+        "id": 232320,
+        "name": "Longstreet Theatre"
+    },
+    {
+        "lat": 33.998432,
+        "lng": -81.024673,
+        "id": 232321,
+        "name": "Williams-Brice Building Auditorium"
+    },
+    {
+        "lat": 33.99284,
+        "lng": -81.024048,
+        "id": 247651,
+        "name": "Child Development and Research Center"
+    },
+    {
+        "lat": 33.976891,
+        "lng": -80.960281,
+        "id": 331482,
+        "name": "Medicine VA Campus, Building No. 5"
+    },
+    {
+        "lat": 33.976849,
+        "lng": -80.961845,
+        "id": 331483,
+        "name": "Medicine VA Campus, Building No. 9"
+    },
+    {
+        "lat": 33.976311,
+        "lng": -80.960793,
+        "id": 331484,
+        "name": "Medicine VA Campus, Building No. 22"
+    },
+    {
+        "lat": 33.976402,
+        "lng": -80.961555,
+        "id": 331485,
+        "name": "Medicine VA Campus, Building No. 6"
+    },
+    {
+        "lat": 33.976566,
+        "lng": -80.960411,
+        "id": 331486,
+        "name": "Medicine VA Campus, Building No. 114"
+    },
+    {
+        "lat": 33.979557,
+        "lng": -80.963173,
+        "id": 331487,
+        "name": "Medicine VA Campus, Building No. 10"
+    },
+    {
+        "lat": 33.998684,
+        "lng": -81.026894,
+        "id": 432240,
+        "name": "McKissick Museum"
+    },
+    {
+        "lat": 33.994656,
+        "lng": -81.031494,
+        "id": 472556,
+        "name": "Science and Technology Building"
+    },
+    {
+        "lat": 33.994282,
+        "lng": -81.033478,
+        "id": 747649,
+        "name": "Greene St. United Methodist Church (1100GA)"
+    }
+]

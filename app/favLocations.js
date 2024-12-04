@@ -1,57 +1,157 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
-import * as SplashScreen from 'expo-splash-screen';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, FlatList, ActivityIndicator, TextInput, Button, Alert } from 'react-native';
+import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+import locations from '../assets/json/locations.json';
 
-SplashScreen.preventAutoHideAsync();
-
-export default function FavLocationsScreen() {
-  let [fontsLoaded] = useFonts({
-    Abel_400Regular,
-  });
+const FavLocations = () => {
+  const [favorites, setFavorites] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [newLocationId, setNewLocationId] = useState('');
+  const auth = getAuth();
+  const db = getFirestore();
 
   useEffect(() => {
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
+    const fetchFavorites = async () => {
+      try {
+        const user = auth.currentUser;
+        if (!user) {
+          throw new Error('No user is logged in.');
+        }
 
-  if (!fontsLoaded) {
-    return null;
+        const userDoc = doc(db, 'favorites', user.uid);
+        const userData = await getDoc(userDoc);
+
+        if (userData.exists()) {
+          const favoriteIds = userData.data().locations || [];
+          const filteredLocations = locations.filter((location) =>
+            favoriteIds.includes(location.id)
+          );
+          setFavorites(filteredLocations);
+        } else {
+          setFavorites([]);
+        }
+      } catch (error) {
+        console.error('Error fetching favorites:', error);
+        setFavorites([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFavorites();
+  }, [db, auth]);
+
+  const addLocationToFavorites = async () => {
+    try {
+      const user = auth.currentUser;
+      if (!user) {
+        Alert.alert('Error', 'No user is logged in.');
+        return;
+      }
+
+      // Validate the input ID
+      const location = locations.find((loc) => loc.id === newLocationId);
+      if (!location) {
+        Alert.alert('Error', 'Invalid location ID.');
+        return;
+      }
+
+      const userDoc = doc(db, 'favorites', user.uid);
+      await setDoc(userDoc, { locations: arrayUnion(newLocationId) }, { merge: true });
+
+      setFavorites((prevFavorites) => [...prevFavorites, location]);
+      setNewLocationId('');
+      Alert.alert('Success', 'Location added to favorites!');
+    } catch (error) {
+      console.error('Error adding location to favorites:', error);
+      Alert.alert('Error', 'Failed to add location to favorites.');
+    }
+  };
+
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#730000" />
+      </View>
+    );
   }
 
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.header}>Favorite Locations</Text>
-      <View style={styles.content}>
-        <Text style={styles.text}>Here you can manage your favorite locations.</Text>
-        {/* Add more content as needed */}
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <Text style={styles.title}>Favorite Locations</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Enter Location ID"
+        value={newLocationId}
+        onChangeText={setNewLocationId}
+      />
+      <Button title="Add to Favorites" onPress={addLocationToFavorites} />
+      {favorites.length > 0 ? (
+        <FlatList
+          data={favorites}
+          keyExtractor={(item) => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.itemContainer}>
+              <Text style={styles.name}>{item.name}</Text>
+              <Text style={styles.address}>{item.address}</Text>
+            </View>
+          )}
+        />
+      ) : (
+        <Text style={styles.noFavorites}>No favorite locations found.</Text>
+      )}
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#F3F3F3',
+    padding: 10,
+    backgroundColor: '#fff',
   },
-  header: {
-    fontSize: 30,
+  title: {
+    fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#73000A',
-    fontFamily: 'Abel_400Regular',
+    marginBottom: 10,
+    color: '#333',
   },
-  content: {
-    backgroundColor: '#FFFFFF',
-    padding: 20,
+  input: {
+    height: 40,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    marginBottom: 10,
+    paddingHorizontal: 8,
     borderRadius: 5,
   },
-  text: {
-    fontSize: 18,
-    color: '#000000',
-    fontFamily: 'Abel_400Regular',
+  itemContainer: {
+    padding: 10,
+    backgroundColor: '#730000', // Garnet background
+    marginBottom: 10,
+    borderRadius: 5,
+  },
+  name: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#fff', // White text
+  },
+  address: {
+    fontSize: 14,
+    color: '#fff', // White text
+    marginTop: 5,
+  },
+  noFavorites: {
+    fontSize: 16,
+    textAlign: 'center',
+    color: '#666',
+    marginTop: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
+
+export default FavLocations;
