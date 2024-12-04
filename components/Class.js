@@ -21,13 +21,13 @@ const Class = ({ crn, code, section, name, instructor, meeting, fromSearch = fal
             console.log("no user found when trying to add course");
             return;
         }
-        const docRef = doc(db, "schedules", user.uid);
+        const docRef = doc(db, "schedules", user.uid, "courses", crn);
         await setDoc(docRef, {
-            "code": `${code}`,
-            "instructor": `${instructor}`,
-            "meeting": `${meeting}`,
-            "name": `${name}`,
-            "section": `${section}`
+            code: code,
+            instructor: instructor,
+            meeting: meeting,
+            name: name,
+            section: section
         });
 
     }
