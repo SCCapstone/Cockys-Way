@@ -1,8 +1,10 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs, useRouter } from "expo-router";
+import { FIREBASE_AUTH } from "../../FirebaseConfig";
 
 export default function TabLayout() {
   const router = useRouter();
+  const auth = FIREBASE_AUTH;
 
   return (
     <Tabs screenOptions={{ tabBarActiveTintColor: "#73000A" }}>
@@ -20,7 +22,9 @@ export default function TabLayout() {
                 name="user"
                 style={{ marginRight: 20, marginBottom: 5 }}
                 onPress={() => {
-                  router.push("/login");
+                  auth.currentUser
+                    ? router.push("/SignOut")
+                    : router.push("/login");
                 }}
               />
             );
