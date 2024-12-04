@@ -45,8 +45,9 @@ export default function TabLayout() {
                 name="user"
                 style={{ marginRight: 20, marginBottom: 5 }}
                 onPress={() => {
-                  console.log("Login pressed");
-                  router.push("/login");
+                  auth.currentUser
+                    ? router.push("/SignOut")
+                    : router.push("/login");
                 }}
               />
             );
@@ -67,8 +68,9 @@ export default function TabLayout() {
                 name="user"
                 style={{ marginRight: 20, marginBottom: 5 }}
                 onPress={() => {
-                  console.log("Login pressed");
-                  router.push("/login");
+                  auth.currentUser
+                    ? router.push("/SignOut")
+                    : router.push("/login");
                 }}
               />
             );
@@ -89,8 +91,9 @@ export default function TabLayout() {
                 name="user"
                 style={{ marginRight: 20, marginBottom: 5 }}
                 onPress={() => {
-                  console.log("Login pressed");
-                  router.push("/login");
+                  auth.currentUser
+                    ? router.push("/SignOut")
+                    : router.push("/login");
                 }}
               />
             );
