@@ -4,7 +4,7 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { useState } from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, deleteDoc } from "firebase/firestore";
 import { FIRESTORE_DB } from '../FirebaseConfig';
 import { getAuth } from 'firebase/auth';
 
@@ -30,6 +30,25 @@ const Class = ({ crn, code, section, name, instructor, meeting, fromSearch = fal
             section: section
         });
 
+    }
+
+    const deleteFromSchedule = async() => {
+        const db = FIRESTORE_DB;
+
+        const auth = getAuth();
+        const user = auth.currentUser;
+
+        if(!user) {
+            console.log("no user found when trying to delete course");
+            return;
+        }
+        console.log('crn:' + crn);
+        try {
+            const docRef = doc(db, "schedules", user.uid, "courses", crn);
+            await deleteDoc(docRef);
+        } catch (error) {
+            console.log("error: " + error)
+        }
     }
 
     return (
@@ -70,7 +89,9 @@ const Class = ({ crn, code, section, name, instructor, meeting, fromSearch = fal
                 <FontAwesome5 name={ notification ? "bell" : "bell-slash" } size={30} color="#FFFFFF" />
             </Pressable>
             <Pressable
-                onPress={() => {}}
+                onPress={() => {
+                    deleteFromSchedule();
+                }}
                 style={({pressed}) => [
                     {
                     backgroundColor: pressed ? '#450006' : 'transparent'

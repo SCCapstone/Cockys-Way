@@ -25,8 +25,8 @@ export default function Schedule() {
         return;
       }
       const snapshot = await getDocs(collection(db, "schedules", user.uid, "courses"))
-      const list = snapshot.docs.map((doc) => doc.data());
-
+      const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      console.log(list);
       setCourses(list);
     }
     
@@ -35,10 +35,11 @@ export default function Schedule() {
   //
 
   const renderCourse = (course) => {
-    console.log('in render course');
-    console.log(course);
+    // console.log('in render course');
+    // console.log(course);
     return (
       <Class 
+        crn={course.item.id}
         code={course.item.code}
         section={course.item.section}
         name={course.item.name}
