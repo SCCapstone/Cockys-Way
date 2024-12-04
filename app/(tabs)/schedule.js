@@ -1,6 +1,10 @@
-import { View, Text, StyleSheet, Pressable, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Pressable, TouchableOpacity, FlatList } from "react-native";
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { useRouter } from "expo-router";
+import { useState, useEffect } from "react";
+import { FIRESTORE_DB } from "../../FirebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
+
 
 import Class from "../../components/Class";
 import { getAuth } from "firebase/auth";
@@ -10,12 +14,40 @@ export default function Schedule() {
 
   const auth = getAuth();
   const user = auth.currentUser;
-  let example = "";
 
-  if(user) {
-    example = "yes logged in";
-  } else {
-    example = "no logged in"
+  const db = FIRESTORE_DB;
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    const getData = async() => {
+      if(!user) {
+        console.log("no user found");
+        return;
+      }
+      const docRef = doc(db, "schedules", user.uid);
+      const docSnap = await getDoc(docRef);
+
+      if(docSnap.exists()) {
+        setCourses(docSnap.data().courses);
+      } else {
+        console.log("no document found")
+      }
+    }
+    
+    getData();
+  }, [user]);
+  //
+
+  const renderCourse = (course) => {
+    return (
+      <Class 
+        code={course.item.code}
+        section={course.item.section}
+        name={course.item.name}
+        instructor={course.item.instructor}
+        meeting={course.item.meeting}
+      />
+    )
   }
 
   return (
@@ -23,27 +55,10 @@ export default function Schedule() {
         {user ? 
           <>
             <View style={styles.courses}>
-              <Class 
-                code={"CSCE 355"}
-                section={"001"}
-                name={"Foundations of Computation"}
-                instructor={"James O'Reilly"}
-                meeting={"TuTh, 11:40am - 12:55pm"}
-              />
-              <Class
-                code={"CSCE 567"} 
-                section={"001"}
-                name={"Visualization Tools"}
-                instructor={"Brian Hipp"}
-                meeting={"MW, 2:30pm - 3:35pm"}
-              />
-              <Class
-                code={"MATH 344"} 
-                section={"001"}
-                name={"Applied Linear Algebra"}
-                instructor={"Changhui Tan"}
-                meeting={"TuTh, 2:50pm - 4:05pm"}
-                fromSearch
+              <FlatList 
+                data={courses}
+                renderItem={(courses) => renderCourse(courses)}
+                contentContainerStyle={{ gap: 20 }}
               />
             </View> 
               <TouchableOpacity
