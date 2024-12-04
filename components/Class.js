@@ -7,11 +7,14 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { doc, setDoc, deleteDoc } from "firebase/firestore";
 import { FIRESTORE_DB } from '../FirebaseConfig';
 import { getAuth } from 'firebase/auth';
+import { useRouter } from 'expo-router';
 
 const Class = ({ crn, code, section, name, instructor, meeting, fromSearch = false }) => {
     const [notification, setNotification] = useState(false);
+    const router = useRouter();
 
     const addToSchedule = async() => {
+
         const db = FIRESTORE_DB;
 
         const auth = getAuth();
@@ -21,14 +24,21 @@ const Class = ({ crn, code, section, name, instructor, meeting, fromSearch = fal
             console.log("no user found when trying to add course");
             return;
         }
-        const docRef = doc(db, "schedules", user.uid, "courses", crn);
-        await setDoc(docRef, {
-            code: code,
-            instructor: instructor,
-            meeting: meeting,
-            name: name,
-            section: section
-        });
+
+        try {
+            const docRef = doc(db, "schedules", user.uid, "courses", crn);
+            await setDoc(docRef, {
+                code: code,
+                instructor: instructor,
+                meeting: meeting,
+                name: name,
+                section: section
+            });
+        } catch (error) {
+            console.log("error when adding class: " + error);
+        }
+
+        router.push("../(tabs)/schedule");
 
     }
 

@@ -3,7 +3,7 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { useRouter } from "expo-router";
 import { useState, useEffect } from "react";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
-import { doc, getDoc, collection, getDocs } from "firebase/firestore";
+import { doc, getDoc, collection, getDocs, onSnapshot } from "firebase/firestore";
 
 
 import Class from "../../components/Class";
@@ -19,20 +19,24 @@ export default function Schedule() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
-    const getData = async() => {
-      if(!user) {
-        console.log("no user found");
-        return;
-      }
-      const snapshot = await getDocs(collection(db, "schedules", user.uid, "courses"))
-      const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      console.log(list);
-      setCourses(list);
+    if (!user) {
+      console.log("no user found");
+      return;
     }
-    
-    getData();
+
+    const unsubscribe = onSnapshot(
+      collection(db, "schedules", user.uid, "courses"),
+      (snapshot) => {
+        const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        setCourses(list);
+      },
+      (error) => {
+        console.log("Error fetching real-time updates: ", error);
+      }
+    );
+
+    return () => unsubscribe(); 
   }, [user]);
-  //
 
   const renderCourse = (course) => {
     // console.log('in render course');
