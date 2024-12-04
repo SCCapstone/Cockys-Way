@@ -19,8 +19,7 @@ import {
 } from "firebase/auth";
 import { router } from "expo-router";
 
-import { FIREBASE_API_KEY } from '@env';
-console.log("Firebase API Key in Register:", FIREBASE_API_KEY);
+import { FIREBASE_API_KEY } from "@env";
 
 const Login = () => {
   // Manage Email and Password State

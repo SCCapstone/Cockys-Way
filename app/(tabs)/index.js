@@ -1,13 +1,26 @@
 import React, { useEffect, useState, useRef } from "react";
-import MapView, { Marker, PROVIDER_DEFAULT, PROVIDER_GOOGLE } from "react-native-maps";
-import { StyleSheet, SafeAreaView, Alert, View, Text, Switch, ScrollView, TouchableOpacity } from "react-native";
+import MapView, {
+  Marker,
+  PROVIDER_DEFAULT,
+  PROVIDER_GOOGLE,
+} from "react-native-maps";
+import {
+  StyleSheet,
+  SafeAreaView,
+  Alert,
+  View,
+  Text,
+  Switch,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { useRouter } from "expo-router";
 import { SearchBar } from "react-native-elements";
 import * as SplashScreen from "expo-splash-screen";
-import * as Location from 'expo-location';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Location from "expo-location";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { GOOGLE_API_KEY } from "@env";
 
 // Prevent the splash screen from auto-hiding
@@ -84,7 +97,7 @@ export default function HomeScreen() {
     const checkPermission = async () => {
       const savedPermission = await AsyncStorage.getItem("locationPermission");
       // check if user has already granted location permission
-      if (savedPermission){
+      if (savedPermission) {
         setLocationPermission(savedPermission === "granted");
         return;
       }
@@ -105,11 +118,10 @@ export default function HomeScreen() {
 
   useEffect(() => {
     async function prepare() {
-      try{
-        console.log("TESTING TO HIDE SPLASH SCREEN");
+      try {
         // Hide the splash screen once the app is ready
         await SplashScreen.hideAsync();
-      } catch (e){
+      } catch (e) {
         console.warn(e);
       }
     }
@@ -123,7 +135,7 @@ export default function HomeScreen() {
       // check if user granted access to location
       const { status } = await Location.requestForegroundPermissionsAsync();
       console.log(status);
-      if (status === "granted"){
+      if (status === "granted") {
         const location = await Location.getCurrentPositionAsync({});
         setUserLocation(location.coords);
       } else {
@@ -143,12 +155,16 @@ export default function HomeScreen() {
         containerStyle={styles.searchContainer}
         inputContainerStyle={styles.searchInputContainer}
       />
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PinFilterMain')}>
+      <TouchableOpacity
+        style={styles.settingItem}
+        onPress={() => router.push("/PinFilterMain")}
+      >
         <View style={styles.accentBox}>
-          <Text style={styles.settingText}>This is a Test Button for Filter Pins</Text>
+          <Text style={styles.settingText}>
+            This is a Test Button for Filter Pins
+          </Text>
         </View>
       </TouchableOpacity>
-
 
       <MapView
         ref={mapRef}
