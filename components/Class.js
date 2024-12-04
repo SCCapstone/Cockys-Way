@@ -4,8 +4,33 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { useState } from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-const Class = ({ code, section, name, instructor, meeting, fromSearch = false }) => {
+import { doc, setDoc } from "firebase/firestore";
+import { FIRESTORE_DB } from '../FirebaseConfig';
+import { getAuth } from 'firebase/auth';
+
+const Class = ({ crn, code, section, name, instructor, meeting, fromSearch = false }) => {
     const [notification, setNotification] = useState(false);
+
+    const addToSchedule = async() => {
+        const db = FIRESTORE_DB;
+
+        const auth = getAuth();
+        const user = auth.currentUser;
+
+        if(!user) {
+            console.log("no user found when trying to add course");
+            return;
+        }
+        const docRef = doc(db, "schedules", user.uid);
+        await setDoc(docRef, {
+            "code": `${code}`,
+            "instructor": `${instructor}`,
+            "meeting": `${meeting}`,
+            "name": `${name}`,
+            "section": `${section}`
+        });
+
+    }
 
     return (
     <View style={styles.course}>
@@ -19,7 +44,7 @@ const Class = ({ code, section, name, instructor, meeting, fromSearch = false })
         {fromSearch ? 
         <Pressable
             onPress={() => {
-                setNotification(!notification)
+                addToSchedule();
             }}
             style={({pressed}) => [
                 {

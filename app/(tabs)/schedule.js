@@ -3,7 +3,7 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { useRouter } from "expo-router";
 import { useState, useEffect } from "react";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, collection, getDocs } from "firebase/firestore";
 
 
 import Class from "../../components/Class";
@@ -24,14 +24,10 @@ export default function Schedule() {
         console.log("no user found");
         return;
       }
-      const docRef = doc(db, "schedules", user.uid);
-      const docSnap = await getDoc(docRef);
+      const snapshot = await getDocs(collection(db, "schedules", user.uid, "courses"))
+      const list = snapshot.docs.map((doc) => doc.data());
 
-      if(docSnap.exists()) {
-        setCourses(docSnap.data().courses);
-      } else {
-        console.log("no document found")
-      }
+      setCourses(list);
     }
     
     getData();
@@ -39,6 +35,8 @@ export default function Schedule() {
   //
 
   const renderCourse = (course) => {
+    console.log('in render course');
+    console.log(course);
     return (
       <Class 
         code={course.item.code}

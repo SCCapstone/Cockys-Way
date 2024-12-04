@@ -23,8 +23,10 @@ const AddClassSearchResults = () => {
   }, [info.data, number, subject]);
 
   const renderCourse = (course) => {
+    console.log(course);
     return (
       <Class
+        crn={course.item.crn}
         code={course.item.code}
         section={course.item.section}
         name={course.item.title}
