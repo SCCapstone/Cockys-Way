@@ -81,7 +81,6 @@ export default function FilterPinsMainScreen() {
           <Text style={styles.settingText}>Administrative Buildings</Text>
         </View>
       </TouchableOpacity>
-
       <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Athletic Buildings</Text>
@@ -195,7 +194,6 @@ export { updateAccessibilitySettings };
         git pull
         git add .
         git commit -m "Message"
-        git pull
         git push
     
 
