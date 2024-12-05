@@ -110,6 +110,11 @@ else:
 '''
         For Chloe because her memory is Very Bad
 
+        npx expo start
+
+        Open Android Studio
+        npx expo run:android --variant release
+
         To commit:
         git pull
         git add .

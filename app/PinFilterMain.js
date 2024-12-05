@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, Switch, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, Switch, TouchableOpacity, FlatList } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import * as SplashScreen from 'expo-splash-screen';
 import { FIREBASE_AUTH, FIREBASE_DB } from "../FirebaseConfig";
@@ -34,6 +34,105 @@ SplashScreen.preventAutoHideAsync();
 
 */
 
+const getFilteredLocations = (locations, catId) => {
+    return locations.filter(location => location.catId === catId).map(location => location.name);
+};
+
+
+
+// Main component
+export default function FilterPinsMainScreen() {
+    let [fontsLoaded] = useFonts({
+      Abel_400Regular,
+    });
+  
+    const [dropdownVisibility, setDropdownVisibility] = useState({});
+    const [locations, setLocations] = useState([
+      { catId: 9492, name: "Academic Building A" },
+      { catId: 9492, name: "Academic Building B" },
+      { catId: 23396, name: "Administrative Building A" },
+      { catId: 23396, name: "Administrative Building B" },
+      { catId: 24197, name: "Other Building" },
+    ]);
+    // Using placeholder buildings for now.         COME BACK LATER & replace with the location data I got before. BEfore that, need to fix formatted_locations.json to stop separating some info
+  
+    const categories = [
+      { label: "Academic Buildings", catId: 9492 },
+      { label: "Administrative Buildings", catId: 23396 },
+      { label: "Colleges & Schools", catId: 24560 },
+      { label: "Housing", catId: 24197 },
+      { label: "Dining", catId: 21041 },
+      { label: "Athletics", catId: 21035 },
+      { label: "Parking", catId: 9495 },
+//      { label: "Services", catId: 21041 },        Cant find Services from api, COME BACK LATER
+      { label: "Accessibility", catId: 23393 },
+      // Add more categories with their respective catIds
+      // Academic Buildings, Administrative Buildings, Colleges & Schools, Housing, Dining, Athletics, Parking, Services, Accessibility
+    ];
+  
+    useEffect(() => {
+      if (fontsLoaded) {
+        SplashScreen.hideAsync();
+      }
+    }, [fontsLoaded]);
+  
+    if (!fontsLoaded) {
+      return null;
+    }
+  
+    const toggleDropdown = (label) => {
+      setDropdownVisibility((prev) => ({
+        ...prev,
+        [label]: !prev[label],
+      }));
+    };
+  
+    return (
+      <ScrollView style={styles.container}>
+        <Text style={styles.header}>Filter Pins</Text>
+  
+        {categories.map((category) => {
+          const filteredNames = getFilteredLocations(locations, category.catId);
+  
+          return (
+            <View key={category.label}>
+              <TouchableOpacity
+                style={styles.settingItem}
+                onPress={() => toggleDropdown(category.label)}
+              >
+                <View style={styles.accentBox}>
+                  <Text style={styles.settingText}>{category.label}</Text>
+                </View>
+              </TouchableOpacity>
+  
+              {dropdownVisibility[category.label] && (
+                <FlatList
+                  data={filteredNames}
+                  keyExtractor={(item, index) => index.toString()}
+                  renderItem={({ item }) => (
+                    <View style={styles.dropdownItem}>
+                      <Text>{item}</Text>
+                    </View>
+                  )}
+                />
+              )}
+            </View>
+          );
+        })}
+      </ScrollView>
+    );
+  }
+
+
+
+
+
+
+
+
+
+
+/*
 export default function FilterPinsMainScreen() {
   let [fontsLoaded] = useFonts({
     Abel_400Regular,
@@ -50,86 +149,86 @@ export default function FilterPinsMainScreen() {
   }
 
   return (
-    /*  Using '/PrivacySecurity' as a placeholder for each tab 
-        This should later be replaced to instead be dropdowns of sub-categories.
-        Then, following the same format, under sub-categories, list out each location
+//          Using '/accessibility' as a placeholder for each tab 
+//          This should later be replaced to instead be dropdowns of sub-categories.
+//          Then, following the same format, under sub-categories, list out each location
     
-    */
+
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Filter Pins</Text>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibility')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Self-Made Pins</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibility')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Favorited Pins</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibility')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Academic Buildings</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibilityy')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Administrative Buildings</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibility')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Athletic Buildings</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibility')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>College Buildings</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibility')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Dining</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibility')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Housing</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibility')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Parking</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibility')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Shuttle Stops</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibility')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Rentables</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibility')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Bike Racks</Text>
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/PrivacySecurity')}>
+      <TouchableOpacity style={styles.settingItem} onPress={() => router.push('/accessibility')}>
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Multipurpose Buildings</Text>
         </View>
@@ -137,12 +236,14 @@ export default function FilterPinsMainScreen() {
 
       <View style={styles.content}>
         <Text style={styles.text}>Here you can look at all the upper-level categories for pins. (remove this text when done)</Text>
-        {/* Add more content as needed */}
+        { Add more content as needed }
       </View>
     </ScrollView>
   );
-}
+} // End of FilterPinsMainScreen
+*/
 
+/*          Uncomment if code breaks
 const updateAccessibilitySettings = async (newSettings) => {
   const user = getAuth().currentUser;
   if (user) {
@@ -157,6 +258,7 @@ const updateAccessibilitySettings = async (newSettings) => {
     console.error("No UID provided");
   }
 };
+*/
 
 const styles = StyleSheet.create({
   container: {
@@ -181,9 +283,15 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontFamily: 'Abel_400Regular',
   },
+  dropdownItem: {
+    padding: 10,
+    backgroundColor: '#fff',
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
 });
 
-export { updateAccessibilitySettings };
+// export { updateAccessibilitySettings };
 
 
 
