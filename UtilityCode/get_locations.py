@@ -11,6 +11,7 @@ import time
 
 #       For the PoC, I'm just going to ONLY get the categories/locations from the map site
 
+"""
 #       Ok so all the api links:
 #       Academic Buildings:     https://api.concept3d.com/categories/9492?map=744&children=&key=0001085cc708b9cef47080f064612ca5
 #       Administrative:         https://api.concept3d.com/categories/23396?map=744&children&key=0001085cc708b9cef47080f064612ca5
@@ -32,10 +33,27 @@ import time
 
 #       IN THEORY this link should have everything all in one
 #       https://api.concept3d.com/categories/23396,21041,24197,9497,24199,24560,24561,24901,24902,24903,24904,24905,24906,24907,24908,24909,24910,24911,24912,24913,24914,59489,59490,59491,59492,59493,9492,21035,9495,21045,21046,21047,21048,21049,21050,21779,21780,23393,24585,43763,61610,69645,69646?map=744&batch&children&key=0001085cc708b9cef47080f064612ca5
+"""
+#
+#
+#
+'''
+        Location data & what they're called in locations.txt:
 
+        catId:      Category ID (ie. Administrative, Dining, etc.) ID for which category the location should fall under
+        lat:        Latitude
+        lng:        Longitude
+        mapId:      ID used to determine which pin type will appear on the map
+        id:         Location ID. Unique for each possible location.
+        mrkId:      Unsure
+        name:       Address (USE THIS FOR SEARCHING)
 
+        NEW:
+        favorited:  T/F value to determine if it should be listed under favorited Locations
+        visibility: T/F value to determine if it should currently be visible
 
-
+        catId, lat, lng, mapId, id, mrkId, name, favorited, visibility
+'''
 
 
 # import requests
@@ -89,4 +107,13 @@ else:
     print(f"{output_file} already exists.")
 
 
+'''
+        For Chloe because her memory is Very Bad
 
+        To commit:
+        git pull
+        git add .
+        git commit -m "Message"
+        git push
+    
+'''

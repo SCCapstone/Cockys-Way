@@ -188,7 +188,7 @@ export { updateAccessibilitySettings };
 
 
 /*
-        For Chloe because her memory is shite
+        For Chloe because her memory is Absolutely Horrible
 
         To commit:
         git pull
