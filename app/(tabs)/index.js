@@ -35,6 +35,7 @@ export default function HomeScreen() {
   const [search, setSearch] = useState("");
   const [userLocation, setUserLocation] = useState(null);
   const mapRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);   // testing to see if loading works?
 
   const INITIAL_REGION = {
     latitude: 34.00039991787572,
@@ -73,8 +74,10 @@ export default function HomeScreen() {
 
         setMarkers(db_data);
         setFilteredMarkers(db_data);
+        setIsLoading(false);
       } catch (err) {
         Alert.alert("Error fetching data");
+        setIsLoading(false);
       }
     };
 
@@ -146,6 +149,15 @@ export default function HomeScreen() {
 
     getLocation();
   }, []);
+
+  if (isLoading) {
+    return (
+        <View style={styles.loadingContainer}>
+          <Text>Loading...</Text>
+        </View>
+    );
+  //return null;
+}
 
   return (
     <SafeAreaView style={styles.container}>
