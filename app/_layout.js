@@ -73,6 +73,13 @@ export default function Layout() {
           headerTintColor: "#73000A",
         }}
       />
+      <Stack.Screen
+        name="PinFilterMain"
+        options={{
+          title: "Filter Pins",
+          headerTintColor: "#73000A",
+        }}
+      />
     </Stack>
   );
 }

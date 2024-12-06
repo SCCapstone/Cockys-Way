@@ -156,13 +156,10 @@ export default function HomeScreen() {
         inputContainerStyle={styles.searchInputContainer}
       />
       <TouchableOpacity
-        style={styles.settingItem}
-        onPress={() => router.push("/PinFilterMain")}
-      >
+        style={styles.filterButton}
+        onPress={() => router.push("/PinFilterMain")}>
         <View style={styles.accentBox}>
-          <Text style={styles.settingText}>
-            This is a Test Button for Filter Pins
-          </Text>
+          <Text style={styles.filterButtonText}>Filter Pins</Text>
         </View>
       </TouchableOpacity>
 
@@ -206,5 +203,20 @@ const styles = StyleSheet.create({
   },
   map: {
     flex: 1,
+  },
+  filterButton: {
+    alignSelf: "center", // Center horizontally
+    justifyContent: "center", // Center vertically within the button
+    alignItems: "center", // Align text in the center of the button
+    width: 200, // Button width
+    height: 30, // Button height
+    borderRadius: 25, // Half of the height for an oval shape
+    backgroundColor: "#e2e2e2", // Background color
+    marginVertical: 10, // Space around the button
+  },
+  filterButtonText: {
+    color: "black", // Text color
+    fontSize: 16, // Text size
+    fontWeight: "bold", // Text weight
   },
 });

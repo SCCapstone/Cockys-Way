@@ -251,7 +251,7 @@ def process_file(file_path):
 
         # Merge every two entries
         #merge_every_two_entries(output_file)
-        # ok this ends up making the order ugly
+        # ok this ends up making the order ugly and also bringing back null entries?
 
         # Reorder keys
  #       reorder_keys(output_file)

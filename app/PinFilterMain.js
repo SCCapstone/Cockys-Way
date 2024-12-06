@@ -100,8 +100,10 @@ export default function FilterPinsMainScreen() {
                 style={styles.settingItem}
                 onPress={() => toggleDropdown(category.label)}
               >
+                <View style={styles.accentBoxSmall}>
                 <View style={styles.accentBox}>
                   <Text style={styles.settingText}>{category.label}</Text>
+                </View>
                 </View>
               </TouchableOpacity>
   
@@ -283,11 +285,39 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontFamily: 'Abel_400Regular',
   },
-  dropdownItem: {
-    padding: 10,
+  settingItem: {
+   padding: 5,
     backgroundColor: '#fff',
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
+  },
+  dropdownItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0E0E0', // Light grey border
+  },
+  accentBox: {
+    backgroundColor: '#73000A', // Garnet background for buttons
+    padding: 10,
+    borderRadius: 5,
+    flex: 1,
+  },
+  accentBoxSmall: {
+    backgroundColor: '#73000A', // Garnet background for smaller sections
+    padding: 5,
+    borderRadius: 5,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  settingText: {
+    fontSize: 22.5,
+    color: '#FFFFFF', // White text
+    fontFamily: 'Abel_400Regular',
   },
 });
 
