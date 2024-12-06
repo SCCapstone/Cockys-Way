@@ -16,82 +16,90 @@ import { getAuth } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 
 export default function PrivacySecurityScreen() {
-  const navigation = useNavigation(); // Used to navigate between screens
-  const [isEnabled, setIsEnabled] = React.useState(false); // State for location services toggle
-  const [modalVisible, setModalVisible] = React.useState(false); // State for dialog visibility
-  const user = getAuth().currentUser; // Current authenticated user
+  const navigation = useNavigation();
+  const [isEnabled, setIsEnabled] = React.useState(false);
+  const [modalVisible, setModalVisible] = React.useState(false);
+  const user = getAuth().currentUser;
 
-  // Initialize Firestore
   const firestore = getFirestore();
 
-  // Fetch settings from Firestore when the component mounts
   useEffect(() => {
     const fetchSettings = async () => {
-      if (user) { // Ensure user is authenticated
-        try {
-          const userDoc = doc(firestore, "settings", user.uid); // Reference user's document
-          const userSnapshot = await getDoc(userDoc); // Fetch the document from Firestore
+      if (!user) {
+        Alert.alert(
+          "Sign In Required",
+          "Please sign in to access your privacy and security settings.",
+          [{ text: "OK", onPress: () => console.log("Sign-in prompt acknowledged") }]
+        );
+        return;
+      }
 
-          if (userSnapshot.exists()) {
-            // Get locationEnabled setting from the document or default to false
-            const userData = userSnapshot.data();
-            const locationEnabled = userData.settings?.locationEnabled || false;
-            setIsEnabled(locationEnabled); // Set the toggle state
-          } else {
-            console.log("No settings document found for user.");
-          }
-        } catch (error) {
-          console.error("Error fetching user settings:", error);
+      try {
+        const userDoc = doc(firestore, "settings", user.uid);
+        const userSnapshot = await getDoc(userDoc);
+
+        if (userSnapshot.exists()) {
+          const userData = userSnapshot.data();
+          const locationEnabled = userData.settings?.locationEnabled || false;
+          setIsEnabled(locationEnabled);
+        } else {
+          console.log("No settings document found for user.");
         }
-      } else {
-        console.error("No UID provided");
+      } catch (error) {
+        console.error("Error fetching user settings:", error);
       }
     };
 
-    fetchSettings(); // Call the fetch function
-  }, [user]); // Runs whenever the user changes
+    fetchSettings();
+  }, [user]);
 
-  // Update the privacy and security settings in Firestore
   const updatePrivacySecuritySettings = async (newSettings) => {
-    if (user) {
-      try {
-        const userDoc = doc(firestore, "settings", user.uid); // Reference user's document
-        await setDoc(userDoc, { settings: newSettings }, { merge: true }); // Update settings with merge
-        console.log("Privacy and Security settings updated successfully");
-      } catch (error) {
-        console.error("Error updating privacy and security settings:", error);
-      }
-    } else {
-      console.error("No UID provided");
+    if (!user) {
+      Alert.alert(
+        "Sign In Required",
+        "Please sign in to update your privacy and security settings.",
+        [{ text: "OK", onPress: () => console.log("Sign-in prompt acknowledged") }]
+      );
+      return;
+    }
+
+    try {
+      const userDoc = doc(firestore, "settings", user.uid);
+      await setDoc(userDoc, { settings: newSettings }, { merge: true });
+      console.log("Privacy and Security settings updated successfully");
+    } catch (error) {
+      console.error("Error updating privacy and security settings:", error);
     }
   };
 
-  // Toggle switch state and update settings in Firestore
   const toggleSwitch = () => {
-    const newState = !isEnabled; // Calculate the new state
-    setIsEnabled(newState); // Update local state
-    updatePrivacySecuritySettings({ locationEnabled: newState }); // Update Firestore
+    const newState = !isEnabled;
+    setIsEnabled(newState);
+    updatePrivacySecuritySettings({ locationEnabled: newState });
   };
 
-  // Delete the user's data from Firestore
   const deleteUserData = async () => {
-    if (user) {
-      try {
-        const userDoc = doc(firestore, "settings", user.uid); // Reference user's document
-        await deleteDoc(userDoc); // Delete the document from Firestore
-        console.log("User data deleted successfully");
-        Alert.alert("Data Deleted", "Your data has been successfully deleted.");
-        setModalVisible(false); // Close the confirmation dialog
-      } catch (error) {
-        console.error("Error deleting user data:", error);
-        Alert.alert("Error", "There was an error deleting your data.");
-      }
-    } else {
-      console.error("No UID provided");
+    if (!user) {
+      Alert.alert(
+        "Sign In Required",
+        "Please sign in to delete your data.",
+        [{ text: "OK", onPress: () => console.log("Sign-in prompt acknowledged") }]
+      );
+      return;
+    }
+
+    try {
+      const userDoc = doc(firestore, "settings", user.uid);
+      await deleteDoc(userDoc);
+      console.log("User data deleted successfully");
+      Alert.alert("Data Deleted", "Your data has been successfully deleted.");
+      setModalVisible(false);
+    } catch (error) {
+      console.error("Error deleting user data:", error);
+      Alert.alert("Error", "There was an error deleting your data.");
     }
   };
 
-  // Load custom fonts and ensure splash screen hides after fonts are ready
   let [fontsLoaded] = useFonts({
     Abel_400Regular,
   });
@@ -100,22 +108,20 @@ export default function PrivacySecurityScreen() {
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Privacy and Security</Text>
 
-      {/* Delete My Data Button */}
       <View style={styles.settingItem}>
         <TouchableOpacity
           style={styles.deleteButton}
-          onPress={() => setModalVisible(true)} // Show confirmation dialog
+          onPress={() => setModalVisible(true)}
         >
           <Text style={styles.deleteButtonText}>Delete my data</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Modal for delete confirmation */}
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)} // Close dialog when requested
+        onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalContainer}>
@@ -127,13 +133,13 @@ export default function PrivacySecurityScreen() {
             <View style={styles.modalActions}>
               <Pressable
                 style={styles.modalButton}
-                onPress={() => setModalVisible(false)} // Close dialog without action
+                onPress={() => setModalVisible(false)}
               >
                 <Text style={styles.modalButtonText}>Cancel</Text>
               </Pressable>
               <Pressable
                 style={[styles.modalButton, styles.modalButtonDanger]}
-                onPress={deleteUserData} // Call delete user data function
+                onPress={deleteUserData}
               >
                 <Text style={styles.modalButtonText}>Delete</Text>
               </Pressable>
@@ -142,16 +148,15 @@ export default function PrivacySecurityScreen() {
         </View>
       </Modal>
 
-      {/* Location Services Toggle */}
       <View style={styles.settingItem}>
         <View style={styles.accentBoxSmall}>
           <Text style={styles.settingText}>Location Services</Text>
           <Switch
-            trackColor={{ false: "#000000", true: "#FFFFFF" }} // Track colors for switch
-            thumbColor={isEnabled ? "#F3F3F3" : "#FFFFFF"} // Thumb color based on state
-            ios_backgroundColor="#F3F3F3" // iOS-specific background
-            onValueChange={toggleSwitch} // Handle toggle change
-            value={isEnabled} // Bind to isEnabled state
+            trackColor={{ false: "#000000", true: "#FFFFFF" }}
+            thumbColor={isEnabled ? "#F3F3F3" : "#FFFFFF"}
+            ios_backgroundColor="#F3F3F3"
+            onValueChange={toggleSwitch}
+            value={isEnabled}
           />
         </View>
       </View>
@@ -159,7 +164,6 @@ export default function PrivacySecurityScreen() {
   );
 }
 
-// Styles for the screen
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -170,7 +174,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#73000A', // Garnet color for header
+    color: '#73000A',
     fontFamily: 'Abel_400Regular',
   },
   settingItem: {
@@ -179,21 +183,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0', // Light grey divider
+    borderBottomColor: '#E0E0E0',
   },
   deleteButton: {
-    backgroundColor: '#73000A', // Garnet background
+    backgroundColor: '#73000A',
     padding: 10,
     borderRadius: 5,
     flex: 1,
   },
   deleteButtonText: {
     fontSize: 20,
-    color: '#FFFFFF', // White text
+    color: '#FFFFFF',
     textAlign: 'center',
   },
   accentBoxSmall: {
-    backgroundColor: '#73000A', // Garnet background
+    backgroundColor: '#73000A',
     padding: 5,
     borderRadius: 5,
     flex: 1,
@@ -203,14 +207,14 @@ const styles = StyleSheet.create({
   },
   settingText: {
     fontSize: 22.5,
-    color: '#FFFFFF', // White text
+    color: '#FFFFFF',
     fontFamily: 'Abel_400Regular',
   },
   modalOverlay: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Semi-transparent background
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   modalContainer: {
     backgroundColor: '#FFFFFF',
@@ -242,10 +246,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   modalButtonDanger: {
-    backgroundColor: '#FF5C5C', // Red background for delete
+    backgroundColor: '#FF5C5C',
   },
   modalButtonText: {
-    color: '#FFFFFF', // White text
+    color: '#FFFFFF',
     fontWeight: 'bold',
   },
 });

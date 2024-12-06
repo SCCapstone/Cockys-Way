@@ -121,6 +121,10 @@ else:
         git commit -m "Message"
         git push
 
+        Merging:
+        
+
+
         Chloe To-Do
         index.js:
         -   Go in & edit search to instead account for the locations collection on firestore

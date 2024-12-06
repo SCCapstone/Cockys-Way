@@ -14,7 +14,14 @@ const FavLocations = () => {
     try {
       const user = auth.currentUser;
       if (!user) {
-        throw new Error('No user is logged in.');
+        Alert.alert(
+          "Sign In Required",
+          "Please sign in to access your favorite locations.",
+          [{ text: "OK", onPress: () => console.log("Sign-in required") }]
+        );
+        setFavorites([]);
+        setLoading(false);
+        return;
       }
 
       // Fetch user's favorite location IDs
@@ -54,7 +61,11 @@ const FavLocations = () => {
     try {
       const user = auth.currentUser;
       if (!user) {
-        Alert.alert('Error', 'No user is logged in.');
+        Alert.alert(
+          "Sign In Required",
+          "Please sign in to add a location to your favorites.",
+          [{ text: "OK", onPress: () => console.log("Sign-in required") }]
+        );
         return;
       }
 
@@ -81,7 +92,11 @@ const FavLocations = () => {
     try {
       const user = auth.currentUser;
       if (!user) {
-        Alert.alert('Error', 'No user is logged in.');
+        Alert.alert(
+          "Sign In Required",
+          "Please sign in to remove a location from your favorites.",
+          [{ text: "OK", onPress: () => console.log("Sign-in required") }]
+        );
         return;
       }
 
