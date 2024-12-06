@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, FlatList, ActivityIndicator, TextInput, TouchableOpacity, Alert } from 'react-native';
-import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayRemove, arrayUnion } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, updateDoc, arrayUnion, arrayRemove, collection, getDocs } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import locations from '../assets/json/locations.json'; // Path to the JSON file
 
 const FavLocations = () => {
   const [favorites, setFavorites] = useState([]);
@@ -11,36 +10,45 @@ const FavLocations = () => {
   const auth = getAuth();
   const db = getFirestore();
 
-  useEffect(() => {
-    const fetchFavorites = async () => {
-      try {
-        const user = auth.currentUser;
-        if (!user) {
-          throw new Error('No user is logged in.');
-        }
-
-        const userDoc = doc(db, 'favorites', user.uid);
-        const userData = await getDoc(userDoc);
-
-        if (userData.exists()) {
-          const favoriteIds = userData.data().locations || [];
-          const filteredLocations = locations.filter((location) =>
-            favoriteIds.includes(location.id)
-          );
-          setFavorites(filteredLocations);
-        } else {
-          setFavorites([]);
-        }
-      } catch (error) {
-        console.error('Error fetching favorites:', error);
-        setFavorites([]);
-      } finally {
-        setLoading(false);
+  const fetchFavorites = async () => {
+    try {
+      const user = auth.currentUser;
+      if (!user) {
+        throw new Error('No user is logged in.');
       }
-    };
 
-    fetchFavorites();
-  }, [db, auth]);
+      // Fetch user's favorite location IDs
+      const userDocRef = doc(db, 'favorites', user.uid);
+      const userDoc = await getDoc(userDocRef);
+      const favoriteIds = userDoc.exists() ? userDoc.data().locations || [] : [];
+
+      if (favoriteIds.length === 0) {
+        setFavorites([]);
+        setLoading(false);
+        return;
+      }
+
+      // Fetch all locations from the `locTest` collection
+      const locationsRef = collection(db, 'locTest');
+      const locationsSnapshot = await getDocs(locationsRef);
+
+      // Filter locations by favorite IDs and include titles
+      const matchedLocations = favoriteIds.map((id) => {
+        const location = locationsSnapshot.docs
+          .map((doc) => ({ id: doc.id, ...doc.data() }))
+          .find((loc) => loc.id === id);
+        return location || { id, title: `Location ID: ${id}` }; // Fallback to ID if location is not found
+      });
+
+      setFavorites(matchedLocations);
+    } catch (error) {
+      console.error('Error fetching favorite locations:', error);
+      Alert.alert('Error', 'Failed to load favorite locations.');
+      setFavorites([]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const addLocationToFavorites = async () => {
     try {
@@ -51,18 +59,18 @@ const FavLocations = () => {
       }
 
       const locationId = parseInt(newLocationId, 10); // Ensure it's a number
-      const location = locations.find((loc) => loc.id === locationId);
-      if (!location) {
+      if (!locationId) {
         Alert.alert('Error', 'Invalid location ID.');
         return;
       }
 
-      const userDoc = doc(db, 'favorites', user.uid);
-      await setDoc(userDoc, { locations: arrayUnion(locationId) }, { merge: true });
+      // Add the location ID to the user's favorites
+      const userDocRef = doc(db, 'favorites', user.uid);
+      await updateDoc(userDocRef, { locations: arrayUnion(locationId) });
 
-      setFavorites((prevFavorites) => [...prevFavorites, location]);
-      setNewLocationId('');
       Alert.alert('Success', 'Location added to favorites!');
+      setNewLocationId('');
+      fetchFavorites(); // Refresh the list after adding
     } catch (error) {
       console.error('Error adding location to favorites:', error);
       Alert.alert('Error', 'Failed to add location to favorites.');
@@ -77,18 +85,21 @@ const FavLocations = () => {
         return;
       }
 
-      const userDoc = doc(db, 'favorites', user.uid);
-      await setDoc(userDoc, { locations: arrayRemove(locationId) }, { merge: true });
+      // Remove the location ID from the user's favorites
+      const userDocRef = doc(db, 'favorites', user.uid);
+      await updateDoc(userDocRef, { locations: arrayRemove(locationId) });
 
-      setFavorites((prevFavorites) =>
-        prevFavorites.filter((location) => location.id !== locationId)
-      );
       Alert.alert('Success', 'Location removed from favorites!');
+      fetchFavorites(); // Refresh the list after removing
     } catch (error) {
       console.error('Error removing location from favorites:', error);
       Alert.alert('Error', 'Failed to remove location from favorites.');
     }
   };
+
+  useEffect(() => {
+    fetchFavorites();
+  }, []);
 
   if (loading) {
     return (
@@ -117,7 +128,7 @@ const FavLocations = () => {
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <View style={styles.itemContainer}>
-              <Text style={styles.name}>{item.name}</Text>
+              <Text style={styles.name}>{item.title || `Location ID: ${item.id}`}</Text>
               <TouchableOpacity
                 style={styles.removeButton}
                 onPress={() => removeLocationFromFavorites(item.id)}
@@ -194,7 +205,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ccc',
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 10, // Add some space between text and button
+    marginLeft: 10,
   },
   removeButtonText: {
     color: '#fff',
