@@ -4,7 +4,7 @@ import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import * as SplashScreen from 'expo-splash-screen';
 import { FIREBASE_AUTH, FIREBASE_DB } from "../FirebaseConfig";
 import { updateProfile, getAuth } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { collection, getDocs, doc, setDoc } from "firebase/firestore";
 import { router } from 'expo-router';
 
 SplashScreen.preventAutoHideAsync();
@@ -23,20 +23,19 @@ SplashScreen.preventAutoHideAsync();
 
 
         Chloe To-Do:
-        -   Get all the locations in there
         -   Get their data, then add a favorites & visibility variable
                 -   NEED Visibility, maybe not Favorites yet
         -   Get locations to have all current & old names
 
-        -   Search looks through location array & returns list of all locations
-            whose names or address strings include the characters in the search
-                    Later, can adjust to have google-like search (accounting for typos)
+        ********************************************************************************************** GET THIS DONE ASAP
+        -   Get the categories to actually list all of the locations belonging to it
+        **********************************************************************************************
 
 */
 
-const getFilteredLocations = (locations, catId) => {
-    return locations.filter(location => location.catId === catId).map(location => location.name);
-};
+//const getFilteredLocations = (locations, catId) => {
+//    return locations.filter(location => location.catId === catId).map(location => location.title);       // 9:37pm changed name to title
+//};
 
 
 
@@ -45,15 +44,42 @@ export default function FilterPinsMainScreen() {
     let [fontsLoaded] = useFonts({
       Abel_400Regular,
     });
+
+    // Fetch markers from Firebase                      ADDED AFTER GETTING ALL LOCATIONS IN
+ /*
+    useEffect(() => {
+        const fetchMarkers = async () => {
+        try {
+            //const query = await getDocs(collection(FIRESTORE_DB, "markers"));   // OG
+            const query = await getDocs(collection(FIRESTORE_DB, "locTest"));     // Changed to use what Chloe brought in
+            const db_data = query.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+            }));
+
+            setMarkers(db_data);
+            setFilteredMarkers(db_data);
+            setIsLoading(false);
+        } catch (err) {
+            Alert.alert("Error fetching data");
+            setIsLoading(false);
+        }
+    };
+
+    fetchMarkers();
+  }, []);
+  */
   
     const [dropdownVisibility, setDropdownVisibility] = useState({});
-    const [locations, setLocations] = useState([
-      { catId: 9492, name: "Academic Building A" },
-      { catId: 9492, name: "Academic Building B" },
-      { catId: 23396, name: "Administrative Building A" },
-      { catId: 23396, name: "Administrative Building B" },
-      { catId: 24197, name: "Other Building" },
-    ]);
+    const [locations, setLocations] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+//    const [locations, setLocations] = useState([
+//      { catId: 9492, name: "Academic Building A" },
+//      { catId: 9492, name: "Academic Building B" },
+//      { catId: 23396, name: "Administrative Building A" },
+//      { catId: 23396, name: "Administrative Building B" },
+//      { catId: 24197, name: "Other Building" },
+//    ]);
     // Using placeholder buildings for now.         COME BACK LATER & replace with the location data I got before. BEfore that, need to fix formatted_locations.json to stop separating some info
   
     const categories = [
@@ -64,11 +90,46 @@ export default function FilterPinsMainScreen() {
       { label: "Dining", catId: 21041 },
       { label: "Athletics", catId: 21035 },
       { label: "Parking", catId: 9495 },
-//      { label: "Services", catId: 21041 },        Cant find Services from api, COME BACK LATER
       { label: "Accessibility", catId: 23393 },
       // Add more categories with their respective catIds
       // Academic Buildings, Administrative Buildings, Colleges & Schools, Housing, Dining, Athletics, Parking, Services, Accessibility
     ];
+
+      // Fetch locations from Firebase's locTest collection
+  useEffect(() => {
+    const fetchLocations = async () => {
+      try {
+        const query = await getDocs(collection(FIREBASE_DB, "locTest"));
+        const db_data = query.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setLocations(db_data);
+        setIsLoading(false);
+
+      } catch (err) {
+        Alert.alert("Error fetching data");
+        setIsLoading(false);
+        
+      }
+    };
+
+    fetchLocations();
+  }, []);
+
+  const toggleDropdown = (label) => {
+    setDropdownVisibility((prev) => ({
+      ...prev,
+      [label]: !prev[label],
+    }));
+  };
+
+  const getFilteredLocations = (locations, catId) => {
+    return locations
+      .filter((location) => location.catId === catId && location.title)
+      .map((location) => location.title)                    // Changed name to title
+      .sort();
+  };
   
     useEffect(() => {
       if (fontsLoaded) {
@@ -76,16 +137,21 @@ export default function FilterPinsMainScreen() {
       }
     }, [fontsLoaded]);
   
-    if (!fontsLoaded) {
-      return null;
+    if (!fontsLoaded || isLoading) {
+        return (
+            <View style={styles.loadingContainer}>
+              <Text>Loading...</Text>
+            </View>
+        );
+      //return null;
     }
   
-    const toggleDropdown = (label) => {
-      setDropdownVisibility((prev) => ({
-        ...prev,
-        [label]: !prev[label],
-      }));
-    };
+ //   const toggleDropdown = (label) => {
+//      setDropdownVisibility((prev) => ({
+//        ...prev,
+//        [label]: !prev[label],
+//      }));
+//    };
   
     return (
       <ScrollView style={styles.container}>
@@ -101,13 +167,13 @@ export default function FilterPinsMainScreen() {
                 onPress={() => toggleDropdown(category.label)}
               >
                 <View style={styles.accentBoxSmall}>
-                <View style={styles.accentBox}>
-                  <Text style={styles.settingText}>{category.label}</Text>
-                </View>
+                    <View style={styles.accentBox}>
+                        <Text style={styles.settingText}>{category.label}</Text>
+                    </View>
                 </View>
               </TouchableOpacity>
   
-              {dropdownVisibility[category.label] && (
+              {dropdownVisibility[category.label] && filteredNames.length > 0 && (
                 <FlatList
                   data={filteredNames}
                   keyExtractor={(item, index) => index.toString()}
@@ -118,6 +184,13 @@ export default function FilterPinsMainScreen() {
                   )}
                 />
               )}
+
+            {dropdownVisibility[category.label] && filteredNames.length === 0 && (
+              <View style={styles.dropdownItem}>
+                <Text>No locations available for this category.</Text>
+              </View>
+            )}
+
             </View>
           );
         })}

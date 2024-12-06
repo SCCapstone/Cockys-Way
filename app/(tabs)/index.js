@@ -64,7 +64,8 @@ export default function HomeScreen() {
   useEffect(() => {
     const fetchMarkers = async () => {
       try {
-        const query = await getDocs(collection(FIRESTORE_DB, "markers"));
+        //const query = await getDocs(collection(FIRESTORE_DB, "markers"));   // OG
+        const query = await getDocs(collection(FIRESTORE_DB, "locTest"));     // Changed to use what Chloe brought in
         const db_data = query.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
