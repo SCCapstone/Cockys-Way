@@ -120,5 +120,10 @@ else:
         git add .
         git commit -m "Message"
         git push
+
+        Chloe To-Do
+        index.js:
+        -   Go in & edit search to instead account for the locations collection on firestore
+        -   search should be able to look thru loc data in firestore & search by title
     
 '''

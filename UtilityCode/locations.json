@@ -1,0 +1,3327 @@
+[
+    {
+        "name": "1027 Barnwell St. (University Foundations)",
+        "lat": 34.002277,
+        "lng": -81.023407,
+        "catId": 23396,
+        "id": 223347
+    },
+    {
+        "catId": 23396,
+        "lat": 34.00996,
+        "lng": -81.036095,
+        "id": 223348,
+        "name": "1225 Laurel Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.993187,
+        "lng": -81.02858,
+        "id": 223349,
+        "name": "Student Enrollment Service Center"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.002178,
+        "lng": -81.031609,
+        "id": 223350,
+        "name": "1301 Gervais Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.003345,
+        "lng": -81.034027,
+        "id": 223351,
+        "name": "1320 Main Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.00602,
+        "lng": -81.027779,
+        "id": 223352,
+        "name": "1338 Pickens Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.001961,
+        "lng": -81.027794,
+        "id": 223354,
+        "name": "1501 Senate Street (Taylor House)"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.002041,
+        "lng": -81.027016,
+        "id": 223355,
+        "name": "1527 Senate Street (Horry/Guignard House)"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.002094,
+        "lng": -81.026878,
+        "id": 223356,
+        "name": "1527 Senate Street Annex"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.007282,
+        "lng": -81.028191,
+        "id": 223357,
+        "name": "1600 Hampton Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.007114,
+        "lng": -81.02742,
+        "id": 223358,
+        "name": "1600 Hampton Street Annex"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.999546,
+        "lng": -81.023148,
+        "id": 223359,
+        "name": "1710 College Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.999592,
+        "lng": -81.022964,
+        "id": 223360,
+        "name": "1714 College Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.999359,
+        "lng": -81.022774,
+        "id": 223361,
+        "name": "1714 College Street Annex"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.999649,
+        "lng": -81.022766,
+        "id": 223362,
+        "name": "1716 College Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.999683,
+        "lng": -81.022591,
+        "id": 223363,
+        "name": "1718 College Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.999756,
+        "lng": -81.022377,
+        "id": 223364,
+        "name": "1728 College Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.000317,
+        "lng": -81.022537,
+        "id": 223365,
+        "name": "1731 College Street (Barringer House)"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.014484,
+        "lng": -81.079193,
+        "id": 223366,
+        "name": "220 Stoneridge Drive"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.987366,
+        "lng": -81.036125,
+        "id": 223367,
+        "name": "350 Wayne Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.992355,
+        "lng": -81.028786,
+        "id": 223368,
+        "name": "514 South Main Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.992611,
+        "lng": -81.029236,
+        "id": 223369,
+        "name": "516 Main Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.992752,
+        "lng": -81.029274,
+        "id": 223370,
+        "name": "518 Main Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.998909,
+        "lng": -81.023003,
+        "id": 223375,
+        "name": "814 Henderson Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.9991,
+        "lng": -81.023094,
+        "id": 223376,
+        "name": "816 Henderson Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.998898,
+        "lng": -81.030167,
+        "id": 223377,
+        "name": "War Memorial Building"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.998402,
+        "lng": -81.023605,
+        "id": 223378,
+        "name": "Energy Facility (East)"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.994816,
+        "lng": -81.031937,
+        "id": 223380,
+        "name": "Tunnel Elevator"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.993122,
+        "lng": -81.029343,
+        "id": 223382,
+        "name": "Energy Facility (West)"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.000031,
+        "lng": -81.024803,
+        "id": 223383,
+        "name": "Ernest F. Hollings National Advocacy Center"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.988983,
+        "lng": -81.024811,
+        "id": 223384,
+        "name": "Energy Facility (South)"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.994656,
+        "lng": -81.031639,
+        "id": 223387,
+        "name": "1112 Greene Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.999706,
+        "lng": -81.02787,
+        "id": 223389,
+        "name": "Old Observatory"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.999298,
+        "lng": -81.027512,
+        "id": 223390,
+        "name": "Osborne Administration"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.99781,
+        "lng": -81.028297,
+        "id": 223391,
+        "name": "President's House"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.997658,
+        "lng": -81.028259,
+        "id": 223392,
+        "name": "President's House Annex"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.993813,
+        "lng": -81.034355,
+        "id": 223393,
+        "name": "Energy Facility (North)"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.996559,
+        "lng": -81.027359,
+        "id": 223394,
+        "name": "Russell House University Union"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.000843,
+        "lng": -81.021111,
+        "id": 223395,
+        "name": "Spigner House"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.995693,
+        "lng": -81.026901,
+        "id": 223396,
+        "name": "Thomson Student Health Center"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.997978,
+        "lng": -81.037117,
+        "id": 223397,
+        "name": "Alumni Center"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.005737,
+        "lng": -81.025856,
+        "id": 223398,
+        "name": "Evidence Intake and Storage"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.998753,
+        "lng": -81.028755,
+        "id": 224603,
+        "name": "McCutchen House"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.966026,
+        "lng": -81.009964,
+        "id": 225663,
+        "name": "1005 Idlewilde Boulevard"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.995766,
+        "lng": -81.027397,
+        "id": 227483,
+        "name": "Center for Health and Well-Being"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.005466,
+        "lng": -81.025772,
+        "id": 227484,
+        "name": "1301 Barnwell Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.001232,
+        "lng": -81.024902,
+        "id": 229061,
+        "name": "Graduate Columbia"
+    },
+    {
+        "catId": 23396,
+        "lat": 34.004799,
+        "lng": -81.027306,
+        "id": 229152,
+        "name": "1300 Pickens Street"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.9949,
+        "lng": -81.033516,
+        "id": 230780,
+        "name": "W.W. Hootie Johnson Performance Hall"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.99551,
+        "lng": -81.034142,
+        "id": 230790,
+        "name": "Koger Center"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.997456,
+        "lng": -81.029526,
+        "id": 232481,
+        "name": "Lieber College (Undergraduate Admissions)"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.998829,
+        "lng": -81.027023,
+        "id": 232485,
+        "name": "Visitor Center"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.993839,
+        "lng": -81.033066,
+        "id": 232486,
+        "name": "Carolina Coliseum"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.997822,
+        "lng": -81.030396,
+        "id": 233136,
+        "name": "James F. Byrnes Building"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.998592,
+        "lng": -81.029205,
+        "id": 233137,
+        "name": "Harper/Elliott College"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.991673,
+        "lng": -81.028046,
+        "id": 329984,
+        "name": "Learning Center for Sustainable Futures"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.984985,
+        "lng": -81.026184,
+        "id": 747631,
+        "name": "1206 Flora St."
+    },
+    {
+        "catId": 23396,
+        "lat": 33.984035,
+        "lng": -81.024429,
+        "id": 747632,
+        "name": "11 Poe St."
+    },
+    {
+        "catId": 23396,
+        "lat": 34.001751,
+        "lng": -81.026329,
+        "id": 747643,
+        "name": "Children's Law Center Training Center"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.966724,
+        "lng": -81.01078,
+        "id": 747659,
+        "name": "1413 Bluff Rd"
+    },
+    {
+        "catId": 23396,
+        "lat": 33.999405,
+        "lng": -81.030304,
+        "id": 934689,
+        "name": "1311 Pendleton St."
+    },
+    {
+        "name": "McCutchen House",
+        "lat": 33.998753,
+        "lng": -81.028755,
+        "catId": 21041,
+        "id": 223513
+    },
+    {
+        "catId": 21041,
+        "lat": 33.999203,
+        "lng": -81.024529,
+        "id": 223536,
+        "name": "Colloquium Caf\u00c3\u00a9"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.99395,
+        "lng": -81.035576,
+        "id": 224643,
+        "name": "Angell Bros. 1801 Grille"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.991886,
+        "lng": -81.027878,
+        "id": 224986,
+        "name": "Caf\u00c3\u00a9 Verde"
+    },
+    {
+        "catId": 21041,
+        "lat": 34.007118,
+        "lng": -81.028175,
+        "id": 224987,
+        "name": "Hampton Street Caf\u00c3\u00a9"
+    },
+    {
+        "catId": 21041,
+        "lat": 34.000801,
+        "lng": -81.02166,
+        "id": 224988,
+        "name": "Top of Carolina"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.994583,
+        "lng": -81.03389,
+        "id": 224990,
+        "name": "Global Caf\u00c3\u00a9"
+    },
+    {
+        "catId": 21041,
+        "lat": 34.000294,
+        "lng": -81.023026,
+        "id": 224991,
+        "name": "Village Juice & Kitchen"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.996452,
+        "lng": -81.027702,
+        "id": 224997,
+        "name": "Fresh Greene\u00e2\u20ac\u2122s"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.997086,
+        "lng": -81.027008,
+        "id": 224998,
+        "name": "The Coop Food Truck"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.996429,
+        "lng": -81.027023,
+        "id": 225503,
+        "name": "Einstein Bros. Bagels"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.998878,
+        "lng": -81.024246,
+        "id": 225507,
+        "name": "Horseshoe Deli"
+    },
+    {
+        "catId": 21041,
+        "lat": 34.000145,
+        "lng": -81.021446,
+        "id": 225653,
+        "name": "Gibbes Court Bistro"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.993641,
+        "lng": -81.029205,
+        "id": 225654,
+        "name": "Honeycomb Caf\u00c3\u00a9"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.994114,
+        "lng": -81.029411,
+        "id": 225659,
+        "name": "The Buzz"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.992088,
+        "lng": -81.034462,
+        "id": 225660,
+        "name": "The Community Table"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.986996,
+        "lng": -81.023911,
+        "id": 225661,
+        "name": "The Dodie Caf\u00c3\u00a9"
+    },
+    {
+        "catId": 21041,
+        "lat": 34.002575,
+        "lng": -81.02784,
+        "id": 519434,
+        "name": "Counselor\u00e2\u20ac\u2122s Caf\u00c3\u00a9"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.999161,
+        "lng": -81.024864,
+        "id": 519435,
+        "name": "Starbucks at Welsh Humanities"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.996372,
+        "lng": -81.027069,
+        "id": 519436,
+        "name": "Chick-fil-A"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.996487,
+        "lng": -81.027206,
+        "id": 519463,
+        "name": "Panera Bread Co."
+    },
+    {
+        "catId": 21041,
+        "lat": 33.996288,
+        "lng": -81.026932,
+        "id": 519470,
+        "name": "Food Lab featuring Qdoba "
+    },
+    {
+        "catId": 21041,
+        "lat": 33.996201,
+        "lng": -81.027016,
+        "id": 519472,
+        "name": "Gamecock General Russell House"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.989811,
+        "lng": -81.02935,
+        "id": 519499,
+        "name": "The Wired Caf\u00c3\u00a9"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.995178,
+        "lng": -81.028053,
+        "id": 519500,
+        "name": "Starbucks at Thomas Cooper "
+    },
+    {
+        "catId": 21041,
+        "lat": 33.994644,
+        "lng": -81.031616,
+        "id": 519501,
+        "name": "Gamecock General Chemistry Teaching Lab"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.989597,
+        "lng": -81.040283,
+        "id": 519502,
+        "name": "Gamecock General Park Place"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.992279,
+        "lng": -81.034622,
+        "id": 519503,
+        "name": "Gamecock General Community Table"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.9963,
+        "lng": -81.026764,
+        "id": 616181,
+        "name": "Gamecock Park"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.996536,
+        "lng": -81.026917,
+        "id": 616182,
+        "name": "Panda Express"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.989704,
+        "lng": -81.025108,
+        "id": 926879,
+        "name": "The Pavilion "
+    },
+    {
+        "catId": 21041,
+        "lat": 33.989326,
+        "lng": -81.024155,
+        "id": 926881,
+        "name": "The Golden Spur "
+    },
+    {
+        "catId": 21041,
+        "lat": 33.989399,
+        "lng": -81.023933,
+        "id": 926882,
+        "name": "Starbucks at Campus Village "
+    },
+    {
+        "catId": 21041,
+        "lat": 33.9893,
+        "lng": -81.024254,
+        "id": 926883,
+        "name": "Gamecock General Campus Village"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.99625,
+        "lng": -81.026833,
+        "id": 926884,
+        "name": "The Halal Shack"
+    },
+    {
+        "catId": 21041,
+        "lat": 33.996357,
+        "lng": -81.02684,
+        "id": 926885,
+        "name": "BerryBliss "
+    },
+    {
+        "name": "820 Henderson Street (NADA)",
+        "lat": 33.99947,
+        "lng": -81.023331,
+        "catId": 9497,
+        "id": 223523
+    },
+    {
+        "catId": 9497,
+        "lat": 33.991108,
+        "lng": -81.023842,
+        "id": 223527,
+        "name": "Bates House"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.990761,
+        "lng": -81.024803,
+        "id": 223528,
+        "name": "Bates West"
+    },
+    {
+        "catId": 9497,
+        "lat": 34.000278,
+        "lng": -81.021538,
+        "id": 223532,
+        "name": "Capstone"
+    },
+    {
+        "catId": 9497,
+        "lat": 34.001213,
+        "lng": -81.022156,
+        "id": 223537,
+        "name": "Columbia Hall"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.998936,
+        "lng": -81.028107,
+        "id": 223538,
+        "name": "DeSaussure College"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.993774,
+        "lng": -81.026253,
+        "id": 223540,
+        "name": "East Quad"
+    },
+    {
+        "catId": 9497,
+        "lat": 34.000359,
+        "lng": -81.021011,
+        "id": 223541,
+        "name": "Gibbes Court Apartments"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.991592,
+        "lng": -81.02832,
+        "id": 223542,
+        "name": "Green Quad"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.998592,
+        "lng": -81.029205,
+        "id": 223543,
+        "name": "Harper/Elliott College"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.994034,
+        "lng": -81.029427,
+        "id": 223544,
+        "name": "Honors Residence"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.997658,
+        "lng": -81.028824,
+        "id": 223546,
+        "name": "Pinckney/Legare College"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.999119,
+        "lng": -81.029358,
+        "id": 223547,
+        "name": "Maxcy College"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.994106,
+        "lng": -81.027641,
+        "id": 223548,
+        "name": "McBryde Quadrangle"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.996914,
+        "lng": -81.02578,
+        "id": 223549,
+        "name": "McClintock at Women's Quad"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.996086,
+        "lng": -81.02494,
+        "id": 223550,
+        "name": "Patterson Hall"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.996937,
+        "lng": -81.028351,
+        "id": 223552,
+        "name": "Preston College"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.997967,
+        "lng": -81.027657,
+        "id": 223554,
+        "name": "Rutledge College"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.996559,
+        "lng": -81.025093,
+        "id": 223556,
+        "name": "Sims at Women's Quad"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.993126,
+        "lng": -81.02713,
+        "id": 223557,
+        "name": "South Quad"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.995579,
+        "lng": -81.025169,
+        "id": 223558,
+        "name": "South Tower"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.999462,
+        "lng": -81.028313,
+        "id": 223560,
+        "name": "Thornwell College"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.997204,
+        "lng": -81.024864,
+        "id": 223561,
+        "name": "Wade Hampton at Women's Quad"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.997322,
+        "lng": -81.027351,
+        "id": 223562,
+        "name": "Woodrow College"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.989452,
+        "lng": -81.04039,
+        "id": 226197,
+        "name": "Park Place"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.993046,
+        "lng": -81.034958,
+        "id": 226198,
+        "name": "650 Lincoln"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.989662,
+        "lng": -81.025322,
+        "id": 778829,
+        "name": "Campus Village Building 1"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.989941,
+        "lng": -81.024307,
+        "id": 778830,
+        "name": "Campus Village Building 3"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.989353,
+        "lng": -81.024017,
+        "id": 778831,
+        "name": "Campus Village Building 2"
+    },
+    {
+        "catId": 9497,
+        "lat": 33.989929,
+        "lng": -81.023376,
+        "id": 778832,
+        "name": "Campus Village Building 4"
+    },
+    {
+        "name": "Gamma Phi Beta",
+        "lat": 33.990719,
+        "lng": -81.03669,
+        "catId": 24199,
+        "id": 226192
+    },
+    {
+        "catId": 24199,
+        "lat": 33.990314,
+        "lng": -81.037041,
+        "id": 226193,
+        "name": "Pi Kappa Phi"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.989887,
+        "lng": -81.036827,
+        "id": 226247,
+        "name": "Phi Mu"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.990463,
+        "lng": -81.035622,
+        "id": 226249,
+        "name": "Delta Delta Delta"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.989769,
+        "lng": -81.036263,
+        "id": 226251,
+        "name": "Alpha Chi Omega"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.989395,
+        "lng": -81.036102,
+        "id": 226252,
+        "name": "Chi Omega"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.990948,
+        "lng": -81.035912,
+        "id": 226253,
+        "name": "Sigma Chi"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.98967,
+        "lng": -81.035271,
+        "id": 226254,
+        "name": "Alpha Delta Pi"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.99012,
+        "lng": -81.035522,
+        "id": 226255,
+        "name": "Kappa Delta"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.989056,
+        "lng": -81.035088,
+        "id": 226256,
+        "name": "Kappa Sigma"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.989185,
+        "lng": -81.034607,
+        "id": 226257,
+        "name": "Zeta Tau Alpha"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.989346,
+        "lng": -81.034142,
+        "id": 226259,
+        "name": "Alpha Xi Delta"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.989906,
+        "lng": -81.034447,
+        "id": 226278,
+        "name": "Sigma Alpha Epsilon"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.99041,
+        "lng": -81.034645,
+        "id": 226279,
+        "name": "Sigma Nu"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.990711,
+        "lng": -81.034767,
+        "id": 226280,
+        "name": "Kappa Alpha"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.991207,
+        "lng": -81.034988,
+        "id": 226281,
+        "name": "Beta Theta Pi"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.990963,
+        "lng": -81.034004,
+        "id": 226282,
+        "name": "Kappa Kappa Gamma"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.990627,
+        "lng": -81.033791,
+        "id": 226283,
+        "name": "Delta Zeta"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.990158,
+        "lng": -81.03363,
+        "id": 226284,
+        "name": "Chi Psi"
+    },
+    {
+        "catId": 24199,
+        "lat": 33.989796,
+        "lng": -81.03347,
+        "id": 226285,
+        "name": "Sigma Phi Epsilon"
+    },
+    {
+        "name": "College of Hospitality, Retail and Sport Management - Close-Hipp Building (MAIN OFFICE)",
+        "lat": 34.000771,
+        "lng": -81.023422,
+        "catId": 24561,
+        "id": 229732
+    },
+    {
+        "catId": 24561,
+        "lat": 33.998802,
+        "lng": -81.02874,
+        "id": 229733,
+        "name": "College of Hospitality, Retail and Sport Management - McCutchen House"
+    },
+    {
+        "catId": 24561,
+        "lat": 33.997707,
+        "lng": -81.03035,
+        "id": 660236,
+        "name": "Gamecock iHub"
+    },
+    {
+        "name": "The Graduate School",
+        "lat": 33.997875,
+        "lng": -81.030624,
+        "catId": 24901,
+        "id": 233139
+    },
+    {
+        "name": "Joseph F. Rice School of Law",
+        "lat": 34.002289,
+        "lng": -81.027344,
+        "catId": 24902,
+        "id": 233148
+    },
+    {
+        "name": "Petigru College",
+        "lat": 33.997845,
+        "lng": -81.025658,
+        "catId": 24903,
+        "id": 233141
+    },
+    {
+        "catId": 24903,
+        "lat": 33.99892,
+        "lng": -81.029663,
+        "id": 603873,
+        "name": "Flinn Hall - Undergraduate Student Services"
+    },
+    {
+        "name": "Darla Moore School of Business",
+        "lat": 33.994869,
+        "lng": -81.03373,
+        "catId": 24904,
+        "id": 233142
+    },
+    {
+        "name": "College of Education",
+        "lat": 33.996796,
+        "lng": -81.030716,
+        "catId": 24905,
+        "id": 233143
+    },
+    {
+        "name": "Molinaroli College of Engineering and Computing",
+        "lat": 33.98978,
+        "lng": -81.029213,
+        "catId": 24906,
+        "id": 233144
+    },
+    {
+        "name": "College of Information and Communications - School of Journalism and Mass Communications",
+        "lat": 33.996922,
+        "lng": -81.029419,
+        "catId": 24907,
+        "id": 233146
+    },
+    {
+        "catId": 24907,
+        "lat": 33.998184,
+        "lng": -81.026283,
+        "id": 233147,
+        "name": "College of Information and Communications - Davis College"
+    },
+    {
+        "name": "School of Medicine",
+        "lat": 33.977585,
+        "lng": -80.960983,
+        "catId": 24908,
+        "id": 233149
+    },
+    {
+        "name": "School of Music",
+        "lat": 33.996178,
+        "lng": -81.033936,
+        "catId": 24909,
+        "id": 233150
+    },
+    {
+        "name": "College of Nursing",
+        "lat": 33.998222,
+        "lng": -81.024284,
+        "catId": 24910,
+        "id": 233151
+    },
+    {
+        "name": "College of Pharmacy",
+        "lat": 33.995636,
+        "lng": -81.029663,
+        "catId": 24911,
+        "id": 233152
+    },
+    {
+        "name": "Arnold School of Public Health",
+        "lat": 33.996895,
+        "lng": -81.033791,
+        "catId": 24912,
+        "id": 233140
+    },
+    {
+        "name": "College of Social Work",
+        "lat": 33.99995,
+        "lng": -81.026161,
+        "catId": 24913,
+        "id": 233153
+    },
+    {
+        "name": "South Carolina Honors College",
+        "lat": 33.998653,
+        "lng": -81.029221,
+        "catId": 24914,
+        "id": 233145
+    },
+    {
+        "name": "Band/Dance Facility",
+        "lat": 33.990662,
+        "lng": -81.026161,
+        "catId": 59489,
+        "id": 603871
+    },
+    {
+        "catId": 59489,
+        "lat": 33.997219,
+        "lng": -81.03064,
+        "id": 603876,
+        "name": "Drayton Hall Theatre"
+    },
+    {
+        "catId": 59489,
+        "lat": 33.995544,
+        "lng": -81.029152,
+        "id": 603877,
+        "name": "Longstreet Annex"
+    },
+    {
+        "catId": 59489,
+        "lat": 33.990513,
+        "lng": -81.022865,
+        "id": 603878,
+        "name": "Benson Theatre"
+    },
+    {
+        "catId": 59489,
+        "lat": 33.987335,
+        "lng": -81.03553,
+        "id": 603879,
+        "name": "707 Catawba Street"
+    },
+    {
+        "catId": 59489,
+        "lat": 33.993397,
+        "lng": -81.025803,
+        "id": 603896,
+        "name": "Booker T. Washington Auditorium - Lab Theatre"
+    },
+    {
+        "catId": 59489,
+        "lat": 34.002823,
+        "lng": -81.026161,
+        "id": 603897,
+        "name": "School of Visual Art and Design"
+    },
+    {
+        "catId": 59489,
+        "lat": 33.996071,
+        "lng": -81.02935,
+        "id": 603905,
+        "name": "Longstreet Theatre"
+    },
+    {
+        "name": "Earth and Water Sciences Building",
+        "lat": 33.995522,
+        "lng": -81.030045,
+        "catId": 59490,
+        "id": 603872
+    },
+    {
+        "catId": 59490,
+        "lat": 33.999821,
+        "lng": -81.026482,
+        "id": 603880,
+        "name": "Barnwell College"
+    },
+    {
+        "catId": 59490,
+        "lat": 33.998528,
+        "lng": -81.025459,
+        "id": 603882,
+        "name": "LeConte College"
+    },
+    {
+        "catId": 59490,
+        "lat": 33.994629,
+        "lng": -81.02964,
+        "id": 603883,
+        "name": "John M. Palms Center for Graduate Science Research"
+    },
+    {
+        "catId": 59490,
+        "lat": 33.995396,
+        "lng": -81.029533,
+        "id": 603884,
+        "name": "Coker Life Sciences Building"
+    },
+    {
+        "catId": 59490,
+        "lat": 33.999462,
+        "lng": -81.022087,
+        "id": 603885,
+        "name": "819 Barnwell Street"
+    },
+    {
+        "catId": 59490,
+        "lat": 33.995907,
+        "lng": -81.030281,
+        "id": 603898,
+        "name": "Sumwalt College - School of the Earth, Ocean and Environment Teaching Lab"
+    },
+    {
+        "catId": 59490,
+        "lat": 33.995155,
+        "lng": -81.030304,
+        "id": 603899,
+        "name": "Jones Physical Science Center"
+    },
+    {
+        "catId": 59490,
+        "lat": 33.994808,
+        "lng": -81.031418,
+        "id": 603900,
+        "name": "Science and Technology Building - Chemistry Lab "
+    },
+    {
+        "catId": 59490,
+        "lat": 33.997631,
+        "lng": -81.026428,
+        "id": 603901,
+        "name": "Melton Observatory "
+    },
+    {
+        "catId": 59490,
+        "lat": 33.98735,
+        "lng": -81.022629,
+        "id": 603906,
+        "name": "Greenhouse #2"
+    },
+    {
+        "name": "Gambrell Hall",
+        "lat": 33.99934,
+        "lng": -81.023911,
+        "catId": 59491,
+        "id": 603874
+    },
+    {
+        "catId": 59491,
+        "lat": 33.999821,
+        "lng": -81.026482,
+        "id": 603881,
+        "name": "Barnwell College"
+    },
+    {
+        "catId": 59491,
+        "lat": 33.999462,
+        "lng": -81.022087,
+        "id": 603886,
+        "name": "819 Barnwell Street"
+    },
+    {
+        "catId": 59491,
+        "lat": 33.997864,
+        "lng": -81.027184,
+        "id": 603887,
+        "name": "Currell College"
+    },
+    {
+        "catId": 59491,
+        "lat": 33.999542,
+        "lng": -81.025932,
+        "id": 603888,
+        "name": "Sloan College"
+    },
+    {
+        "catId": 59491,
+        "lat": 33.996334,
+        "lng": -81.026276,
+        "id": 603889,
+        "name": "Callcott Social Science Center"
+    },
+    {
+        "catId": 59491,
+        "lat": 34.00005,
+        "lng": -81.026169,
+        "id": 603890,
+        "name": "Hamilton - Psychology Classrooms and Anthropology Labs"
+    },
+    {
+        "name": "Gambrell Hall",
+        "lat": 33.99934,
+        "lng": -81.023911,
+        "catId": 59492,
+        "id": 603875
+    },
+    {
+        "catId": 59492,
+        "lat": 33.999149,
+        "lng": -81.024414,
+        "id": 603891,
+        "name": "Welsh Humanities Office Building"
+    },
+    {
+        "catId": 59492,
+        "lat": 33.997929,
+        "lng": -81.030594,
+        "id": 603892,
+        "name": "James F. Byrnes Building - Writing Center"
+    },
+    {
+        "catId": 59492,
+        "lat": 33.998093,
+        "lng": -81.027649,
+        "id": 603893,
+        "name": "Rutledge College - Religious Studies Offices"
+    },
+    {
+        "catId": 59492,
+        "lat": 33.999084,
+        "lng": -81.024864,
+        "id": 603902,
+        "name": "Welsh Humanities Classroom Building - Ted Mimms Foreign Language Learning Center "
+    },
+    {
+        "catId": 59492,
+        "lat": 33.998932,
+        "lng": -81.026939,
+        "id": 603903,
+        "name": "McKissick Museum "
+    },
+    {
+        "catId": 59492,
+        "lat": 34.000881,
+        "lng": -81.023315,
+        "id": 603904,
+        "name": "Close-Hipp Building - Philosophy/Women\u00e2\u20ac\u2122s and Gender Studies Lounge "
+    },
+    {
+        "name": "513 Pickens Street - ROTC Center",
+        "lat": 33.994194,
+        "lng": -81.023735,
+        "catId": 59493,
+        "id": 603894
+    },
+    {
+        "catId": 59493,
+        "lat": 33.998875,
+        "lng": -81.023727,
+        "id": 603895,
+        "name": "Gambrell Hall - Walker Institute, African American Studies"
+    },
+    {
+        "name": "1000 Catawba Street",
+        "lat": 33.987514,
+        "lng": -81.03051,
+        "catId": 9492,
+        "id": 223277
+    },
+    {
+        "catId": 9492,
+        "lat": 33.989014,
+        "lng": -81.02774,
+        "id": 223278,
+        "name": "1200 Catawba Street"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.995152,
+        "lng": -81.030029,
+        "id": 223279,
+        "name": "1215 Devine Street (Neutron Generator)"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.989799,
+        "lng": -81.026947,
+        "id": 223280,
+        "name": "1223 Catawba Street"
+    },
+    {
+        "catId": 9492,
+        "lat": 34.004467,
+        "lng": -81.03392,
+        "id": 223281,
+        "name": "1233 Washington Street"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.999599,
+        "lng": -81.029938,
+        "id": 223282,
+        "name": "1321 Pendleton Street (S.C. Institute of Archaeology and Anthropology)"
+    },
+    {
+        "catId": 9492,
+        "lat": 34.00087,
+        "lng": -81.028252,
+        "id": 223283,
+        "name": "1430 Senate Street"
+    },
+    {
+        "catId": 9492,
+        "lat": 34.004177,
+        "lng": -81.023346,
+        "id": 223284,
+        "name": "1800 Gervais Street (Institute for Mind and Brain)"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.999191,
+        "lng": -81.013397,
+        "id": 223285,
+        "name": "2221 Devine Street"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.990192,
+        "lng": -81.028061,
+        "id": 223286,
+        "name": "300 Main Street (Civil and Mechanical Engineering Building)"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.990017,
+        "lng": -81.026222,
+        "id": 223287,
+        "name": "300 Sumter Street"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.994106,
+        "lng": -81.023727,
+        "id": 223288,
+        "name": "513 Pickens Street (ROTC)"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.993935,
+        "lng": -81.024055,
+        "id": 223289,
+        "name": "513 Pickens Street Annex (ROTC Annex)"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.987179,
+        "lng": -81.035484,
+        "id": 223290,
+        "name": "707 Catawba Street"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.993099,
+        "lng": -81.042084,
+        "id": 223292,
+        "name": "800-A Huger Street"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.99939,
+        "lng": -81.022095,
+        "id": 223293,
+        "name": "819 Barnwell Street"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.999638,
+        "lng": -81.026459,
+        "id": 223294,
+        "name": "Barnwell College"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.99052,
+        "lng": -81.022484,
+        "id": 223295,
+        "name": "Benson"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.988884,
+        "lng": -81.026558,
+        "id": 223296,
+        "name": "1220 Catawba"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.993252,
+        "lng": -81.025612,
+        "id": 223297,
+        "name": "Booker T. Washington"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.996254,
+        "lng": -81.026222,
+        "id": 223298,
+        "name": "Callcott Social Sciences Center"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.993839,
+        "lng": -81.033066,
+        "id": 223299,
+        "name": "Carolina Coliseum"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.997475,
+        "lng": -81.028084,
+        "id": 223300,
+        "name": "Preston Greenhouse"
+    },
+    {
+        "catId": 9492,
+        "lat": 34.000607,
+        "lng": -81.023232,
+        "id": 223301,
+        "name": "Close-Hipp Buildings"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.995358,
+        "lng": -81.029617,
+        "id": 223304,
+        "name": "Coker Life Sciences Building"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.997669,
+        "lng": -81.02774,
+        "id": 223305,
+        "name": "Currell Annex"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.997753,
+        "lng": -81.027168,
+        "id": 223306,
+        "name": "Currell College"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.994537,
+        "lng": -81.033485,
+        "id": 223307,
+        "name": "Darla Moore School of Business"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.997997,
+        "lng": -81.026215,
+        "id": 223308,
+        "name": "Davis College"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.994968,
+        "lng": -81.03521,
+        "id": 223310,
+        "name": "Discovery I Building"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.995365,
+        "lng": -81.030052,
+        "id": 223311,
+        "name": "Earth and Water Sciences Building"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.991482,
+        "lng": -81.025063,
+        "id": 223312,
+        "name": "Challenge Course Building"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.998863,
+        "lng": -81.029648,
+        "id": 223313,
+        "name": "Flinn Hall"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.998821,
+        "lng": -81.023834,
+        "id": 223314,
+        "name": "Gambrell Hall"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.987312,
+        "lng": -81.022606,
+        "id": 223315,
+        "name": "Greenhouse No. 2"
+    },
+    {
+        "catId": 9492,
+        "lat": 34.000034,
+        "lng": -81.026161,
+        "id": 223316,
+        "name": "Hamilton College"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.994488,
+        "lng": -81.027763,
+        "id": 223317,
+        "name": "Hollings Special Collections Library"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.992722,
+        "lng": -81.030067,
+        "id": 223318,
+        "name": "Horizon I Building"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.998833,
+        "lng": -81.024811,
+        "id": 223319,
+        "name": "Welsh Humanities Classroom Building"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.992462,
+        "lng": -81.030968,
+        "id": 223320,
+        "name": "Innovation Center Building"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.999058,
+        "lng": -81.024391,
+        "id": 223321,
+        "name": "J. Welsh Humanities Building"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.997822,
+        "lng": -81.030396,
+        "id": 223322,
+        "name": "James F. Byrnes Building"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.995277,
+        "lng": -81.030434,
+        "id": 223323,
+        "name": "Jones Physical Sciences Center"
+    },
+    {
+        "catId": 9492,
+        "lat": 34.003017,
+        "lng": -81.032074,
+        "id": 223324,
+        "name": "Keenan Building"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.99836,
+        "lng": -81.025406,
+        "id": 223325,
+        "name": "LeConte College"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.995453,
+        "lng": -81.029099,
+        "id": 223327,
+        "name": "Longstreet Annex"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.998718,
+        "lng": -81.027,
+        "id": 223328,
+        "name": "McKissick"
+    },
+    {
+        "catId": 9492,
+        "lat": 34.00267,
+        "lng": -81.0261,
+        "id": 223329,
+        "name": "McMaster College"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.997547,
+        "lng": -81.026413,
+        "id": 223330,
+        "name": "Melton Observatory"
+    },
+    {
+        "catId": 9492,
+        "lat": 34.088989,
+        "lng": -80.967583,
+        "id": 223331,
+        "name": "Library Annex and Conservation Facility"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.994484,
+        "lng": -81.029366,
+        "id": 223332,
+        "name": "John M. Palms Center for Graduate Science Research"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.997772,
+        "lng": -81.02562,
+        "id": 223333,
+        "name": "Petigru College"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.996922,
+        "lng": -81.033974,
+        "id": 223334,
+        "name": "Public Health Research Center"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.996841,
+        "lng": -81.029388,
+        "id": 223335,
+        "name": "School of Journalism and Mass Communications"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.99612,
+        "lng": -81.034225,
+        "id": 223337,
+        "name": "School of Music"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.99939,
+        "lng": -81.025879,
+        "id": 223338,
+        "name": "Sloan College"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.998318,
+        "lng": -81.029961,
+        "id": 223339,
+        "name": "South Caroliniana Library"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.995792,
+        "lng": -81.030273,
+        "id": 223341,
+        "name": "Sumwalt College"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.989532,
+        "lng": -81.029297,
+        "id": 223342,
+        "name": "Swearingen Engineering Center"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.995224,
+        "lng": -81.028137,
+        "id": 223343,
+        "name": "Thomas Cooper Library"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.996643,
+        "lng": -81.030785,
+        "id": 223344,
+        "name": "Wardlaw College"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.998177,
+        "lng": -81.024376,
+        "id": 223345,
+        "name": "Williams-Brice Building"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.997143,
+        "lng": -81.030647,
+        "id": 223371,
+        "name": "Drayton Hall"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.998753,
+        "lng": -81.028755,
+        "id": 224604,
+        "name": "McCutchen House"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.977524,
+        "lng": -80.961006,
+        "id": 227528,
+        "name": "Medicine VA Campus, Building No. 1"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.978092,
+        "lng": -80.961693,
+        "id": 227529,
+        "name": "Medicine VA Campus, Building No. 2"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.977543,
+        "lng": -80.962257,
+        "id": 227530,
+        "name": "Medicine VA Campus, Building No. 3"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.977097,
+        "lng": -80.96151,
+        "id": 227531,
+        "name": "Medicine VA Campus, Building No. 4"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.976704,
+        "lng": -80.960976,
+        "id": 227532,
+        "name": "Medicine VA Campus, Building No. 101"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.976997,
+        "lng": -80.961136,
+        "id": 227533,
+        "name": "Medicine VA Campus, Building No. 104"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.978477,
+        "lng": -80.962349,
+        "id": 227534,
+        "name": "Medicine VA Campus, Building No. 28"
+    },
+    {
+        "catId": 9492,
+        "lat": 34.002518,
+        "lng": -81.027779,
+        "id": 227607,
+        "name": "Joseph F. Rice School of Law"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.990601,
+        "lng": -81.026184,
+        "id": 229055,
+        "name": "Copenhaver Band Hall/Dance Facility"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.997261,
+        "lng": -81.029633,
+        "id": 230352,
+        "name": "Broadcast Studio"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.996109,
+        "lng": -81.029404,
+        "id": 232320,
+        "name": "Longstreet Theatre"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.998432,
+        "lng": -81.024673,
+        "id": 232321,
+        "name": "Williams-Brice Building Auditorium"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.99284,
+        "lng": -81.024048,
+        "id": 247651,
+        "name": "Child Development and Research Center"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.976891,
+        "lng": -80.960281,
+        "id": 331482,
+        "name": "Medicine VA Campus, Building No. 5"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.976849,
+        "lng": -80.961845,
+        "id": 331483,
+        "name": "Medicine VA Campus, Building No. 9"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.976311,
+        "lng": -80.960793,
+        "id": 331484,
+        "name": "Medicine VA Campus, Building No. 22"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.976402,
+        "lng": -80.961555,
+        "id": 331485,
+        "name": "Medicine VA Campus, Building No. 6"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.976566,
+        "lng": -80.960411,
+        "id": 331486,
+        "name": "Medicine VA Campus, Building No. 114"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.979557,
+        "lng": -80.963173,
+        "id": 331487,
+        "name": "Medicine VA Campus, Building No. 10"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.998684,
+        "lng": -81.026894,
+        "id": 432240,
+        "name": "McKissick Museum"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.994656,
+        "lng": -81.031494,
+        "id": 472556,
+        "name": "Science and Technology Building"
+    },
+    {
+        "catId": 9492,
+        "lat": 33.994282,
+        "lng": -81.033478,
+        "id": 747649,
+        "name": "Greene St. United Methodist Church (1100GA)"
+    },
+    {
+        "name": "Blatt Field",
+        "lat": 33.991993,
+        "lng": -81.026642,
+        "catId": 21035,
+        "id": 204096
+    },
+    {
+        "catId": 21035,
+        "lat": 33.987019,
+        "lng": -81.023972,
+        "id": 223404,
+        "name": "Dodie Anderson Academic Enrichment Center"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.992851,
+        "lng": -81.033066,
+        "id": 223405,
+        "name": "Carolina Volleyball Center"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.992275,
+        "lng": -81.025558,
+        "id": 223406,
+        "name": "Solomon Blatt Physical Education Center"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.984798,
+        "lng": -81.021713,
+        "id": 223407,
+        "name": "Carolina Softball Stadium at Beckham Field"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.994778,
+        "lng": -81.0373,
+        "id": 223408,
+        "name": "Colonial Life Arena"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.98761,
+        "lng": -81.025322,
+        "id": 223493,
+        "name": "Eugene E. Stone III Stadium"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.988213,
+        "lng": -81.023155,
+        "id": 223494,
+        "name": "Carolina Indoor Track & Field Complex"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.986427,
+        "lng": -81.042648,
+        "id": 223495,
+        "name": "Founders Park"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.98782,
+        "lng": -81.024277,
+        "id": 223496,
+        "name": "Gamecock Soccer Complex"
+    },
+    {
+        "catId": 21035,
+        "lat": 34.221554,
+        "lng": -80.997238,
+        "id": 223497,
+        "name": "Wardle Golf House"
+    },
+    {
+        "catId": 21035,
+        "lat": 34.223282,
+        "lng": -80.997307,
+        "id": 223498,
+        "name": "Golf Training Center"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.985439,
+        "lng": -81.02282,
+        "id": 223499,
+        "name": "Carolina Tennis Center"
+    },
+    {
+        "catId": 21035,
+        "lat": 34.224449,
+        "lng": -81.006111,
+        "id": 223500,
+        "name": "OneWood Farm"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.973789,
+        "lng": -81.019974,
+        "id": 223501,
+        "name": "Kay and Eddie Floyd Football Building"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.972282,
+        "lng": -81.018501,
+        "id": 223502,
+        "name": "Charles F. Crews Football Facility"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.974606,
+        "lng": -81.018425,
+        "id": 223503,
+        "name": "Bignon Gameday Center"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.973656,
+        "lng": -81.017616,
+        "id": 223504,
+        "name": "Springs-Brooks Plaza Restroom Building"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.987015,
+        "lng": -81.023064,
+        "id": 223506,
+        "name": "Rice Athletics Center"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.971165,
+        "lng": -81.020134,
+        "id": 223507,
+        "name": "Gamecock Park Restroom Building"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.991329,
+        "lng": -81.032753,
+        "id": 223508,
+        "name": "Strom Thurmond W & F Center Pool Building"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.991592,
+        "lng": -81.031914,
+        "id": 223509,
+        "name": "Strom Thurmond Wellness and Fitness Center"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.967949,
+        "lng": -81.023354,
+        "id": 223510,
+        "name": "Jerri and Steve Spurrier Indoor Practice Facility"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.98481,
+        "lng": -81.020966,
+        "id": 223511,
+        "name": "Sheila and Morris Cregger Track Support Building"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.973118,
+        "lng": -81.019173,
+        "id": 223512,
+        "name": "Williams-Brice Stadium"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.993282,
+        "lng": -81.023354,
+        "id": 226815,
+        "name": "Blatt Tennis Courts"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.990261,
+        "lng": -81.032211,
+        "id": 227154,
+        "name": "Strom Thurmond Multipurpose Sport Fields"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.991009,
+        "lng": -81.033218,
+        "id": 227155,
+        "name": "Strom Thurmond Special Event Field"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.986416,
+        "lng": -81.022141,
+        "id": 227486,
+        "name": "Roost Athletics Training Center"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.984337,
+        "lng": -81.02037,
+        "id": 230901,
+        "name": "Sheila and Morris Cregger Track"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.993839,
+        "lng": -81.033066,
+        "id": 232487,
+        "name": "Carolina Coliseum"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.996204,
+        "lng": -81.02813,
+        "id": 516594,
+        "name": "Davis Field I"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.995884,
+        "lng": -81.028946,
+        "id": 516595,
+        "name": "Davis Field II"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.991432,
+        "lng": -81.024879,
+        "id": 519467,
+        "name": "Challenge Course"
+    },
+    {
+        "catId": 21035,
+        "lat": 33.97089,
+        "lng": -81.018791,
+        "id": 613301,
+        "name": "Old football practice field, corner of Bluff and National Guard Roads"
+    },
+    {
+        "name": "C3-Fac/Staff Seniority Parking",
+        "lat": 33.997467,
+        "lng": -81.028702,
+        "catId": 21045,
+        "id": 203814
+    },
+    {
+        "catId": 21045,
+        "lat": 33.992901,
+        "lng": -81.032417,
+        "id": 204119,
+        "name": "N2-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.996544,
+        "lng": -81.031181,
+        "id": 204120,
+        "name": "D1-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.998032,
+        "lng": -81.030602,
+        "id": 204122,
+        "name": "C2-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 34.00267,
+        "lng": -81.025307,
+        "id": 204126,
+        "name": "MM-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.998978,
+        "lng": -81.02887,
+        "id": 204265,
+        "name": "C1-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 34.006737,
+        "lng": -81.028061,
+        "id": 204266,
+        "name": "U1-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.99873,
+        "lng": -81.022713,
+        "id": 204268,
+        "name": "B6-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.998974,
+        "lng": -81.021805,
+        "id": 204269,
+        "name": "B7-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.999405,
+        "lng": -81.022232,
+        "id": 204270,
+        "name": "B8-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 34.00103,
+        "lng": -81.020782,
+        "id": 204271,
+        "name": "B5-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 34.000553,
+        "lng": -81.023743,
+        "id": 204272,
+        "name": "B3-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.99342,
+        "lng": -81.02504,
+        "id": 204287,
+        "name": "E1-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.994064,
+        "lng": -81.023979,
+        "id": 204288,
+        "name": "E6-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.993019,
+        "lng": -81.024994,
+        "id": 204289,
+        "name": "E2-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.988815,
+        "lng": -81.023415,
+        "id": 228542,
+        "name": "Y-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.990162,
+        "lng": -81.026459,
+        "id": 228651,
+        "name": "M6-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.989059,
+        "lng": -81.028992,
+        "id": 228653,
+        "name": "M2-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.989399,
+        "lng": -81.029907,
+        "id": 228654,
+        "name": "M1-Fac/Staff Seniority parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.992233,
+        "lng": -81.029152,
+        "id": 228655,
+        "name": "D7-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.992565,
+        "lng": -81.028893,
+        "id": 228656,
+        "name": "D8-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.993141,
+        "lng": -81.02906,
+        "id": 228657,
+        "name": "D9-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.995365,
+        "lng": -81.031532,
+        "id": 462170,
+        "name": "D2-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.994343,
+        "lng": -81.034645,
+        "id": 513347,
+        "name": "N1 - Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 21045,
+        "lat": 33.994736,
+        "lng": -81.029778,
+        "id": 513358,
+        "name": "D5-Fac/Staff Seniority Parking"
+    },
+    {
+        "name": "S4-Columbia Hall-Resident Undergrad",
+        "lat": 34.001385,
+        "lng": -81.021599,
+        "catId": 21046,
+        "id": 204292
+    },
+    {
+        "catId": 21046,
+        "lat": 33.984425,
+        "lng": -81.027039,
+        "id": 557034,
+        "name": "S30-Flora St.-Resident Undergrad"
+    },
+    {
+        "catId": 21046,
+        "lat": 33.985931,
+        "lng": -81.025787,
+        "id": 557036,
+        "name": "S32-Evans St.-Resident Undergrad"
+    },
+    {
+        "catId": 21046,
+        "lat": 33.986019,
+        "lng": -81.025459,
+        "id": 557037,
+        "name": "S33-Evans St.-Resident Undergrad"
+    },
+    {
+        "catId": 21046,
+        "lat": 33.985218,
+        "lng": -81.027885,
+        "id": 673235,
+        "name": "S34-Assembly & Flora-Resident Undergrad"
+    },
+    {
+        "catId": 21046,
+        "lat": 33.991222,
+        "lng": -81.02372,
+        "id": 716267,
+        "name": "S23 - Bull St. east of Bates"
+    },
+    {
+        "catId": 21046,
+        "lat": 33.995197,
+        "lng": -81.039215,
+        "id": 742088,
+        "name": "S35 - CLA North - Resident Undergrad"
+    },
+    {
+        "catId": 21046,
+        "lat": 33.98571,
+        "lng": -81.024925,
+        "id": 766291,
+        "name": "S36-Flora & Evans-Resident Undergrad"
+    },
+    {
+        "name": "CM - Capstone Meters",
+        "lat": 34.00071,
+        "lng": -81.02198,
+        "catId": 21047,
+        "id": 201296
+    },
+    {
+        "catId": 21047,
+        "lat": 33.995461,
+        "lng": -81.03521,
+        "id": 201579,
+        "name": "Discovery Garage - 821 Park Street"
+    },
+    {
+        "catId": 21047,
+        "lat": 34.000835,
+        "lng": -81.022812,
+        "id": 203748,
+        "name": "CHM-Close-Hipp Meters"
+    },
+    {
+        "catId": 21047,
+        "lat": 33.999977,
+        "lng": -81.022713,
+        "id": 203768,
+        "name": "CSM-College St. Meters"
+    },
+    {
+        "catId": 21047,
+        "lat": 33.992527,
+        "lng": -81.02832,
+        "id": 203770,
+        "name": "SS-Sumter St. Meters"
+    },
+    {
+        "catId": 21047,
+        "lat": 33.991886,
+        "lng": -81.03051,
+        "id": 203771,
+        "name": "Horizon Garage - 519 Main Street"
+    },
+    {
+        "catId": 21047,
+        "lat": 34.000908,
+        "lng": -81.026543,
+        "id": 204274,
+        "name": "PG-Pendleton Garage"
+    },
+    {
+        "catId": 21047,
+        "lat": 33.995434,
+        "lng": -81.0271,
+        "id": 227752,
+        "name": "BS-Bull St. Garage Gate 3"
+    },
+    {
+        "catId": 21047,
+        "lat": 33.993031,
+        "lng": -81.03421,
+        "id": 923342,
+        "name": "650 Lincoln Garage"
+    },
+    {
+        "name": "G1-Reserved Parking",
+        "lat": 33.996872,
+        "lng": -81.034653,
+        "catId": 21048,
+        "id": 201613
+    },
+    {
+        "catId": 21048,
+        "lat": 33.998116,
+        "lng": -81.030853,
+        "id": 204121,
+        "name": "SU-Fac/Staff Reserved Parking"
+    },
+    {
+        "catId": 21048,
+        "lat": 33.997581,
+        "lng": -81.031212,
+        "id": 204123,
+        "name": "BK-Fac/Staff Reserved Parking"
+    },
+    {
+        "catId": 21048,
+        "lat": 33.999783,
+        "lng": -81.0289,
+        "id": 204124,
+        "name": "MS-Fac/Staff Reserved Parking"
+    },
+    {
+        "catId": 21048,
+        "lat": 34.001373,
+        "lng": -81.026649,
+        "id": 204125,
+        "name": "SP-Reserved Parking"
+    },
+    {
+        "catId": 21048,
+        "lat": 33.993176,
+        "lng": -81.024025,
+        "id": 204290,
+        "name": "CD-Fac/Staff Reserved Parking"
+    },
+    {
+        "catId": 21048,
+        "lat": 33.999172,
+        "lng": -81.02285,
+        "id": 204293,
+        "name": "HS-Fac/Staff Reserved Parking"
+    },
+    {
+        "catId": 21048,
+        "lat": 33.999489,
+        "lng": -81.027237,
+        "id": 914067,
+        "name": "OSB-Reserved Parking"
+    },
+    {
+        "name": "DP-Discovery Garage - 821 Park St.",
+        "lat": 33.995667,
+        "lng": -81.035561,
+        "catId": 21049,
+        "id": 201303
+    },
+    {
+        "catId": 21049,
+        "lat": 33.992039,
+        "lng": -81.029999,
+        "id": 204118,
+        "name": "HZ-Horizon Garage - 519 Main St."
+    },
+    {
+        "catId": 21049,
+        "lat": 34.000706,
+        "lng": -81.027168,
+        "id": 204273,
+        "name": "PG-Pendleton St. Garage"
+    },
+    {
+        "catId": 21049,
+        "lat": 34.001766,
+        "lng": -81.025551,
+        "id": 204284,
+        "name": "SG-Senate St. Garage"
+    },
+    {
+        "catId": 21049,
+        "lat": 33.995163,
+        "lng": -81.025681,
+        "id": 204286,
+        "name": "BS1-Bull St. Garage Gate 1"
+    },
+    {
+        "catId": 21049,
+        "lat": 33.986595,
+        "lng": -81.024323,
+        "id": 224830,
+        "name": "AV-Athletics Village Garage"
+    },
+    {
+        "catId": 21049,
+        "lat": 33.99371,
+        "lng": -81.027367,
+        "id": 224832,
+        "name": "BG-Blossom St. Garage"
+    },
+    {
+        "catId": 21049,
+        "lat": 33.995495,
+        "lng": -81.02581,
+        "id": 227750,
+        "name": "BS2-Bull St. Garage Gate 2"
+    },
+    {
+        "catId": 21049,
+        "lat": 33.995716,
+        "lng": -81.026131,
+        "id": 227751,
+        "name": "BS3-Bull St. Garage Gate 3"
+    },
+    {
+        "catId": 21049,
+        "lat": 33.988937,
+        "lng": -81.025459,
+        "id": 742093,
+        "name": "CV-Campus Village Garage"
+    },
+    {
+        "catId": 21049,
+        "lat": 33.992851,
+        "lng": -81.034019,
+        "id": 923340,
+        "name": "LCN-650 Lincoln Garage"
+    },
+    {
+        "catId": 21049,
+        "lat": 33.993744,
+        "lng": -81.034904,
+        "id": 923341,
+        "name": "LCN-700 Lincoln Garage"
+    },
+    {
+        "name": "AD1-Wellness Center-Any Permit Parking",
+        "lat": 33.991535,
+        "lng": -81.033859,
+        "catId": 21050,
+        "id": 203799
+    },
+    {
+        "catId": 21050,
+        "lat": 34.006279,
+        "lng": -81.025719,
+        "id": 204275,
+        "name": "AD7-Barnwell Lot-Any Permit Parking"
+    },
+    {
+        "catId": 21050,
+        "lat": 33.985371,
+        "lng": -81.021271,
+        "id": 228658,
+        "name": "AD11-Roost-Any Permit Parking"
+    },
+    {
+        "catId": 21050,
+        "lat": 33.997459,
+        "lng": -81.03476,
+        "id": 432229,
+        "name": "AD12-Any Permit Parking"
+    },
+    {
+        "catId": 21050,
+        "lat": 33.988171,
+        "lng": -81.043167,
+        "id": 457690,
+        "name": "AD14-Founder's Lot-Any Permit Parking"
+    },
+    {
+        "catId": 21050,
+        "lat": 33.992065,
+        "lng": -81.035965,
+        "id": 579786,
+        "name": "AD16-Gadsden/Devine - Any Permit Parking"
+    },
+    {
+        "catId": 21050,
+        "lat": 33.987007,
+        "lng": -81.036079,
+        "id": 931852,
+        "name": "AD17-707 Catawba - Any Permit Parking"
+    },
+    {
+        "catId": 21050,
+        "lat": 34.001659,
+        "lng": -81.029297,
+        "id": 936222,
+        "name": "COMING SOON - AD18 - NOT YET AVAILABLE"
+    },
+    {
+        "name": "FS4-CLA-F/S Parking",
+        "lat": 33.992977,
+        "lng": -81.036812,
+        "catId": 21779,
+        "id": 201537
+    },
+    {
+        "catId": 21779,
+        "lat": 34.006538,
+        "lng": -81.027245,
+        "id": 233138,
+        "name": "FS6-1600 Hampton-F/S Parking"
+    },
+    {
+        "catId": 21779,
+        "lat": 33.995239,
+        "lng": -81.036079,
+        "id": 266721,
+        "name": "FS11-Discovery-F/S Parking"
+    },
+    {
+        "catId": 21779,
+        "lat": 33.99086,
+        "lng": -81.022522,
+        "id": 266723,
+        "name": "FS7-Benson-F/S Parking"
+    },
+    {
+        "catId": 21779,
+        "lat": 34.005157,
+        "lng": -81.026588,
+        "id": 320263,
+        "name": "FS12-1300 Pickens-F/S Parking"
+    },
+    {
+        "catId": 21779,
+        "lat": 33.988762,
+        "lng": -81.027046,
+        "id": 560664,
+        "name": "FS14-Catawba St-F/S Parking"
+    },
+    {
+        "catId": 21779,
+        "lat": 33.988647,
+        "lng": -81.027634,
+        "id": 566702,
+        "name": "FS15-Main & Catawba-F/S Parking"
+    },
+    {
+        "catId": 21779,
+        "lat": 33.992718,
+        "lng": -81.025024,
+        "id": 566703,
+        "name": "FS16-Blatt PEC-F/S Parking"
+    },
+    {
+        "catId": 21779,
+        "lat": 33.984409,
+        "lng": -81.024887,
+        "id": 673233,
+        "name": "FS18-F/S Parking"
+    },
+    {
+        "catId": 21779,
+        "lat": 33.984184,
+        "lng": -81.025635,
+        "id": 905442,
+        "name": "FS17-F/S Parking"
+    },
+    {
+        "catId": 21779,
+        "lat": 33.999409,
+        "lng": -81.022934,
+        "id": 976475,
+        "name": "FS1 - 1700 College - F/S Parking"
+    },
+    {
+        "name": "GS4-Graduate Student",
+        "lat": 33.993206,
+        "lng": -81.036148,
+        "catId": 21780,
+        "id": 201578
+    },
+    {
+        "catId": 21780,
+        "lat": 33.993942,
+        "lng": -81.038635,
+        "id": 742089,
+        "name": "CS1 - CLA South - Commuting Undergrad"
+    },
+    {
+        "name": "CSM-College St. Accessible Parking",
+        "lat": 33.99984,
+        "lng": -81.023018,
+        "catId": 23393,
+        "id": 619605
+    },
+    {
+        "catId": 23393,
+        "lat": 34.000828,
+        "lng": -81.02282,
+        "id": 619606,
+        "name": "CHM-Close-Hipp Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.00074,
+        "lng": -81.023796,
+        "id": 619607,
+        "name": "CH-Close-Hipp Garage Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.000568,
+        "lng": -81.022003,
+        "id": 619608,
+        "name": "CM- Capstone Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.001274,
+        "lng": -81.021759,
+        "id": 619609,
+        "name": "S4-Columbia Hall Accessible Parking (Resident)"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.000618,
+        "lng": -81.021164,
+        "id": 619610,
+        "name": "B5-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.998734,
+        "lng": -81.023079,
+        "id": 619611,
+        "name": "B6-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.006691,
+        "lng": -81.028061,
+        "id": 619612,
+        "name": "U1-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.005188,
+        "lng": -81.026566,
+        "id": 619613,
+        "name": "FS12-F/S Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.006042,
+        "lng": -81.025467,
+        "id": 619614,
+        "name": "AD7-Any Permit Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.002689,
+        "lng": -81.025352,
+        "id": 619615,
+        "name": "MM-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.000797,
+        "lng": -81.026833,
+        "id": 619616,
+        "name": "PG- Pendleton Garage Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.999729,
+        "lng": -81.029068,
+        "id": 619617,
+        "name": "MS- Fac/Staff Reserved Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.99894,
+        "lng": -81.029053,
+        "id": 619619,
+        "name": "C1-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.997932,
+        "lng": -81.030853,
+        "id": 619620,
+        "name": "C2-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.997444,
+        "lng": -81.028938,
+        "id": 619621,
+        "name": "C3- Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.995407,
+        "lng": -81.026573,
+        "id": 619622,
+        "name": "BS-Bull St. Garage Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.995499,
+        "lng": -81.031326,
+        "id": 619623,
+        "name": "D2- Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.996449,
+        "lng": -81.031128,
+        "id": 619624,
+        "name": "D1-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.991615,
+        "lng": -81.033592,
+        "id": 619625,
+        "name": "AD1-Any Permit Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.991909,
+        "lng": -81.035896,
+        "id": 619626,
+        "name": "AD16-Gadsden Street Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.988129,
+        "lng": -81.043053,
+        "id": 619627,
+        "name": "AD14-Founder's Lot Accessible-Any Permit Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.985561,
+        "lng": -81.021095,
+        "id": 619628,
+        "name": "AD11-Any Permit Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.02285,
+        "lng": -81.026924,
+        "id": 619629,
+        "name": "AD15-BullStreet District Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.986683,
+        "lng": -81.024323,
+        "id": 619631,
+        "name": "AV-Athletics Village Garage Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.993168,
+        "lng": -81.024071,
+        "id": 619632,
+        "name": "CD-Fac/Staff Reserved Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.994823,
+        "lng": -81.029579,
+        "id": 619633,
+        "name": "D5-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.99213,
+        "lng": -81.029289,
+        "id": 619634,
+        "name": "D7-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.99258,
+        "lng": -81.028854,
+        "id": 619635,
+        "name": "D8-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.99313,
+        "lng": -81.028999,
+        "id": 619636,
+        "name": "D9-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.993359,
+        "lng": -81.025002,
+        "id": 619637,
+        "name": "E1-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.993813,
+        "lng": -81.024231,
+        "id": 619638,
+        "name": "E6-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.988434,
+        "lng": -81.027596,
+        "id": 619640,
+        "name": "FS15-Main & Catawba-F/S Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.992584,
+        "lng": -81.025009,
+        "id": 619641,
+        "name": "FS16-Blatt PEC-F/S Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.993385,
+        "lng": -81.037086,
+        "id": 619642,
+        "name": "FS4-CLA-F/S Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.990715,
+        "lng": -81.022804,
+        "id": 619643,
+        "name": "FS7-Benson-F/S Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.996605,
+        "lng": -81.034576,
+        "id": 619644,
+        "name": "G1-Reserved Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.993233,
+        "lng": -81.036049,
+        "id": 619645,
+        "name": "GS4-Grad Student Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.990524,
+        "lng": -81.035255,
+        "id": 619646,
+        "name": "GV-Greek Village-Accessible Reserved Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.989285,
+        "lng": -81.029846,
+        "id": 619647,
+        "name": "M1-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.989151,
+        "lng": -81.028709,
+        "id": 619648,
+        "name": "M2-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.990288,
+        "lng": -81.026604,
+        "id": 619649,
+        "name": "M6-Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.999737,
+        "lng": -81.029053,
+        "id": 619650,
+        "name": "MS-Fac/Staff Reserved Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.994335,
+        "lng": -81.034599,
+        "id": 619651,
+        "name": "N1 - Fac/Staff Seniority Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.992779,
+        "lng": -81.032295,
+        "id": 619652,
+        "name": "N2-Fac/Staff Seniority Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.984631,
+        "lng": -81.027122,
+        "id": 619653,
+        "name": "S30-Flora St.-Accessible Resident Undergrad"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.992451,
+        "lng": -81.028183,
+        "id": 619654,
+        "name": "SS-Sumter St. Garage Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.001408,
+        "lng": -81.025169,
+        "id": 619656,
+        "name": "INN- Graduate Inn at UofSC Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.99543,
+        "lng": -81.033524,
+        "id": 619657,
+        "name": "KC- Koger Center Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.001968,
+        "lng": -81.027435,
+        "id": 619658,
+        "name": "LS2- Law School Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 34.00211,
+        "lng": -81.028038,
+        "id": 619659,
+        "name": "LS3- Law School Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.996208,
+        "lng": -81.033745,
+        "id": 619660,
+        "name": "MUS- Music School Circle Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.984997,
+        "lng": -81.028099,
+        "id": 673338,
+        "name": "S34-Assembly & Flora-Accessible Resident Undergrad"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.991943,
+        "lng": -81.032822,
+        "id": 952248,
+        "name": "ST Wellness and Fitness Center Accessible Parking"
+    },
+    {
+        "catId": 23393,
+        "lat": 33.991112,
+        "lng": -81.031494,
+        "id": 952352,
+        "name": "ST Wellness and Fitness Center Accessible Parking"
+    },
+    {
+        "name": "MC-All Motorcycle/Moped Parking",
+        "lat": 33.99683,
+        "lng": -81.028809,
+        "catId": 24585,
+        "id": 230292
+    },
+    {
+        "name": "Faculty & Staff, Residents, All Students",
+        "lat": 33.980759,
+        "lng": -80.961021,
+        "catId": 43763,
+        "id": 436933
+    },
+    {
+        "catId": 43763,
+        "lat": 33.979908,
+        "lng": -80.962494,
+        "id": 436934,
+        "name": "Students"
+    },
+    {
+        "catId": 43763,
+        "lat": 33.979111,
+        "lng": -80.962517,
+        "id": 436935,
+        "name": "Students"
+    },
+    {
+        "catId": 43763,
+        "lat": 33.978775,
+        "lng": -80.962708,
+        "id": 436936,
+        "name": "Faculty & Staff, Residents"
+    },
+    {
+        "catId": 43763,
+        "lat": 33.978012,
+        "lng": -80.961121,
+        "id": 436937,
+        "name": "Faculty & Staff"
+    },
+    {
+        "catId": 43763,
+        "lat": 33.977497,
+        "lng": -80.963264,
+        "id": 436938,
+        "name": "Faculty & Staff, Residents"
+    },
+    {
+        "name": "BullStreet District Park & Ride",
+        "lat": 34.022572,
+        "lng": -81.026978,
+        "catId": 61610,
+        "id": 619472
+    },
+    {
+        "name": "GV-Greek Village-Reserved Parking",
+        "lat": 33.990257,
+        "lng": -81.03511,
+        "catId": 69645,
+        "id": 742090
+    },
+    {
+        "catId": 69645,
+        "lat": 33.991531,
+        "lng": -81.037743,
+        "id": 742091,
+        "name": "DW - Devine West"
+    },
+    {
+        "catId": 69645,
+        "lat": 34.001373,
+        "lng": -81.026649,
+        "id": 742092,
+        "name": "SP-Reserved Parking"
+    },
+    {
+        "catId": 69645,
+        "lat": 33.98983,
+        "lng": -81.022438,
+        "id": 742094,
+        "name": "CVL - Campus Village Lot"
+    },
+    {
+        "name": "SS-Sumter St. Garage",
+        "lat": 33.992561,
+        "lng": -81.028305,
+        "catId": 69646,
+        "id": 742097
+    },
+    {
+        "catId": 69646,
+        "lat": 34.00074,
+        "lng": -81.02375,
+        "id": 742098,
+        "name": "CH-Close Hipp Garage"
+    },
+    {
+        "catId": 69646,
+        "lat": 34.007446,
+        "lng": -81.027573,
+        "id": 742099,
+        "name": "HG-Hampton St. Garage"
+    }
+]
