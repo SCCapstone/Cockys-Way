@@ -12,18 +12,45 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 import defaultImage from "../assets/professorInfo/200x200.png";
 
+const daysOfWeek = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+];
+
+// Checks if the professor is currently in their office
+export const checkHours = (officeHours) => {
+  const currentDay = daysOfWeek[new Date().getDay()];
+  if (currentDay == "saturday" || currentDay == "sunday") return false;
+  const hours = officeHours[currentDay];
+
+  if (!hours) return false;
+
+  // Convert string of time into minutes to compare to current
+  const [start, end] = hours.split("-").map((time) => {
+    let [hour, minute] = time
+      .trim()
+      .replace(/ (AM|PM)/, "")
+      .split(":")
+      .map(Number);
+    if (time.includes("PM") && hour !== 12) hour += 12;
+    if (time.includes("AM") && hour === 12) hour = 0; // Handle midnight case
+    return hour * 60 + minute;
+  });
+
+  const now = new Date();
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+
+  return currentMinutes >= start && currentMinutes <= end;
+};
+
 export default function ProfessorInfo() {
   const { item } = useLocalSearchParams();
   const professor = JSON.parse(item);
-  const daysOfWeek = [
-    "sunday",
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday",
-  ];
 
   // Handles sorting the office hours by day of the week so
   // that they are displayed in the correct order
@@ -39,32 +66,6 @@ export default function ProfessorInfo() {
 
   // saves the sorted office hours to a variable
   const officeHours = sortOfficeHours(professor.officeHours);
-
-  // Checks if the professor is currently in their office
-  const checkHours = (officeHours) => {
-    const currentDay = daysOfWeek[new Date().getDay()];
-    if (currentDay == "saturday" || currentDay == "sunday") return false;
-    const hours = officeHours[currentDay];
-
-    if (!hours) return false;
-
-    // Convert string of time into minutes to compare to current
-    const [start, end] = hours.split("-").map((time) => {
-      let [hour, minute] = time
-        .trim()
-        .replace(/ (AM|PM)/, "")
-        .split(":")
-        .map(Number);
-      if (time.includes("PM") && hour !== 12) hour += 12;
-      if (time.includes("AM") && hour === 12) hour = 0; // Handle midnight case
-      return hour * 60 + minute;
-    });
-
-    const now = new Date();
-    const currentMinutes = now.getHours() * 60 + now.getMinutes();
-
-    return currentMinutes >= start && currentMinutes <= end;
-  };
 
   // updates the indicator and circle color based on the professor's office hours
   const indicator = checkHours(officeHours) ? "Available" : "Unavailable";
