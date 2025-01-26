@@ -5,8 +5,9 @@ import fetchInfo from "../hook/fetchInfo";
 import Class from "../components/Class";
 
 export const getInfo = (subject, semester) => {
+  console.log(fetchInfo(subject, semester));
   return fetchInfo(subject, semester);
-}
+};
 
 const AddClassSearchResults = () => {
   const { semester, subject, number } = useLocalSearchParams();
