@@ -1,8 +1,8 @@
-import { getInfo } from "../app/addClassSearchResults";
-import fetchInfo from "../hook/fetchInfo";
+import { getInfo } from "../../app/addClassSearchResults";
+import fetchInfo from "../../hook/fetchInfo";
 
 // this will speicfy that here is a mock for fetchInfo
-jest.mock("../hook/fetchInfo");
+jest.mock("../../hook/fetchInfo");
 
 describe("getInfo", () => {
   test("should call fetchInfo with the correct parameters to get data", () => {

@@ -1,4 +1,4 @@
-import { checkHours } from "../app/professorInfo";
+import { checkHours } from "../../app/professorInfo";
 
 describe("checkHours", () => {
   beforeAll(() => {

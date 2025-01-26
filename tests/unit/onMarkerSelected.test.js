@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
-import HomeScreen from "../app/(tabs)";
+import HomeScreen from "../../app/(tabs)";
 import { Marker } from "react-native-maps";
 
 // Mocking the map reference
