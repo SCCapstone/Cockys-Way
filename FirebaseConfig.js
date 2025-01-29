@@ -13,6 +13,7 @@ import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
 
 // Import api key from .env
 import { FIREBASE_API_KEY } from "@env";
+console.log(FIREBASE_API_KEY);
 const firebaseAPIKey = FIREBASE_API_KEY;
 
 // Your web app's Firebase configuration

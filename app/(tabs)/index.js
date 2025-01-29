@@ -4,6 +4,7 @@ import MapView, {
   PROVIDER_DEFAULT,
   PROVIDER_GOOGLE,
 } from "react-native-maps";
+import MapViewDirections from 'react-native-maps-directions';
 import {
   StyleSheet,
   SafeAreaView,
