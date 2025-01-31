@@ -35,6 +35,20 @@ Possible troubleshooting:
 
 - Wireless(Phone) and wired(PC) networks are segregated (common with VLAN), node installed in improper directory, incorrect Java version installed, previous node version is preinstalled.
 
+# Testing
+
+We have set up a series of automated tests, using Jest, within our repository to test the different functions and the behaviors of our app.
+
+When going to test the app, you will need to run the following command in the terminal:
+
+```sh
+npm run test
+```
+
+This will run all the tests set up in the repository.
+
+To view the tests, see how they are configured, or set up your own, navigate to the `tests/` directory, then to the `behavioral/` or `unit/` directories, depending on the type of test you're looking for.
+
 # Deployment
 
 We will be deploying our build with eas build (using expo.dev) to build an apk that works on android devices. Follow the steps below to initiate the build and deploy the app
