@@ -31,6 +31,8 @@ let FIREBASE_APP;
 let FIREBASE_AUTH;
 let FIRESTORE_DB;
 
+console.log(FIREBASE_API_KEY)
+
 if (!getApps().length) {
   FIREBASE_APP = initializeApp(firebaseConfig);
   FIREBASE_AUTH = initializeAuth(FIREBASE_APP, {
