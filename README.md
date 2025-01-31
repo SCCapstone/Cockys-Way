@@ -45,7 +45,7 @@ When going to test the app, you will need to run the following command in the te
 npm run test
 ```
 
-This will run all the tests set up in the repository.
+This will run all the tests set up in the repository and display their results in the terminal.
 
 To view the tests, see how they are configured, or set up your own, navigate to the `tests/` directory, then to the `behavioral/` or `unit/` directories, depending on the type of test you're looking for.
 
