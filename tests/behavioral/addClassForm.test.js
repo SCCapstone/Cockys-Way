@@ -7,13 +7,14 @@ jest.mock('expo-router', () => ({
   useRouter: jest.fn(),
 }));
 
+// mock for react-native-element-dropdown
 jest.mock('react-native-element-dropdown', () => {
     const React = require('react');
     const { Text } = require('react-native');
     return {
       Dropdown: ({ onChange, value }) => (
         <Text onPress={() => onChange({ label: 'Fall 2024', value: '202408' })}>
-          Mocked Dropdown - Selected Value: {value}
+          Test Content
         </Text>
       ),
     };
@@ -28,7 +29,7 @@ describe('AddClassForm', () => {
     const { getByText, getByPlaceholderText } = render(<AddClassForm />);
 
     // get the dropdown by its initial text
-    const dropdown = getByText('Mocked Dropdown - Selected Value: ');
+    const dropdown = getByText('Test Content');
     fireEvent.press(dropdown);
 
     // get the other inputs and change their text as if a user was searching for a class
