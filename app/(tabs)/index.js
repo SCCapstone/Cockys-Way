@@ -4,15 +4,12 @@ import MapView, {
   PROVIDER_DEFAULT,
   PROVIDER_GOOGLE,
 } from "react-native-maps";
-import MapViewDirections from 'react-native-maps-directions';
 import {
   StyleSheet,
   SafeAreaView,
   Alert,
   View,
   Text,
-  Switch,
-  ScrollView,
   TouchableOpacity,
 } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
@@ -22,6 +19,7 @@ import { SearchBar } from "react-native-elements";
 import * as SplashScreen from "expo-splash-screen";
 import * as Location from "expo-location";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import MapViewDirections from "react-native-maps-directions";
 import { GOOGLE_API_KEY } from "@env";
 
 // Prevent the splash screen from auto-hiding
@@ -35,8 +33,9 @@ export default function HomeScreen() {
   const [filteredMarkers, setFilteredMarkers] = useState([]);
   const [search, setSearch] = useState("");
   const [userLocation, setUserLocation] = useState(null);
+  const [selectedDestination, setSelectedDestination] = useState(null);
   const mapRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(true);   // testing to see if loading works?
+  const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
 
   const INITIAL_REGION = {
     latitude: 34.00039991787572,
@@ -47,6 +46,11 @@ export default function HomeScreen() {
 
   const onMarkerSelected = (marker) => {
     Alert.alert(marker.title || "Marker Selected");
+
+    setSelectedDestination({
+      latitude: marker.latitude,
+      longitude: marker.longitude,
+    });
 
     // Zoom in on marker region
     if (mapRef.current) {
@@ -67,7 +71,7 @@ export default function HomeScreen() {
     const fetchMarkers = async () => {
       try {
         //const query = await getDocs(collection(FIRESTORE_DB, "markers"));   // OG
-        const query = await getDocs(collection(FIRESTORE_DB, "locTest"));     // Changed to use what Chloe brought in
+        const query = await getDocs(collection(FIRESTORE_DB, "locTest")); // Changed to use what Chloe brought in
         const db_data = query.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -153,12 +157,11 @@ export default function HomeScreen() {
 
   if (isLoading) {
     return (
-        <View style={styles.loadingContainer}>
-          <Text>Loading...</Text>
-        </View>
+      <View style={styles.loadingContainer}>
+        <Text>Loading...</Text>
+      </View>
     );
-  //return null;
-}
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -171,10 +174,18 @@ export default function HomeScreen() {
       />
       <TouchableOpacity
         style={styles.filterButton}
-        onPress={() => router.push("/PinFilterMain")}>
+        onPress={() => router.push("/PinFilterMain")}
+      >
         <View style={styles.accentBox}>
           <Text style={styles.filterButtonText}>Filter Pins</Text>
         </View>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.clearButton}
+        onPress={() => setSelectedDestination(null)}
+      >
+        <Text style={styles.clearButtonText}>Clear Directions</Text>
       </TouchableOpacity>
 
       <MapView
@@ -199,6 +210,20 @@ export default function HomeScreen() {
             onPress={() => onMarkerSelected(marker)}
           />
         ))}
+
+        {userLocation && selectedDestination && (
+          <MapViewDirections
+            origin={userLocation}
+            destination={{
+              latitude: selectedDestination.latitude,
+              longitude: selectedDestination.longitude,
+            }}
+            apikey={GOOGLE_API_KEY}
+            strokeWidth={4}
+            strokeColor="blue"
+            onError={(error) => Alert.alert("Error getting directions", error)}
+          />
+        )}
       </MapView>
     </SafeAreaView>
   );
@@ -220,18 +245,33 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   filterButton: {
-    alignSelf: "center", // Center horizontally
-    justifyContent: "center", // Center vertically within the button
-    alignItems: "center", // Align text in the center of the button
-    width: 200, // Button width
-    height: 30, // Button height
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 200,
+    height: 30,
     borderRadius: 25, // Half of the height for an oval shape
     backgroundColor: "#e2e2e2", // Background color
     marginVertical: 10, // Space around the button
   },
   filterButtonText: {
-    color: "black", // Text color
-    fontSize: 16, // Text size
-    fontWeight: "bold", // Text weight
+    color: "black",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  clearButton: {
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    width: 200,
+    height: 30,
+    borderRadius: 25,
+    backgroundColor: "#e2e2e2",
+    marginVertical: 10,
+  },
+  clearButtonText: {
+    color: "black",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
