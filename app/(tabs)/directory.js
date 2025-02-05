@@ -17,6 +17,16 @@ import { useRouter } from "expo-router";
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const ITEM_HEIGHT = 100;
 
+// Format name to be First Last (and cuts off titles, middle initials, etc.)
+export const formatName = (name) => {
+  const parts = name.split(/[\s,]+/);
+  if (parts.length >= 2) {
+    return `${parts[1]} ${parts[0]}`;
+  } else {
+    return name;
+  }
+};
+
 export default function Directory() {
   // Used for navigation
   const router = useRouter();
@@ -30,6 +40,26 @@ export default function Directory() {
   const [search, setSearch] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const flatListRef = useRef(null);
+
+  /* Scroll to the first item that starts with the pressed
+   * letter in the FlatList using alphabet bar
+   */
+  const handleLetterPress = (letter) => {
+    const index = filteredData.findIndex((item) =>
+      item.name.startsWith(letter)
+    );
+    if (index !== -1) {
+      let pos = 0;
+      if (index > 5) {
+        pos = -1;
+      }
+      flatListRef.current.scrollToIndex({
+        index,
+        animated: true,
+        viewPosition: pos,
+      });
+    }
+  };
 
   // Fetch data from Firestore DB
   useEffect(() => {
@@ -66,7 +96,7 @@ export default function Directory() {
 
   if (isLoading) {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, styles.loadingContainer]}>
         <ActivityIndicator size="large" color="#73000A" />
       </View>
     );
@@ -79,33 +109,6 @@ export default function Directory() {
       </View>
     );
   }
-
-  // Format name to be First Last (and cuts off titles, middle initials, etc.)
-  const formatName = (name) => {
-    const parts = name.split(/[\s,]+/);
-    if (parts.length >= 2) {
-      return `${parts[1]} ${parts[0]}`;
-    } else {
-      return name;
-    }
-  };
-
-  const handleLetterPress = (letter) => {
-    const index = filteredData.findIndex((item) =>
-      item.name.startsWith(letter)
-    );
-    if (index !== -1) {
-      let pos = 0;
-      if (index > 5) {
-        pos = -1;
-      }
-      flatListRef.current.scrollToIndex({
-        index,
-        animated: true,
-        viewPosition: pos,
-      });
-    }
-  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -160,6 +163,11 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     justifyContent: "flex-start",
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   mainContent: {
     flexDirection: "row",
