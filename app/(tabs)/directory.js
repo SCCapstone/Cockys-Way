@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   Text,
   StyleSheet,
   ActivityIndicator,
   SafeAreaView,
-  ScrollView,
+  FlatList,
   TouchableOpacity,
   TextInput,
 } from "react-native";
@@ -13,6 +13,9 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import { useRouter } from "expo-router";
+
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+const ITEM_HEIGHT = 100;
 
 export default function Directory() {
   // Used for navigation
@@ -26,6 +29,7 @@ export default function Directory() {
   // Used for search feature
   const [search, setSearch] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+  const flatListRef = useRef(null);
 
   // Fetch data from Firestore DB
   useEffect(() => {
@@ -86,11 +90,22 @@ export default function Directory() {
     }
   };
 
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-  const sections = alphabet.map((letter) => ({
-    title: letter,
-    data: data.filter((item) => item.name.startsWith(letter)),
-  }));
+  const handleLetterPress = (letter) => {
+    const index = filteredData.findIndex((item) =>
+      item.name.startsWith(letter)
+    );
+    if (index !== -1) {
+      let pos = 0;
+      if (index > 5) {
+        pos = -1;
+      }
+      flatListRef.current.scrollToIndex({
+        index,
+        animated: true,
+        viewPosition: pos,
+      });
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -100,23 +115,43 @@ export default function Directory() {
         onChangeText={(text) => setSearch(text)}
         style={styles.searchBar}
       />
-      <ScrollView contentContainerStyle={styles.scrollViewContainer}>
-        {filteredData.map((item) => (
-          <TouchableOpacity
-            key={item.name}
-            style={styles.staffBox}
-            onPress={() =>
-              router.push({
-                pathname: "professorInfo",
-                params: { item: JSON.stringify(item) },
-              })
-            }
-          >
-            <Text style={styles.staffText}>{formatName(item.name)}</Text>
-            <FontAwesome name="chevron-right" size={30} color="#fff" />
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+      <View style={styles.mainContent}>
+        <FlatList
+          data={filteredData}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.staffBox}
+              onPress={() =>
+                router.push({
+                  pathname: "professorInfo",
+                  params: { item: JSON.stringify(item) },
+                })
+              }
+            >
+              <Text style={styles.staffText}>{formatName(item.name)}</Text>
+              <FontAwesome name="chevron-right" size={30} color="#fff" />
+            </TouchableOpacity>
+          )}
+          keyExtractor={(item) => item.name}
+          ref={flatListRef}
+          getItemLayout={(data, index) => ({
+            length: ITEM_HEIGHT,
+            offset: ITEM_HEIGHT * index,
+            index,
+          })}
+        />
+        <View style={styles.letterContainer}>
+          {alphabet.map((letter) => (
+            <TouchableOpacity
+              key={letter}
+              onPress={() => handleLetterPress(letter)}
+              style={styles.letter}
+            >
+              <Text style={styles.letterFont}>{letter}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
     </SafeAreaView>
   );
 }
@@ -124,7 +159,18 @@ export default function Directory() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
+  },
+  mainContent: {
+    flexDirection: "row",
+    flex: 1,
+  },
+  scrollViewContainer: {
+    flexGrow: 1,
+    paddingTop: 10,
+  },
+  scrollView: {
+    flex: 1,
   },
   searchBar: {
     height: 40,
@@ -149,5 +195,17 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 30,
     fontFamily: "Abel",
+  },
+  letterContainer: {
+    justifyContent: "flex-start",
+    padding: 10,
+    marginTop: 30, // helps align the bar
+  },
+  letter: {
+    paddingTop: 5,
+  },
+  letterFont: {
+    fontSize: 16,
+    color: "#73000A",
   },
 });
