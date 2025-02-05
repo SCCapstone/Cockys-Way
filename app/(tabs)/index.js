@@ -1,9 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import MapView, {
-  Marker,
-  PROVIDER_DEFAULT,
-  PROVIDER_GOOGLE,
-} from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import {
   StyleSheet,
   SafeAreaView,
@@ -18,14 +14,12 @@ import { useRouter } from "expo-router";
 import { SearchBar } from "react-native-elements";
 import * as SplashScreen from "expo-splash-screen";
 import * as Location from "expo-location";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import MapViewDirections from "react-native-maps-directions";
 import { GOOGLE_API_KEY } from "@env";
+import styles from "../../homestyles";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
-
-// Map page
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -34,6 +28,11 @@ export default function HomeScreen() {
   const [search, setSearch] = useState("");
   const [userLocation, setUserLocation] = useState(null);
   const [selectedDestination, setSelectedDestination] = useState(null);
+  const [travelMode, setTravelMode] = useState("DRIVING");
+  const [startLocation, setStartLocation] = useState(null);
+  const [routeDetails, setRouteDetails] = useState(null);
+  const [showTravelModeButtons, setShowTravelModeButtons] = useState(false);
+  const [showRouteDetails, setShowRouteDetails] = useState(false);
   const mapRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
 
@@ -51,6 +50,9 @@ export default function HomeScreen() {
       latitude: marker.latitude,
       longitude: marker.longitude,
     });
+
+    setShowTravelModeButtons(true);
+    setShowRouteDetails(true);
 
     // Zoom in on marker region
     if (mapRef.current) {
@@ -101,34 +103,27 @@ export default function HomeScreen() {
     }
   }, [search, markers]);
 
-  // request location permissions
+  // Request location permissions and set startLocation
+  // merged both perms and set user location into one -Isaac
   useEffect(() => {
-    const checkPermission = async () => {
-      const savedPermission = await AsyncStorage.getItem("locationPermission");
-      // check if user has already granted location permission
-      if (savedPermission) {
-        setLocationPermission(savedPermission === "granted");
-        return;
-      }
-
-      // request if no perm saved
+    const getLocation = async () => {
       const { status } = await Location.requestForegroundPermissionsAsync();
       if (status === "granted") {
-        setLocationPermission(true);
-        AsyncStorage.setItem("locationPermission", "granted");
+        const location = await Location.getCurrentPositionAsync({});
+        setUserLocation(location.coords);
+        setStartLocation(location.coords);
       } else {
-        setLocationPermission(false);
-        AsyncStorage.setItem("locationPermission", "denied");
+        Alert.alert("Permission denied, please grant location access");
       }
     };
 
-    checkPermission();
+    getLocation();
   }, []);
 
+  // Hide splash screen
   useEffect(() => {
     async function prepare() {
       try {
-        // Hide the splash screen once the app is ready
         await SplashScreen.hideAsync();
       } catch (e) {
         console.warn(e);
@@ -138,22 +133,30 @@ export default function HomeScreen() {
     prepare();
   }, []);
 
-  // Display user's current location on map
-  useEffect(() => {
-    const getLocation = async () => {
-      // check if user granted access to location
-      const { status } = await Location.requestForegroundPermissionsAsync();
-      console.log(status);
-      if (status === "granted") {
-        const location = await Location.getCurrentPositionAsync({});
-        setUserLocation(location.coords);
-      } else {
-        Alert.alert("Permission denied, please grant location access");
-      }
-    };
+  // Handle stopping directions
+  const handleStopDirections = () => {
+    setSelectedDestination(null);
+    setShowTravelModeButtons(false);
+    setShowRouteDetails(false);
+    setRouteDetails(null);
+  };
 
-    getLocation();
-  }, []);
+  // Change the start location to selected marker
+  const handleChangeStartLocation = () => {
+    if (selectedDestination) {
+      setStartLocation({
+        latitude: selectedDestination.latitude,
+        longitude: selectedDestination.longitude,
+      });
+    }
+  };
+
+  // Reset start location to user's current location
+  const handleResetStartLocation = () => {
+    if (userLocation) {
+      setStartLocation(userLocation);
+    }
+  };
 
   if (isLoading) {
     return (
@@ -181,13 +184,7 @@ export default function HomeScreen() {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.clearButton}
-        onPress={() => setSelectedDestination(null)}
-      >
-        <Text style={styles.clearButtonText}>Clear Directions</Text>
-      </TouchableOpacity>
-
+      {/* Map */}
       <MapView
         ref={mapRef}
         style={styles.map}
@@ -211,67 +208,93 @@ export default function HomeScreen() {
           />
         ))}
 
-        {userLocation && selectedDestination && (
+        {/* Directions */}
+        {startLocation && selectedDestination && (
           <MapViewDirections
-            origin={userLocation}
+            origin={startLocation}
             destination={{
               latitude: selectedDestination.latitude,
               longitude: selectedDestination.longitude,
             }}
             apikey={GOOGLE_API_KEY}
             strokeWidth={4}
-            strokeColor="blue"
+            strokeColor="#73000a"
+            mode={travelMode}
+            onReady={(result) => {
+              setRouteDetails({
+                distance: result.distance,
+                duration: result.duration,
+              });
+            }}
             onError={(error) => Alert.alert("Error getting directions", error)}
           />
         )}
       </MapView>
+
+      {/* Travel Mode Buttons (Overlay) */}
+      {showTravelModeButtons && (
+        <View style={styles.travelModeOverlay}>
+          <TouchableOpacity
+            style={[
+              styles.travelModeButton,
+              travelMode === "DRIVING" && styles.activeTravelMode,
+            ]}
+            onPress={() => setTravelMode("DRIVING")}
+          >
+            <Text style={styles.travelModeText}>Driving</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.travelModeButton,
+              travelMode === "WALKING" && styles.activeTravelMode,
+            ]}
+            onPress={() => setTravelMode("WALKING")}
+          >
+            <Text style={styles.travelModeText}>Walking</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.travelModeButton,
+              travelMode === "BICYCLING" && styles.activeTravelMode,
+            ]}
+            onPress={() => setTravelMode("BICYCLING")}
+          >
+            <Text style={styles.travelModeText}>Bicycling</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+
+      {/* Route Details and Stop Button */}
+      {showRouteDetails && routeDetails && (
+        <View style={styles.routeDetailsContainer}>
+          <Text style={styles.routeDetailsText}>
+            Distance: {routeDetails.distance.toFixed(2)} miles
+          </Text>
+          <Text style={styles.routeDetailsText}>
+            Duration: {Math.ceil(routeDetails.duration)} minutes
+          </Text>
+          <TouchableOpacity
+            style={styles.changeStartButton}
+            onPress={handleChangeStartLocation}
+          >
+            <Text style={styles.changeStartButtonText}>Set Start Here</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.changeStartButton}
+            onPress={handleResetStartLocation}
+          >
+            <Text style={styles.changeStartButtonText}>
+              Reset to My Location
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.stopButton}
+            onPress={handleStopDirections}
+          >
+            <Text style={styles.stopButtonText}>Stop Directions</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  searchContainer: {
-    backgroundColor: "white",
-    borderBottomColor: "transparent",
-    borderTopColor: "transparent",
-  },
-  searchInputContainer: {
-    backgroundColor: "#EDEDED",
-  },
-  map: {
-    flex: 1,
-  },
-  filterButton: {
-    alignSelf: "center",
-    justifyContent: "center",
-    alignItems: "center",
-    width: 200,
-    height: 30,
-    borderRadius: 25, // Half of the height for an oval shape
-    backgroundColor: "#e2e2e2", // Background color
-    marginVertical: 10, // Space around the button
-  },
-  filterButtonText: {
-    color: "black",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  clearButton: {
-    alignSelf: "center",
-    justifyContent: "center",
-    alignItems: "center",
-    width: 200,
-    height: 30,
-    borderRadius: 25,
-    backgroundColor: "#e2e2e2",
-    marginVertical: 10,
-  },
-  clearButtonText: {
-    color: "black",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-});
