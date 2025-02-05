@@ -33,6 +33,7 @@ export default function HomeScreen() {
   const [routeDetails, setRouteDetails] = useState(null);
   const [showTravelModeButtons, setShowTravelModeButtons] = useState(false);
   const [showRouteDetails, setShowRouteDetails] = useState(false);
+  const [showTraffic, setShowTraffic] = useState(false);
   const mapRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
 
@@ -175,14 +176,26 @@ export default function HomeScreen() {
         containerStyle={styles.searchContainer}
         inputContainerStyle={styles.searchInputContainer}
       />
-      <TouchableOpacity
-        style={styles.filterButton}
-        onPress={() => router.push("/PinFilterMain")}
-      >
-        <View style={styles.accentBox}>
-          <Text style={styles.filterButtonText}>Filter Pins</Text>
-        </View>
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.filterButton}
+          onPress={() => router.push("/PinFilterMain")}
+        >
+          <View style={styles.accentBox}>
+            <Text style={styles.filterButtonText}>Filter Pins</Text>
+          </View>
+        </TouchableOpacity>
+
+        {/* Button to show/hide traffic */}
+        <TouchableOpacity
+          style={styles.trafficButton}
+          onPress={() => setShowTraffic(!showTraffic)}
+        >
+          <Text style={styles.trafficButtonText}>
+            {showTraffic ? "Hide Traffic" : "Show Traffic"}
+          </Text>
+        </TouchableOpacity>
+      </View>
 
       {/* Map */}
       <MapView
@@ -193,6 +206,7 @@ export default function HomeScreen() {
         initialRegion={INITIAL_REGION}
         showsUserLocation={true}
         followsUserLocation={true}
+        showsTraffic={showTraffic}
       >
         {filteredMarkers.map((marker) => (
           <Marker
