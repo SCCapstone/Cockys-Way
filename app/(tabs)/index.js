@@ -7,6 +7,7 @@ import {
   View,
   Text,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
@@ -34,6 +35,7 @@ export default function HomeScreen() {
   const [showTravelModeButtons, setShowTravelModeButtons] = useState(false);
   const [showRouteDetails, setShowRouteDetails] = useState(false);
   const [showTraffic, setShowTraffic] = useState(false);
+  const [routeSteps, setRouteSteps] = useState([]);
   const mapRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
 
@@ -239,6 +241,7 @@ export default function HomeScreen() {
                 distance: result.distance,
                 duration: result.duration,
               });
+              setRouteSteps(result.legs[0].steps || []);
             }}
             onError={(error) => Alert.alert("Error getting directions", error)}
           />
@@ -281,12 +284,34 @@ export default function HomeScreen() {
       {/* Route Details and Stop Button */}
       {showRouteDetails && routeDetails && (
         <View style={styles.routeDetailsContainer}>
+          {/* Total Distance and Duration */}
           <Text style={styles.routeDetailsText}>
             Distance: {routeDetails.distance.toFixed(2)} miles
           </Text>
           <Text style={styles.routeDetailsText}>
             Duration: {Math.ceil(routeDetails.duration)} minutes
           </Text>
+
+          {/* Step-by-Step Instructions */}
+          {routeSteps && routeSteps.length > 0 ? (
+            <ScrollView style={{ maxHeight: 150 }}>
+              {routeSteps.map((step, index) => (
+                <View key={index} style={{ marginBottom: 10 }}>
+                  <Text style={styles.routeDetailsText}>
+                    {step.html_instructions.replace(/<[^>]+>/g, "")}
+                  </Text>
+                  <Text style={styles.routeDetailsText}>
+                    Distance: {step.distance.text}, Duration:{" "}
+                    {step.duration.text}
+                  </Text>
+                </View>
+              ))}
+            </ScrollView>
+          ) : (
+            <Text style={styles.routeDetailsText}>No steps available.</Text>
+          )}
+
+          {/* Buttons */}
           <TouchableOpacity
             style={styles.changeStartButton}
             onPress={handleChangeStartLocation}

@@ -20,6 +20,8 @@ export default StyleSheet.create({
     padding: 5,
     borderRadius: 5,
     alignItems: "center",
+    borderWidth: 1,
+    borderColor: "black",
   },
   filterButtonText: {
     color: "black",
@@ -27,7 +29,7 @@ export default StyleSheet.create({
   },
   travelModeOverlay: {
     position: "absolute",
-    top: 170,
+    top: 130,
     left: 12,
     backgroundColor: "white",
     borderRadius: 5,
@@ -35,7 +37,7 @@ export default StyleSheet.create({
     elevation: 5,
   },
   travelModeButton: {
-    padding: 5,
+    padding: 3,
     borderRadius: 5,
     backgroundColor: "#e2e2e2",
     marginVertical: 5,
@@ -87,6 +89,8 @@ export default StyleSheet.create({
     padding: 5,
     borderRadius: 5,
     alignItems: "center",
+    borderWidth: 1,
+    borderColor: "black",
   },
   trafficButtonText: {
     color: "black",
