@@ -1,19 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
-import MapView, {
-  Marker,
-  PROVIDER_DEFAULT,
-  PROVIDER_GOOGLE,
-} from "react-native-maps";
-import MapViewDirections from 'react-native-maps-directions';
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import {
   StyleSheet,
   SafeAreaView,
   Alert,
   View,
   Text,
-  Switch,
-  ScrollView,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
@@ -21,13 +15,12 @@ import { useRouter } from "expo-router";
 import { SearchBar } from "react-native-elements";
 import * as SplashScreen from "expo-splash-screen";
 import * as Location from "expo-location";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import MapViewDirections from "react-native-maps-directions";
 import { GOOGLE_API_KEY } from "@env";
+import styles from "../../homestyles";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
-
-// Map page
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -35,8 +28,16 @@ export default function HomeScreen() {
   const [filteredMarkers, setFilteredMarkers] = useState([]);
   const [search, setSearch] = useState("");
   const [userLocation, setUserLocation] = useState(null);
+  const [selectedDestination, setSelectedDestination] = useState(null);
+  const [travelMode, setTravelMode] = useState("DRIVING");
+  const [startLocation, setStartLocation] = useState(null);
+  const [routeDetails, setRouteDetails] = useState(null);
+  const [showTravelModeButtons, setShowTravelModeButtons] = useState(false);
+  const [showRouteDetails, setShowRouteDetails] = useState(false);
+  const [showTraffic, setShowTraffic] = useState(false);
+  const [routeSteps, setRouteSteps] = useState([]);
   const mapRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(true);   // testing to see if loading works?
+  const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
 
   const INITIAL_REGION = {
     latitude: 34.00039991787572,
@@ -47,6 +48,14 @@ export default function HomeScreen() {
 
   const onMarkerSelected = (marker) => {
     Alert.alert(marker.title || "Marker Selected");
+
+    setSelectedDestination({
+      latitude: marker.latitude,
+      longitude: marker.longitude,
+    });
+
+    setShowTravelModeButtons(true);
+    setShowRouteDetails(true);
 
     // Zoom in on marker region
     if (mapRef.current) {
@@ -67,7 +76,7 @@ export default function HomeScreen() {
     const fetchMarkers = async () => {
       try {
         //const query = await getDocs(collection(FIRESTORE_DB, "markers"));   // OG
-        const query = await getDocs(collection(FIRESTORE_DB, "locTest"));     // Changed to use what Chloe brought in
+        const query = await getDocs(collection(FIRESTORE_DB, "locTest")); // Changed to use what Chloe brought in
         const db_data = query.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
@@ -97,34 +106,27 @@ export default function HomeScreen() {
     }
   }, [search, markers]);
 
-  // request location permissions
+  // Request location permissions and set startLocation
+  // merged both perms and set user location into one -Isaac
   useEffect(() => {
-    const checkPermission = async () => {
-      const savedPermission = await AsyncStorage.getItem("locationPermission");
-      // check if user has already granted location permission
-      if (savedPermission) {
-        setLocationPermission(savedPermission === "granted");
-        return;
-      }
-
-      // request if no perm saved
+    const getLocation = async () => {
       const { status } = await Location.requestForegroundPermissionsAsync();
       if (status === "granted") {
-        setLocationPermission(true);
-        AsyncStorage.setItem("locationPermission", "granted");
+        const location = await Location.getCurrentPositionAsync({});
+        setUserLocation(location.coords);
+        setStartLocation(location.coords);
       } else {
-        setLocationPermission(false);
-        AsyncStorage.setItem("locationPermission", "denied");
+        Alert.alert("Permission denied, please grant location access");
       }
     };
 
-    checkPermission();
+    getLocation();
   }, []);
 
+  // Hide splash screen
   useEffect(() => {
     async function prepare() {
       try {
-        // Hide the splash screen once the app is ready
         await SplashScreen.hideAsync();
       } catch (e) {
         console.warn(e);
@@ -134,31 +136,38 @@ export default function HomeScreen() {
     prepare();
   }, []);
 
-  // Display user's current location on map
-  useEffect(() => {
-    const getLocation = async () => {
-      // check if user granted access to location
-      const { status } = await Location.requestForegroundPermissionsAsync();
-      console.log(status);
-      if (status === "granted") {
-        const location = await Location.getCurrentPositionAsync({});
-        setUserLocation(location.coords);
-      } else {
-        Alert.alert("Permission denied, please grant location access");
-      }
-    };
+  // Handle stopping directions
+  const handleStopDirections = () => {
+    setSelectedDestination(null);
+    setShowTravelModeButtons(false);
+    setShowRouteDetails(false);
+    setRouteDetails(null);
+  };
 
-    getLocation();
-  }, []);
+  // Change the start location to selected marker
+  const handleChangeStartLocation = () => {
+    if (selectedDestination) {
+      setStartLocation({
+        latitude: selectedDestination.latitude,
+        longitude: selectedDestination.longitude,
+      });
+    }
+  };
+
+  // Reset start location to user's current location
+  const handleResetStartLocation = () => {
+    if (userLocation) {
+      setStartLocation(userLocation);
+    }
+  };
 
   if (isLoading) {
     return (
-        <View style={styles.loadingContainer}>
-          <Text>Loading...</Text>
-        </View>
+      <View style={styles.loadingContainer}>
+        <Text>Loading...</Text>
+      </View>
     );
-  //return null;
-}
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -169,14 +178,28 @@ export default function HomeScreen() {
         containerStyle={styles.searchContainer}
         inputContainerStyle={styles.searchInputContainer}
       />
-      <TouchableOpacity
-        style={styles.filterButton}
-        onPress={() => router.push("/PinFilterMain")}>
-        <View style={styles.accentBox}>
-          <Text style={styles.filterButtonText}>Filter Pins</Text>
-        </View>
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.filterButton}
+          onPress={() => router.push("/PinFilterMain")}
+        >
+          <View style={styles.accentBox}>
+            <Text style={styles.filterButtonText}>Filter Pins</Text>
+          </View>
+        </TouchableOpacity>
 
+        {/* Button to show/hide traffic */}
+        <TouchableOpacity
+          style={styles.trafficButton}
+          onPress={() => setShowTraffic(!showTraffic)}
+        >
+          <Text style={styles.trafficButtonText}>
+            {showTraffic ? "Hide Traffic" : "Show Traffic"}
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      {/* Map */}
       <MapView
         ref={mapRef}
         style={styles.map}
@@ -185,6 +208,7 @@ export default function HomeScreen() {
         initialRegion={INITIAL_REGION}
         showsUserLocation={true}
         followsUserLocation={true}
+        showsTraffic={showTraffic}
       >
         {filteredMarkers.map((marker) => (
           <Marker
@@ -199,39 +223,117 @@ export default function HomeScreen() {
             onPress={() => onMarkerSelected(marker)}
           />
         ))}
+
+        {/* Directions */}
+        {startLocation && selectedDestination && (
+          <MapViewDirections
+            origin={startLocation}
+            destination={{
+              latitude: selectedDestination.latitude,
+              longitude: selectedDestination.longitude,
+            }}
+            apikey={GOOGLE_API_KEY}
+            strokeWidth={4}
+            strokeColor="#73000a"
+            mode={travelMode}
+            onReady={(result) => {
+              setRouteDetails({
+                distance: result.distance,
+                duration: result.duration,
+              });
+              setRouteSteps(result.legs[0].steps || []);
+            }}
+            onError={(error) => Alert.alert("Error getting directions", error)}
+          />
+        )}
       </MapView>
+
+      {/* Travel Mode Buttons (Overlay) */}
+      {showTravelModeButtons && (
+        <View style={styles.travelModeOverlay}>
+          <TouchableOpacity
+            style={[
+              styles.travelModeButton,
+              travelMode === "DRIVING" && styles.activeTravelMode,
+            ]}
+            onPress={() => setTravelMode("DRIVING")}
+          >
+            <Text style={styles.travelModeText}>Driving</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.travelModeButton,
+              travelMode === "WALKING" && styles.activeTravelMode,
+            ]}
+            onPress={() => setTravelMode("WALKING")}
+          >
+            <Text style={styles.travelModeText}>Walking</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              styles.travelModeButton,
+              travelMode === "BICYCLING" && styles.activeTravelMode,
+            ]}
+            onPress={() => setTravelMode("BICYCLING")}
+          >
+            <Text style={styles.travelModeText}>Bicycling</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+
+      {/* Route Details and Stop Button */}
+      {showRouteDetails && routeDetails && (
+        <View style={styles.routeDetailsContainer}>
+          {/* Total Distance and Duration */}
+          <Text style={styles.routeDetailsText}>
+            Distance: {routeDetails.distance.toFixed(2)} miles
+          </Text>
+          <Text style={styles.routeDetailsText}>
+            Duration: {Math.ceil(routeDetails.duration)} minutes
+          </Text>
+
+          {/* Step-by-Step Instructions */}
+          {routeSteps && routeSteps.length > 0 ? (
+            <ScrollView style={{ maxHeight: 150 }}>
+              {routeSteps.map((step, index) => (
+                <View key={index} style={{ marginBottom: 10 }}>
+                  <Text style={styles.routeDetailsText}>
+                    {step.html_instructions.replace(/<[^>]+>/g, "")}
+                  </Text>
+                  <Text style={styles.routeDetailsText}>
+                    Distance: {step.distance.text}, Duration:{" "}
+                    {step.duration.text}
+                  </Text>
+                </View>
+              ))}
+            </ScrollView>
+          ) : (
+            <Text style={styles.routeDetailsText}>No steps available.</Text>
+          )}
+
+          {/* Buttons */}
+          <TouchableOpacity
+            style={styles.changeStartButton}
+            onPress={handleChangeStartLocation}
+          >
+            <Text style={styles.changeStartButtonText}>Set Start Here</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.changeStartButton}
+            onPress={handleResetStartLocation}
+          >
+            <Text style={styles.changeStartButtonText}>
+              Reset to My Location
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.stopButton}
+            onPress={handleStopDirections}
+          >
+            <Text style={styles.stopButtonText}>Stop Directions</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  searchContainer: {
-    backgroundColor: "white",
-    borderBottomColor: "transparent",
-    borderTopColor: "transparent",
-  },
-  searchInputContainer: {
-    backgroundColor: "#EDEDED",
-  },
-  map: {
-    flex: 1,
-  },
-  filterButton: {
-    alignSelf: "center", // Center horizontally
-    justifyContent: "center", // Center vertically within the button
-    alignItems: "center", // Align text in the center of the button
-    width: 200, // Button width
-    height: 30, // Button height
-    borderRadius: 25, // Half of the height for an oval shape
-    backgroundColor: "#e2e2e2", // Background color
-    marginVertical: 10, // Space around the button
-  },
-  filterButtonText: {
-    color: "black", // Text color
-    fontSize: 16, // Text size
-    fontWeight: "bold", // Text weight
-  },
-});
