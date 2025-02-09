@@ -95,13 +95,19 @@ export default function Schedule() {
               >
                 <View style={styles.modalContainer}>
                   <View style={styles.modalContent}>
-                    <Text style={styles.modalText}>Are you sure you want to delete this class?</Text>
+                    <Text style={styles.modalText}>Are you sure you want to delete {courseToDelete?.name} from your schedule?</Text>
                     <View style={styles.modalButtons}>
-                      <Pressable style={styles.modalButton} onPress={() => setModalVisibility(false)}>
-                        <Text style={styles.cancelText}>Cancel</Text>
+                      <Pressable style={[styles.modalButton, styles.cancelButton]} onPress={() => setModalVisibility(false)}>
+                        <Text style={styles.cancelText}>No</Text>
                       </Pressable>
-                      <Pressable style={styles.modalButton} onPress={confirmDelete}>
-                        <Text style={styles.confirmText}>Delete</Text>
+                      <Pressable 
+                        style={[styles.modalButton, styles.confirmButton]} 
+                        onPress={() => {
+                          confirmDelete();
+                          setModalVisibility(false);
+                        }}
+                      >
+                        <Text style={styles.confirmText}>Yes</Text>
                       </Pressable>
                     </View>
                   </View>
@@ -134,6 +140,7 @@ export default function Schedule() {
 const styles = StyleSheet.create({
   courses: {
     paddingHorizontal: 20,
+    paddingTop: 15,
     width: "100%",
     gap: 15
   },
@@ -187,30 +194,52 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "rgba(0,0,0,0.5)",
+    paddingHorizontal: 20
   },
+
   modalContent: {
     backgroundColor: "white",
     padding: 20,
     borderRadius: 10,
     alignItems: "center",
   },
+
   modalText: {
-    fontSize: 18,
+    fontSize: 25,
     marginBottom: 10,
   },
+
   modalButtons: {
     flexDirection: "row",
     marginTop: 10,
   },
+
   modalButton: {
     marginHorizontal: 10,
     padding: 10,
     borderRadius: 5,
+    // borderColor: "#000000",
+    // borderWidth: 2,
+    flex: 1
   },
+
+  cancelButton: {
+    backgroundColor: "#AAAAAA"
+  },
+
   cancelText: {
-    color: "blue",
+    color: "#000000",
+    textAlign: "center",
+    fontSize: 20
   },
+
+  confirmButton: {
+    backgroundColor: "#73000A"
+  },
+
   confirmText: {
-    color: "red",
+    color: "#FFFFFF",
+    textAlign: "center",
+    fontSize: 20
   },
 });
