@@ -1,9 +1,9 @@
-import { View, Text, StyleSheet, Pressable, TouchableOpacity, FlatList } from "react-native";
+import { View, Text, StyleSheet, Pressable, TouchableOpacity, FlatList, Modal, Image } from "react-native";
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { useRouter } from "expo-router";
 import { useState, useEffect } from "react";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
-import { doc, getDoc, collection, getDocs, onSnapshot } from "firebase/firestore";
+import { doc, getDoc, collection, getDocs, onSnapshot, deleteDoc } from "firebase/firestore";
 
 
 import Class from "../../components/Class";
@@ -17,6 +17,8 @@ export default function Schedule() {
 
   const db = FIRESTORE_DB;
   const [courses, setCourses] = useState([]);
+  const [modalVisibility, setModalVisibility] = useState(false);
+  const [courseToDelete, setCourseToDelete] = useState(null);
 
   useEffect(() => {
     if (!user) {
@@ -38,6 +40,26 @@ export default function Schedule() {
     return () => unsubscribe(); 
   }, [user]);
 
+  const handleDeletePress = (course) => {
+    setCourseToDelete(course);
+    setModalVisibility(true);
+  }
+
+  const confirmDelete = async () => {
+    if (!courseToDelete) return;
+    console.log(courseToDelete);
+
+    try {
+      await deleteDoc(doc(db, "schedules", user.uid, "courses", courseToDelete.id));
+      console.log("Deleted course:", courseToDelete.id);
+    } catch (error) {
+      console.log("Error deleting course:", error);
+    }
+
+    setIsModalVisible(false);
+    setCourseToDelete(null);
+  };
+
   const renderCourse = (course) => {
     // console.log('in render course');
     // console.log(course);
@@ -49,6 +71,7 @@ export default function Schedule() {
         name={course.item.name}
         instructor={course.item.instructor}
         meeting={course.item.meeting}
+        onDeletePress={() => handleDeletePress(course.item)}
       />
     )
   }
@@ -63,7 +86,27 @@ export default function Schedule() {
                 renderItem={(courses) => renderCourse(courses)}
                 contentContainerStyle={{ gap: 20 }}
               />
-            </View> 
+            </View>
+              <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisibility}
+                onRequestClose={() => setModalVisibility(false)}
+              >
+                <View style={styles.modalContainer}>
+                  <View style={styles.modalContent}>
+                    <Text style={styles.modalText}>Are you sure you want to delete this class?</Text>
+                    <View style={styles.modalButtons}>
+                      <Pressable style={styles.modalButton} onPress={() => setModalVisibility(false)}>
+                        <Text style={styles.cancelText}>Cancel</Text>
+                      </Pressable>
+                      <Pressable style={styles.modalButton} onPress={confirmDelete}>
+                        <Text style={styles.confirmText}>Delete</Text>
+                      </Pressable>
+                    </View>
+                  </View>
+                </View>
+              </Modal>
               <TouchableOpacity
                 onPress={() => {
                   router.push("../addClassForm");
@@ -75,7 +118,14 @@ export default function Schedule() {
               </TouchableOpacity>
             </>
           :
-            <Text style={styles.noUser}>Tap the Profile icon in the top right corner to login and view/edit your schedule!</Text>         
+          <View style={styles.container}>
+            <Image 
+              style={styles.image}
+              source={require("../../assets/images/cockys-way.png")}
+            />
+            <Text style={styles.noUser}>Looks like you're not logged in, tap the Profile icon in the top right corner to login and view/edit your schedule!</Text>
+          </View>
+                     
         }
     </>
   );
@@ -111,7 +161,56 @@ const styles = StyleSheet.create({
   noUser: {
     fontSize: 30,
     paddingHorizontal: 20,
+    // alignItems: "center",
+    // justifyContent: "center",
+    // flex: 1
+  },
+
+  container: {
+    width: "100%",
+    height: "100%", 
+    justifyContent: "center",
     alignItems: "center",
-    justifyContent: "center"
-  }
+    // paddingBottom: 20
+    // borderWidth: 3,
+    // borderColor: "#000000"
+  },
+  
+  image: {
+    width: 150,
+    height: 150,
+    marginBottom: 20
+  },
+
+  modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.5)",
+  },
+  modalContent: {
+    backgroundColor: "white",
+    padding: 20,
+    borderRadius: 10,
+    alignItems: "center",
+  },
+  modalText: {
+    fontSize: 18,
+    marginBottom: 10,
+  },
+  modalButtons: {
+    flexDirection: "row",
+    marginTop: 10,
+  },
+  modalButton: {
+    marginHorizontal: 10,
+    padding: 10,
+    borderRadius: 5,
+  },
+  cancelText: {
+    color: "blue",
+  },
+  confirmText: {
+    color: "red",
+  },
 });

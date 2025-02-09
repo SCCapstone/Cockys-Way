@@ -9,7 +9,7 @@ import { FIRESTORE_DB } from '../FirebaseConfig';
 import { getAuth } from 'firebase/auth';
 import { useRouter } from 'expo-router';
 
-const Class = ({ crn, code, section, name, instructor, meeting, fromSearch = false }) => {
+const Class = ({ crn, code, section, name, instructor, meeting, fromSearch = false, onDeletePress }) => {
     const [notification, setNotification] = useState(false);
     const router = useRouter();
 
@@ -99,9 +99,7 @@ const Class = ({ crn, code, section, name, instructor, meeting, fromSearch = fal
                 <FontAwesome5 name={ notification ? "bell" : "bell-slash" } size={30} color="#FFFFFF" />
             </Pressable>
             <Pressable
-                onPress={() => {
-                    deleteFromSchedule();
-                }}
+                onPress={onDeletePress}
                 style={({pressed}) => [
                     {
                     backgroundColor: pressed ? '#450006' : 'transparent'
