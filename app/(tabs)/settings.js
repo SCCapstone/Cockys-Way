@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
   },
   accentBoxSmall: {
     backgroundColor: '#73000A',
-    padding: 5,
+    padding: 10, // Updated to match accentBox
     borderRadius: 5,
     flex: 1,
     flexDirection: 'row',
