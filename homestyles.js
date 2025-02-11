@@ -27,6 +27,18 @@ export default StyleSheet.create({
     color: "black",
     fontSize: 16,
   },
+  historyButton: {
+    backgroundColor: "#e2e2e2",
+    padding: 5,
+    borderRadius: 5,
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "black",
+  },
+  historyButtonText: {
+    color: "black",
+    fontSize: 16,
+  },
   travelModeOverlay: {
     position: "absolute",
     top: 130,

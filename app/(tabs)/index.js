@@ -18,6 +18,7 @@ import * as Location from "expo-location";
 import MapViewDirections from "react-native-maps-directions";
 import { GOOGLE_API_KEY } from "@env";
 import styles from "../../homestyles";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -56,6 +57,18 @@ export default function HomeScreen() {
 
     setShowTravelModeButtons(true);
     setShowRouteDetails(true);
+
+    const route = {
+      title: marker.title,
+      startLocation: startLocation,
+      endLocation: {
+        latitude: marker.latitude,
+        longitude: marker.longitude,
+      },
+      timestamp: new Date().toISOString(),
+      travelMode,
+    };
+    saveRouteHistory(route);
 
     // Zoom in on marker region
     if (mapRef.current) {
@@ -136,6 +149,18 @@ export default function HomeScreen() {
     prepare();
   }, []);
 
+  // Save route history
+  const saveRouteHistory = async (route) => {
+    try {
+      const existingHistory = await AsyncStorage.getItem("routeHistory");
+      const history = existingHistory ? JSON.parse(existingHistory) : [];
+      history.push(route);
+      await AsyncStorage.setItem("routeHistory", JSON.stringify(history));
+    } catch (error) {
+      console.error("Route history save error: ", error);
+    }
+  };
+
   // Handle stopping directions
   const handleStopDirections = () => {
     setSelectedDestination(null);
@@ -196,6 +221,14 @@ export default function HomeScreen() {
           <Text style={styles.trafficButtonText}>
             {showTraffic ? "Hide Traffic" : "Show Traffic"}
           </Text>
+        </TouchableOpacity>
+
+        {/* Button to route history screen */}
+        <TouchableOpacity
+          style={styles.historyButton}
+          onPress={() => router.push("/routeHistory")}
+        >
+          <Text style={styles.historyButtonText}>History</Text>
         </TouchableOpacity>
       </View>
 
