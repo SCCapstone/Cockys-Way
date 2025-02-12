@@ -93,7 +93,7 @@ const AddClassForm = () => {
           placeholder="Subject"
           value={subject}
           onChangeText={(text) => {
-            setSubject(text);
+            setSubject(text.toUpperCase());
             setErrors({ ...errors, subject: null });
           }}
         />
