@@ -75,6 +75,7 @@ const Login = () => {
                 style={styles.button}
                 title="Login"
                 onPress={signIn}
+                testID="login-button"
               >
                 <Text style={styles.buttonText}>Login</Text>
               </TouchableOpacity>
