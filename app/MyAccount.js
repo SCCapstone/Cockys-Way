@@ -66,6 +66,27 @@ export default function MyAccountScreen() {
     return null;
   }
 
+  const handleAuthenticate = async () => {
+    if (!auth.currentUser) {
+      Alert.alert("Error", "No user is signed in.");
+      return;
+    }
+
+    if (passwordForAuth.length < 6) {
+      Alert.alert("Error", "Password must be at least 6 characters long.");
+      return;
+    }
+
+    try {
+      const credential = EmailAuthProvider.credential(auth.currentUser.email, passwordForAuth);
+      await reauthenticateWithCredential(auth.currentUser, credential);
+      setIsEditing(true);
+      setIsAuthenticating(false);
+    } catch (error) {
+      Alert.alert("Error", "Authentication failed. Please ensure your password is correct.");
+    }
+  };
+
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.header}>My Account</Text>
@@ -75,10 +96,25 @@ export default function MyAccountScreen() {
           <Text style={styles.infoValue}>{value.toString()}</Text>
         </View>
       ))}
-      {!isEditing && (
-        <TouchableOpacity style={styles.editButton} onPress={() => setIsEditing(true)}>
+      {!isEditing && !isAuthenticating && (
+        <TouchableOpacity style={styles.editButton} onPress={() => setIsAuthenticating(true)}>
           <Text style={styles.buttonText}>Edit Account Information</Text>
         </TouchableOpacity>
+      )}
+      {isAuthenticating && (
+        <>
+          <TextInput
+            style={styles.inputField}
+            placeholder="Enter your current password"
+            placeholderTextColor="#000"
+            secureTextEntry
+            value={passwordForAuth}
+            onChangeText={setPasswordForAuth}
+          />
+          <TouchableOpacity style={styles.changePasswordButton} onPress={handleAuthenticate}>
+            <Text style={styles.buttonText}>Authenticate</Text>
+          </TouchableOpacity>
+        </>
       )}
       {isEditing && (
         <>
