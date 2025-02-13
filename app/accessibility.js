@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import * as SplashScreen from 'expo-splash-screen';
 import { FIREBASE_AUTH, FIREBASE_DB } from "../FirebaseConfig";
@@ -21,7 +21,12 @@ export default function AccessibilityScreen() {
   }, [fontsLoaded]);
 
   if (!fontsLoaded) {
-    return null;
+  //  return null;
+      return (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#73000A" />
+          </View>
+      );
   }
 
   return (
@@ -72,6 +77,13 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: '#000000',
     fontFamily: 'Abel_400Regular',
+  },
+  // New Chloe code for loading wheel
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F3F3F3',
   },
 });
 

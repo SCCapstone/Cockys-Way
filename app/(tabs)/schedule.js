@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, TouchableOpacity, FlatList, Modal, Image } from "react-native";
+import { View, Text, StyleSheet, Pressable, TouchableOpacity, FlatList, Modal, Image, ActivityIndicator } from "react-native";
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import { useRouter } from "expo-router";
 import { useState, useEffect } from "react";
@@ -19,10 +19,12 @@ export default function Schedule() {
   const [courses, setCourses] = useState([]);
   const [modalVisibility, setModalVisibility] = useState(false);
   const [courseToDelete, setCourseToDelete] = useState(null);
+  const [loading, setLoading] = useState(true); // Chloe added loading
 
   useEffect(() => {
     if (!user) {
       console.log("no user found");
+      setLoading(false);
       return;
     }
 
@@ -31,9 +33,11 @@ export default function Schedule() {
       (snapshot) => {
         const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         setCourses(list);
+        setLoading(false);
       },
       (error) => {
         console.log("Error fetching real-time updates: ", error);
+        setLoading(false);
       }
     );
 
@@ -76,6 +80,15 @@ export default function Schedule() {
       />
     )
   }
+
+  // CHLOE NEW CODE
+    if (loading) {
+      return (
+          <View style={styles.loadingContainer}>
+              <ActivityIndicator size="large" color="#73000A" />
+          </View>
+      );
+    }
 
   return (
     <>
@@ -242,5 +255,12 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     textAlign: "center",
     fontSize: 20
+  },
+// New Chloe code for loading wheel
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F3F3F3',
   },
 });

@@ -94,11 +94,21 @@ export default function Directory() {
     }
   }, [search, data]);
 
+/*
   if (isLoading) {
     return (
       <View style={[styles.container, styles.loadingContainer]}>
         <ActivityIndicator size="large" color="#73000A" />
       </View>
+    );
+  }
+*/  // OLD isLoading
+// CHLOE NEW CODE
+  if (isLoading) {
+    return (
+        <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#73000A" />
+        </View>
     );
   }
 
@@ -215,5 +225,12 @@ const styles = StyleSheet.create({
   letterFont: {
     fontSize: 16,
     color: "#73000A",
+  },
+  // New Chloe code for loading wheel
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F3F3F3',
   },
 });

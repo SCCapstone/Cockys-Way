@@ -6,7 +6,9 @@ import {
   SafeAreaView,
   Linking,
   ScrollView,
+  ActivityIndicator,
 } from "react-native";
+import { useEffect, useState } from "react";
 import { useLocalSearchParams } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
@@ -50,7 +52,34 @@ export const checkHours = (officeHours) => {
 
 export default function ProfessorInfo() {
   const { item } = useLocalSearchParams();
-  const professor = JSON.parse(item);
+//  const professor = JSON.parse(item); // ORIG.
+  const [professor, setProfessor] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+//    NEW CODE TO ACCOUNT FOR LOADING -CRB
+  useEffect(() => {
+    if (item) {
+      try {
+        setProfessor(JSON.parse(item)); // ✅ Parse professor data
+      } catch (error) {
+        console.error("Error parsing professor data:", error);
+      }
+    }
+    setLoading(false);
+  }, [item]);
+
+  if (!professor || loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#73000A" />
+        <Text style={styles.loadingText}>Loading Professor details...</Text>
+      </View>
+    );
+  } // end if loading
+//    END NEW CODE FOR LOADING -CRB
+
+
+
 
   // Handles sorting the office hours by day of the week so
   // that they are displayed in the correct order
@@ -65,11 +94,13 @@ export default function ProfessorInfo() {
   };
 
   // saves the sorted office hours to a variable
-  const officeHours = sortOfficeHours(professor.officeHours);
+//  const officeHours = sortOfficeHours(professor.officeHours); // COMMENTED OUT ORIG.
+  const officeHours = sortOfficeHours(professor.officeHours || {}); // should handle if prof has no hrs listed
 
   // updates the indicator and circle color based on the professor's office hours
   const indicator = checkHours(officeHours) ? "Available" : "Unavailable";
   const circleColor = indicator === "Available" ? "#39C75A" : "#FF0000";
+  
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>{professor.name}</Text>
@@ -103,6 +134,7 @@ export default function ProfessorInfo() {
           <Text style={styles.quickLookText}>{professor.college}</Text>
         </View>
       </View>
+
       <View style={styles.line}></View>
       <View style={[styles.officeInfo, styles.quickLook]}>
         <Text style={styles.quickLookHeader}>Office Information:</Text>
@@ -142,6 +174,7 @@ export default function ProfessorInfo() {
             {professor.email}
           </Text>
         </View>
+
         <View style={[styles.flexRow, styles.spacer]}>
           <FontAwesome name="phone" size={30} color="#73000A" />
           <Text style={[styles.social]}>{professor.phone}</Text>
@@ -232,5 +265,16 @@ const styles = StyleSheet.create({
   radius: {
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F3F3F3',
+  },
+  loadingText: {
+    marginTop: 10,
+    fontSize: 16,
+    color: "#73000A",
   },
 });

@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Switch, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, StyleSheet, Switch, ScrollView, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -13,10 +13,13 @@ SplashScreen.preventAutoHideAsync();
 
 export default function SettingsScreen() {
   const [isEnabled, setIsEnabled] = React.useState(false);
+  const [loading, setLoading] = useState(true);
   const firestore = getFirestore();
 
   useEffect(() => {
     const fetchNotificationSetting = async () => {
+      setLoading(true);
+
       const user = getAuth().currentUser;
       if (user) {
         const uid = user.uid;
@@ -43,6 +46,8 @@ export default function SettingsScreen() {
           ]
         );
       }
+      
+      setLoading(false);
     };
 
     fetchNotificationSetting();
@@ -86,9 +91,19 @@ export default function SettingsScreen() {
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
-
+/*
   if (!fontsLoaded) {
     return null;
+  }
+*/ // Old !fontsLoaded
+
+// CHLOE NEW CODE
+  if (!fontsLoaded || loading) {
+    return (
+        <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#73000A" />
+        </View>
+    );
   }
 
   return (
@@ -170,5 +185,13 @@ const styles = StyleSheet.create({
     fontSize: 22.5,
     color: '#FFFFFF',
     fontFamily: 'Abel_400Regular',
+  },
+
+  // New Chloe code for loading wheel
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F3F3F3',
   },
 });

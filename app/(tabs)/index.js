@@ -8,6 +8,7 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
+  ActivityIndicator,
 } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
@@ -187,6 +188,7 @@ export default function HomeScreen() {
     }
   };
 
+  /*
   if (isLoading) {
     return (
       <View style={styles.loadingContainer}>
@@ -194,6 +196,15 @@ export default function HomeScreen() {
       </View>
     );
   }
+*/ // Old isLoading
+// CHLOE NEW CODE
+    if (isLoading) {
+      return (
+          <View style={styless.loadingContainer}>
+              <ActivityIndicator size="large" color="#73000A" />
+          </View>
+      );
+    }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -378,3 +389,13 @@ export default function HomeScreen() {
     </SafeAreaView>
   );
 }
+
+const styless = StyleSheet.create({
+  // New Chloe code for loading wheel
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F3F3F3',
+  },
+  });

@@ -13,7 +13,7 @@ const data = [
   { label: "Fall 2024", value: "202408" },
   { label: "Spring 2025", value: "202501" },
 ];
-
+// no loading circle needed here
 const AddClassForm = () => {
   const router = useRouter();
 

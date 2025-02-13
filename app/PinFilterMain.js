@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, Switch, TouchableOpacity, FlatList } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, Switch, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import * as SplashScreen from 'expo-splash-screen';
 import { FIREBASE_AUTH, FIREBASE_DB } from "../FirebaseConfig";
@@ -136,7 +136,7 @@ export default function FilterPinsMainScreen() {
         SplashScreen.hideAsync();
       }
     }, [fontsLoaded]);
-  
+/*
     if (!fontsLoaded || isLoading) {
         return (
             <View style={styles.loadingContainer}>
@@ -144,6 +144,15 @@ export default function FilterPinsMainScreen() {
             </View>
         );
       //return null;
+    }
+*/    // OLD if (!fontsLoaded || isLoading)
+// CHLOE NEW CODE
+    if (!fontsLoaded || isLoading) {
+      return (
+          <View style={styles.loadingContainer}>
+              <ActivityIndicator size="large" color="#73000A" />
+          </View>
+      );
     }
   
  //   const toggleDropdown = (label) => {
@@ -391,6 +400,13 @@ const styles = StyleSheet.create({
     fontSize: 22.5,
     color: '#FFFFFF', // White text
     fontFamily: 'Abel_400Regular',
+  },
+// New Chloe code for loading wheel
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F3F3F3',
   },
 });
 

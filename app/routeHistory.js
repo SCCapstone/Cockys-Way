@@ -5,11 +5,13 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function RouteHistory() {
   const [routeHistory, setRouteHistory] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   //Fetch route history
   useEffect(() => {
@@ -22,6 +24,8 @@ export default function RouteHistory() {
       } catch (error) {
         console.error("Route history fetch error: ", error);
       }
+
+      setLoading(false);
     };
 
     fetchRouteHistory();
@@ -50,6 +54,15 @@ export default function RouteHistory() {
       console.error("Error clearing route history:", error);
     }
   };
+
+  // show loading circle while pulling data
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#73000A" />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -139,5 +152,12 @@ const styles = StyleSheet.create({
   clearButtonText: {
     color: "#fff",
     fontSize: 16,
+  },
+  // New Chloe code for loading wheel
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F3F3F3',
   },
 });

@@ -15,6 +15,7 @@ import { FIREBASE_AUTH } from "../FirebaseConfig";
 import { signOut } from "firebase/auth";
 import { router } from "expo-router";
 
+// loading wheel already implemented -CRB
 export default function SignOut() {
   const [loading, setLoading] = useState(false);
   const auth = FIREBASE_AUTH;

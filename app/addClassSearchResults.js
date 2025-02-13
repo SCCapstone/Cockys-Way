@@ -1,18 +1,35 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View, ActivityIndicator } from "react-native";
 import React, { useEffect, useMemo, useState } from "react";
 import { useLocalSearchParams } from "expo-router";
 import fetchCourseList from "../hook/fetchCourseList";
 import Class from "../components/Class";
 
+/*
 export const getInfo = (subject, semester) => {
   console.log(fetchCourseList(subject, semester));
   return fetchCourseList(subject, semester);
+};
+*/    // Commented out previous getInfo
+
+export const getInfo = async (subject, semester) => {
+  try {
+    console.log("Fetching courses for: ", subject, semester);
+    const data = await fetchCourseList(subject, semester);
+    console.log("API Response:", data); // for debugging
+    return data;
+
+  } catch (error) {
+    console.error("Error fetching courses: ", error);
+    return { data: []}; // make sure its always returning something so it doesnt break everything again
+  } // end try-catch block
 };
 
 const AddClassSearchResults = () => {
   const { semester, subject, number } = useLocalSearchParams();
   const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+/*
   const info = getInfo(subject, semester);
   let courseList = info.data;
   useEffect(() => {
@@ -26,9 +43,36 @@ const AddClassSearchResults = () => {
 
     setCourses(courseList);
   }, [info.data, number, subject]);
+*/  // Commented out original for testing loading
 
-  const renderCourse = (course) => {
-    console.log(course);
+useEffect(() => {
+  const fetchData = async () => {
+    setLoading(true);
+
+    try {
+      const info = await getInfo(subject, semester); // <-- Awaiting the async function
+      let courseList = info?.data || []; // Ensure it's an array
+
+      if (courseList.length > 0 && number) {
+        courseList = courseList.filter(
+          (course) => course.code === `${subject} ${number}`
+        );
+      }
+
+      setCourses(courseList);
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+    } // end try-catch
+    setLoading(false);
+  };
+
+  fetchData();
+}, [semester, subject, number]);
+//}, [semester, number, subject]);
+
+/*
+  const renderCourse = (course) => { // orig
+    console.log(course);  // orig
     return (
       <Class
         crn={course.item.crn}
@@ -40,19 +84,48 @@ const AddClassSearchResults = () => {
         fromSearch
         srcdb={course.item.srcdb}
       />
-    );
-  };
+    );*/    // commented out orig for testing -CRB
+
+    const renderCourse = ({ item }) => (
+      <Class
+        crn={item.crn}
+        code={item.code}
+        section={item.section}
+        name={item.title}
+        instructor={item.instr}
+        meeting={item.meets}
+        fromSearch
+        srcdb={item.srcdb}
+      />
+    ); // end renderCourse
+
+    if (loading) {
+    //  return null;
+        return (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#73000A" />
+            <Text style={styles.loadingText}>Loading courses...</Text>
+          </View>
+        );
+    } // end of if loading
+  //};
 
   return (
     <View style={styles.container}>
       <Text style={styles.header}>
         Click the add button on a class to add it to your schedule:
       </Text>
+      {courses.length > 0 ? ( // added
       <FlatList
         data={courses}
-        renderItem={(courses) => renderCourse(courses)}
+        renderItem={renderCourse} // added
+        keyExtractor={(item) => item.crn.toString()} // added
+//        renderItem={(courses) => renderCourse(courses)} // commented out orig. for testing
         contentContainerStyle={{ gap: 20 }}
       />
+      ) : (
+        <Text style={styles.noResultsText}>No courses found.</Text>
+      )} 
     </View>
   );
 };
@@ -71,6 +144,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
+
+
   headerIcon: {
     marginHorizontal: 30,
     gap: 10,
@@ -83,5 +158,22 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
     width: "100%",
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F3F3F3',
+  },
+  loadingText: {
+    marginTop: 10,
+    fontSize: 16,
+    color: "#73000A",
+  },
+  noResultsText: {
+    textAlign: "center",
+    fontSize: 18,
+    color: "gray",
+    marginTop: 20,
   },
 });

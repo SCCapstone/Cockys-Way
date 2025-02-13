@@ -16,6 +16,7 @@ import { FIREBASE_AUTH } from "../FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { router } from "expo-router";
 
+// loading wheel already implemented -CRB
 const Login = () => {
   // Manage Email and Password State
   const [email, setEmail] = useState("");
