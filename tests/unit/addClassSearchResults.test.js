@@ -1,11 +1,11 @@
 import { getInfo } from "../../app/addClassSearchResults";
-import fetchInfo from "../../hook/fetchInfo";
+import fetchInfo from "../../hook/fetchCourseList";
 
 // this will speicfy that here is a mock for fetchInfo
-jest.mock("../../hook/fetchInfo");
+jest.mock("../../hook/fetchCourseList");
 
 describe("getInfo", () => {
-  test("should call fetchInfo with the correct parameters to get data", () => {
+  test("should call fetchCourseList with the correct parameters to get data", () => {
     const subject = "CSCE";
     const semester = 202408;
 

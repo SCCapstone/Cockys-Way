@@ -9,6 +9,8 @@ import { FIRESTORE_DB } from "../FirebaseConfig";
 import { getAuth } from "firebase/auth";
 import { useRouter } from "expo-router";
 
+import fetchCourseInfo from "../hook/fetchCourseInfo";
+
 const Class = ({
   crn,
   code,
@@ -16,6 +18,7 @@ const Class = ({
   name,
   instructor,
   meeting,
+  srcdb,
   fromSearch = false,
   onDeletePress,
 }) => {
@@ -41,6 +44,7 @@ const Class = ({
         meeting: meeting,
         name: name,
         section: section,
+        srcdb: srcdb
       });
     } catch (error) {
       console.log("error when adding class: " + error);

@@ -71,6 +71,7 @@ export default function Schedule() {
         name={course.item.name}
         instructor={course.item.instructor}
         meeting={course.item.meeting}
+        srcdb={course.item.srcdb}
         onDeletePress={() => handleDeletePress(course.item)}
       />
     )

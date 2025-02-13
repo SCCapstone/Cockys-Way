@@ -1,48 +1,39 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const fetchInfo = (subject, semester) => {
-  const [data, setData] = useState([]);
+const fetchCourseInfo = (crn, srcdb) => {
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
 
-  // We will have to change this to take in a subject as a parameter
-  // (or other parameters that the api supports)
   const fetch = async () => {
+    if (!crn || !srcdb) return; // Prevent fetching if key or semester is missing
     setIsLoading(true);
-    // Fetching
+
     try {
-      console.log("Fetching data...");
+      console.log("Fetching class details...");
       const response = await axios({
         method: "post",
-        maxBodyLength: Infinity,
-        url: `https://classes.sc.edu/api/?page=fose&route=search&subject=${subject}`,
+        url: "https://classes.sc.edu/api/?page=fose&route=details",
         headers: {
           "Content-Type": "application/json",
         },
         data: JSON.stringify({
-          other: {
-            srcdb: `${semester}`,
-          },
-          criteria: [
-            {
-              field: "subject",
-              value: `${subject}`,
-            },
-          ],
+          key: `crn:${crn}`, // Assuming the API expects "crn:<key>"
+          srcdb: `${srcdb}`,
         }),
       });
 
-      // Parse the data
+      // Parse the response data
       const parsedData =
         typeof response.data === "string"
           ? JSON.parse(response.data)
           : response.data;
-      setData(parsedData.results || []);
-      console.log("Fetch successful:");
+      setData(parsedData || {});
+      console.log("Class details fetched successfully!");
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Error fetching class details:", error);
       setError(error);
     } finally {
       setIsLoading(false);
@@ -51,11 +42,11 @@ const fetchInfo = (subject, semester) => {
   };
 
   useEffect(() => {
+    console.log('bruh im in the useeffect')
     fetch();
-  }, []);
+  }, [key, semester]); // Refetch when key or semester changes
 
-  // Return the data
   return { data, isLoading, isLoaded, error };
 };
 
-export default fetchInfo;
+export default fetchCourseInfo;

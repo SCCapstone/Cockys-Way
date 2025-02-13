@@ -1,12 +1,12 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useMemo, useState } from "react";
 import { useLocalSearchParams } from "expo-router";
-import fetchInfo from "../hook/fetchInfo";
+import fetchCourseList from "../hook/fetchCourseList";
 import Class from "../components/Class";
 
 export const getInfo = (subject, semester) => {
-  console.log(fetchInfo(subject, semester));
-  return fetchInfo(subject, semester);
+  console.log(fetchCourseList(subject, semester));
+  return fetchCourseList(subject, semester);
 };
 
 const AddClassSearchResults = () => {
@@ -38,6 +38,7 @@ const AddClassSearchResults = () => {
         instructor={course.item.instr}
         meeting={course.item.meets}
         fromSearch
+        srcdb={course.item.srcdb}
       />
     );
   };
