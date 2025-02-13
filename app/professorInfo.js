@@ -52,15 +52,14 @@ export const checkHours = (officeHours) => {
 
 export default function ProfessorInfo() {
   const { item } = useLocalSearchParams();
-//  const professor = JSON.parse(item); // ORIG.
   const [professor, setProfessor] = useState(null);
   const [loading, setLoading] = useState(true);
 
-//    NEW CODE TO ACCOUNT FOR LOADING -CRB
+
   useEffect(() => {
     if (item) {
       try {
-        setProfessor(JSON.parse(item)); // ✅ Parse professor data
+        setProfessor(JSON.parse(item));
       } catch (error) {
         console.error("Error parsing professor data:", error);
       }
@@ -94,7 +93,6 @@ export default function ProfessorInfo() {
   };
 
   // saves the sorted office hours to a variable
-//  const officeHours = sortOfficeHours(professor.officeHours); // COMMENTED OUT ORIG.
   const officeHours = sortOfficeHours(professor.officeHours || {}); // should handle if prof has no hrs listed
 
   // updates the indicator and circle color based on the professor's office hours
@@ -266,6 +264,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
   },
+  // Loading Wheel
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',

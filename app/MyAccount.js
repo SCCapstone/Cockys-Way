@@ -62,6 +62,7 @@ export default function MyAccountScreen() {
     }
   }, [fontsLoaded]);
 
+  // loading Wheel
   if (!fontsLoaded) {
     //return null;
     return (
@@ -206,7 +207,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF', 
   },
   
-  // New Chloe code for loading wheel
+  // Loading Wheel
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',

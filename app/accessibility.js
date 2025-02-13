@@ -21,7 +21,6 @@ export default function AccessibilityScreen() {
   }, [fontsLoaded]);
 
   if (!fontsLoaded) {
-  //  return null;
       return (
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#73000A" />
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontFamily: 'Abel_400Regular',
   },
-  // New Chloe code for loading wheel
+  // Loading Wheel
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',

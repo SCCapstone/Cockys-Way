@@ -4,13 +4,6 @@ import { useLocalSearchParams } from "expo-router";
 import fetchCourseList from "../hook/fetchCourseList";
 import Class from "../components/Class";
 
-/*
-export const getInfo = (subject, semester) => {
-  console.log(fetchCourseList(subject, semester));
-  return fetchCourseList(subject, semester);
-};
-*/    // Commented out previous getInfo
-
 export const getInfo = async (subject, semester) => {
   try {
     console.log("Fetching courses for: ", subject, semester);
@@ -28,22 +21,6 @@ const AddClassSearchResults = () => {
   const { semester, subject, number } = useLocalSearchParams();
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
-
-/*
-  const info = getInfo(subject, semester);
-  let courseList = info.data;
-  useEffect(() => {
-    // console.log(courseList[0]);
-
-    if (courseList && number) {
-      courseList = courseList.filter(
-        (course) => course.code === `${subject} ${number}`
-      );
-    }
-
-    setCourses(courseList);
-  }, [info.data, number, subject]);
-*/  // Commented out original for testing loading
 
 useEffect(() => {
   const fetchData = async () => {
@@ -68,23 +45,7 @@ useEffect(() => {
 
   fetchData();
 }, [semester, subject, number]);
-//}, [semester, number, subject]);
 
-/*
-  const renderCourse = (course) => { // orig
-    console.log(course);  // orig
-    return (
-      <Class
-        crn={course.item.crn}
-        code={course.item.code}
-        section={course.item.section}
-        name={course.item.title}
-        instructor={course.item.instr}
-        meeting={course.item.meets}
-        fromSearch
-        srcdb={course.item.srcdb}
-      />
-    );*/    // commented out orig for testing -CRB
 
     const renderCourse = ({ item }) => (
       <Class
@@ -100,7 +61,6 @@ useEffect(() => {
     ); // end renderCourse
 
     if (loading) {
-    //  return null;
         return (
           <View style={styles.loadingContainer}>
             <ActivityIndicator size="large" color="#73000A" />
@@ -108,19 +68,17 @@ useEffect(() => {
           </View>
         );
     } // end of if loading
-  //};
 
   return (
     <View style={styles.container}>
       <Text style={styles.header}>
         Click the add button on a class to add it to your schedule:
       </Text>
-      {courses.length > 0 ? ( // added
+      {courses.length > 0 ? ( // Make sure theres actually something
       <FlatList
         data={courses}
-        renderItem={renderCourse} // added
-        keyExtractor={(item) => item.crn.toString()} // added
-//        renderItem={(courses) => renderCourse(courses)} // commented out orig. for testing
+        renderItem={renderCourse}
+        keyExtractor={(item) => item.crn.toString()}
         contentContainerStyle={{ gap: 20 }}
       />
       ) : (
@@ -159,6 +117,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
   },
+  // Loading Wheel
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',

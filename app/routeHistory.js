@@ -55,7 +55,7 @@ export default function RouteHistory() {
     }
   };
 
-  // show loading circle while pulling data
+  // Loading Wheel
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
   },
-  // New Chloe code for loading wheel
+  // Loading Wheel
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',

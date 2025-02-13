@@ -91,13 +91,8 @@ export default function SettingsScreen() {
       SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
-/*
-  if (!fontsLoaded) {
-    return null;
-  }
-*/ // Old !fontsLoaded
 
-// CHLOE NEW CODE
+  // Loading Wheel
   if (!fontsLoaded || loading) {
     return (
         <View style={styles.loadingContainer}>
@@ -187,7 +182,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Abel_400Regular',
   },
 
-  // New Chloe code for loading wheel
+  // Loading Wheel
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',

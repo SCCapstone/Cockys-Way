@@ -94,16 +94,7 @@ export default function Directory() {
     }
   }, [search, data]);
 
-/*
-  if (isLoading) {
-    return (
-      <View style={[styles.container, styles.loadingContainer]}>
-        <ActivityIndicator size="large" color="#73000A" />
-      </View>
-    );
-  }
-*/  // OLD isLoading
-// CHLOE NEW CODE
+  //  Loading wheel while loading
   if (isLoading) {
     return (
         <View style={styles.loadingContainer}>
@@ -178,6 +169,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: '#F3F3F3',
   },
   mainContent: {
     flexDirection: "row",
@@ -226,11 +218,5 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#73000A",
   },
-  // New Chloe code for loading wheel
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F3F3F3',
-  },
+
 });

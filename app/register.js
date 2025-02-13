@@ -189,6 +189,7 @@ const styles = StyleSheet.create({
   registerButtonPosition: {
     marginTop: "40%",
   },
+  // Loading Wheel
   loadingContainer: {
     marginTop: 20,
     alignItems: "center",

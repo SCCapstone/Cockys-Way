@@ -81,7 +81,7 @@ export default function Schedule() {
     )
   }
 
-  // CHLOE NEW CODE
+  // Loading Wheel
     if (loading) {
       return (
           <View style={styles.loadingContainer}>
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 20
   },
-// New Chloe code for loading wheel
+  // Loading Wheel
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',

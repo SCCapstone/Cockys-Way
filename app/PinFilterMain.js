@@ -136,17 +136,8 @@ export default function FilterPinsMainScreen() {
         SplashScreen.hideAsync();
       }
     }, [fontsLoaded]);
-/*
-    if (!fontsLoaded || isLoading) {
-        return (
-            <View style={styles.loadingContainer}>
-              <Text>Loading...</Text>
-            </View>
-        );
-      //return null;
-    }
-*/    // OLD if (!fontsLoaded || isLoading)
-// CHLOE NEW CODE
+
+    // Loading Wheel
     if (!fontsLoaded || isLoading) {
       return (
           <View style={styles.loadingContainer}>
@@ -214,7 +205,7 @@ export default function FilterPinsMainScreen() {
 
 
 
-
+//    DON'T REMOVE BELOW COMMENTED CODE YET. NEED TO GET PIN FILTERS ACTUALLY WORKING FIRST
 
 /*
 export default function FilterPinsMainScreen() {

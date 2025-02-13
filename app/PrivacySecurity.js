@@ -107,7 +107,7 @@ export default function PrivacySecurityScreen() {
   let [fontsLoaded] = useFonts({
     Abel_400Regular,
   });
-
+    // Loading Wheel
     if (!fontsLoaded || loading) {
       return (
         <View style={styles.loadingContainer}>
@@ -264,7 +264,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontWeight: 'bold',
   },
-// new chloe code for loading circle
+  // Loading Wheel
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',

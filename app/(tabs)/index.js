@@ -40,7 +40,7 @@ export default function HomeScreen() {
   const [showTraffic, setShowTraffic] = useState(false);
   const [routeSteps, setRouteSteps] = useState([]);
   const mapRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
+  const [isLoading, setIsLoading] = useState(true); // For loading wheel
 
   const INITIAL_REGION = {
     latitude: 34.00039991787572,
@@ -188,16 +188,8 @@ export default function HomeScreen() {
     }
   };
 
-  /*
-  if (isLoading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <Text>Loading...</Text>
-      </View>
-    );
-  }
-*/ // Old isLoading
-// CHLOE NEW CODE
+
+    // Loading Wheel
     if (isLoading) {
       return (
           <View style={styless.loadingContainer}>

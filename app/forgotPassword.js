@@ -17,7 +17,6 @@ import { sendPasswordResetEmail } from "firebase/auth";
 import { router } from "expo-router";
 
 
-// loading wheel already implemented -CRB
 const ForgotPassword = () => {
   // Manage Email and Password State
   const [email, setEmail] = useState("");
