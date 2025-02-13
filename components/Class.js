@@ -44,7 +44,7 @@ const Class = ({
         meeting: meeting,
         name: name,
         section: section,
-        srcdb: srcdb
+        srcdb: srcdb,
       });
     } catch (error) {
       console.log("error when adding class: " + error);
@@ -109,8 +109,10 @@ const Class = ({
                 },
                 styles.button,
               ]}
+              testID="toggle-bell"
             >
               <FontAwesome5
+                testID="bell-icon"
                 name={notification ? "bell" : "bell-slash"}
                 size={30}
                 color="#FFFFFF"
