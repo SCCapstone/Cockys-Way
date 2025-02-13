@@ -22,10 +22,8 @@ export default StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     borderColor: "black",
-  },
-  filterButtonText: {
-    color: "black",
-    fontSize: 16,
+    width: 40,
+    height: 35,
   },
   historyButton: {
     backgroundColor: "#e2e2e2",
@@ -34,10 +32,18 @@ export default StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     borderColor: "black",
+    width: 40,
+    height: 35,
   },
-  historyButtonText: {
-    color: "black",
-    fontSize: 16,
+  trafficButton: {
+    backgroundColor: "#e2e2e2",
+    padding: 5,
+    borderRadius: 5,
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "black",
+    width: 40,
+    height: 35,
   },
   travelModeOverlay: {
     position: "absolute",
@@ -74,37 +80,14 @@ export default StyleSheet.create({
     fontSize: 15,
     marginBottom: 5,
   },
-  changeStartButton: {
+  routeButton: {
     backgroundColor: "#e2e2e2",
     padding: 5,
     borderRadius: 5,
     alignItems: "center",
-    marginTop: 10,
+    justifyContent: "center",
   },
-  changeStartButtonText: {
-    color: "black",
-    fontSize: 16,
-  },
-  stopButton: {
-    backgroundColor: "#73000a",
-    padding: 5,
-    borderRadius: 5,
-    alignItems: "center",
-    marginTop: 10,
-  },
-  stopButtonText: {
-    color: "white",
-    fontSize: 16,
-  },
-  trafficButton: {
-    backgroundColor: "#e2e2e2",
-    padding: 5,
-    borderRadius: 5,
-    alignItems: "center",
-    borderWidth: 1,
-    borderColor: "black",
-  },
-  trafficButtonText: {
+  routeButtonText: {
     color: "black",
     fontSize: 16,
   },
@@ -115,5 +98,11 @@ export default StyleSheet.create({
     gap: 10,
     paddingHorizontal: 5,
     marginVertical: 10,
+  },
+  routeButtonsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    gap: 10,
   },
 });

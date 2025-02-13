@@ -19,6 +19,7 @@ import MapViewDirections from "react-native-maps-directions";
 import { GOOGLE_API_KEY } from "@env";
 import styles from "../../homestyles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -204,12 +205,13 @@ export default function HomeScreen() {
         inputContainerStyle={styles.searchInputContainer}
       />
       <View style={styles.buttonContainer}>
+        {/* Button to filter pins*/}
         <TouchableOpacity
           style={styles.filterButton}
           onPress={() => router.push("/PinFilterMain")}
         >
           <View style={styles.accentBox}>
-            <Text style={styles.filterButtonText}>Filter Pins</Text>
+            <FontAwesome name="map-pin" size={24} color="#73000A" />
           </View>
         </TouchableOpacity>
 
@@ -218,9 +220,7 @@ export default function HomeScreen() {
           style={styles.trafficButton}
           onPress={() => setShowTraffic(!showTraffic)}
         >
-          <Text style={styles.trafficButtonText}>
-            {showTraffic ? "Hide Traffic" : "Show Traffic"}
-          </Text>
+          <FontAwesome name="exclamation-triangle" size={24} color="#73000A" />
         </TouchableOpacity>
 
         {/* Button to route history screen */}
@@ -228,7 +228,7 @@ export default function HomeScreen() {
           style={styles.historyButton}
           onPress={() => router.push("/routeHistory")}
         >
-          <Text style={styles.historyButtonText}>History</Text>
+          <FontAwesome name="book" size={24} color="#73000A" />
         </TouchableOpacity>
       </View>
 
@@ -319,10 +319,10 @@ export default function HomeScreen() {
         <View style={styles.routeDetailsContainer}>
           {/* Total Distance and Duration */}
           <Text style={styles.routeDetailsText}>
-            Distance: {routeDetails.distance.toFixed(2)} miles
+            Total Distance: {routeDetails.distance.toFixed(2)} miles
           </Text>
           <Text style={styles.routeDetailsText}>
-            Duration: {Math.ceil(routeDetails.duration)} minutes
+            Total Duration: {Math.ceil(routeDetails.duration)} minutes
           </Text>
 
           {/* Step-by-Step Instructions */}
@@ -345,26 +345,34 @@ export default function HomeScreen() {
           )}
 
           {/* Buttons */}
-          <TouchableOpacity
-            style={styles.changeStartButton}
-            onPress={handleChangeStartLocation}
-          >
-            <Text style={styles.changeStartButtonText}>Set Start Here</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.changeStartButton}
-            onPress={handleResetStartLocation}
-          >
-            <Text style={styles.changeStartButtonText}>
-              Reset to My Location
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.stopButton}
-            onPress={handleStopDirections}
-          >
-            <Text style={styles.stopButtonText}>Stop Directions</Text>
-          </TouchableOpacity>
+          <View style={styles.routeButtonsContainer}>
+            {/* Set new start location button */}
+            <TouchableOpacity
+              style={styles.routeButton}
+              onPress={handleChangeStartLocation}
+            >
+              <FontAwesome name="play" size={24} color="#73000A" />
+              <Text style={styles.routeButtonText}>Set Start</Text>
+            </TouchableOpacity>
+
+            {/* Reset Location Button */}
+            <TouchableOpacity
+              style={styles.routeButton}
+              onPress={handleResetStartLocation}
+            >
+              <FontAwesome name="times" size={24} color="#73000A" />
+              <Text style={styles.routeButtonText}>Reset Loc</Text>
+            </TouchableOpacity>
+
+            {/* Stop Directions Button */}
+            <TouchableOpacity
+              style={styles.routeButton}
+              onPress={handleStopDirections}
+            >
+              <FontAwesome name="stop" size={24} color="#73000A" />
+              <Text style={styles.routeButtonText}>Stop Dir</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       )}
     </SafeAreaView>
