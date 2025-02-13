@@ -1,0 +1,2462 @@
+[
+  {
+    "facOrStaff": "Faculty",
+    "name": "Adams, Ellen",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "ellenaa@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "10:00 AM-11:30 AM",
+      "wednesday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Adams, Gregory",
+    "title": "Professor Emeritus of Law",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "g.b.adams@sc.edu",
+    "keywords": "emeritus",
+    "tags": "Faculty,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "12:30 PM-02:00 PM",
+      "monday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Anderson, Joseph F., Jr.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "Anders88@mailbox.sc.edu",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "09:30 AM-11:00 AM",
+      "monday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Andrews, Brook B.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "brook.andrews@usdoj.gov",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "11:00 AM-12:30 PM",
+      "tuesday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Atkins, Andrew",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "03:30 PM-05:00 PM",
+      "tuesday": "09:00 AM-10:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Baker, Janice",
+    "title": "Legal Writing Instructor",
+    "secondaryTitle": "",
+    "phone": "803-777-7737",
+    "email": "bakerjm3@law.sc.edu",
+    "keywords": "",
+    "tags": "Diversity and Inclusion,Faculty (Resident),Administration,Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "11:00 AM-12:30 PM",
+      "wednesday": "03:30 PM-05:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Bauries, Scott",
+    "title": "Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-5662",
+    "email": "sbauries@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "03:00 PM-04:30 PM",
+      "tuesday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Bayne, Brett H.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "brett.bayne@mgclaw.com",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "11:30 AM-01:00 PM",
+      "friday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Beasley, David",
+    "title": "Distinguished Professor of Practice & Public Service",
+    "secondaryTitle": "",
+    "phone": "803-576-6789",
+    "email": "dmb23@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,School of Law,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "10:00 AM-11:30 AM",
+      "tuesday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Bias, Joseph",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "biasj@midlandstech.edu",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "11:30 AM-01:00 PM",
+      "tuesday": "02:30 PM-04:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Black, Derek W.",
+    "title": "Professor of Law",
+    "secondaryTitle": "Carolina Distinguished Professor",
+    "phone": "803-777-9652",
+    "email": "blackdw@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty,Constitutional Law Center",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "09:30 AM-11:00 AM",
+      "wednesday": "09:00 AM-10:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Bockman, Robert  T.",
+    "title": "Senior Legal Writing Instructor (retired)",
+    "secondaryTitle": "",
+    "phone": "803-777-3613",
+    "email": "bockman@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Emeriti),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "10:30 AM-12:00 PM",
+      "thursday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Bodman, Margaret Fent",
+    "title": "Senior Resource Attorney",
+    "secondaryTitle": "Adjunct Faculty",
+    "phone": "803-576-7236",
+    "email": "margaretbodman@sc.edu",
+    "keywords": "adjunct",
+    "tags": "Staff,Faculty,Faculty (Adjunct),Children's Law Center",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "02:30 PM-04:00 PM",
+      "thursday": "09:30 AM-11:00 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Boyd, John",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "jboyd@hsblawfirm.com",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "11:30 AM-01:00 PM",
+      "friday": "09:00 AM-10:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Boyd, Marie C.",
+    "title": "Associate Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-2851",
+    "email": "boydmc@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "11:00 AM-12:30 PM",
+      "wednesday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Boyle, F. Ladson",
+    "title": "Charles E. Simons, Jr. Distinguished Professor Emeritus of Federal Law",
+    "secondaryTitle": "",
+    "phone": "803-777-6885",
+    "email": "lad@boyleslaw.net",
+    "keywords": "Emeritus",
+    "tags": "Faculty (Emeriti),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "11:00 AM-12:30 PM",
+      "tuesday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Brackmann, Daniel A.",
+    "title": "Reference Librarian",
+    "secondaryTitle": "",
+    "phone": "803-777-3361",
+    "email": "brackmad@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Law Library,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "09:00 AM-10:30 AM",
+      "wednesday": "12:00 PM-01:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Brooks, Meghan",
+    "title": "Assistant Professor of Law",
+    "secondaryTitle": "Veterans Legal Clinic Director",
+    "phone": "803-777-8904",
+    "email": "meghan.brooks@sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "01:00 PM-02:30 PM",
+      "tuesday": "01:00 PM-02:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Brown, Josie F.",
+    "title": "Professor Emerita of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-6963",
+    "email": "brownjf@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "12:00 PM-01:30 PM",
+      "thursday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Brown, Kevin",
+    "title": "Mitchell Willoughby Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-6560",
+    "email": "kb136@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "03:30 PM-05:00 PM",
+      "wednesday": "09:30 AM-11:00 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Brown, Megan",
+    "title": "Acquisitions and Electronic Resources Librarian",
+    "secondaryTitle": "",
+    "phone": "803-777-6021",
+    "email": "lmbrown@law.sc.edu",
+    "keywords": "Access Services",
+    "tags": "Law Library,Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "01:30 PM-03:00 PM",
+      "monday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Burke, W. Lewis",
+    "title": "Distinguished Professor Emeritus",
+    "secondaryTitle": "",
+    "phone": "803-777-3395",
+    "email": "wlburkej@law.sc.edu",
+    "keywords": "Clinics Clinical Legal Education",
+    "tags": "Faculty,Faculty (Emeriti),Clinics",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "10:00 AM-11:30 AM",
+      "monday": "12:00 PM-01:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Burkhard, James  R.",
+    "title": "Professor Emeritus of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-8178",
+    "email": "burkhard@sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "02:00 PM-03:30 PM",
+      "monday": "10:00 AM-11:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Butler, Katharine I.",
+    "title": "Distinguished Professor Emerita of Law",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "kinglisb@comcast.net",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "11:30 AM-01:00 PM",
+      "monday": "09:30 AM-11:00 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Callen, Teri",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "teri.callen@ctt.com",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "03:30 PM-05:00 PM",
+      "friday": "09:00 AM-10:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Carducci, David",
+    "title": "Legal Writing Instructor",
+    "secondaryTitle": "",
+    "phone": "803-777-7763",
+    "email": "carduccd@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "09:30 AM-11:00 AM",
+      "wednesday": "12:00 PM-01:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Cassibry, Kent",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "10:00 AM-11:30 AM",
+      "tuesday": "10:30 AM-12:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Chambliss, Elizabeth",
+    "title": "Henry Harman Edens Professor of Law",
+    "secondaryTitle": "Director, NMRS Center on Professionalism",
+    "phone": "803-777-9942",
+    "email": "echambli@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,NMR&S Center on Professionalism,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "03:30 PM-05:00 PM",
+      "tuesday": "10:00 AM-11:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Chauhan, Aleksandra",
+    "title": "Visiting Assistant Clinical Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-8805",
+    "email": "chauhana@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Visiting)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "09:30 AM-11:00 AM",
+      "friday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Cherry, Jaclyn A.",
+    "title": "Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-3394",
+    "email": "cherryja@law.sc.edu",
+    "keywords": "Clinics, Clinical Legal Education",
+    "tags": "Faculty (Resident),Faculty,Clinics",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "10:30 AM-12:00 PM",
+      "tuesday": "03:30 PM-05:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Clark, Joseph D.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "10:00 AM-11:30 AM",
+      "thursday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Coggiola, Lesley M.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "lesley.coggiola@gmail.com",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "10:00 AM-11:30 AM",
+      "thursday": "09:00 AM-10:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Coker, Cindy",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "ccoker@scbar.org",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "01:30 PM-03:00 PM",
+      "tuesday": "09:30 AM-11:00 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Conroy, Terrye",
+    "title": "Law Librarian Emerita",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "",
+    "tags": "Law Library,Faculty,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "12:00 PM-01:30 PM",
+      "wednesday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Cooper, Thomas W., Jr.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "TCooperJ@sccourts.org",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "09:30 AM-11:00 AM",
+      "monday": "09:00 AM-10:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Crocker, Thomas P.",
+    "title": "Professor of Law",
+    "secondaryTitle": "N. Heyward Clarkson Professorship",
+    "phone": "803-777-4790",
+    "email": "crocketp@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "11:30 AM-01:00 PM",
+      "wednesday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Cross, Jesse M.",
+    "title": "Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-1412",
+    "email": "jmcross@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "09:30 AM-11:00 AM",
+      "wednesday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Cross, Joseph R., Jr.",
+    "title": "Law Librarian Emeritus",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "Emeritus",
+    "tags": "Faculty,Law Library,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "12:00 PM-01:30 PM",
+      "thursday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Staff",
+    "name": "Davis, D. Nichole",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "davisdn2@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,School of Law,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "11:00 AM-12:30 PM",
+      "monday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Davis, Tessa R.",
+    "title": "Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-6809",
+    "email": "davistes@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "02:30 PM-04:00 PM",
+      "thursday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Dickey, Joseph, Jr.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "dickeyj2@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "12:00 PM-01:30 PM",
+      "tuesday": "01:00 PM-02:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Dimino, Michael",
+    "title": "Visiting Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-0471",
+    "email": "diminom@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Visiting),Faculty,School of Law",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "01:30 PM-03:00 PM",
+      "tuesday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "DuRant, Bess Jones",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "bdurant@sowelldurant.com",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "02:30 PM-04:00 PM",
+      "tuesday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Durant, Charles",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "CD55@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "11:30 AM-01:00 PM",
+      "wednesday": "09:30 AM-11:00 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "D\u2019Elia, Anthony",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "anthony.delia.lt@gmail.com",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "09:00 AM-10:30 AM",
+      "friday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Eagle, Josh",
+    "title": "Solomon Blatt Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-2486",
+    "email": "eaglej@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "09:00 AM-10:30 AM",
+      "monday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Eichhorn, Lisa A.",
+    "title": "Director of Legal Writing & Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-576-6776",
+    "email": "eichhorn@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "09:00 AM-10:30 AM",
+      "monday": "01:00 PM-02:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Few, John",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "jfew@sccourts.org",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "12:30 PM-02:00 PM",
+      "wednesday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Flanagan, James F.",
+    "title": "Oliver Ellsworth Distinguished Professor Emeritus of Federal Practice",
+    "secondaryTitle": "",
+    "phone": "803-777-7744",
+    "email": "flanagjf@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "03:30 PM-05:00 PM",
+      "monday": "10:00 AM-11:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Flynn, Patrick J.",
+    "title": "Professor Emeritus of Law",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "patf@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Emeriti),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "02:30 PM-04:00 PM",
+      "thursday": "10:00 AM-11:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Fox, Jacqueline R.",
+    "title": "Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-8192",
+    "email": "foxjr@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "11:00 AM-12:30 PM",
+      "tuesday": "09:00 AM-10:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Freeman Holston, Tiffany",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "tf11@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "11:00 AM-12:30 PM",
+      "monday": "11:30 AM-01:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Frick, John",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "jdfrick@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "02:00 PM-03:30 PM",
+      "friday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Fulkert, Marc",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "MFulkert@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "11:00 AM-12:30 PM",
+      "wednesday": "12:00 PM-01:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Gaines, Kenneth W.",
+    "title": "Professor Emeritus of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-8903",
+    "email": "gaineskw@law.sc.edu",
+    "keywords": "Clinics Clinical Legal Education",
+    "tags": "Faculty,Clinics,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "02:30 PM-04:00 PM",
+      "monday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Glenn, Aaron",
+    "title": "Reference Librarian",
+    "secondaryTitle": "",
+    "phone": "803-777-4334",
+    "email": "glennaj2@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty,Law Library",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "12:00 PM-01:30 PM",
+      "thursday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Glover, Mark",
+    "title": "Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-3704",
+    "email": "MG142@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "11:30 AM-01:00 PM",
+      "tuesday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Goldberg, Daniel R.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "goldberg.dan@richlandcountysc.gov",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "10:00 AM-11:30 AM",
+      "tuesday": "01:00 PM-02:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Gore, Bennett",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "10:30 AM-12:00 PM",
+      "wednesday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Haggard, Thomas R.",
+    "title": "Distinguished Professor Emeritus of Law",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "",
+    "tags": "Faculty (Emeriti),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "02:00 PM-03:30 PM",
+      "thursday": "09:00 AM-10:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Hamilton, Kara Bailey",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "karahamilton@greatsouthernhomes.com",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "09:30 AM-11:00 AM",
+      "thursday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Harrison, James Smith, III",
+    "title": "Legal Writing Instructor",
+    "secondaryTitle": "",
+    "phone": "803-777-8189",
+    "email": "harri539@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "10:00 AM-11:30 AM",
+      "thursday": "12:00 PM-01:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Herrington, Karama",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "baileykt@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "09:30 AM-11:00 AM",
+      "tuesday": "03:30 PM-05:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Higgins, William O.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "bhiggins@glvlawfirm.com",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "02:00 PM-03:30 PM",
+      "monday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Holliday, Winston",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "winston.holliday@usdoj.gov",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "02:30 PM-04:00 PM",
+      "friday": "01:00 PM-02:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Holloway, Tre",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "tholloway@jd19.law.harvard.edu",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "09:00 AM-10:30 AM",
+      "thursday": "11:30 AM-01:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Hubbard, F. Patrick",
+    "title": "Ronald L. Motley Distinguished Professor Emeritus of Tort Litigation",
+    "secondaryTitle": "",
+    "phone": "803-777-6712",
+    "email": "phubbard@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "11:30 AM-01:00 PM",
+      "monday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Hubbard, William C.",
+    "title": "Dean",
+    "secondaryTitle": "Professor of Law",
+    "phone": "803-777-6857",
+    "email": "whubbard@law.sc.edu",
+    "keywords": "Deans",
+    "tags": "Faculty (Resident),Faculty,Administration",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "10:00 AM-11:30 AM",
+      "tuesday": "11:30 AM-01:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Jedziniak, Lee P.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "ljedziniaklaw@gmail.com",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "09:30 AM-11:00 AM",
+      "tuesday": "10:30 AM-12:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Johnson, Herbert A.",
+    "title": "Distinguished Professor Emeritus of Law",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "03:00 PM-04:30 PM",
+      "friday": "10:00 AM-11:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Jones Havard, Cassandra",
+    "title": "Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-8295",
+    "email": "cjhavard@sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "03:00 PM-04:30 PM",
+      "wednesday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Jordan, Laura",
+    "title": "Legal Writing Instructor",
+    "secondaryTitle": "",
+    "phone": "803-777-3320",
+    "email": "lwjordan@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,School of Law,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "11:00 AM-12:30 PM",
+      "friday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Keesley, Kyliene",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "kkeesley@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "12:30 PM-02:00 PM",
+      "friday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Klein, Elle",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "Elle.Klein@usdoj.gov",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "02:00 PM-03:30 PM",
+      "wednesday": "09:30 AM-11:00 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Klein, Kimberly",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "kimberly.klein@usdoj.gov",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "03:00 PM-04:30 PM",
+      "wednesday": "02:30 PM-04:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Kuo, Susan S.",
+    "title": "Associate Dean for Academic Affairs",
+    "secondaryTitle": "Professor of Law & Class of 1969 Chair for Teaching Excellence",
+    "phone": "803-777-3597",
+    "email": "kuo@law.sc.edu",
+    "keywords": "",
+    "tags": "Administration,Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "02:30 PM-04:00 PM",
+      "monday": "10:00 AM-11:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Lacy, Philip T.",
+    "title": "Distinguished Professor Emeritus of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-3359",
+    "email": "lacypt@law.sc.edu",
+    "keywords": "emeritus",
+    "tags": "Faculty,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "10:30 AM-12:00 PM",
+      "monday": "03:30 PM-05:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Lane-Steele, Laura",
+    "title": "Assistant Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-6860",
+    "email": "lanestel@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "01:30 PM-03:00 PM",
+      "friday": "10:00 AM-11:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Leventis, Ami",
+    "title": "Legal Writing Instructor",
+    "secondaryTitle": "",
+    "phone": "803-777-5312",
+    "email": "leventis@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "02:30 PM-04:00 PM",
+      "wednesday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Linnan, David K.",
+    "title": "Associate Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-7740",
+    "email": "dlinnan@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "12:30 PM-02:00 PM",
+      "tuesday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Lockemy, James E.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "jlockemy@sccourts.org",
+    "keywords": "adjunct",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "11:30 AM-01:00 PM",
+      "thursday": "10:00 AM-11:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Staff",
+    "name": "Magner, Katherine",
+    "title": "Access Services Librarian",
+    "secondaryTitle": "",
+    "phone": "803-777-3367",
+    "email": "magnerm@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Law Library,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "02:30 PM-04:00 PM",
+      "monday": "10:00 AM-11:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Manning, Cory E.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "adjunct",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "12:00 PM-01:30 PM",
+      "thursday": "12:00 PM-01:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Martin, Lisa V.",
+    "title": "Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-2490",
+    "email": "lvmartin@law.sc.edu",
+    "keywords": "Clinics Clinical Legal Education",
+    "tags": "Clinics,Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "11:30 AM-01:00 PM",
+      "friday": "03:30 PM-05:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Maxfield, Dave",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "dave@consumerlawsc.com",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "02:30 PM-04:00 PM",
+      "wednesday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Maxwell, Rebekah K.",
+    "title": "Associate Director for Library Operations",
+    "secondaryTitle": "",
+    "phone": "803-777-1725",
+    "email": "rkmaxwel@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Law Library,Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "03:30 PM-05:00 PM",
+      "tuesday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "McCulloch, Joseph M., Jr.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "joe@mccullochlaw.com",
+    "keywords": "adjunct",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "10:30 AM-12:00 PM",
+      "monday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "McWilliams, Martin C., Jr.",
+    "title": "Distinguished Professor Emeritus of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-5639",
+    "email": "mcwillmc@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "12:30 PM-02:00 PM",
+      "monday": "01:00 PM-02:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Means, Benjamin",
+    "title": "Professor of Law",
+    "secondaryTitle": "John T. Campbell Chair in Business and Professional Ethics",
+    "phone": "803-777-3616",
+    "email": "meansb@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "09:30 AM-11:00 AM",
+      "friday": "03:30 PM-05:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Medlin, S. Alan",
+    "title": "David W. Robinson Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-7465",
+    "email": "medlinsa@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "11:00 AM-12:30 PM",
+      "wednesday": "02:30 PM-04:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Melton, Pamela  Rogers",
+    "title": "Law Librarian Emerita",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "",
+    "tags": "Law Library,Faculty (Emeriti),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "09:30 AM-11:00 AM",
+      "thursday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Miller, Colin",
+    "title": "Professor of Law & Thomas H. Pope Professorship in Trial Advocacy",
+    "secondaryTitle": "",
+    "phone": "803-777-6654",
+    "email": "mille933@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "12:00 PM-01:30 PM",
+      "wednesday": "10:30 AM-12:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Milligan, Amy",
+    "title": "Assistant Director of Legal Writing",
+    "secondaryTitle": "",
+    "phone": "803-777-3386",
+    "email": "milligal@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "03:00 PM-04:30 PM",
+      "wednesday": "03:30 PM-05:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Montgomery, John",
+    "title": "Dean Emeritus",
+    "secondaryTitle": "Distinguished Professor Emeritus & Former Director, NMRS Center on Professionalism",
+    "phone": "803-777-8390",
+    "email": "jemontgo@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "10:30 AM-12:00 PM",
+      "thursday": "03:30 PM-05:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Morgan, Deborah",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "morgand2@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "09:00 AM-10:30 AM",
+      "monday": "02:30 PM-04:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Mo\u00efse, E. Scott",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "scott.moise@nelsonmullins.com",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "11:30 AM-01:00 PM",
+      "monday": "03:30 PM-05:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Mullikin, Tom",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "tommullikin@mullikinlaw.com",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "12:30 PM-02:00 PM",
+      "wednesday": "12:00 PM-01:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Newman, Clifton",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "CNewmanj@sccourts.org",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "11:30 AM-01:00 PM",
+      "wednesday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Newsome, William",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "billy@newsomelawsc.com",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "12:00 PM-01:30 PM",
+      "tuesday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Newton, Clarke",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "cnewton@bntdlaw.com",
+    "keywords": "adjunct",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "01:00 PM-02:30 PM",
+      "tuesday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Nolan, Dennis",
+    "title": "Webster Distinguished Professor Emeritus of Labor Law",
+    "secondaryTitle": "",
+    "phone": "843-838-4878",
+    "email": "dennisnolan@yahoo.com",
+    "keywords": "",
+    "tags": "Faculty (Emeriti),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "01:00 PM-02:30 PM",
+      "monday": "09:30 AM-11:00 AM"
+    }
+  },
+  {
+    "facOrStaff": "Staff",
+    "name": "Nye, Stephanie",
+    "title": "Director of Externships",
+    "secondaryTitle": "",
+    "phone": "803-777-1451",
+    "email": "nyes@law.sc.edu",
+    "keywords": "",
+    "tags": "School of Law,Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "10:30 AM-12:00 PM",
+      "monday": "02:30 PM-04:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Osbaldiston, Diana M.",
+    "title": "Law Librarian Emerita",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "Emeritus",
+    "tags": "Law Library,Faculty,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "09:00 AM-10:30 AM",
+      "wednesday": "02:30 PM-04:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Osborne, McKenzie",
+    "title": "Legal Writing Instructor",
+    "secondaryTitle": "",
+    "phone": "803-777-7756",
+    "email": "osbornmk@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "03:30 PM-05:00 PM",
+      "wednesday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Owen, David",
+    "title": "Carolina Distinguished Professor of Law Emeritus",
+    "secondaryTitle": "",
+    "phone": "803-777-1411",
+    "email": "dowen@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Emeriti),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "11:00 AM-12:30 PM",
+      "monday": "09:00 AM-10:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Patterson, Elizabeth",
+    "title": "Distinguished Professor Emerita of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-8189",
+    "email": "libba@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "09:00 AM-10:30 AM",
+      "monday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Pereira, Cornelius",
+    "title": "Head of Technical Services",
+    "secondaryTitle": "",
+    "phone": "803-777-5898",
+    "email": "cpereira@law.sc.edu",
+    "keywords": "Technical Services",
+    "tags": "Faculty (Resident),Faculty,Law Library",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "09:30 AM-11:00 AM",
+      "tuesday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Pinnock, Tracy",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "Pinnock.Tracy@Richlandcountysc.gov",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "02:30 PM-04:00 PM",
+      "friday": "10:30 AM-12:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Pleicones, Costa",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "",
+    "tags": "Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "09:30 AM-11:00 AM",
+      "wednesday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Plevel, Rebecca",
+    "title": "Reference Librarian",
+    "secondaryTitle": "",
+    "phone": "803-576-7789",
+    "email": "rplevel@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Law Library,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "02:30 PM-04:00 PM",
+      "wednesday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Polavarapu, Aparna",
+    "title": "Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-8925",
+    "email": "aparnap@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "09:30 AM-11:00 AM",
+      "thursday": "03:30 PM-05:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Powell, Burnele Venable",
+    "title": "Distinguished Professor Emeritus and Miles and Ann Loadholt Chair of Law Emeritus",
+    "secondaryTitle": "",
+    "phone": "803-777-3395",
+    "email": "powellbv@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Emeriti),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "11:30 AM-01:00 PM",
+      "thursday": "12:00 PM-01:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Pratt, Walter F., Jr.",
+    "title": "James P. Mozingo III Professor Emeritus of Legal Research Distinguished Professor Emeritus of Law",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "wpratt@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "09:00 AM-10:30 AM",
+      "wednesday": "11:30 AM-01:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Quattlebaum, A. Marvin, Jr.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "marvin_quattlebaum@ca4.uscourts.gov",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "12:00 PM-01:30 PM",
+      "wednesday": "09:30 AM-11:00 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Raj, Claire S.",
+    "title": "Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-1391",
+    "email": "rajc@law.sc.edu",
+    "keywords": "Clinics Clinical Legal Education",
+    "tags": "Faculty,Faculty (Resident),Clinics",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "01:00 PM-02:30 PM",
+      "wednesday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Ray, Douglas E.",
+    "title": "Adjunct Professor of Law",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "DR44@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "10:30 AM-12:00 PM",
+      "monday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Reid, Charles F.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "charlesreid@schouse.gov",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "12:00 PM-01:30 PM",
+      "friday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Richardson, Beth",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "brichardson@robinsongray.com",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "02:30 PM-04:00 PM",
+      "wednesday": "11:30 AM-01:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Richardson, Matthew",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "mrichardson@wyche.com",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "10:00 AM-11:30 AM",
+      "friday": "09:00 AM-10:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Robinson, Eric",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "erobinso@sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "03:30 PM-05:00 PM",
+      "tuesday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Rookard, Crystal",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "rookard2@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "10:00 AM-11:30 AM",
+      "thursday": "02:30 PM-04:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Staff",
+    "name": "Ruskell, Alex",
+    "title": "Director of Academic Success",
+    "secondaryTitle": "",
+    "phone": "803-777-8115",
+    "email": "ruskell@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident),Staff,Academic Success",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "10:30 AM-12:00 PM",
+      "tuesday": "03:30 PM-05:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Rustin, IV, Dowse B. (\"Brad\")",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "Brad.Rustin@nelsonmullins.com",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "10:30 AM-12:00 PM",
+      "friday": "12:00 PM-01:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Sampson, April",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "sampson.april@richlandcountysc.gov",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "10:00 AM-11:30 AM",
+      "thursday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Samuels, Joel",
+    "title": "Professor of Law",
+    "secondaryTitle": "Director, Rule of Law Collaborative",
+    "phone": "803-777-7161",
+    "email": "joelsamuels@sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "03:00 PM-04:30 PM",
+      "monday": "10:00 AM-11:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Seiner, Joseph A.",
+    "title": "Oliver Ellsworth Professor of Federal Practice",
+    "secondaryTitle": "",
+    "phone": "803-777-5569",
+    "email": "seiner@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "10:30 AM-12:00 PM",
+      "monday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Sella-Villa, David",
+    "title": "Assistant Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-6743",
+    "email": "sellavid@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),School of Law,Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "10:00 AM-11:30 AM",
+      "thursday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Serbin, Todd",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "tserbin@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "02:30 PM-04:00 PM",
+      "monday": "12:00 PM-01:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Shoemake, Derek",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "11:00 AM-12:30 PM",
+      "monday": "01:00 PM-02:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Smalls, O'Neal",
+    "title": "Distinguished Professor Emeritus of Law",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "",
+    "tags": "Faculty (Emeriti),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "02:30 PM-04:00 PM",
+      "friday": "11:30 AM-01:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Smith, Bryant Walker",
+    "title": "Associate Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-6880",
+    "email": "bryantws@newlypossible.org",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "12:00 PM-01:30 PM",
+      "tuesday": "01:00 PM-02:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Smith, Jasmine",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "jsmith@robinsongray.com",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "10:30 AM-12:00 PM",
+      "friday": "10:30 AM-12:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Snow, Ned",
+    "title": "Associate Dean for Faculty Development",
+    "secondaryTitle": "Ray Taylor Fair Professor of Law",
+    "phone": "803-777-8064 [faculty suite]; 803-576-6786 [Dean's Suite]",
+    "email": "snownt@law.sc.edu",
+    "keywords": "Deans",
+    "tags": "Faculty,Administration,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "03:30 PM-05:00 PM",
+      "tuesday": "09:30 AM-11:00 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Spitz, Stephen",
+    "title": "Professor Emeritus of Law",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "emeritus",
+    "tags": "Faculty (Emeriti),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "02:30 PM-04:00 PM",
+      "friday": "01:00 PM-02:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "St. Onge, Sarah",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "stonge@millenderelderlaw.com",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "09:00 AM-10:30 AM",
+      "tuesday": "11:30 AM-01:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Staff",
+    "name": "Stevens, Brett L.",
+    "title": "Co-Director of Academic Success",
+    "secondaryTitle": "",
+    "phone": "803-576-6058",
+    "email": "stevensbl@sc.edu",
+    "keywords": "",
+    "tags": "Faculty,School of Law,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "01:30 PM-03:00 PM",
+      "tuesday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Stoughton, Seth W.",
+    "title": "Professor of Law",
+    "secondaryTitle": "Professor (Affiliate) of Criminology and Criminal Justice",
+    "phone": "803-777-3055",
+    "email": "swstough@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "09:30 AM-11:00 AM",
+      "friday": "09:30 AM-11:00 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Stuckey, Roy T.",
+    "title": "Webster Distinguished Professor Emeritus of Clinical Legal Education",
+    "secondaryTitle": "",
+    "phone": "843-588-6677",
+    "email": "stuckeyroy@gmail.com",
+    "keywords": "Clinics Clinical Legal Education",
+    "tags": "Faculty,Clinics,Faculty (Emeriti)",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "12:00 PM-01:30 PM",
+      "friday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Surber, Melissa M.",
+    "title": "Law Librarian Emerita",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "Emeritus",
+    "tags": "Faculty (Emeriti),Law Library,Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "02:00 PM-03:30 PM",
+      "monday": "02:30 PM-04:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Suski, Emily",
+    "title": "Associate Dean for Clinics and Externships",
+    "secondaryTitle": "Professor of Law",
+    "phone": "803-777-7735",
+    "email": "esuski@law.sc.edu",
+    "keywords": "Clinics, Clinical Legal Education, externship",
+    "tags": "Clinics,Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "11:00 AM-12:30 PM",
+      "tuesday": "02:00 PM-03:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Taylor, Jane",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "jane.taylor@usdoj.gov",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "12:30 PM-02:00 PM",
+      "wednesday": "11:00 AM-12:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Taylor, Karen G.",
+    "title": "Law Librarian Emerita",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "Emeritus",
+    "tags": "Law Library,Faculty (Emeriti),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "03:30 PM-05:00 PM",
+      "thursday": "09:30 AM-11:00 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Thomas, Karen",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "kthomas@sctlawfirm.com",
+    "keywords": "adjunct",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "12:00 PM-01:30 PM",
+      "monday": "03:30 PM-05:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Toussaint, Etienne C.",
+    "title": "Associate Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-8178",
+    "email": "ectoussaint@sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "01:00 PM-02:30 PM",
+      "wednesday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Traywick, Vordman C., III",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "ltraywick@robinsongray.com",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "02:30 PM-04:00 PM",
+      "tuesday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Trumbull, Charles",
+    "title": "Assistant Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-7785",
+    "email": "TRUMBULC@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "School of Law,Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "03:00 PM-04:30 PM",
+      "thursday": "01:00 PM-02:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Tyson, Robert E., Jr.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "rtyson@robinsongray.com",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "12:00 PM-01:30 PM",
+      "wednesday": "10:00 AM-11:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Virzi, Michael J.",
+    "title": "Legal Writing Instructor",
+    "secondaryTitle": "",
+    "phone": "803-777-7742",
+    "email": "virzi@sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "monday": "12:30 PM-02:00 PM",
+      "friday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Wallace, Clinton G.",
+    "title": "Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-6594",
+    "email": "wallace1@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "11:30 AM-01:00 PM",
+      "monday": "02:30 PM-04:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Warren, John LaFitte, III",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "WarrenJL@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "09:00 AM-10:30 AM",
+      "friday": "02:30 PM-04:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Wasilczuk,  Madalyn K.",
+    "title": "Assistant Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-3393",
+    "email": "mwasilczuk@sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Clinics,Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "12:00 PM-01:30 PM",
+      "monday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Weatherly, Alex",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "alexweatherly@callisontighe.com",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "02:00 PM-03:30 PM",
+      "thursday": "10:30 AM-12:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Wedlock, Eldon D., Jr.",
+    "title": "Distinguished Professor Emeritus of Law",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "",
+    "tags": "Faculty (Emeriti),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "02:30 PM-04:00 PM",
+      "wednesday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Wheeler, Travis  C.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "803-540-2117",
+    "email": "twheeler@nexsenpruet.com",
+    "keywords": "adjunct",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "12:00 PM-01:30 PM",
+      "thursday": "10:00 AM-11:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Wideman, Joseph, Jr.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "JWIDEMAN@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "01:30 PM-03:00 PM",
+      "monday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Wilcox, Robert M.",
+    "title": "Dean Emeritus",
+    "secondaryTitle": "Professor of Law",
+    "phone": "803-777-6112",
+    "email": "wilcoxrm@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "12:00 PM-01:30 PM",
+      "tuesday": "01:00 PM-02:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Williams, H. Bruce",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "hwilliams@sccourts.org",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "01:00 PM-02:30 PM",
+      "tuesday": "10:30 AM-12:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Williamson, Benton D.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "12:00 PM-01:30 PM",
+      "monday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Willis, Richard",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "rwillis@williamsmullen.com",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "09:30 AM-11:00 AM",
+      "friday": "02:30 PM-04:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Winston, Emily R.",
+    "title": "Associate Professor of Law",
+    "secondaryTitle": "",
+    "phone": "803-777-6591",
+    "email": "winstone@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty (Resident),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "wednesday": "12:30 PM-02:00 PM",
+      "monday": "09:00 AM-10:30 AM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Wirt, Shan",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "HWIRT@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Adjunct)",
+    "college": "School of Law",
+    "officeHours": {
+      "thursday": "11:30 AM-01:00 PM",
+      "monday": "03:00 PM-04:30 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Wyatt, David S.",
+    "title": "Adjunct Faculty",
+    "secondaryTitle": "",
+    "phone": "",
+    "email": "wyatt@seblawfirm.com",
+    "keywords": "adjunct",
+    "tags": "Faculty (Adjunct),Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "tuesday": "12:00 PM-01:30 PM",
+      "thursday": "12:30 PM-02:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Yancey, Mark",
+    "title": "Director of Graduate Programs",
+    "secondaryTitle": "Professor of Practice",
+    "phone": "803-777-5324",
+    "email": "marky@mailbox.sc.edu",
+    "keywords": "",
+    "tags": "Staff,Faculty",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "02:30 PM-04:00 PM",
+      "monday": "01:30 PM-03:00 PM"
+    }
+  },
+  {
+    "facOrStaff": "Faculty",
+    "name": "Zug, Marcia A.",
+    "title": "Miles and Ann Loadholt Professor of Family Law",
+    "secondaryTitle": "",
+    "phone": "803-777-3615",
+    "email": "zug@law.sc.edu",
+    "keywords": "",
+    "tags": "Faculty,Faculty (Resident)",
+    "college": "School of Law",
+    "officeHours": {
+      "friday": "03:30 PM-05:00 PM",
+      "tuesday": "09:00 AM-10:30 AM"
+    }
+  }
+]

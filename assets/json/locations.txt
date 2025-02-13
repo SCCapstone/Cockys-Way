@@ -1,0 +1,1890 @@
+	
+name	"Academic Buildings"
+hidden	0
+type	""
+checkbox	1
+weight	-100
+private	0
+lat	0
+lng	0
+level	0
+schedule	""
+icon	"/assets/744/academic_buildings_marker.png"
+dynamic_label	0
+dynamic_label_v2	0
+floor_level	0
+abbr_zoom_level	null
+zoom	""
+popup	""
+description	""
+keywords	""
+panorama	0
+labels	""
+locationDisplay	""
+onByDefault	0
+popupUrl	""
+catId	9492
+mapId	744
+parent	0
+markerAlt	0
+mapAlt	0
+tileExtension	"png"
+tileType	""
+tileParams	""
+tileUrl	""
+singleSelect	0
+listIcon	"/assets/744/academic_buildings_icon.png"
+children	
+locations	
+0	
+catId	9492
+altitude	0
+lat	33.987514
+lng	-81.03051
+mapId	744
+id	223277
+weight	0
+icon	""
+level	[…]
+location_open	""
+marker_feed	
+rate	0
+mrkId	160843
+name	"1000 Catawba Street"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+1	
+catId	9492
+altitude	0
+lat	33.989014
+lng	-81.02774
+mapId	744
+id	223278
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160844
+name	"1200 Catawba Street"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+2	
+catId	9492
+altitude	0
+lat	33.995152
+lng	-81.030029
+mapId	744
+id	223279
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160845
+name	"1215 Devine Street (Neutron Generator)"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+3	
+catId	9492
+altitude	0
+lat	33.989799
+lng	-81.026947
+mapId	744
+id	223280
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160846
+name	"1223 Catawba Street"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+4	
+catId	9492
+altitude	0
+lat	34.004467
+lng	-81.03392
+mapId	744
+id	223281
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160847
+name	"1233 Washington Street"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+5	
+catId	9492
+altitude	0
+lat	33.999599
+lng	-81.029938
+mapId	744
+id	223282
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160848
+name	"1321 Pendleton Street (S.C. Institute of Archaeology and Anthropology)"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+6	
+catId	9492
+altitude	0
+lat	34.00087
+lng	-81.028252
+mapId	744
+id	223283
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160849
+name	"1430 Senate Street"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+7	
+catId	9492
+altitude	0
+lat	34.004177
+lng	-81.023346
+mapId	744
+id	223284
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160850
+name	"1800 Gervais Street (Institute for Mind and Brain)"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+8	
+catId	9492
+altitude	0
+lat	33.999191
+lng	-81.013397
+mapId	744
+id	223285
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160851
+name	"2221 Devine Street"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+9	
+catId	9492
+altitude	0
+lat	33.990192
+lng	-81.028061
+mapId	744
+id	223286
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160852
+name	"300 Main Street (Civil and Mechanical Engineering Building)"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+10	
+catId	9492
+altitude	0
+lat	33.990017
+lng	-81.026222
+mapId	744
+id	223287
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160853
+name	"300 Sumter Street"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+11	
+catId	9492
+altitude	0
+lat	33.994106
+lng	-81.023727
+mapId	744
+id	223288
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160854
+name	"513 Pickens Street (ROTC)"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+12	
+catId	9492
+altitude	0
+lat	33.993935
+lng	-81.024055
+mapId	744
+id	223289
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160855
+name	"513 Pickens Street Annex (ROTC Annex)"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+13	
+catId	9492
+altitude	0
+lat	33.987179
+lng	-81.035484
+mapId	744
+id	223290
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160856
+name	"707 Catawba Street"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+14	
+catId	9492
+altitude	0
+lat	33.993099
+lng	-81.042084
+mapId	744
+id	223292
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	160858
+name	"800-A Huger Street"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+15	
+catId	9492
+altitude	0
+lat	33.99939
+lng	-81.022095
+mapId	744
+id	223293
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160859
+name	"819 Barnwell Street"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+16	
+catId	9492
+altitude	0
+lat	33.999638
+lng	-81.026459
+mapId	744
+id	223294
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160860
+name	"Barnwell College"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+17	
+catId	9492
+altitude	0
+lat	33.99052
+lng	-81.022484
+mapId	744
+id	223295
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160861
+name	"Benson"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+18	
+catId	9492
+altitude	0
+lat	33.988884
+lng	-81.026558
+mapId	744
+id	223296
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160862
+name	"1220 Catawba"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+19	
+catId	9492
+altitude	0
+lat	33.993252
+lng	-81.025612
+mapId	744
+id	223297
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160863
+name	"Booker T. Washington"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+20	
+catId	9492
+altitude	0
+lat	33.996254
+lng	-81.026222
+mapId	744
+id	223298
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160864
+name	"Callcott Social Sciences Center"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+21	
+catId	9492
+altitude	0
+lat	33.993839
+lng	-81.033066
+mapId	744
+id	223299
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160865
+name	"Carolina Coliseum"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+22	
+catId	9492
+altitude	0
+lat	33.997475
+lng	-81.028084
+mapId	744
+id	223300
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160866
+name	"Preston Greenhouse"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+23	
+catId	9492
+altitude	0
+lat	34.000607
+lng	-81.023232
+mapId	744
+id	223301
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160867
+name	"Close-Hipp Buildings"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+24	
+catId	9492
+altitude	0
+lat	33.995358
+lng	-81.029617
+mapId	744
+id	223304
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160870
+name	"Coker Life Sciences Building"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+25	
+catId	9492
+altitude	0
+lat	33.997669
+lng	-81.02774
+mapId	744
+id	223305
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160871
+name	"Currell Annex"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+26	
+catId	9492
+altitude	0
+lat	33.997753
+lng	-81.027168
+mapId	744
+id	223306
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160872
+name	"Currell College"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+27	
+catId	9492
+altitude	0
+lat	33.994537
+lng	-81.033485
+mapId	744
+id	223307
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160873
+name	"Darla Moore School of Business"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+28	
+catId	9492
+altitude	0
+lat	33.997997
+lng	-81.026215
+mapId	744
+id	223308
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160874
+name	"Davis College"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+29	
+catId	9492
+altitude	0
+lat	33.994968
+lng	-81.03521
+mapId	744
+id	223310
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160876
+name	"Discovery I Building"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+30	
+catId	9492
+altitude	0
+lat	33.995365
+lng	-81.030052
+mapId	744
+id	223311
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160877
+name	"Earth and Water Sciences Building"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+31	
+catId	9492
+altitude	0
+lat	33.991482
+lng	-81.025063
+mapId	744
+id	223312
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160878
+name	"Challenge Course Building"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+32	
+catId	9492
+altitude	0
+lat	33.998863
+lng	-81.029648
+mapId	744
+id	223313
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160879
+name	"Flinn Hall"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+33	
+catId	9492
+altitude	0
+lat	33.998821
+lng	-81.023834
+mapId	744
+id	223314
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160880
+name	"Gambrell Hall"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+34	
+catId	9492
+altitude	0
+lat	33.987312
+lng	-81.022606
+mapId	744
+id	223315
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160881
+name	"Greenhouse No. 2"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+35	
+catId	9492
+altitude	0
+lat	34.000034
+lng	-81.026161
+mapId	744
+id	223316
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160882
+name	"Hamilton College"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+36	
+catId	9492
+altitude	0
+lat	33.994488
+lng	-81.027763
+mapId	744
+id	223317
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160883
+name	"Hollings Special Collections Library"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+37	
+catId	9492
+altitude	0
+lat	33.992722
+lng	-81.030067
+mapId	744
+id	223318
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160884
+name	"Horizon I Building"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+38	
+catId	9492
+altitude	0
+lat	33.998833
+lng	-81.024811
+mapId	744
+id	223319
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160885
+name	"Welsh Humanities Classroom Building"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+39	
+catId	9492
+altitude	0
+lat	33.992462
+lng	-81.030968
+mapId	744
+id	223320
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160886
+name	"Innovation Center Building"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+40	
+catId	9492
+altitude	0
+lat	33.999058
+lng	-81.024391
+mapId	744
+id	223321
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160887
+name	"J. Welsh Humanities Building"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+41	
+catId	9492
+altitude	0
+lat	33.997822
+lng	-81.030396
+mapId	744
+id	223322
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160888
+name	"James F. Byrnes Building"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+42	
+catId	9492
+altitude	0
+lat	33.995277
+lng	-81.030434
+mapId	744
+id	223323
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160889
+name	"Jones Physical Sciences Center"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+43	
+catId	9492
+altitude	0
+lat	34.003017
+lng	-81.032074
+mapId	744
+id	223324
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160890
+name	"Keenan Building"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+44	
+catId	9492
+altitude	0
+lat	33.99836
+lng	-81.025406
+mapId	744
+id	223325
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160891
+name	"LeConte College"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+45	
+catId	9492
+altitude	0
+lat	33.995453
+lng	-81.029099
+mapId	744
+id	223327
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160893
+name	"Longstreet Annex"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+46	
+catId	9492
+altitude	0
+lat	33.998718
+lng	-81.027
+mapId	744
+id	223328
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160894
+name	"McKissick"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+47	
+catId	9492
+altitude	0
+lat	34.00267
+lng	-81.0261
+mapId	744
+id	223329
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160895
+name	"McMaster College"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+48	
+catId	9492
+altitude	0
+lat	33.997547
+lng	-81.026413
+mapId	744
+id	223330
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160896
+name	"Melton Observatory"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+49	
+catId	9492
+altitude	0
+lat	34.088989
+lng	-80.967583
+mapId	744
+id	223331
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	160897
+name	"Library Annex and Conservation Facility"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+50	
+catId	9492
+altitude	0
+lat	33.994484
+lng	-81.029366
+mapId	744
+id	223332
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160898
+name	"John M. Palms Center for Graduate Science Research"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+51	
+catId	9492
+altitude	0
+lat	33.997772
+lng	-81.02562
+mapId	744
+id	223333
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160899
+name	"Petigru College"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+52	
+catId	9492
+altitude	0
+lat	33.996922
+lng	-81.033974
+mapId	744
+id	223334
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160900
+name	"Public Health Research Center"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+53	
+catId	9492
+altitude	0
+lat	33.996841
+lng	-81.029388
+mapId	744
+id	223335
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160901
+name	"School of Journalism and Mass Communications"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+54	
+catId	9492
+altitude	0
+lat	33.99612
+lng	-81.034225
+mapId	744
+id	223337
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160903
+name	"School of Music"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+55	
+catId	9492
+altitude	0
+lat	33.99939
+lng	-81.025879
+mapId	744
+id	223338
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160904
+name	"Sloan College"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+56	
+catId	9492
+altitude	0
+lat	33.998318
+lng	-81.029961
+mapId	744
+id	223339
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160905
+name	"South Caroliniana Library"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+57	
+catId	9492
+altitude	0
+lat	33.995792
+lng	-81.030273
+mapId	744
+id	223341
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160907
+name	"Sumwalt College"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+58	
+catId	9492
+altitude	0
+lat	33.989532
+lng	-81.029297
+mapId	744
+id	223342
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160908
+name	"Swearingen Engineering Center"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+59	
+catId	9492
+altitude	0
+lat	33.995224
+lng	-81.028137
+mapId	744
+id	223343
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160909
+name	"Thomas Cooper Library"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+60	
+catId	9492
+altitude	0
+lat	33.996643
+lng	-81.030785
+mapId	744
+id	223344
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160910
+name	"Wardlaw College"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+61	
+catId	9492
+altitude	0
+lat	33.998177
+lng	-81.024376
+mapId	744
+id	223345
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160911
+name	"Williams-Brice Building"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+62	
+catId	9492
+altitude	0
+lat	33.997143
+lng	-81.030647
+mapId	744
+id	223371
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160937
+name	"Drayton Hall"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+63	
+catId	9492
+altitude	0
+lat	33.998753
+lng	-81.028755
+mapId	744
+id	224604
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	161031
+name	"McCutchen House"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+64	
+catId	9492
+altitude	0
+lat	33.977524
+lng	-80.961006
+mapId	744
+id	227528
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	163399
+name	"Medicine VA Campus, Building No. 1"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+65	
+catId	9492
+altitude	0
+lat	33.978092
+lng	-80.961693
+mapId	744
+id	227529
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	163400
+name	"Medicine VA Campus, Building No. 2"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+66	
+catId	9492
+altitude	0
+lat	33.977543
+lng	-80.962257
+mapId	744
+id	227530
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	163401
+name	"Medicine VA Campus, Building No. 3"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+67	
+catId	9492
+altitude	0
+lat	33.977097
+lng	-80.96151
+mapId	744
+id	227531
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	163402
+name	"Medicine VA Campus, Building No. 4"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+68	
+catId	9492
+altitude	0
+lat	33.976704
+lng	-80.960976
+mapId	744
+id	227532
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	163403
+name	"Medicine VA Campus, Building No. 101"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+69	
+catId	9492
+altitude	0
+lat	33.976997
+lng	-80.961136
+mapId	744
+id	227533
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	163404
+name	"Medicine VA Campus, Building No. 104"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+70	
+catId	9492
+altitude	0
+lat	33.978477
+lng	-80.962349
+mapId	744
+id	227534
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	163405
+name	"Medicine VA Campus, Building No. 28"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+71	
+catId	9492
+altitude	0
+lat	34.002518
+lng	-81.027779
+mapId	744
+id	227607
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	163478
+name	"Joseph F. Rice School of Law"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+72	
+catId	9492
+altitude	0
+lat	33.990601
+lng	-81.026184
+mapId	744
+id	229055
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160967
+name	"Copenhaver Band Hall/Dance Facility"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+73	
+catId	9492
+altitude	0
+lat	33.997261
+lng	-81.029633
+mapId	744
+id	230352
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	164979
+name	"Broadcast Studio"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+74	
+catId	9492
+altitude	0
+lat	33.996109
+lng	-81.029404
+mapId	744
+id	232320
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160969
+name	"Longstreet Theatre"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+75	
+catId	9492
+altitude	0
+lat	33.998432
+lng	-81.024673
+mapId	744
+id	232321
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	166428
+name	"Williams-Brice Building Auditorium"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+76	
+catId	9492
+altitude	0
+lat	33.99284
+lng	-81.024048
+mapId	744
+id	247651
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	160945
+name	"Child Development and Research Center"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+77	
+catId	9492
+altitude	0
+lat	33.976891
+lng	-80.960281
+mapId	744
+id	331482
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	239273
+name	"Medicine VA Campus, Building No. 5"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+78	
+catId	9492
+altitude	0
+lat	33.976849
+lng	-80.961845
+mapId	744
+id	331483
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	239274
+name	"Medicine VA Campus, Building No. 9"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+79	
+catId	9492
+altitude	0
+lat	33.976311
+lng	-80.960793
+mapId	744
+id	331484
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	239275
+name	"Medicine VA Campus, Building No. 22"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+80	
+catId	9492
+altitude	0
+lat	33.976402
+lng	-80.961555
+mapId	744
+id	331485
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	239276
+name	"Medicine VA Campus, Building No. 6"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+81	
+catId	9492
+altitude	0
+lat	33.976566
+lng	-80.960411
+mapId	744
+id	331486
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	239277
+name	"Medicine VA Campus, Building No. 114"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+82	
+catId	9492
+altitude	0
+lat	33.979557
+lng	-80.963173
+mapId	744
+id	331487
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+feed	""
+rate	0
+mrkId	239278
+name	"Medicine VA Campus, Building No. 10"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+83	
+catId	9492
+altitude	0
+lat	33.998684
+lng	-81.026894
+mapId	744
+id	432240
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	314385
+name	"McKissick Museum"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
+84	
+catId	9492
+altitude	0
+lat	33.994656
+lng	-81.031494
+mapId	744
+id	472556
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	163628
+name	"Science and Technology Building"
+reference	""
+schedule	""
+shape	
+type	"polygon"
+color	"#ffffff"
+opacity	0.8
+weight	"3"
+colorNormal	"#ffffff"
+opacityNormal	0.8
+weightNormal	"3"
+colorHover	"#ffffff"
+opacityHover	0.8
+weightHover	"3"
+paths	
+0	
+0	33.99472277439671
+1	-81.03224337100983
+1	
+0	33.995105265447904
+1	-81.03097200393678
+2	
+0	33.994584899293265
+1	-81.0307413339615
+3	
+0	33.99420907731056
+1	-81.0320207476616
+fillColor	"#ffffff"
+fillOpacity	0.39
+fillColorNormal	"#ffffff"
+fillOpacityNormal	0.39
+fillColorHover	"#ffffff"
+fillOpacityHover	0.39
+icon	false
+position	false
+zoom	""
+iconSize	35
+85	
+catId	9492
+altitude	0
+lat	33.994282
+lng	-81.033478
+mapId	744
+id	747649
+weight	0
+icon	""
+level	
+0	0
+location_open	""
+marker_feed	
+rate	0
+mrkId	559200
+name	"Greene St. United Methodist Church (1100GA)"
+reference	""
+schedule	""
+shape	""
+zoom	""
+iconSize	35
