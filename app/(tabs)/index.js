@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
-import { useRouter } from "expo-router";
+import { useRouter, useLocalSearchParams } from "expo-router";
 import { SearchBar } from "react-native-elements";
 import * as SplashScreen from "expo-splash-screen";
 import * as Location from "expo-location";
@@ -24,6 +24,26 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
+
+
+/*
+    CHLOE TO-DO
+    - make selected marker bigger
+    - make all markers hidden by default
+    - Fix Filter Pins
+
+
+
+
+*/
+
+
+
+
+
+
+
+
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -41,6 +61,12 @@ export default function HomeScreen() {
   const [routeSteps, setRouteSteps] = useState([]);
   const mapRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true); // For loading wheel
+
+  // added to get it to send user to professor office location
+  const { officeAddress, title } = useLocalSearchParams();
+  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [navigateToProfessorOffice, setNavigateToProfessorOffice] = useState(false);
+
 
   const INITIAL_REGION = {
     latitude: 34.00039991787572,
@@ -86,6 +112,7 @@ export default function HomeScreen() {
     }
   };
 
+  // This is also used for going to a professor's office location
   // Fetch markers from Firebase
   useEffect(() => {
     const fetchMarkers = async () => {
@@ -100,6 +127,46 @@ export default function HomeScreen() {
         setMarkers(db_data);
         setFilteredMarkers(db_data);
         setIsLoading(false);
+
+        // When coming from Professor Info page
+        if (officeAddress) {
+          const cleanedAddress = officeAddress.split(",")[0].trim(); // remove room number from the office location
+          //const foundMarker = db_data.find((marker) => marker.title === officeAddress);
+          const foundMarker = db_data.find((marker) => marker.title === cleanedAddress);
+          console.log(cleanedAddress);
+          // LOCATION DATA SUCCESSFULLY RECEIVED FROM PROF
+
+          if (foundMarker) {
+            setSelectedMarker(foundMarker);
+
+            // new after getting cleaned address working
+            setSelectedDestination({
+              latitude: foundMarker.latitude,
+              longitude: foundMarker.longitude,
+            });
+
+            // ✅ Zoom into the professor's office
+            if (mapRef.current) {
+              mapRef.current.animateToRegion(
+                {
+                  latitude: foundMarker.latitude,
+                  longitude: foundMarker.longitude,
+                  latitudeDelta: 0.01,
+                  longitudeDelta: 0.01,
+                },
+                2000 // Zoom-in duration in milliseconds
+              );
+            }
+
+            // zoom in to prof location as soon as map loads
+            setNavigateToProfessorOffice(true);
+
+          } else {
+            Alert.alert("Professor's office location not found on the map.");
+          }
+        } // end of NEW CODE FOR PROF OFFICE INFO
+
+
       } catch (err) {
         Alert.alert("Error fetching data");
         setIsLoading(false);
@@ -107,7 +174,30 @@ export default function HomeScreen() {
     };
 
     fetchMarkers();
-  }, []);
+//  }, []); // ORIG. COMMENTED OUT FOR OFFICE TEST
+  }, [officeAddress]);
+
+// ✅ Move the map to the selected marker if found
+  useEffect(() => {
+    //if (selectedMarker && mapRef.current) {
+    if (navigateToProfessorOffice && selectedMarker && mapRef.current) {
+      setTimeout(() => {
+        mapRef.current.animateToRegion(
+          {
+            latitude: selectedMarker.latitude,
+            longitude: selectedMarker.longitude,
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01,
+          },
+          2000 // Zoom-in duration in milliseconds
+        );
+      }, 500); // delay makes sure map is fully loaded before zyooming
+    }
+  }, [navigateToProfessorOffice, selectedMarker]);
+
+
+
+
 
   // Update filtered markers based on search input
   useEffect(() => {
@@ -207,6 +297,7 @@ export default function HomeScreen() {
         containerStyle={styles.searchContainer}
         inputContainerStyle={styles.searchInputContainer}
       />
+
       <View style={styles.buttonContainer}>
         {/* Button to filter pins*/}
         <TouchableOpacity
@@ -246,6 +337,57 @@ export default function HomeScreen() {
         followsUserLocation={true}
         showsTraffic={showTraffic}
       >
+
+        {/* ✅ Render markers normally */}
+        {/*{markers.map((marker) => (
+        //  <Marker
+        //    key={marker.id}
+        //    coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
+        //    title={marker.title}
+        //    pinColor={selectedMarker?.id === marker.id ? "blue" : "red"} // Highlight selected marker
+        //  />
+        //))}
+        */}
+
+        {/* ✅ Display all markers */}
+        {markers.map((marker) => (
+          <Marker
+            key={marker.id}
+            coordinate={{
+              latitude: marker.latitude,
+              longitude: marker.longitude,
+            }}
+            title={marker.title}
+            pinColor={selectedMarker?.id === marker.id ? "blue" : "red"} // Highlight selected marker
+          />
+        ))}
+
+        {/* ✅ Display professor's office if selected */}
+        {selectedDestination && (
+          <MapViewDirections
+            origin={userLocation}
+            destination={{
+              latitude: selectedDestination.latitude,
+              longitude: selectedDestination.longitude,
+            }}
+            apikey={GOOGLE_API_KEY}
+            strokeWidth={4}
+            strokeColor="#73000A"
+            mode={travelMode}
+            onReady={(result) => {
+              setRouteDetails({
+                distance: result.distance,
+                duration: result.duration,
+              });
+              setRouteSteps(result.legs[0].steps || []);
+            }}
+            onError={(error) => Alert.alert("Error getting directions", error)}
+          />
+        )}
+        {/* End of displaying prof office if selected*/}
+
+
+
         {filteredMarkers.map((marker) => (
           <Marker
             key={marker.id}
@@ -390,4 +532,10 @@ const styless = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F3F3F3',
   },
-  });
+  container: {
+    flex: 1,
+  },
+  map: {
+    flex: 1,
+  },
+});
