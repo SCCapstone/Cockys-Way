@@ -53,27 +53,22 @@ const Class = ({
     router.push("../(tabs)/schedule");
   };
 
-  const deleteFromSchedule = async () => {
-    const db = FIRESTORE_DB;
-
-    const auth = getAuth();
-    const user = auth.currentUser;
-
-    if (!user) {
-      console.log("no user found when trying to delete course");
-      return;
-    }
-    console.log("crn:" + crn);
-    try {
-      const docRef = doc(db, "schedules", user.uid, "courses", crn);
-      await deleteDoc(docRef);
-    } catch (error) {
-      console.log("error: " + error);
-    }
-  };
+  const navigateToCourseInfo = () => {
+    router.push({
+      pathname: "../courseInfo",
+      params: { crn, srcdb }
+    })
+  }
 
   return (
-    <View style={styles.course}>
+    <Pressable 
+      onPress={navigateToCourseInfo} 
+      style={({ pressed }) => [
+        {
+          backgroundColor: pressed ? "#450006" : "transparent",
+        },
+        styles.course
+      ]}>
       <View style={styles.courseText}>
         <Text style={styles.courseHeader}>
           {code}-{section}
@@ -89,10 +84,11 @@ const Class = ({
               addToSchedule();
             }}
             style={({ pressed }) => [
+              styles.course,
               {
-                backgroundColor: pressed ? "#450006" : "transparent",
+                backgroundColor: pressed ? "#450006" : "#73000A",
               },
-              styles.button,
+              
             ]}
           >
             <FontAwesome name="plus-circle" size={30} color="#FFFFFF" />
@@ -133,7 +129,7 @@ const Class = ({
           </>
         )}
       </View>
-    </View>
+    </Pressable>
   );
 };
 

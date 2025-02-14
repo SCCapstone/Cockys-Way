@@ -4,6 +4,8 @@ import { useLocalSearchParams } from "expo-router";
 import fetchCourseList from "../hook/fetchCourseList";
 import Class from "../components/Class";
 
+import fetchCourseInfo from "../hook/fetchCourseInfo";
+
 export const getInfo = (subject, semester) => {
   console.log(fetchCourseList(subject, semester));
   return fetchCourseList(subject, semester);
@@ -12,6 +14,10 @@ export const getInfo = (subject, semester) => {
 const AddClassSearchResults = () => {
   const { semester, subject, number } = useLocalSearchParams();
   const [courses, setCourses] = useState([]);
+
+  const test = fetchCourseInfo(40532, 202501);
+  console.log('ayo da test');
+  console.log(test);
 
   const info = getInfo(subject, semester);
   let courseList = info.data;
