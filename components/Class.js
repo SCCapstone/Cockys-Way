@@ -56,19 +56,12 @@ const Class = ({
   const navigateToCourseInfo = () => {
     router.push({
       pathname: "../courseInfo",
-      params: { crn, srcdb }
+      params: { crn, srcdb, instructor, meeting }
     })
   }
 
   return (
-    <Pressable 
-      onPress={navigateToCourseInfo} 
-      style={({ pressed }) => [
-        {
-          backgroundColor: pressed ? "#450006" : "transparent",
-        },
-        styles.course
-      ]}>
+    <View style={styles.course}>
       <View style={styles.courseText}>
         <Text style={styles.courseHeader}>
           {code}-{section}
@@ -84,7 +77,7 @@ const Class = ({
               addToSchedule();
             }}
             style={({ pressed }) => [
-              styles.course,
+              styles.button,
               {
                 backgroundColor: pressed ? "#450006" : "#73000A",
               },
@@ -128,8 +121,19 @@ const Class = ({
             </Pressable>
           </>
         )}
+        <Pressable
+        onPress={navigateToCourseInfo}
+          style={({ pressed }) => [
+            {
+              backgroundColor: pressed ? "#450006" : "transparent",
+            },
+            styles.button,
+          ]}
+        >
+          <FontAwesome5 name="info-circle" size={30} color="#FFFFFF" />
+        </Pressable>
       </View>
-    </Pressable>
+    </View>
   );
 };
 
