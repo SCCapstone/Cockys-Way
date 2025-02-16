@@ -1,8 +1,15 @@
-import { FlatList, StyleSheet, Text, View, ActivityIndicator } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  View, ActivityIndicator,
+  ActivityIndicator,
+} from "react-native";
 import React, { useEffect, useMemo, useState } from "react";
 import { useLocalSearchParams } from "expo-router";
 import fetchCourseList from "../hook/fetchCourseList";
 import Class from "../components/Class";
+import fetchCourseInfo from "../hook/fetchCourseInfo";
 
 export const getInfo = async (subject, semester) => {
   try {
@@ -94,8 +101,8 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 30,
     paddingHorizontal: 20,
+    flex: 1,
   },
-
   header: {
     textAlign: "center",
     fontSize: 25,
@@ -115,7 +122,8 @@ const styles = StyleSheet.create({
 
   list: {
     flex: 1,
-    width: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   // Loading Wheel
   loadingContainer: {

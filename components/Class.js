@@ -44,7 +44,7 @@ const Class = ({
         meeting: meeting,
         name: name,
         section: section,
-        srcdb: srcdb
+        srcdb: srcdb,
       });
     } catch (error) {
       console.log("error when adding class: " + error);
@@ -53,24 +53,12 @@ const Class = ({
     router.push("../(tabs)/schedule");
   };
 
-  const deleteFromSchedule = async () => {
-    const db = FIRESTORE_DB;
-
-    const auth = getAuth();
-    const user = auth.currentUser;
-
-    if (!user) {
-      console.log("no user found when trying to delete course");
-      return;
-    }
-    console.log("crn:" + crn);
-    try {
-      const docRef = doc(db, "schedules", user.uid, "courses", crn);
-      await deleteDoc(docRef);
-    } catch (error) {
-      console.log("error: " + error);
-    }
-  };
+  const navigateToCourseInfo = () => {
+    router.push({
+      pathname: "../courseInfo",
+      params: { crn, srcdb, instructor, meeting }
+    })
+  }
 
   return (
     <View style={styles.course}>
@@ -89,10 +77,11 @@ const Class = ({
               addToSchedule();
             }}
             style={({ pressed }) => [
-              {
-                backgroundColor: pressed ? "#450006" : "transparent",
-              },
               styles.button,
+              {
+                backgroundColor: pressed ? "#450006" : "#73000A",
+              },
+              
             ]}
           >
             <FontAwesome name="plus-circle" size={30} color="#FFFFFF" />
@@ -109,8 +98,10 @@ const Class = ({
                 },
                 styles.button,
               ]}
+              testID="toggle-bell"
             >
               <FontAwesome5
+                testID="bell-icon"
                 name={notification ? "bell" : "bell-slash"}
                 size={30}
                 color="#FFFFFF"
@@ -130,6 +121,17 @@ const Class = ({
             </Pressable>
           </>
         )}
+        <Pressable
+        onPress={navigateToCourseInfo}
+          style={({ pressed }) => [
+            {
+              backgroundColor: pressed ? "#450006" : "transparent",
+            },
+            styles.button,
+          ]}
+        >
+          <FontAwesome5 name="info-circle" size={30} color="#FFFFFF" />
+        </Pressable>
       </View>
     </View>
   );
