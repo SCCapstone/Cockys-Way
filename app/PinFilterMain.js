@@ -124,9 +124,17 @@ export default function FilterPinsMainScreen() {
     }));
   };
 
+/*        ORIGINAL GETFILTEREDLOCATIONS
   const getFilteredLocations = (locations, catId) => {
     return locations
       .filter((location) => location.catId === catId && location.title)
+      .map((location) => location.title)                    // Changed name to title
+      .sort();
+  };
+*/
+  const getFilteredLocations = (locations, parent) => {
+    return locations
+      .filter((location) => location.parent === parent && location.title)
       .map((location) => location.title)                    // Changed name to title
       .sort();
   };
@@ -158,7 +166,8 @@ export default function FilterPinsMainScreen() {
         <Text style={styles.header}>Filter Pins</Text>
   
         {categories.map((category) => {
-          const filteredNames = getFilteredLocations(locations, category.catId);
+          //const filteredNames = getFilteredLocations(locations, category.catId);    // ORIGINAL
+          const filteredNames = getFilteredLocations(locations, category.parent);
   
           return (
             <View key={category.label}>
