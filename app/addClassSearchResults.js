@@ -2,7 +2,7 @@ import {
   FlatList,
   StyleSheet,
   Text,
-  View,
+  View, ActivityIndicator,
   ActivityIndicator,
 } from "react-native";
 import React, { useEffect, useMemo, useState } from "react";
@@ -17,9 +17,10 @@ export const getInfo = async (subject, semester) => {
     const data = await fetchCourseList(subject, semester);
     console.log("API Response:", data); // for debugging
     return data;
+
   } catch (error) {
     console.error("Error fetching courses: ", error);
-    return { data: [] }; // make sure its always returning something so it doesnt break everything again
+    return { data: []}; // make sure its always returning something so it doesnt break everything again
   } // end try-catch block
 };
 
@@ -28,51 +29,52 @@ const AddClassSearchResults = () => {
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
+useEffect(() => {
+  const fetchData = async () => {
+    setLoading(true);
 
-      try {
-        const info = await getInfo(subject, semester); // <-- Awaiting the async function
-        let courseList = info?.data || []; // Ensure it's an array
+    try {
+      const info = await getInfo(subject, semester); // <-- Awaiting the async function
+      let courseList = info?.data || []; // Ensure it's an array
 
-        if (courseList.length > 0 && number) {
-          courseList = courseList.filter(
-            (course) => course.code === `${subject} ${number}`
-          );
-        }
+      if (courseList.length > 0 && number) {
+        courseList = courseList.filter(
+          (course) => course.code === `${subject} ${number}`
+        );
+      }
 
-        setCourses(courseList);
-      } catch (error) {
-        console.error("Error fetching courses:", error);
-      } // end try-catch
-      setLoading(false);
-    };
+      setCourses(courseList);
+    } catch (error) {
+      console.error("Error fetching courses:", error);
+    } // end try-catch
+    setLoading(false);
+  };
 
-    fetchData();
-  }, [semester, subject, number]);
+  fetchData();
+}, [semester, subject, number]);
 
-  const renderCourse = ({ item }) => (
-    <Class
-      crn={item.crn}
-      code={item.code}
-      section={item.section}
-      name={item.title}
-      instructor={item.instr}
-      meeting={item.meets}
-      fromSearch
-      srcdb={item.srcdb}
-    />
-  ); // end renderCourse
 
-  if (loading) {
-    return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color="#73000A" />
-        <Text style={styles.loadingText}>Loading courses...</Text>
-      </View>
-    );
-  } // end of if loading
+    const renderCourse = ({ item }) => (
+      <Class
+        crn={item.crn}
+        code={item.code}
+        section={item.section}
+        name={item.title}
+        instructor={item.instr}
+        meeting={item.meets}
+        fromSearch
+        srcdb={item.srcdb}
+      />
+    ); // end renderCourse
+
+    if (loading) {
+        return (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#73000A" />
+            <Text style={styles.loadingText}>Loading courses...</Text>
+          </View>
+        );
+    } // end of if loading
 
   return (
     <View style={styles.container}>
@@ -80,15 +82,15 @@ const AddClassSearchResults = () => {
         Click the add button on a class to add it to your schedule:
       </Text>
       {courses.length > 0 ? ( // Make sure theres actually something
-        <FlatList
-          data={courses}
-          renderItem={renderCourse}
-          keyExtractor={(item) => item.crn.toString()}
-          contentContainerStyle={{ gap: 20 }}
-        />
+      <FlatList
+        data={courses}
+        renderItem={renderCourse}
+        keyExtractor={(item) => item.crn.toString()}
+        contentContainerStyle={{ gap: 20 }}
+      />
       ) : (
         <Text style={styles.noResultsText}>No courses found.</Text>
-      )}
+      )} 
     </View>
   );
 };
@@ -107,6 +109,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
+
+
   headerIcon: {
     marginHorizontal: 30,
     gap: 10,
@@ -124,9 +128,9 @@ const styles = StyleSheet.create({
   // Loading Wheel
   loadingContainer: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F3F3F3",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F3F3F3',
   },
   loadingText: {
     marginTop: 10,
