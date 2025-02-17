@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   FlatList,
   Modal,
-  Image, ActivityIndicator,
+  Image,
   ActivityIndicator,
 } from "react-native";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
@@ -99,17 +99,17 @@ export default function Schedule() {
         srcdb={course.item.srcdb}
         onDeletePress={() => handleDeletePress(course.item)}
       />
-    )
-  }
+    );
+  };
 
   // Loading Wheel
-    if (loading) {
-      return (
-          <View style={styles.loadingContainer}>
-              <ActivityIndicator size="large" color="#73000A" />
-          </View>
-      );
-    }
+  if (loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#73000A" />
+      </View>
+    );
+  }
 
   return (
     <>
@@ -299,15 +299,15 @@ const styles = StyleSheet.create({
   // Loading Wheel
   loadingContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F3F3F3',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F3F3F3",
   },
   // Loading Wheel
   loadingContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F3F3F3',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F3F3F3",
   },
 });
