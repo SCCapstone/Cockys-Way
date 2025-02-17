@@ -21,7 +21,7 @@ import { router } from "expo-router";
 
 import { FIREBASE_API_KEY } from "@env";
 
-const Register = () => {
+const Login = () => {
   // Manage Email and Password State
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -45,7 +45,6 @@ const Register = () => {
         password
       );
       alert("Succesfully Registered!");
-      router.push("/");
     } catch (error) {
       alert("Registration Failed!");
       console.log(error);
@@ -109,7 +108,6 @@ const Register = () => {
                 onPress={register}
 
                 disabled={loading} // Disable button while loading
-                testID={"register-button"}
               >
                 <Text style={styles.buttonText}>Register</Text>
               </TouchableOpacity>
@@ -120,7 +118,7 @@ const Register = () => {
 
       <TouchableOpacity
         style={[styles.registerButton, styles.registerButtonPosition]}
-        title="Login"
+        title="Register"
         onPress={() => {
           if (!loading) {
             router.push("/login");
@@ -136,7 +134,7 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
 
 const styles = StyleSheet.create({
   container: {

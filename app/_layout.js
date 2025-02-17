@@ -80,13 +80,6 @@ export default function Layout() {
           headerTintColor: "#73000A",
         }}
       />
-      <Stack.Screen 
-        name="courseInfo"
-        options={{
-          title: "Course Info",
-          headerTintColor: "#73000A",
-        }}
-      />
     </Stack>
   );
 }
