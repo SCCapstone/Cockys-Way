@@ -8,7 +8,6 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
-  ActivityIndicator,
 } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
@@ -40,7 +39,7 @@ export default function HomeScreen() {
   const [showTraffic, setShowTraffic] = useState(false);
   const [routeSteps, setRouteSteps] = useState([]);
   const mapRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(true); // For loading wheel
+  const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
 
   const INITIAL_REGION = {
     latitude: 34.00039991787572,
@@ -188,15 +187,13 @@ export default function HomeScreen() {
     }
   };
 
-
-    // Loading Wheel
-    if (isLoading) {
-      return (
-          <View style={styless.loadingContainer}>
-              <ActivityIndicator size="large" color="#73000A" />
-          </View>
-      );
-    }
+  if (isLoading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -381,13 +378,3 @@ export default function HomeScreen() {
     </SafeAreaView>
   );
 }
-
-const styless = StyleSheet.create({
-  // New Chloe code for loading wheel
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F3F3F3',
-  },
-  });

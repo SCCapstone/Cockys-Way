@@ -16,7 +16,6 @@ import { FIREBASE_AUTH } from "../FirebaseConfig";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { router } from "expo-router";
 
-
 const ForgotPassword = () => {
   // Manage Email and Password State
   const [email, setEmail] = useState("");

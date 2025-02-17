@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
@@ -9,7 +9,6 @@ import {
   Modal,
   Alert,
   Pressable,
-  ActivityIndicator,
 } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import { getFirestore, doc, getDoc, setDoc, deleteDoc } from "firebase/firestore";
@@ -20,7 +19,6 @@ export default function PrivacySecurityScreen() {
   const navigation = useNavigation();
   const [isEnabled, setIsEnabled] = React.useState(false);
   const [modalVisible, setModalVisible] = React.useState(false);
-  const [loading, setLoading] = useState(true);
   const user = getAuth().currentUser;
 
   const firestore = getFirestore();
@@ -33,7 +31,6 @@ export default function PrivacySecurityScreen() {
           "Please sign in to access your privacy and security settings.",
           [{ text: "OK", onPress: () => console.log("Sign-in prompt acknowledged") }]
         );
-        setLoading(false);
         return;
       }
 
@@ -51,7 +48,6 @@ export default function PrivacySecurityScreen() {
       } catch (error) {
         console.error("Error fetching user settings:", error);
       }
-      setLoading(false);
     };
 
     fetchSettings();
@@ -107,14 +103,6 @@ export default function PrivacySecurityScreen() {
   let [fontsLoaded] = useFonts({
     Abel_400Regular,
   });
-    // Loading Wheel
-    if (!fontsLoaded || loading) {
-      return (
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#73000A" />
-        </View>
-      );
-    }
 
   return (
     <ScrollView style={styles.container}>
@@ -263,12 +251,5 @@ const styles = StyleSheet.create({
   modalButtonText: {
     color: '#FFFFFF',
     fontWeight: 'bold',
-  },
-  // Loading Wheel
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F3F3F3',
   },
 });

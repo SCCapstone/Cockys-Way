@@ -44,7 +44,7 @@ const fetchCourseInfo = (crn, srcdb) => {
   useEffect(() => {
     console.log('bruh im in the useeffect')
     fetch();
-  }, [key, semester]); // Refetch when key or semester changes
+  }, []); // Refetch when key or semester changes
 
   return { data, isLoading, isLoaded, error };
 };

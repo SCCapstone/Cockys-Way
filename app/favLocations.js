@@ -116,7 +116,6 @@ const FavLocations = () => {
     fetchFavorites();
   }, []);
 
-  // loading Wheel
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
@@ -234,12 +233,10 @@ const styles = StyleSheet.create({
     color: '#666',
     marginTop: 20,
   },
-  // Loading Wheel
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F3F3F3',
   },
 });
 

@@ -119,11 +119,10 @@ else:
         git pull
         git add .
         git commit -m "Message"
-        git push            (git push origin chloe-branch) when working in branch
+        git push
 
         Merging:
-        go to main: git checkout main
-        merge branch: git merge (branch-name)
+        
 
 
         Chloe To-Do
