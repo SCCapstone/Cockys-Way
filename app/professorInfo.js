@@ -129,33 +129,40 @@ export default function ProfessorInfo() {
           )}
       </View>
       <View style={styles.line}></View>
-      <View style={[styles.officeInfo, styles.quickLook, styles.radius]}>
-        <Text style={[styles.quickLookHeader]}>Let's Connect:</Text>
-
-        {/* TODO: NEED TO UPDATE WITH OFFICE INFO IN DB */}
-        <View style={[styles.flexRow, styles.spacer]}>
-          <FontAwesome name="at" size={30} color="#73000A" />
-          <Text
-            style={[styles.social]}
-            onPress={() => Linking.openURL(`mailto:${professor.email}`)}
-          >
-            {professor.email}
-          </Text>
+      {(professor.website || professor.email || professor.phone) && (
+        <View style={[styles.officeInfo, styles.quickLook, styles.radius]}>
+          <Text style={[styles.quickLookHeader]}>Let's Connect:</Text>
+          {/* TODO: NEED TO UPDATE WITH OFFICE INFO IN DB */}
+          {professor.email && (
+            <View style={[styles.flexRow, styles.spacer]}>
+              <FontAwesome name="at" size={30} color="#73000A" />
+              <Text
+                style={[styles.social]}
+                onPress={() => Linking.openURL(`mailto:${professor.email}`)}
+              >
+                {professor.email}
+              </Text>
+            </View>
+          )}
+          {professor.phone && (
+            <View style={[styles.flexRow, styles.spacer]}>
+              <FontAwesome name="phone" size={30} color="#73000A" />
+              <Text style={[styles.social]}>{professor.phone}</Text>
+            </View>
+          )}
+          {professor.website && (
+            <View style={[styles.flexRow, styles.spacer]}>
+              <FontAwesome name="globe" size={30} color="#73000A" />
+              <Text
+                style={[styles.social]}
+                onPress={() => Linking.openURL(professor.website)}
+              >
+                My Website
+              </Text>
+            </View>
+          )}
         </View>
-        <View style={[styles.flexRow, styles.spacer]}>
-          <FontAwesome name="phone" size={30} color="#73000A" />
-          <Text style={[styles.social]}>{professor.phone}</Text>
-        </View>
-        <View style={[styles.flexRow, styles.spacer]}>
-          <FontAwesome name="globe" size={30} color="#73000A" />
-          <Text
-            style={[styles.social]}
-            onPress={() => Linking.openURL(professor.website)}
-          >
-            My Website
-          </Text>
-        </View>
-      </View>
+      )}
     </ScrollView>
   );
 }
