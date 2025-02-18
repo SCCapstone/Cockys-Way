@@ -49,11 +49,10 @@ export default function HomeScreen() {
   };
 
   const onMarkerSelected = (marker) => {
-    Alert.alert(marker.title || "Marker Selected");
-
     setSelectedDestination({
       latitude: marker.latitude,
       longitude: marker.longitude,
+      title: marker.title,
     });
 
     setShowTravelModeButtons(true);
@@ -75,10 +74,10 @@ export default function HomeScreen() {
     if (mapRef.current) {
       mapRef.current.animateToRegion(
         {
-          latitude: marker.latitude,
+          latitude: marker.latitude - 0.0025, //subtraction will make marker more centered on screen
           longitude: marker.longitude,
-          latitudeDelta: 0.01,
-          longitudeDelta: 0.01,
+          latitudeDelta: 0.015,
+          longitudeDelta: 0.015,
         },
         2500 // 2500 is duration of zoom in ms
       );
@@ -250,8 +249,6 @@ export default function HomeScreen() {
               latitude: marker.latitude,
               longitude: marker.longitude,
             }}
-            title={marker.title}
-            description={marker.description}
             pinColor={marker.color ? marker.color : "red"}
             onPress={() => onMarkerSelected(marker)}
           />
@@ -317,6 +314,12 @@ export default function HomeScreen() {
       {/* Route Details and Stop Button */}
       {showRouteDetails && routeDetails && (
         <View style={styles.routeDetailsContainer}>
+          {/* Marker info here: Title, Description, Category, Tag, etc.
+              You will need to change the variable in setSelectedDestination */}
+          <Text style={styles.routeDetailsText}>
+            {selectedDestination ? selectedDestination.title : ""}
+          </Text>
+
           {/* Total Distance and Duration */}
           <Text style={styles.routeDetailsText}>
             Total Distance: {routeDetails.distance.toFixed(2)} miles
