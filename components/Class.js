@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import { StyleSheet, Text, View, Pressable, ToastAndroid } from "react-native";
 import React from "react";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { useState } from "react";
@@ -49,7 +49,7 @@ const Class = ({
     } catch (error) {
       console.log("error when adding class: " + error);
     }
-
+    ToastAndroid.show(`${name} has successfully been added to your schedule!`, ToastAndroid.LONG);
     router.push("../(tabs)/schedule");
   };
 

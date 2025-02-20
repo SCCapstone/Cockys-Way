@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { useLocalSearchParams } from 'expo-router'
 import fetchCourseInfo from '../hook/fetchCourseInfo'
@@ -26,7 +26,7 @@ const courseInfo = () => {
   // console.log(info.code);
 
   return (
-    <View>
+    <ScrollView>
       { info ?
       <>
       <View style={styles.container}>
@@ -48,7 +48,7 @@ const courseInfo = () => {
         :
         <Text>Loading...</Text>
       }
-    </View>
+    </ScrollView>
   )
 }
 
@@ -56,7 +56,8 @@ export default courseInfo
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    paddingBottom: 15
   },
 
   title: {

@@ -8,6 +8,7 @@ import {
   Modal,
   Image,
   ActivityIndicator,
+  ToastAndroid
 } from "react-native";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { useRouter } from "expo-router";
@@ -79,6 +80,8 @@ export default function Schedule() {
     } catch (error) {
       console.log("Error deleting course:", error);
     }
+
+    ToastAndroid.show(`${courseToDelete?.name} has successfully been deleted from your schedule!`, ToastAndroid.LONG);
 
     setIsModalVisible(false);
     setCourseToDelete(null);
