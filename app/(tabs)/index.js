@@ -145,7 +145,7 @@ export default function HomeScreen() {
               longitude: foundMarker.longitude,
             });
 
-            // ✅ Zoom into the professor's office
+            // zoom into prof office
             if (mapRef.current) {
               mapRef.current.animateToRegion(
                 {
@@ -177,7 +177,7 @@ export default function HomeScreen() {
 //  }, []); // ORIG. COMMENTED OUT FOR OFFICE TEST
   }, [officeAddress]);
 
-// ✅ Move the map to the selected marker if found
+// move the map to selected marker when found
   useEffect(() => {
     //if (selectedMarker && mapRef.current) {
     if (navigateToProfessorOffice && selectedMarker && mapRef.current) {
@@ -201,7 +201,8 @@ export default function HomeScreen() {
 
   // Update filtered markers based on search input
   useEffect(() => {
-    if (search === "") {
+
+    if (search === "") { // ORIG
       setFilteredMarkers(markers);
     } else {
       const filtered = markers.filter((marker) =>
@@ -209,6 +210,7 @@ export default function HomeScreen() {
       );
       setFilteredMarkers(filtered);
     }
+    //console.log("Filtered Markers:", filteredMarkers); // debugging error when using search
   }, [search, markers]);
 
   // Request location permissions and set startLocation
@@ -338,7 +340,7 @@ export default function HomeScreen() {
         showsTraffic={showTraffic}
       >
 
-        {/* ✅ Render markers normally */}
+        {/* render markers normally */}
         {/*{markers.map((marker) => (
         //  <Marker
         //    key={marker.id}
@@ -349,7 +351,7 @@ export default function HomeScreen() {
         //))}
         */}
 
-        {/* ✅ Display all markers */}
+        {/* display all markers */}
         {markers.map((marker) => (
           <Marker
             key={marker.id}
@@ -362,7 +364,7 @@ export default function HomeScreen() {
           />
         ))}
 
-        {/* ✅ Display professor's office if selected */}
+        {/* display prof. office if selected */}
         {selectedDestination && (
           <MapViewDirections
             origin={userLocation}

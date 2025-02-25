@@ -91,6 +91,7 @@ export default function FilterPinsMainScreen() {
       { label: "Athletics", catId: 21035 },
       { label: "Parking", catId: 9495 },
       { label: "Accessibility", catId: 23393 },
+
       // Add more categories with their respective catIds
       // Academic Buildings, Administrative Buildings, Colleges & Schools, Housing, Dining, Athletics, Parking, Services, Accessibility
     ];
@@ -99,11 +100,16 @@ export default function FilterPinsMainScreen() {
   useEffect(() => {
     const fetchLocations = async () => {
       try {
+        console.log("Fetching data from Firestore"); // Debugging to make sure getting loc data right
+
         const query = await getDocs(collection(FIREBASE_DB, "locTest"));
         const db_data = query.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
+
+        console.log("Fetched locations from firestore: ", db_data); //Debugging to make sure getting loc data
+
         setLocations(db_data);
         setIsLoading(false);
 
@@ -124,21 +130,35 @@ export default function FilterPinsMainScreen() {
     }));
   };
 
-/*        ORIGINAL GETFILTEREDLOCATIONS
+/*    ORIGINAL
   const getFilteredLocations = (locations, catId) => {
     return locations
       .filter((location) => location.catId === catId && location.title)
       .map((location) => location.title)                    // Changed name to title
       .sort();
+  }; */
+
+  const getFilteredLocations = (locations, catId) => {
+    console.log("Filtering locations for catId:", catId);
+    console.log("Available locations:", locations);
+  
+    const filtered = locations
+      .filter((location) => location.catId === catId && location.title)
+      .map((location) => location.title)
+      .sort();
+  
+    console.log("Filtered locations:", filtered);
+    return filtered;
   };
-*/
+
+/*
   const getFilteredLocations = (locations, parent) => {
     return locations
       .filter((location) => location.parent === parent && location.title)
       .map((location) => location.title)                    // Changed name to title
       .sort();
   };
-  
+*/ 
     useEffect(() => {
       if (fontsLoaded) {
         SplashScreen.hideAsync();
@@ -166,8 +186,8 @@ export default function FilterPinsMainScreen() {
         <Text style={styles.header}>Filter Pins</Text>
   
         {categories.map((category) => {
-          //const filteredNames = getFilteredLocations(locations, category.catId);    // ORIGINAL
-          const filteredNames = getFilteredLocations(locations, category.parent);
+          const filteredNames = getFilteredLocations(locations, category.catId);    // ORIGINAL
+          //const filteredNames = getFilteredLocations(locations, category.parent);
   
           return (
             <View key={category.label}>
