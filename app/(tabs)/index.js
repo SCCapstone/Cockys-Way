@@ -184,12 +184,18 @@ export default function HomeScreen() {
   }, [navigateToProfessorOffice, selectedMarker]);
 
 
+  /*
+      TO-DO:
+      When using search, a minor popup appears saying 
+      "A props object containing a 'key' prop is being spread into JSX"
+      It doesn't crash or anything, it just. shows that little popup.
+      It's been there since last semester.
 
+  */
 
 
   // Update filtered markers based on search input
   useEffect(() => {
-
     if (search === "") { // ORIG
       setFilteredMarkers(markers);
     } else {
@@ -549,7 +555,7 @@ export default function HomeScreen() {
               style={selectedMarker?.id === id ? { transform: [{ scale: 1.5 }] } : {}} // biggering
               tracksViewChanges={selectedMarker?.id === id} // re-render selected marker
             />
-          );
+          ); // end of filteredMarkers return statement
         })}
 
         {/* Directions */}
