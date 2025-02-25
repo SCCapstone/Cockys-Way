@@ -1,11 +1,16 @@
+import { useState, useEffect } from "react";
 import axios from "axios";
-// dont use useState/useEffect or doesnt work with addClassSearch
 
-// changed to be async
-const fetchCourseList = async (subject, semester) => {
+const fetchCourseList = (subject, semester) => {
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState(null);
 
   // We will have to change this to take in a subject as a parameter
   // (or other parameters that the api supports)
+  const fetch = async () => {
+    setIsLoading(true);
     // Fetching
     try {
       console.log("Fetching data...");
@@ -34,20 +39,23 @@ const fetchCourseList = async (subject, semester) => {
         typeof response.data === "string"
           ? JSON.parse(response.data)
           : response.data;
-      
-
-      console.log("Fetch successful:", parsedData.results);
-
-      return { data: parsedData.results || [] }; // must ALWAYS return SOMETHING
-
+      setData(parsedData.results || []);
+      console.log("Fetch successful:");
     } catch (error) {
       console.error("Error fetching data:", error);
-      return { data: [] };
+      setError(error);
+    } finally {
+      setIsLoading(false);
+      setIsLoaded(true);
     }
-
   };
 
+  useEffect(() => {
+    fetch();
+  }, []);
 
-
+  // Return the data
+  return { data, isLoading, isLoaded, error };
+};
 
 export default fetchCourseList;

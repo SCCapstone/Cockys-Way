@@ -21,7 +21,7 @@ import { router } from "expo-router";
 
 import { FIREBASE_API_KEY } from "@env";
 
-const Login = () => {
+const Register = () => {
   // Manage Email and Password State
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -45,6 +45,7 @@ const Login = () => {
         password
       );
       alert("Succesfully Registered!");
+      router.push("/");
     } catch (error) {
       alert("Registration Failed!");
       console.log(error);
@@ -60,13 +61,6 @@ const Login = () => {
           style={styles.image}
           source={require("../assets/images/cockys-way.png")}
         />
-        {/* Show loading wheel while registering*/}
-        {loading ? (
-            <View style={styles.loadingContainer}>
-              <ActivityIndicator size="large" color="#73000A" />
-              <Text style={styles.loadingText}>Registering...</Text>
-            </View>
-          ) : (
         <View style={styles.form}>
           <Text style={styles.title}>Register</Text>
 
@@ -77,8 +71,6 @@ const Login = () => {
             value={email}
             autoCapitalize="none"
             onChangeText={(text) => setEmail(text)}
-            
-            editable={!loading} // makes it so user cant input when it's loading
           />
           <Text style={styles.label}>Password:</Text>
           <TextInput
@@ -87,8 +79,6 @@ const Login = () => {
             autoCapitalize="none"
             secureTextEntry={true}
             onChangeText={(text) => setPassword(text)}
-            
-            editable={!loading} // makes it so user cant input when it's loading
           />
 
           <Text style={styles.label}>Confirm Password:</Text>
@@ -98,33 +88,32 @@ const Login = () => {
             autoCapitalize="none"
             secureTextEntry={true}
             onChangeText={(text) => setPasswordConfirmation(text)}
-            
-            editable={!loading} // makes it so user cant input when it's loading
           />
-   
+
+          {loading ? (
+            <View style={{ marginTop: 20 }}>
+              <ActivityIndicator size="large" color="#73000A" />
+            </View>
+          ) : (
+            <>
               <TouchableOpacity
-                style={[styles.button, loading && styles.disabledButton]}
+                style={styles.button}
                 title="Register"
                 onPress={register}
-
-                disabled={loading} // Disable button while loading
+                testID={"register-button"}
               >
                 <Text style={styles.buttonText}>Register</Text>
               </TouchableOpacity>
-
+            </>
+          )}
         </View>
-        )}
       </View>
-
       <TouchableOpacity
         style={[styles.registerButton, styles.registerButtonPosition]}
-        title="Register"
+        title="Login"
         onPress={() => {
-          if (!loading) {
-            router.push("/login");
-          }
+          router.push("/login");
         }}
-        disabled={loading} // disable while loading
       >
         <Text style={styles.registerButtonText}>
           Already have an account? Login!
@@ -134,7 +123,7 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
 
 const styles = StyleSheet.create({
   container: {
@@ -171,10 +160,6 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     marginTop: 20,
   },
-// Gray out a button while its disabled
-  disabledButton: {
-    backgroundColor: "#AAA",
-  },
   buttonText: {
     color: "#fff",
     fontSize: 25,
@@ -188,15 +173,5 @@ const styles = StyleSheet.create({
   },
   registerButtonPosition: {
     marginTop: "40%",
-  },
-  // Loading Wheel
-  loadingContainer: {
-    marginTop: 20,
-    alignItems: "center",
-  },
-  loadingText: {
-    marginTop: 10,
-    fontSize: 16,
-    color: "#73000A",
   },
 });

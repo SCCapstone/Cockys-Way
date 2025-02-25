@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
-import { useRouter, useLocalSearchParams } from "expo-router";
+import { useRouter } from "expo-router";
 import { SearchBar } from "react-native-elements";
 import * as SplashScreen from "expo-splash-screen";
 import * as Location from "expo-location";
@@ -24,26 +24,6 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
-
-
-/*
-    CHLOE TO-DO
-    - make selected marker bigger
-    - make all markers hidden by default
-    - Fix Filter Pins
-
-
-
-
-*/
-
-
-
-
-
-
-
-
 
 export default function HomeScreen() {
   const router = useRouter();
@@ -60,13 +40,7 @@ export default function HomeScreen() {
   const [showTraffic, setShowTraffic] = useState(false);
   const [routeSteps, setRouteSteps] = useState([]);
   const mapRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(true); // For loading wheel
-
-  // added to get it to send user to professor office location
-  const { officeAddress, title } = useLocalSearchParams();
-  const [selectedMarker, setSelectedMarker] = useState(null);
-  const [navigateToProfessorOffice, setNavigateToProfessorOffice] = useState(false);
-
+  const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
 
   const INITIAL_REGION = {
     latitude: 34.00039991787572,
@@ -76,11 +50,10 @@ export default function HomeScreen() {
   };
 
   const onMarkerSelected = (marker) => {
-    Alert.alert(marker.title || "Marker Selected");
-
     setSelectedDestination({
       latitude: marker.latitude,
       longitude: marker.longitude,
+      title: marker.title,
     });
 
     setShowTravelModeButtons(true);
@@ -102,17 +75,16 @@ export default function HomeScreen() {
     if (mapRef.current) {
       mapRef.current.animateToRegion(
         {
-          latitude: marker.latitude,
+          latitude: marker.latitude - 0.0025, //subtraction will make marker more centered on screen
           longitude: marker.longitude,
-          latitudeDelta: 0.01,
-          longitudeDelta: 0.01,
+          latitudeDelta: 0.015,
+          longitudeDelta: 0.015,
         },
         2500 // 2500 is duration of zoom in ms
       );
     }
   };
 
-  // This is also used for going to a professor's office location
   // Fetch markers from Firebase
   useEffect(() => {
     const fetchMarkers = async () => {
@@ -280,15 +252,13 @@ export default function HomeScreen() {
     }
   };
 
-
-    // Loading Wheel
-    if (isLoading) {
-      return (
-          <View style={styless.loadingContainer}>
-              <ActivityIndicator size="large" color="#73000A" />
-          </View>
-      );
-    }
+  if (isLoading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#73000A" />
+      </View>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -299,7 +269,6 @@ export default function HomeScreen() {
         containerStyle={styles.searchContainer}
         inputContainerStyle={styles.searchInputContainer}
       />
-
       <View style={styles.buttonContainer}>
         {/* Button to filter pins*/}
         <TouchableOpacity
@@ -397,8 +366,6 @@ export default function HomeScreen() {
               latitude: marker.latitude,
               longitude: marker.longitude,
             }}
-            title={marker.title}
-            description={marker.description}
             pinColor={marker.color ? marker.color : "red"}
             onPress={() => onMarkerSelected(marker)}
           />
@@ -464,6 +431,12 @@ export default function HomeScreen() {
       {/* Route Details and Stop Button */}
       {showRouteDetails && routeDetails && (
         <View style={styles.routeDetailsContainer}>
+          {/* Marker info here: Title, Description, Category, Tag, etc.
+              You will need to change the variable in setSelectedDestination */}
+          <Text style={styles.routeDetailsText}>
+            {selectedDestination ? selectedDestination.title : ""}
+          </Text>
+
           {/* Total Distance and Duration */}
           <Text style={styles.routeDetailsText}>
             Total Distance: {routeDetails.distance.toFixed(2)} miles
@@ -525,19 +498,3 @@ export default function HomeScreen() {
     </SafeAreaView>
   );
 }
-
-const styless = StyleSheet.create({
-  // New Chloe code for loading wheel
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F3F3F3',
-  },
-  container: {
-    flex: 1,
-  },
-  map: {
-    flex: 1,
-  },
-});

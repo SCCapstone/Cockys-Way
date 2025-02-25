@@ -94,12 +94,11 @@ export default function Directory() {
     }
   }, [search, data]);
 
-  //  Loading wheel while loading
   if (isLoading) {
     return (
-        <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color="#73000A" />
-        </View>
+      <View style={[styles.container, styles.loadingContainer]}>
+        <ActivityIndicator size="large" color="#73000A" />
+      </View>
     );
   }
 
@@ -169,7 +168,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: '#F3F3F3',
   },
   mainContent: {
     flexDirection: "row",
@@ -218,5 +216,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#73000A",
   },
-
 });

@@ -45,9 +45,13 @@ jest.mock("firebase/firestore", () => {
 });
 
 // mocks the icons to avoid the errors
-jest.mock("@expo/vector-icons", () => ({
-  Ionicons: jest.fn(() => null),
-}));
+jest.mock("@expo/vector-icons", () => {
+  const React = require("react");
+  const { Text } = require("react-native");
+  return {
+    Ionicons: (props) => <Text testID={props.testID}>{props.name}</Text>,
+  };
+});
 
 // Mock the AsyncStorage functions to avoid errors with jest
 jest.mock("@react-native-async-storage/async-storage", () => ({
@@ -82,5 +86,29 @@ describe("Schedule Page", () => {
         )
       ).toBeTruthy();
     });
+  });
+
+  it("toggles the bell icon when pressed", async () => {
+    const { getByTestId } = render(<Schedule />);
+    // get pressable and icon
+    const toggleBell = await waitFor(() => getByTestId("toggle-bell"));
+    const bellIcon = getByTestId("bell-icon");
+
+    // pull the props from icon
+    const getText = () =>
+      Array.isArray(bellIcon.props.children)
+        ? bellIcon.props.children.join("")
+        : bellIcon.props.children;
+
+    // get the initial state of the bell icon
+    const initial = getText();
+
+    // press the bell icon to see if it changes
+    fireEvent.press(toggleBell);
+    await waitFor(() => expect(getText()).not.toBe("bell-slash"));
+
+    // press the bell icon again to see if it changes back to initial (toggle)
+    fireEvent.press(toggleBell);
+    await waitFor(() => expect(getText()).toBe(initial));
   });
 });
