@@ -9,10 +9,13 @@ import {
   TouchableOpacity,
   ScrollView,
   ActivityIndicator,
+  Modal,
+  TextInput,
+  Button,
 } from "react-native";
-import { collection, getDocs } from "firebase/firestore";
+import { addDoc, updateDoc, doc, deleteDoc, collection, getDocs } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
-import { useRouter } from "expo-router";
+import { useRouter, useLocalSearchParams } from "expo-router";
 import { SearchBar } from "react-native-elements";
 import * as SplashScreen from "expo-splash-screen";
 import * as Location from "expo-location";
@@ -41,6 +44,18 @@ export default function HomeScreen() {
   const [routeSteps, setRouteSteps] = useState([]);
   const mapRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
+  // Creating custom pins
+  const [creatingCustomPin, setCreatingCustomPin] = useState(false);
+  const [customPinLocation, setCustomPinLocation] = useState(null);
+  // adjusting custom pins
+  const [isRenameModalVisible, setIsRenameModalVisible] = useState(false);
+  const [newTitle, setNewTitle] = useState("");
+  const [newDescription, setNewDescription] = useState("");
+
+  // Get professor's office location if navigated from ProfessorInfo.js
+  const { officeAddress } = useLocalSearchParams();
+  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [navigateToProfessorOffice, setNavigateToProfessorOffice] = useState(false);
 
   const INITIAL_REGION = {
     latitude: 34.00039991787572,
@@ -50,6 +65,7 @@ export default function HomeScreen() {
   };
 
   const onMarkerSelected = (marker) => {
+    setSelectedMarker(marker);
     setSelectedDestination({
       latitude: marker.latitude,
       longitude: marker.longitude,
@@ -182,7 +198,7 @@ export default function HomeScreen() {
       );
       setFilteredMarkers(filtered);
     }
-    //console.log("Filtered Markers:", filteredMarkers); // debugging error when using search
+    console.log("Filtered Markers:", filteredMarkers); // debugging error when using search
   }, [search, markers]);
 
   // Request location permissions and set startLocation
@@ -225,6 +241,135 @@ export default function HomeScreen() {
     } catch (error) {
       console.error("Route history save error: ", error);
     }
+  };
+
+  // Adding a custom pin to Firestore
+  const addCustomPinToFirestore = async (latitude, longitude) => {
+    try {
+      const newPin = {
+        latitude,
+        longitude,
+        title: "Custom Pin",
+        description: "User-added pin",
+        color: "blue",
+      };
+      //await addDoc(collection(FIRESTORE_DB, "locTest"), newPin);
+      const docRef = await addDoc(collection(FIRESTORE_DB, "locTest"), newPin);
+      newPin.id = docRef.id;
+      setMarkers((prevMarkers) => [...prevMarkers, newPin]);
+      setFilteredMarkers((prevMarkers) => [...prevMarkers, newPin]);
+    } catch (error) {
+      Alert.alert("Error adding custom pin", error.message);
+    }
+  };
+
+  // When adding custom pin, detect map press
+  const handleMapPress = (event) => {
+    if (creatingCustomPin) {
+      const { latitude, longitude } = event.nativeEvent.coordinate;
+      setCustomPinLocation({ latitude, longitude });
+      setCreatingCustomPin(false);
+      // Add the custom pin to Firestore
+      addCustomPinToFirestore(latitude, longitude);
+    }
+  };
+
+  // For renaming
+  const showRenameModal = (pin) => {
+    setSelectedMarker(pin);
+    setNewTitle(pin.title);
+    setNewDescription(pin.description);
+    setIsRenameModalVisible(true);
+  };
+
+  // rename custom pin
+  // originally started as just to rename. will adjust to add ability to change description too.
+  /*const handleRenamePin = async (pin) => {
+    //const newTitle = prompt("Enter new title for the pin:", pin.title);
+    if (newTitle && newDescription) {
+      try {
+        await updateDoc(doc(FIRESTORE_DB, "locTest", pin.id), { title: newTitle });
+        setMarkers((prevMarkers) =>
+          prevMarkers.map((marker) =>
+            marker.id === pin.id ? { ...marker, title: newTitle } : marker
+          )
+        );
+        setFilteredMarkers((prevMarkers) =>
+          prevMarkers.map((marker) =>
+            marker.id === pin.id ? { ...marker, title: newTitle } : marker
+          )
+        );
+        setIsRenameModalVisible(false);
+      } catch (error) {
+        Alert.alert("Error renaming pin", error.message);
+      }
+    }
+  };*/
+  const handleRenamePin = async () => {
+    if (newTitle && newDescription) {
+      try {
+        await updateDoc(doc(FIRESTORE_DB, "locTest", selectedMarker.id), {
+          title: newTitle,
+          description: newDescription,
+        });
+        setMarkers((prevMarkers) =>
+          prevMarkers.map((marker) =>
+            marker.id === selectedMarker.id
+              ? { ...marker, title: newTitle, description: newDescription }
+              : marker
+          )
+        );
+        setFilteredMarkers((prevMarkers) =>
+          prevMarkers.map((marker) =>
+            marker.id === selectedMarker.id
+              ? { ...marker, title: newTitle, description: newDescription }
+              : marker
+          )
+        );
+        setIsRenameModalVisible(false);
+      } catch (error) {
+        Alert.alert("Error renaming pin", error.message);
+      }
+    }
+  };
+  
+  // delete custom pin
+  /*
+  const handleDeletePin = async (pin) => {
+    try {
+      await deleteDoc(doc(FIRESTORE_DB, "locTest", pin.id));
+      setMarkers((prevMarkers) => prevMarkers.filter((marker) => marker.id !== pin.id));
+      setFilteredMarkers((prevMarkers) => prevMarkers.filter((marker) => marker.id !== pin.id));
+    } catch (error) {
+      Alert.alert("Error deleting pin", error.message);
+    }
+  };
+  */
+  const handleDeletePin = (pin) => {
+    Alert.alert(
+      "Delete Pin",
+      `Delete pin "${pin.title}"?`,
+      [
+        {
+          text: "CANCEL",
+          onPress: () => console.log("Delete cancelled"),
+          style: "cancel",
+        },
+        {
+          text: "CONFIRM",
+          onPress: async () => {
+            try {
+              await deleteDoc(doc(FIRESTORE_DB, "locTest", pin.id));
+              setMarkers((prevMarkers) => prevMarkers.filter((marker) => marker.id !== pin.id));
+              setFilteredMarkers((prevMarkers) => prevMarkers.filter((marker) => marker.id !== pin.id));
+            } catch (error) {
+              Alert.alert("Error deleting pin", error.message);
+            }
+          },
+        },
+      ],
+      { cancelable: false }
+    );
   };
 
   // Handle stopping directions
@@ -295,6 +440,15 @@ export default function HomeScreen() {
         >
           <FontAwesome name="book" size={24} color="#73000A" />
         </TouchableOpacity>
+
+        {/* Button to add custom pin */}
+        <TouchableOpacity
+          style={styles.customPinButton}
+          onPress={() => setCreatingCustomPin(true)}
+        >
+          <FontAwesome name="map-marker" size={24} color="#73000A" />
+          <Text style={styles.buttonText}>+</Text>
+      </TouchableOpacity>
       </View>
 
       {/* Map */}
@@ -307,6 +461,7 @@ export default function HomeScreen() {
         showsUserLocation={true}
         followsUserLocation={true}
         showsTraffic={showTraffic}
+        onPress={handleMapPress}
       >
 
         {/* render markers normally */}
@@ -321,7 +476,7 @@ export default function HomeScreen() {
         */}
 
         {/* display all markers */}
-        {markers.map((marker) => (
+        {/*markers.map((marker) => (
           <Marker
             key={marker.id}
             coordinate={{
@@ -331,7 +486,8 @@ export default function HomeScreen() {
             title={marker.title}
             pinColor={selectedMarker?.id === marker.id ? "blue" : "red"} // Highlight selected marker
           />
-        ))}
+        ))*/}
+        {/* Commented out above. Originally showed ALL markers. See "Display filtered markers" below.*/}
 
         {/* display prof. office if selected */}
         {selectedDestination && (
@@ -358,18 +514,43 @@ export default function HomeScreen() {
         {/* End of displaying prof office if selected*/}
 
 
-
-        {filteredMarkers.map((marker) => (
+        {/* Display filtered markers */}
+        {/*filteredMarkers.map((marker) => (
           <Marker
             key={marker.id}
             coordinate={{
               latitude: marker.latitude,
               longitude: marker.longitude,
             }}
+            title={marker.title}
+            description={marker.description}
             pinColor={marker.color ? marker.color : "red"}
             onPress={() => onMarkerSelected(marker)}
+            zIndex={selectedMarker?.id === marker.id ? 1000 : 1} // marker to front
+            style={selectedMarker?.id === marker.id ? { transform: [{ scale: 1.5 }] } : {}} // biggering
+            tracksViewChanges={selectedMarker?.id === marker.id} // re-render selected marker
           />
-        ))}
+        ))*/}
+        {filteredMarkers.map((marker) => {
+          // changed to only pass through necessary props to get rid of minor error popup when using search
+          const { id, latitude, longitude, title, description, color } = marker;
+          return (
+            <Marker
+              key={id}
+              coordinate={{
+                latitude,
+                longitude,
+              }}
+              title={title}
+              description={description}
+              pinColor={color ? color : "red"}
+              onPress={() => onMarkerSelected(marker)}
+              zIndex={selectedMarker?.id === id ? 1000 : 1} // marker to front
+              style={selectedMarker?.id === id ? { transform: [{ scale: 1.5 }] } : {}} // biggering
+              tracksViewChanges={selectedMarker?.id === id} // re-render selected marker
+            />
+          );
+        })}
 
         {/* Directions */}
         {startLocation && selectedDestination && (
@@ -394,6 +575,67 @@ export default function HomeScreen() {
           />
         )}
       </MapView>
+
+      { /* Custom Pin Actions */}
+      {/*selectedMarker && selectedMarker.color === "blue" && (
+        <View style={styles.pinActionsContainer}>
+          <TouchableOpacity
+            style={styles.pinActionButton}
+            onPress={() => handleRenamePin(selectedMarker)}
+          >
+            <Text style={styles.pinActionText}>Rename</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.pinActionButton}
+            onPress={() => handleDeletePin(selectedMarker)}
+          >
+            <Text style={styles.pinActionText}>Delete</Text>
+          </TouchableOpacity>
+        </View>
+      )*/}
+      {selectedMarker && selectedMarker.color === "blue" && (
+        <View style={styles.pinActionsContainer}>
+          <TouchableOpacity
+            style={styles.pinActionButton}
+            onPress={() => showRenameModal(selectedMarker)}
+          >
+            <Text style={styles.pinActionText}>Rename</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.pinActionButton}
+            onPress={() => handleDeletePin(selectedMarker)}
+          >
+            <Text style={styles.pinActionText}>Delete</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+
+      {/* Adjusting Custom Pin (Renaming / New Description) */}
+      <Modal
+      animationType="slide"
+      transparent={true}
+      visible={isRenameModalVisible}
+      onRequestClose={() => setIsRenameModalVisible(false)}
+    >
+      <View style={styles.modalContainer}>
+        <View style={styles.modalView}>
+          <Text style={styles.modalText}>Enter new title for the pin:</Text>
+          <TextInput
+            style={styles.modalInput}
+            value={newTitle}
+            onChangeText={setNewTitle}
+          />
+          <Text style={styles.modalText}>Enter new description for the pin:</Text>
+          <TextInput
+            style={styles.modalInput}
+            value={newDescription}
+            onChangeText={setNewDescription}
+          />
+          <Button title="Rename" onPress={handleRenamePin} />
+          <Button title="Cancel" onPress={() => setIsRenameModalVisible(false)} />
+        </View>
+      </View>
+    </Modal>
 
       {/* Travel Mode Buttons (Overlay) */}
       {showTravelModeButtons && (

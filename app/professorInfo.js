@@ -6,8 +6,11 @@ import {
   SafeAreaView,
   Linking,
   ScrollView,
+  TouchableOpacity,
+  ActivityIndicator,
 } from "react-native";
-import { useLocalSearchParams } from "expo-router";
+import { useEffect, useState } from "react";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 import defaultImage from "../assets/professorInfo/200x200.png";
@@ -50,7 +53,56 @@ export const checkHours = (officeHours) => {
 
 export default function ProfessorInfo() {
   const { item } = useLocalSearchParams();
-  const professor = JSON.parse(item);
+  //const professor = JSON.parse(item);
+  const [professor, setProfessor] = useState(null);
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (item) {
+      try {
+        setProfessor(JSON.parse(item));
+      } catch (error) {
+        console.error("Error parsing professor data:", error);
+      }
+    }
+    setLoading(false);
+  }, [item]);
+
+  if (!professor || loading) {
+    return (
+      <View style={styles.loadingContainer}>
+        <ActivityIndicator size="large" color="#73000A" />
+        <Text style={styles.loadingText}>Loading Professor details...</Text>
+      </View>
+    );
+  }
+
+  // ✅ Function to navigate to office location on the map
+  const navigateToOffice = () => {
+    if (!professor.office) {
+      Alert.alert("No office information available");
+      return;
+    }
+
+    // ✅ Extract address (without room number)
+    const officeAddress = professor.office.split(",")[0].trim();
+
+    router.push({
+      pathname: "/(tabs)",
+      params: { officeAddress },
+    });
+  };
+
+
+
+
+
+
+
+
+
+
 
   // Handles sorting the office hours by day of the week so
   // that they are displayed in the correct order
@@ -115,6 +167,10 @@ export default function ProfessorInfo() {
             No office information available.
           </Text>
         )}
+        <TouchableOpacity style={styles.navigateButton} onPress={navigateToOffice}>
+          <Text style={styles.navigateButtonText}>Navigate to Office</Text>
+        </TouchableOpacity>
+
       </View>
       <View style={styles.line}></View>
       <View style={[styles.officeInfo, styles.quickLook]}>
@@ -239,5 +295,27 @@ const styles = StyleSheet.create({
   radius: {
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
+  },
+  navigateButton: {
+    backgroundColor: "#73000A",
+    padding: 10,
+    marginTop: 10,
+    borderRadius: 5,
+    alignItems: "center",
+  },
+  navigateButtonText: {
+    color: "#FFFFFF",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loadingText: {
+    marginTop: 10,
+    fontSize: 16,
+    color: "#73000A",
   },
 });

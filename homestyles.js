@@ -35,6 +35,79 @@ export default StyleSheet.create({
     width: 40,
     height: 35,
   },
+  // Start of code for custom pins
+  customPinButton: {
+    backgroundColor: "#e2e2e2",
+    padding: 5,
+    borderRadius: 5,
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "black",
+    width: 40,
+    height: 35,
+    flexDirection: "row",
+  justifyContent: "center",
+  },
+  buttonText: {
+    color: "#73000A",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  pinActionsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: 10,
+  },
+  pinActionButton: {
+    backgroundColor: "#e2e2e2",
+    padding: 10,
+    borderRadius: 5,
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "black",
+  },
+  pinActionText: {
+    color: "#73000A",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  // renaming pin
+  modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0,0,0,0.5)",
+  },
+  modalView: {
+    width: 300,
+    backgroundColor: "white",
+    borderRadius: 10,
+    padding: 20,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
+    fontSize: 18,
+  },
+  modalInput: {
+    width: "100%",
+    borderBottomWidth: 1,
+    marginBottom: 15,
+    padding: 5,
+    fontSize: 16,
+  },
+
+
+  // End of code for custom pins
   trafficButton: {
     backgroundColor: "#e2e2e2",
     padding: 5,
