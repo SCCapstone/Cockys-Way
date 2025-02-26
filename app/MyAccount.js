@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Alert, TextInput, TouchableOpacity, ActivityIndicator, Modal } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import * as SplashScreen from 'expo-splash-screen';
-import { getAuth, updatePassword, updateEmail, reauthenticateWithCredential, EmailAuthProvider } from 'firebase/auth';
+import { getAuth, updatePassword, updateEmail, reauthenticateWithCredential, EmailAuthProvider, sendEmailVerification } from 'firebase/auth';
 import { doc, getDoc } from "firebase/firestore"; 
 import { getFirestore } from "firebase/firestore";
 
@@ -56,41 +56,48 @@ export default function MyAccountScreen() {
     setNewPassword('');
   };
 
-  const handleSaveChanges = async () => {
-    setIsLoading(true);
-    try {
-      if (!auth.currentUser) {
-        Alert.alert("Error", "No authenticated user found.");
-        return;
-      }
-  
-      // Re-authenticate before making changes
-      const credential = EmailAuthProvider.credential(auth.currentUser.email, passwordForAuth);
-      await reauthenticateWithCredential(auth.currentUser, credential);
-  
-      // Update email (only if user entered a new one)
-      if (newEmail.trim() !== "") {
-        await updateEmail(auth.currentUser, newEmail);
-        Alert.alert("Success", "Your email has been updated!");
-      }
-  
-      // Update password (only if user entered a new one)
-      if (newPassword.trim() !== "") {
-        await updatePassword(auth.currentUser, newPassword);
-        Alert.alert("Success", "Your password has been updated!");
-      }
-  
-      // Reset input fields and close modal
-      setNewEmail("");
-      setNewPassword("");
-      setPasswordForAuth("");
-      setIsEditing(false);
-    } catch (error) {
-      Alert.alert("Error", error.message);
-    } finally {
-      setIsLoading(false);
+ const handleSaveChanges = async () => {
+  setIsLoading(true);
+  try {
+    const auth = getAuth();
+    if (!auth.currentUser) {
+      Alert.alert("Error", "No authenticated user found.");
+      return;
     }
-  };
+
+    const credential = EmailAuthProvider.credential(auth.currentUser.email, passwordForAuth);
+    await reauthenticateWithCredential(auth.currentUser, credential);
+
+    if (newEmail.trim() !== "") {
+      updateEmail(auth.currentUser, newEmail).then(() => {
+        Alert.alert("Success", "Your email has been updated!");
+        
+      }).catch((error) => {
+        console.log(error);
+      });
+
+      setNewEmail("");
+      setIsLoading(false);
+      return;
+    }
+
+    if (newPassword.trim() !== "") {
+      await updatePassword(auth.currentUser, newPassword);
+      Alert.alert("Success", "Your password has been updated!");
+    }
+
+    setNewEmail("");
+    setNewPassword("");
+    setPasswordForAuth("");
+    setIsEditing(false);
+  } catch (error) {
+    Alert.alert("Error", error.message);
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+  
   
   
   
