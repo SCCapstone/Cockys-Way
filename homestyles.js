@@ -46,7 +46,7 @@ export default StyleSheet.create({
     width: 40,
     height: 35,
     flexDirection: "row",
-  justifyContent: "center",
+    justifyContent: "center",
   },
   buttonText: {
     color: "#73000A",
@@ -60,7 +60,8 @@ export default StyleSheet.create({
   },
   pinActionButton: {
     backgroundColor: "#e2e2e2",
-    padding: 10,
+    padding: 5,
+    marginBottom: 5,
     borderRadius: 5,
     alignItems: "center",
     borderWidth: 1,
@@ -106,7 +107,6 @@ export default StyleSheet.create({
     fontSize: 16,
   },
 
-
   // End of code for custom pins
   trafficButton: {
     backgroundColor: "#e2e2e2",
@@ -141,13 +141,14 @@ export default StyleSheet.create({
   },
   routeDetailsContainer: {
     position: "absolute",
-    bottom: 20,
+    bottom: 50,
     left: 20,
     right: 20,
     backgroundColor: "white",
     padding: 10,
     borderRadius: 5,
     elevation: 5,
+    opacity: 0.9,
   },
   routeDetailsText: {
     fontSize: 15,
@@ -155,7 +156,12 @@ export default StyleSheet.create({
   },
   routeButton: {
     backgroundColor: "#e2e2e2",
-    padding: 5,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 5,
+    paddingBottom: 5,
+    marginLeft: 0,
+    marginRight: 0,
     borderRadius: 5,
     alignItems: "center",
     justifyContent: "center",
@@ -182,5 +188,20 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  exitButton: {
+    backgroundColor: "#e2e2e2",
+    padding: 5,
+    borderRadius: 5,
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "black",
+    width: 40,
+    height: 35,
+    justifyContent: "flex-end",
+  },
+  titleContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });

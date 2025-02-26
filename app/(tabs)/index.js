@@ -13,7 +13,14 @@ import {
   TextInput,
   Button,
 } from "react-native";
-import { addDoc, updateDoc, doc, deleteDoc, collection, getDocs } from "firebase/firestore";
+import {
+  addDoc,
+  updateDoc,
+  doc,
+  deleteDoc,
+  collection,
+  getDocs,
+} from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { useRouter, useLocalSearchParams } from "expo-router";
 import { SearchBar } from "react-native-elements";
@@ -53,9 +60,10 @@ export default function HomeScreen() {
   const [newDescription, setNewDescription] = useState("");
 
   // Get professor's office location if navigated from ProfessorInfo.js
-  const { officeAddress } = useLocalSearchParams();
+  const { latitude, longitude } = useLocalSearchParams();
   const [selectedMarker, setSelectedMarker] = useState(null);
-  const [navigateToProfessorOffice, setNavigateToProfessorOffice] = useState(false);
+  const [navigateToProfessorOffice, setNavigateToProfessorOffice] =
+    useState(false);
 
   const INITIAL_REGION = {
     latitude: 34.00039991787572,
@@ -117,44 +125,22 @@ export default function HomeScreen() {
         setIsLoading(false);
 
         // When coming from Professor Info page
-        if (officeAddress) {
-          const cleanedAddress = officeAddress.split(",")[0].trim(); // remove room number from the office location
-          //const foundMarker = db_data.find((marker) => marker.title === officeAddress);
-          const foundMarker = db_data.find((marker) => marker.title === cleanedAddress);
-          console.log(cleanedAddress);
-          // LOCATION DATA SUCCESSFULLY RECEIVED FROM PROF
+        if (latitude & longitude) {
+          const newMarker = {
+            id: "searched-location",
+            latitude: parseFloat(latitude),
+            longitude: parseFloat(longitude),
+            title: "Searched Location",
+            description: "Professor's office location",
+            color: "blue",
+          };
 
-          if (foundMarker) {
-            setSelectedMarker(foundMarker);
-
-            // new after getting cleaned address working
-            setSelectedDestination({
-              latitude: foundMarker.latitude,
-              longitude: foundMarker.longitude,
-            });
-
-            // zoom into prof office
-            if (mapRef.current) {
-              mapRef.current.animateToRegion(
-                {
-                  latitude: foundMarker.latitude,
-                  longitude: foundMarker.longitude,
-                  latitudeDelta: 0.01,
-                  longitudeDelta: 0.01,
-                },
-                2000 // Zoom-in duration in milliseconds
-              );
-            }
-
-            // zoom in to prof location as soon as map loads
-            setNavigateToProfessorOffice(true);
-
-          } else {
-            Alert.alert("Professor's office location not found on the map.");
-          }
+          setMarkers((prevMarkers) => [...prevMarkers, newMarker]);
+          setFilteredMarkers((prevMarkers) => [...prevMarkers, newMarker]);
+          setSelectedMarker(newMarker);
+          setSelectedDestination(newMarker);
+          setNavigateToProfessorOffice(true);
         } // end of NEW CODE FOR PROF OFFICE INFO
-
-
       } catch (err) {
         Alert.alert("Error fetching data");
         setIsLoading(false);
@@ -162,10 +148,10 @@ export default function HomeScreen() {
     };
 
     fetchMarkers();
-//  }, []); // ORIG. COMMENTED OUT FOR OFFICE TEST
-  }, [officeAddress]);
+    //  }, []); // ORIG. COMMENTED OUT FOR OFFICE TEST
+  }, [latitude, longitude]);
 
-// move the map to selected marker when found
+  // move the map to selected marker when found
   useEffect(() => {
     //if (selectedMarker && mapRef.current) {
     if (navigateToProfessorOffice && selectedMarker && mapRef.current) {
@@ -179,10 +165,10 @@ export default function HomeScreen() {
           },
           2000 // Zoom-in duration in milliseconds
         );
+        setShowRouteDetails(true);
       }, 500); // delay makes sure map is fully loaded before zyooming
     }
   }, [navigateToProfessorOffice, selectedMarker]);
-
 
   /*
       TO-DO:
@@ -193,10 +179,10 @@ export default function HomeScreen() {
 
   */
 
-
   // Update filtered markers based on search input
   useEffect(() => {
-    if (search === "") { // ORIG
+    if (search === "") {
+      // ORIG
       setFilteredMarkers(markers);
     } else {
       const filtered = markers.filter((marker) =>
@@ -338,7 +324,7 @@ export default function HomeScreen() {
       }
     }
   };
-  
+
   // delete custom pin
   /*
   const handleDeletePin = async (pin) => {
@@ -366,8 +352,12 @@ export default function HomeScreen() {
           onPress: async () => {
             try {
               await deleteDoc(doc(FIRESTORE_DB, "locTest", pin.id));
-              setMarkers((prevMarkers) => prevMarkers.filter((marker) => marker.id !== pin.id));
-              setFilteredMarkers((prevMarkers) => prevMarkers.filter((marker) => marker.id !== pin.id));
+              setMarkers((prevMarkers) =>
+                prevMarkers.filter((marker) => marker.id !== pin.id)
+              );
+              setFilteredMarkers((prevMarkers) =>
+                prevMarkers.filter((marker) => marker.id !== pin.id)
+              );
             } catch (error) {
               Alert.alert("Error deleting pin", error.message);
             }
@@ -454,7 +444,7 @@ export default function HomeScreen() {
         >
           <FontAwesome name="map-marker" size={24} color="#73000A" />
           <Text style={styles.buttonText}>+</Text>
-      </TouchableOpacity>
+        </TouchableOpacity>
       </View>
 
       {/* Map */}
@@ -469,7 +459,6 @@ export default function HomeScreen() {
         showsTraffic={showTraffic}
         onPress={handleMapPress}
       >
-
         {/* render markers normally */}
         {/*{markers.map((marker) => (
         //  <Marker
@@ -519,7 +508,6 @@ export default function HomeScreen() {
         )}
         {/* End of displaying prof office if selected*/}
 
-
         {/* Display filtered markers */}
         {/*filteredMarkers.map((marker) => (
           <Marker
@@ -552,7 +540,9 @@ export default function HomeScreen() {
               pinColor={color ? color : "red"}
               onPress={() => onMarkerSelected(marker)}
               zIndex={selectedMarker?.id === id ? 1000 : 1} // marker to front
-              style={selectedMarker?.id === id ? { transform: [{ scale: 1.5 }] } : {}} // biggering
+              style={
+                selectedMarker?.id === id ? { transform: [{ scale: 1.5 }] } : {}
+              } // biggering
               tracksViewChanges={selectedMarker?.id === id} // re-render selected marker
             />
           ); // end of filteredMarkers return statement
@@ -582,7 +572,7 @@ export default function HomeScreen() {
         )}
       </MapView>
 
-      { /* Custom Pin Actions */}
+      {/* Custom Pin Actions */}
       {/*selectedMarker && selectedMarker.color === "blue" && (
         <View style={styles.pinActionsContainer}>
           <TouchableOpacity
@@ -618,30 +608,35 @@ export default function HomeScreen() {
 
       {/* Adjusting Custom Pin (Renaming / New Description) */}
       <Modal
-      animationType="slide"
-      transparent={true}
-      visible={isRenameModalVisible}
-      onRequestClose={() => setIsRenameModalVisible(false)}
-    >
-      <View style={styles.modalContainer}>
-        <View style={styles.modalView}>
-          <Text style={styles.modalText}>Enter new title for the pin:</Text>
-          <TextInput
-            style={styles.modalInput}
-            value={newTitle}
-            onChangeText={setNewTitle}
-          />
-          <Text style={styles.modalText}>Enter new description for the pin:</Text>
-          <TextInput
-            style={styles.modalInput}
-            value={newDescription}
-            onChangeText={setNewDescription}
-          />
-          <Button title="Rename" onPress={handleRenamePin} />
-          <Button title="Cancel" onPress={() => setIsRenameModalVisible(false)} />
+        animationType="slide"
+        transparent={true}
+        visible={isRenameModalVisible}
+        onRequestClose={() => setIsRenameModalVisible(false)}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Enter new title for the pin:</Text>
+            <TextInput
+              style={styles.modalInput}
+              value={newTitle}
+              onChangeText={setNewTitle}
+            />
+            <Text style={styles.modalText}>
+              Enter new description for the pin:
+            </Text>
+            <TextInput
+              style={styles.modalInput}
+              value={newDescription}
+              onChangeText={setNewDescription}
+            />
+            <Button title="Rename" onPress={handleRenamePin} />
+            <Button
+              title="Cancel"
+              onPress={() => setIsRenameModalVisible(false)}
+            />
+          </View>
         </View>
-      </View>
-    </Modal>
+      </Modal>
 
       {/* Travel Mode Buttons (Overlay) */}
       {showTravelModeButtons && (
@@ -681,9 +676,17 @@ export default function HomeScreen() {
         <View style={styles.routeDetailsContainer}>
           {/* Marker info here: Title, Description, Category, Tag, etc.
               You will need to change the variable in setSelectedDestination */}
-          <Text style={styles.routeDetailsText}>
-            {selectedDestination ? selectedDestination.title : ""}
-          </Text>
+          <View style={styles.titleContainer}>
+            <Text style={styles.routeDetailsText}>
+              {selectedDestination ? selectedDestination.title : ""}
+            </Text>
+            <TouchableOpacity
+              style={styles.exitButton}
+              onPress={handleStopDirections}
+            >
+              <FontAwesome name="times" size={24} color="#73000A" />
+            </TouchableOpacity>
+          </View>
 
           {/* Total Distance and Duration */}
           <Text style={styles.routeDetailsText}>
@@ -729,7 +732,7 @@ export default function HomeScreen() {
               onPress={handleResetStartLocation}
             >
               <FontAwesome name="times" size={24} color="#73000A" />
-              <Text style={styles.routeButtonText}>Reset Loc</Text>
+              <Text style={styles.routeButtonText}>Reset Location</Text>
             </TouchableOpacity>
 
             {/* Stop Directions Button */}
@@ -738,7 +741,7 @@ export default function HomeScreen() {
               onPress={handleStopDirections}
             >
               <FontAwesome name="stop" size={24} color="#73000A" />
-              <Text style={styles.routeButtonText}>Stop Dir</Text>
+              <Text style={styles.routeButtonText}>Stop Directions</Text>
             </TouchableOpacity>
           </View>
         </View>

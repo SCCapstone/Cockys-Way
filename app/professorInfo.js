@@ -8,10 +8,12 @@ import {
   ScrollView,
   TouchableOpacity,
   ActivityIndicator,
+  Alert,
 } from "react-native";
 import { useEffect, useState } from "react";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import axios from "axios";
 
 import defaultImage from "../assets/professorInfo/200x200.png";
 
@@ -24,6 +26,50 @@ const daysOfWeek = [
   "friday",
   "saturday",
 ];
+
+const bounds = {
+  north: 34.027528,
+  south: 33.945306,
+  east: -80.994167,
+  west: -81.078778,
+};
+
+const addressBounds = (lat, long) => {
+  return (
+    lat <= bounds.north &&
+    lat >= bounds.south &&
+    long <= bounds.east &&
+    long >= bounds.west
+  );
+};
+
+const searchAddress = async (address) => {
+  const cleanedAddress = address
+    .replace(/-\d{4}$/, "")
+    .replace(/\b[Rr]oom\s*\d{1,4}\b/, "");
+  try {
+    const response = await axios.get(
+      `https://nominatim.openstreetmap.org/search`,
+      {
+        params: {
+          q: cleanedAddress,
+          format: "json",
+        },
+      }
+    );
+    console.log("DATA");
+    console.log(response);
+
+    const filteredData = response.data.filter((location) =>
+      addressBounds(parseFloat(location.lat), parseFloat(location.lon))
+    );
+
+    return filteredData;
+  } catch (error) {
+    console.error("Error searching address:", error);
+    throw error;
+  }
+};
 
 // Checks if the professor is currently in their office
 export const checkHours = (officeHours) => {
@@ -79,30 +125,34 @@ export default function ProfessorInfo() {
   }
 
   // ✅ Function to navigate to office location on the map
-  const navigateToOffice = () => {
+  const navigateToOffice = async () => {
     if (!professor.office) {
       Alert.alert("No office information available");
       return;
     }
 
-    // ✅ Extract address (without room number)
-    const officeAddress = professor.office.split(",")[0].trim();
+    try {
+      const response = await searchAddress(professor.office);
+      console.log(response);
 
-    router.push({
-      pathname: "/(tabs)",
-      params: { officeAddress },
-    });
+      if (response.length > 0) {
+        const location = response[0];
+        const latitude = parseFloat(location.lat);
+        const longitude = parseFloat(location.lon);
+
+        router.push({
+          pathname: "/(tabs)",
+          params: { latitude, longitude },
+        });
+        console.log("SENT TO MAP");
+      } else {
+        Alert.alert("Address not found.");
+      }
+    } catch (error) {
+      console.error("Error searching address:", error);
+      Alert.alert("Error searching address.");
+    }
   };
-
-
-
-
-
-
-
-
-
-
 
   // Handles sorting the office hours by day of the week so
   // that they are displayed in the correct order
@@ -167,10 +217,12 @@ export default function ProfessorInfo() {
             No office information available.
           </Text>
         )}
-        <TouchableOpacity style={styles.navigateButton} onPress={navigateToOffice}>
+        <TouchableOpacity
+          style={styles.navigateButton}
+          onPress={navigateToOffice}
+        >
           <Text style={styles.navigateButtonText}>Navigate to Office</Text>
         </TouchableOpacity>
-
       </View>
       <View style={styles.line}></View>
       <View style={[styles.officeInfo, styles.quickLook]}>
