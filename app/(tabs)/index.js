@@ -174,7 +174,6 @@ export default function HomeScreen() {
             key: GOOGLE_API_KEY,
           },
         });
-
         //console.log(`Google API Response for "${title}":`, response.data); // Debugging
     
         if (response.data.status === 'OK' && response.data.results.length > 0) {
@@ -209,36 +208,6 @@ export default function HomeScreen() {
       }
     };  // end of getAlternateNames
     
-   /*
-    const getAlternateNames = async (title) => {
-      try {
-        const response = await axios.get('https://nominatim.openstreetmap.org/search', {
-          params: {
-            q: title,
-            format: 'json',
-            addressdetails: 1,
-            limit: 1,
-          },
-        });
-    
-        if (response.data.length > 0) {
-          const result = response.data[0];
-          const alternateNames = [result.display_name];
-          if (result.address) {
-            const addressComponents = Object.values(result.address);
-            alternateNames.push(...addressComponents);
-          }
-          return [...new Set(alternateNames)];
-        } else {
-          console.error('Error fetching alternate names: No results found');
-          return [];
-        }
-      } catch (error) {
-        console.error('Error fetching alternate names:', error);
-        return [];
-      }
-    };
-    */
 
   /*
     For testing:
@@ -272,13 +241,7 @@ export default function HomeScreen() {
       //return; // Exit early if no valid alternate names
     }
 
-    // Flatten any nested arrays and keep only valid strings
-    //const flattenedNames = alternateNames.flat();
-
-    // Ensure all values are properly formatted strings before joining
-    //const cleanedAlternateNames = flattenedNames
-    //  .filter(name => typeof name === 'string' && name.trim().length > 0);
-  
+    // Ensure all values properly formatted before joining
     const cleanedAlternateNames = alternateNames.flat().filter(name => typeof name === 'string' && name.trim().length > 0);
       
     //console.log(`Cleaned alternateNames for ${title}:`, cleanedAlternateNames);
@@ -287,11 +250,7 @@ export default function HomeScreen() {
       return;
     }
 
-    //const updatedDescription = description
-    //  ? `${description}\nAlternate Names:\n${cleanedAlternateNames.join('\n')}`
-    //  : `Alternate Names:\n${cleanedAlternateNames.join('\n')}`;
-    
-    // changing to single line
+    // changing to single line to make firestore stop hating it
     const alternateNamesString = cleanedAlternateNames.join(', ');
     //const updatedDescription = description
     //  ? `${description} | Alternate Names: ${alternateNamesString}`
@@ -368,11 +327,6 @@ export default function HomeScreen() {
       // ORIG
       setFilteredMarkers(markers);
     } else {
-      /*
-      const filtered = markers.filter((marker) =>
-        marker.title.toLowerCase().includes(search.toLowerCase())
-      );
-      */
       const filtered = markers.filter((marker) => {
         const searchLower = search.toLowerCase();
         const titleMatch = marker.title.toLowerCase().includes(searchLower);
@@ -466,28 +420,8 @@ export default function HomeScreen() {
   };
 
   // rename custom pin
-  // originally started as just to rename. will adjust to add ability to change description too.
-  /*const handleRenamePin = async (pin) => {
-    //const newTitle = prompt("Enter new title for the pin:", pin.title);
-    if (newTitle && newDescription) {
-      try {
-        await updateDoc(doc(FIRESTORE_DB, "locTest", pin.id), { title: newTitle });
-        setMarkers((prevMarkers) =>
-          prevMarkers.map((marker) =>
-            marker.id === pin.id ? { ...marker, title: newTitle } : marker
-          )
-        );
-        setFilteredMarkers((prevMarkers) =>
-          prevMarkers.map((marker) =>
-            marker.id === pin.id ? { ...marker, title: newTitle } : marker
-          )
-        );
-        setIsRenameModalVisible(false);
-      } catch (error) {
-        Alert.alert("Error renaming pin", error.message);
-      }
-    }
-  };*/
+  // originally started as just to rename.
+  // adjusted to add ability to change description too.
   const handleRenamePin = async () => {
     if (newTitle && newDescription) {
       try {
@@ -517,17 +451,6 @@ export default function HomeScreen() {
   };
 
   // delete custom pin
-  /*
-  const handleDeletePin = async (pin) => {
-    try {
-      await deleteDoc(doc(FIRESTORE_DB, "locTest", pin.id));
-      setMarkers((prevMarkers) => prevMarkers.filter((marker) => marker.id !== pin.id));
-      setFilteredMarkers((prevMarkers) => prevMarkers.filter((marker) => marker.id !== pin.id));
-    } catch (error) {
-      Alert.alert("Error deleting pin", error.message);
-    }
-  };
-  */
   const handleDeletePin = (pin) => {
     Alert.alert(
       "Delete Pin",
