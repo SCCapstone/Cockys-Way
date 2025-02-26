@@ -20,6 +20,7 @@ import {
   deleteDoc,
   collection,
   getDocs,
+  getDoc,
 } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { useRouter, useLocalSearchParams } from "expo-router";
@@ -31,6 +32,7 @@ import { GOOGLE_API_KEY } from "@env";
 import styles from "../../homestyles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import axios from 'axios';
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -124,6 +126,13 @@ export default function HomeScreen() {
         setFilteredMarkers(db_data);
         setIsLoading(false);
 
+        // Process each location to add alternate names to description
+      for (const location of db_data) {
+        if (!location.description || !location.description.includes('Alternate Names:')) {
+          await addAlternateNamesToLocation(location);
+        }
+      }
+
         // When coming from Professor Info page
         if (latitude & longitude) {
           const newMarker = {
@@ -150,6 +159,180 @@ export default function HomeScreen() {
     fetchMarkers();
     //  }, []); // ORIG. COMMENTED OUT FOR OFFICE TEST
   }, [latitude, longitude]);
+
+    // getting all the alternate names of locations to add to Firestore
+    // changed from using longitude & latitude to title due to
+    // incorrect coordinates in firestore (correct general area, but not Exact 
+    // coords in google)
+    //    GOOGLE. COMMENTED OUT TO TEST NOMINATIM
+    const getAlternateNames = async (title) => {
+      try {
+        const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+          params: {
+            address: title,
+            components: 'administrative_area:SC|country:US',
+            key: GOOGLE_API_KEY,
+          },
+        });
+
+        //console.log(`Google API Response for "${title}":`, response.data); // Debugging
+    
+        if (response.data.status === 'OK' && response.data.results.length > 0) {
+          const results = response.data.results;
+
+          // error handling
+          //if (!Array.isArray(results) || results.length === 0) {
+          //  console.error(`Error fetching alternate names: No valid results for ${title}`);
+          //  return []; // Ensure we return an array
+          //}
+
+          const alternateNames = results.map((result) => result.formatted_address);
+          const addresses = results.map((result) => 
+            result.address_components?.map((component) => component.long_name) || []
+          );
+          
+          //const combinedNames = [...new Set([...alternateNames, ...addresses.flat()])];
+          const combinedNames = [...new Set([...alternateNames, ...addresses])];
+          //console.log(`Alternate Names for "${title}":`, combinedNames);
+
+          return combinedNames;
+        } else {
+          // trying to get this to WORK
+          console.warn(`Warning: No results found for "${title}"`);
+          return [];
+          //console.error('Error fetching alternate names:', response.data.status);
+          //return [];
+        }
+      } catch (error) {
+        console.error('Error fetching alternate names:', error);
+        return [];
+      }
+    };  // end of getAlternateNames
+    
+   /*
+    const getAlternateNames = async (title) => {
+      try {
+        const response = await axios.get('https://nominatim.openstreetmap.org/search', {
+          params: {
+            q: title,
+            format: 'json',
+            addressdetails: 1,
+            limit: 1,
+          },
+        });
+    
+        if (response.data.length > 0) {
+          const result = response.data[0];
+          const alternateNames = [result.display_name];
+          if (result.address) {
+            const addressComponents = Object.values(result.address);
+            alternateNames.push(...addressComponents);
+          }
+          return [...new Set(alternateNames)];
+        } else {
+          console.error('Error fetching alternate names: No results found');
+          return [];
+        }
+      } catch (error) {
+        console.error('Error fetching alternate names:', error);
+        return [];
+      }
+    };
+    */
+
+  /*
+    For testing:
+    Looking at Darla Moore School of Business.
+    Should get: 1014 Greene St, Columbia, SC 29208
+    as one of the alternate names, if anything.
+    So searching "1014 Greene" should now show Darla Moore School of Business
+  */
+  // adding the alternate names to Firestore
+  // changed to updating the description instead
+  const addAlternateNamesToLocation = async (location) => {
+    const { id, title, description } = location;
+
+    // trying to use title instead of id
+    if (!title || typeof title !== "string") {
+      console.error(`Invalid Firestore document title:`, title);
+      return;
+    }
+
+    const alternateNames = await getAlternateNames(title);
+  
+    //if (!Array.isArray(alternateNames)) {
+    //  console.error(`Error: alternateNames is not an array for location ${id}`);
+    //  return;
+    //}
+
+    if (!Array.isArray(alternateNames) || alternateNames.length === 0) {
+      console.warn(`No valid alternate names found for location "${title}". Skipping update.`);
+      return; // Skip update if no valid names
+      //console.error(`Error: No alternate names found for location ${id}`);
+      //return; // Exit early if no valid alternate names
+    }
+
+    // Flatten any nested arrays and keep only valid strings
+    //const flattenedNames = alternateNames.flat();
+
+    // Ensure all values are properly formatted strings before joining
+    //const cleanedAlternateNames = flattenedNames
+    //  .filter(name => typeof name === 'string' && name.trim().length > 0);
+  
+    const cleanedAlternateNames = alternateNames.flat().filter(name => typeof name === 'string' && name.trim().length > 0);
+      
+    //console.log(`Cleaned alternateNames for ${title}:`, cleanedAlternateNames);
+    if (cleanedAlternateNames.length === 0) {
+      console.warn(`Skipping update for ${title} as no valid alternate names remain.`);
+      return;
+    }
+
+    //const updatedDescription = description
+    //  ? `${description}\nAlternate Names:\n${cleanedAlternateNames.join('\n')}`
+    //  : `Alternate Names:\n${cleanedAlternateNames.join('\n')}`;
+    
+    // changing to single line
+    const alternateNamesString = cleanedAlternateNames.join(', ');
+    //const updatedDescription = description
+    //  ? `${description} | Alternate Names: ${alternateNamesString}`
+    //  : `Alternate Names: ${alternateNamesString}`;
+    // REPLACING ALL DESCRIPTIONS
+    const updatedDescription = `Alternate Names: ${cleanedAlternateNames.join(', ')}`;
+
+
+      // ok getting alt names for lke half the locations, just issues updating them...
+    //console.log(`Existing Description:`, description);
+    //console.log(`Updated Description (Single Line):`,updatedDescription);
+
+    try {
+      //const docId = id.toString(); // Convert `id` to string before Firestore update
+      //const docRef = doc(FIRESTORE_DB, "locTest", docId);
+      const docRef = doc(FIRESTORE_DB, "locTest", title);
+      
+      // Check if document exists
+      const docSnap = await getDoc(docRef);
+      if (!docSnap.exists()) {
+        console.error(`Error: Document ${title} does not exist in Firestore.`);
+        return;
+      }
+
+      console.log(`Firestore document ${title} found. Proceeding with update...`);
+
+      await updateDoc(docRef, { description: updatedDescription });
+
+
+      //await updateDoc(doc(FIRESTORE_DB, "locTest", id.toString()), {
+      //  description: updatedDescription,
+      //});
+
+      console.log(`Updated location ${title} with alternate names in description`);
+    } catch (error) {
+      console.error(`Error updating location ${title} with alternate names:`, error);
+    }
+  }; // end of addAlternateNamesToLocation
+
+  // THROWS ERROR FOR EVERYTHING. FIX.
+  // ALSO ADJUST SEARCH.
 
   // move the map to selected marker when found
   useEffect(() => {
@@ -185,12 +368,20 @@ export default function HomeScreen() {
       // ORIG
       setFilteredMarkers(markers);
     } else {
+      /*
       const filtered = markers.filter((marker) =>
         marker.title.toLowerCase().includes(search.toLowerCase())
       );
+      */
+      const filtered = markers.filter((marker) => {
+        const searchLower = search.toLowerCase();
+        const titleMatch = marker.title.toLowerCase().includes(searchLower);
+        const descriptionMatch = marker.description.toLowerCase().includes(searchLower);
+        return titleMatch || descriptionMatch;
+      });
       setFilteredMarkers(filtered);
     }
-    console.log("Filtered Markers:", filteredMarkers); // debugging error when using search
+    //console.log("Filtered Markers:", filteredMarkers); // debugging error when using search
   }, [search, markers]);
 
   // Request location permissions and set startLocation
