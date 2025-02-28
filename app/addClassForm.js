@@ -68,7 +68,7 @@ const AddClassForm = () => {
         A * denotes a required field.
       </Text>
       <View style={styles.form}>
-        <Text style={styles.label}>Semester*</Text>
+        <Text style={styles.label}>Semester *</Text>
         <Dropdown
           style={[styles.input, errors.semester && styles.errorInput]}
           placeholderStyle={{ fontSize: 20 }}
@@ -87,10 +87,10 @@ const AddClassForm = () => {
           <Text style={styles.errorText}>{errors.semester}</Text>
         )}
 
-        <Text style={styles.label}>Subject* (CSCE, ENGL, MATH, etc.)</Text>
+        <Text style={styles.label}>Subject *</Text>
         <TextInput
           style={[styles.input, errors.subject && styles.errorInput]}
-          placeholder="Subject"
+          placeholder="Subject (CSCE, ENGL, MATH, etc.)"
           value={subject}
           onChangeText={(text) => {
             setSubject(text.toUpperCase());
@@ -101,10 +101,10 @@ const AddClassForm = () => {
           <Text style={styles.errorText}>{errors.subject}</Text>
         )}
 
-        <Text style={styles.label}>Course Number (101, 240, 567, etc.)</Text>
+        <Text style={styles.label}>Course Number *</Text>
         <TextInput
           style={[styles.input, errors.number && styles.errorInput]}
-          placeholder="Course Number"
+          placeholder="Course Number (101, 240, 567, etc.)"
           keyboardType="numeric"
           value={number}
           onChangeText={(text) => {

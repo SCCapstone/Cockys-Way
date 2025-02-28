@@ -44,9 +44,14 @@ const addressBounds = (lat, long) => {
 };
 
 const searchAddress = async (address) => {
-  const cleanedAddress = address
+  let cleanedAddress = address
     .replace(/-\d{4}$/, "")
-    .replace(/\b[Rr]oom\s*\d{1,4}\b/, "");
+    .replace(/\b[Rr]oom\s*\d{1,4}\b/, "")
+    .replace(/^\d+\s*Storey Innovation Center/i, "Storey Innovation Center");
+  if (!/columbia,?\s*(sc|south carolina)/i.test(cleanedAddress)) {
+    cleanedAddress += ", Columbia, SC";
+  }
+  console.log("CLEANED ADDRESS " + cleanedAddress);
   try {
     const response = await axios.get(
       `https://nominatim.openstreetmap.org/search`,
@@ -211,18 +216,20 @@ export default function ProfessorInfo() {
 
         {/* TODO: NEED TO UPDATE WITH OFFICE INFO IN DB */}
         {professor.office ? (
-          <Text style={styles.quickLookText}>{professor.office}</Text>
+          <>
+            <Text style={styles.quickLookText}>{professor.office}</Text>
+            <TouchableOpacity
+              style={styles.navigateButton}
+              onPress={navigateToOffice}
+            >
+              <Text style={styles.navigateButtonText}>Navigate to Office</Text>
+            </TouchableOpacity>
+          </>
         ) : (
           <Text style={styles.quickLookText}>
             No office information available.
           </Text>
         )}
-        <TouchableOpacity
-          style={styles.navigateButton}
-          onPress={navigateToOffice}
-        >
-          <Text style={styles.navigateButtonText}>Navigate to Office</Text>
-        </TouchableOpacity>
       </View>
       <View style={styles.line}></View>
       <View style={[styles.officeInfo, styles.quickLook]}>
