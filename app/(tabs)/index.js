@@ -51,6 +51,7 @@ export default function HomeScreen() {
   const [showRouteDetails, setShowRouteDetails] = useState(false);
   const [showTraffic, setShowTraffic] = useState(false);
   const [routeSteps, setRouteSteps] = useState([]);
+  const [navigationStarted, setNavigationStarted] = useState(false);
   const mapRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
   // Creating custom pins
@@ -82,20 +83,9 @@ export default function HomeScreen() {
       title: marker.title,
     });
 
-    setShowTravelModeButtons(true);
     setShowRouteDetails(true);
-
-    const route = {
-      title: marker.title,
-      startLocation: startLocation,
-      endLocation: {
-        latitude: marker.latitude,
-        longitude: marker.longitude,
-      },
-      timestamp: new Date().toISOString(),
-      travelMode,
-    };
-    saveRouteHistory(route);
+    setShowTravelModeButtons(true);
+    setRouteSteps([]);
 
     // Zoom in on marker region
     if (mapRef.current) {
@@ -109,6 +99,22 @@ export default function HomeScreen() {
         2500 // 2500 is duration of zoom in ms
       );
     }
+  };
+
+  // separate function to handle starting navigation by button instead of onMarkerSelected
+  const handleStartNavigation = (marker) => {
+    setNavigationStarted(true);
+    const route = {
+      title: marker.title,
+      startLocation: startLocation,
+      endLocation: {
+        latitude: marker.latitude,
+        longitude: marker.longitude,
+      },
+      timestamp: new Date().toISOString(),
+      travelMode,
+    };
+    saveRouteHistory(route);
   };
 
   // Fetch markers from Firebase
@@ -518,6 +524,8 @@ export default function HomeScreen() {
     setShowTravelModeButtons(false);
     setShowRouteDetails(false);
     setRouteDetails(null);
+    setRouteSteps([]);
+    setNavigationStarted(false);
   };
 
   // Change the start location to selected marker
@@ -628,8 +636,10 @@ export default function HomeScreen() {
         ))*/}
         {/* Commented out above. Originally showed ALL markers. See "Display filtered markers" below.*/}
 
+        {/* Why is this here? This is basically the exact same MapViewDirections as below?
+        -Isaac March 4    */}
         {/* display prof. office if selected */}
-        {selectedDestination && (
+        {/* {selectedDestination && (
           <MapViewDirections
             origin={userLocation}
             destination={{
@@ -649,8 +659,8 @@ export default function HomeScreen() {
             }}
             onError={(error) => Alert.alert("Error getting directions", error)}
           />
-        )}
-        {/* End of displaying prof office if selected*/}
+        )} */}
+        {/* End of displaying prof office if selected */}
 
         {/* Display filtered markers */}
         {/*filteredMarkers.map((marker) => (
@@ -669,6 +679,7 @@ export default function HomeScreen() {
             tracksViewChanges={selectedMarker?.id === marker.id} // re-render selected marker
           />
         ))*/}
+
         {filteredMarkers.map((marker) => {
           // changed to only pass through necessary props to get rid of minor error popup when using search
           const { id, latitude, longitude, title, description, color } = marker;
@@ -693,7 +704,7 @@ export default function HomeScreen() {
         })}
 
         {/* Directions */}
-        {startLocation && selectedDestination && (
+        {startLocation && selectedDestination && navigationStarted && (
           <MapViewDirections
             origin={startLocation}
             destination={{
@@ -810,13 +821,13 @@ export default function HomeScreen() {
             ]}
             onPress={() => setTravelMode("BICYCLING")}
           >
-            <Text style={styles.travelModeText}>Bicycling</Text>
+            <Text style={styles.travelModeText}>Biking</Text>
           </TouchableOpacity>
         </View>
       )}
 
       {/* Route Details and Stop Button */}
-      {showRouteDetails && routeDetails && (
+      {showRouteDetails && (
         <View style={styles.routeDetailsContainer}>
           {/* Marker info here: Title, Description, Category, Tag, etc.
               You will need to change the variable in setSelectedDestination */}
@@ -833,12 +844,16 @@ export default function HomeScreen() {
           </View>
 
           {/* Total Distance and Duration */}
-          <Text style={styles.routeDetailsText}>
-            Total Distance: {routeDetails.distance.toFixed(2)} miles
-          </Text>
-          <Text style={styles.routeDetailsText}>
-            Total Duration: {Math.ceil(routeDetails.duration)} minutes
-          </Text>
+          {routeDetails && (
+            <>
+              <Text style={styles.routeDetailsText}>
+                Total Distance: {routeDetails.distance.toFixed(2)} miles
+              </Text>
+              <Text style={styles.routeDetailsText}>
+                Total Duration: {Math.ceil(routeDetails.duration)} minutes
+              </Text>
+            </>
+          )}
 
           {/* Step-by-Step Instructions */}
           {routeSteps && routeSteps.length > 0 ? (
@@ -856,11 +871,23 @@ export default function HomeScreen() {
               ))}
             </ScrollView>
           ) : (
-            <Text style={styles.routeDetailsText}>No steps available.</Text>
+            <Text style={styles.routeDetailsText}>
+              Please click 'Start Nav'. Otherwise there are no directions
+              available.
+            </Text>
           )}
 
           {/* Buttons */}
           <View style={styles.routeButtonsContainer}>
+            {/* Start navigation button*/}
+            <TouchableOpacity
+              style={styles.routeButton}
+              onPress={() => handleStartNavigation(selectedMarker)}
+            >
+              <FontAwesome name="map" size={24} color="#73000A" />
+              <Text style={styles.routeButtonText}>Start Nav</Text>
+            </TouchableOpacity>
+
             {/* Set new start location button */}
             <TouchableOpacity
               style={styles.routeButton}
@@ -876,7 +903,7 @@ export default function HomeScreen() {
               onPress={handleResetStartLocation}
             >
               <FontAwesome name="times" size={24} color="#73000A" />
-              <Text style={styles.routeButtonText}>Reset Location</Text>
+              <Text style={styles.routeButtonText}>Reset</Text>
             </TouchableOpacity>
 
             {/* Stop Directions Button */}
@@ -885,7 +912,7 @@ export default function HomeScreen() {
               onPress={handleStopDirections}
             >
               <FontAwesome name="stop" size={24} color="#73000A" />
-              <Text style={styles.routeButtonText}>Stop Directions</Text>
+              <Text style={styles.routeButtonText}>Stop</Text>
             </TouchableOpacity>
           </View>
         </View>
