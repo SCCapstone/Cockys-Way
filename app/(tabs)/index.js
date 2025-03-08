@@ -33,6 +33,7 @@ import styles from "../../homestyles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import axios from "axios";
+import { getAuth } from "firebase/auth";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -528,6 +529,15 @@ export default function HomeScreen() {
     setNavigationStarted(false);
   };
 
+  const handleFavorite = async (marker) => {
+    const user = getAuth().currentUser;
+    if (user) {
+      const uid = user.uid;
+      // Continue implementation here
+      return;
+    }
+  };
+
   // Change the start location to selected marker
   const handleChangeStartLocation = () => {
     if (selectedDestination) {
@@ -835,12 +845,20 @@ export default function HomeScreen() {
             <Text style={styles.routeDetailsText}>
               {selectedDestination ? selectedDestination.title : ""}
             </Text>
-            <TouchableOpacity
-              style={styles.exitButton}
-              onPress={handleStopDirections}
-            >
-              <FontAwesome name="times" size={24} color="#73000A" />
-            </TouchableOpacity>
+            <View style={styles.exitButtonContainer}>
+              <TouchableOpacity
+                style={styles.exitButton}
+                onPress={handleFavorite}
+              >
+                <FontAwesome name="star" size={24} color="#73000A" />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.exitButton}
+                onPress={handleStopDirections}
+              >
+                <FontAwesome name="times" size={24} color="#73000A" />
+              </TouchableOpacity>
+            </View>
           </View>
 
           {/* Total Distance and Duration */}

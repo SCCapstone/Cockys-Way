@@ -199,9 +199,14 @@ export default StyleSheet.create({
     width: 40,
     height: 35,
     justifyContent: "flex-end",
+    margin: 5,
   },
   titleContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  exitButtonContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
   },
 });
