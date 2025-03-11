@@ -53,6 +53,7 @@ a {
     flex-direction: column;
     background-color: hsl(0, 0%, 12%);;
     color: var(--white);
+    padding: 0 3rem;
 }
 
 .landing-section img {
@@ -108,6 +109,7 @@ a {
 
 .profiles {
     display: grid;
+    gap: 2em;
     grid-template-columns: repeat(5, 1fr);
 }
 
@@ -139,4 +141,53 @@ footer p {
     margin: 0;
     font-size: 1.125rem;
     color: var(--white);
+}
+
+@media (max-width: 1300px) {
+    .profiles {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1050px) {
+    .profiles {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 880px) {
+    .feature-info {
+        display: block;
+    }
+
+    .feature-info img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 780px) {
+    .profiles {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 625px) {
+    .landing-section div {
+        display: block;
+    }
+
+    .landing-section div a {
+        display: block;
+    }
+
+    .landing-section div a:last-of-type {
+        margin-top: 1em;
+    }
+}
+
+@media (max-width: 580px) {
+    .profiles {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
