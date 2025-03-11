@@ -1,6 +1,7 @@
 :root {
     --garnet: #73000A;
     --white: #FFFFFF;
+    --black: #000000;
 }
 
 body {
@@ -103,4 +104,39 @@ a {
 
 .feature-info ul li {
     list-style-position: inside;
+}
+
+.profiles {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile-links {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+
+.profile-links a {
+    display: block;
+    text-decoration: none;
+    color: var(--black);
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    background-color: var(--garnet);
+    margin-top: 2em;
+}
+
+footer p {
+    padding: 1em;
+    margin: 0;
+    font-size: 1.125rem;
+    color: var(--white);
 }
