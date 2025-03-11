@@ -1,10 +1,16 @@
+:root {
+    --garnet: #73000A;
+    --white: #FFFFFF;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Abel", sans-serif;
     margin: 0;
     background-color: #f4f4f4;
 }
+
 header {
-    background: #73000A;
+    background: var(--garnet);
     display: flex;
     justify-content: space-between;
     position: sticky;
@@ -12,23 +18,25 @@ header {
     left: 0;
     width: inherit;
     padding: 0 1.75rem;
-    color: white;
+    color: var(--white);
+    font-size: 1.175rem;
+}
+
+.flex {
+    display: flex;
 }
 
 header ul {
     display: flex;
     gap: 2em;
-}
-
-header a {
-    color: white;
-}
-
-ul {
     padding: 0;
 }
 
-li {
+header a {
+    color: var(--white);
+}
+
+header li {
     list-style: none;
 }
 
@@ -42,8 +50,57 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: hsl(0, 0%, 12%);;
+    color: var(--white);
 }
 
 .landing-section img {
     width: 17.5%;
+}
+
+.landing-section div {
+    display: flex; 
+    gap: 3em;
+    margin: 1.25em 0;
+}
+
+.landing-section div a {
+    color: var(--white);
+    background-color: var(--garnet);
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    font-size: 1.175rem;
+}
+
+.info {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.info h2,
+.info h3 {
+    color: var(--garnet);
+}
+
+.feature:not(:first-of-type) {
+    margin-top: 2em;
+}
+
+.feature-info {
+    display: flex;
+    gap: 2em;
+}
+
+.feature-info img {
+    display: block;
+    width: 18.5%;
+    object-fit: contain;
+}
+
+.feature-info ul {
+    padding-left: 0;
+}
+
+.feature-info ul li {
+    list-style-position: inside;
 }
