@@ -54,6 +54,7 @@ a {
     background-color: hsl(0, 0%, 12%);;
     color: var(--white);
     padding: 0 3rem;
+    text-align: center;
 }
 
 .landing-section img {
@@ -143,6 +144,13 @@ footer p {
     color: var(--white);
 }
 
+.hamburger {
+    margin: auto 0;
+    cursor: pointer;
+    padding: 0 1.75rem;;
+    display: none;
+}
+
 @media (max-width: 1300px) {
     .profiles {
         grid-template-columns: repeat(4, 1fr);
@@ -163,6 +171,28 @@ footer p {
     .feature-info img {
         display: block;
         margin: 0 auto;
+    }
+}
+
+@media (max-width: 825px) {
+    header {
+        padding: 0;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    nav {
+        display: none;
+    }
+
+    header ul {
+        display: block;
+    }
+
+    header > * {
+        padding: 0 1.75rem;
     }
 }
 
