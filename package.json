@@ -27,6 +27,7 @@
     "@react-navigation/stack": "^7.0.12",
     "@types/react": "~18.3.12",
     "axios": "^1.7.7",
+    "cockys-way": "file:",
     "expo": "~52.0.36",
     "expo-font": "~13.0.1",
     "expo-location": "~18.0.7",

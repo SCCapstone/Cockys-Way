@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE, PROVIDER_DEFAULT } from "react-native-maps";
 import {
   StyleSheet,
   SafeAreaView,
@@ -12,6 +12,7 @@ import {
   Modal,
   TextInput,
   Button,
+  Platform,
 } from "react-native";
 import {
   addDoc,
@@ -53,6 +54,7 @@ export default function HomeScreen() {
   const [showTraffic, setShowTraffic] = useState(false);
   const [routeSteps, setRouteSteps] = useState([]);
   const [navigationStarted, setNavigationStarted] = useState(false);
+  const [followsUser, setFollowsUser] = useState(false);
   const mapRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
   // Creating custom pins
@@ -584,12 +586,14 @@ export default function HomeScreen() {
         </TouchableOpacity>
 
         {/* Button to show/hide traffic */}
-        <TouchableOpacity
-          style={styles.trafficButton}
-          onPress={() => setShowTraffic(!showTraffic)}
-        >
-          <FontAwesome name="exclamation-triangle" size={24} color="#73000A" />
-        </TouchableOpacity>
+        {Platform.OS !== "ios" && (
+          <TouchableOpacity
+            style={styles.trafficButton}
+            onPress={() => setShowTraffic(!showTraffic)}
+          >
+            <FontAwesome name="exclamation-triangle" size={24} color="#73000A" />
+          </TouchableOpacity>
+        )}
 
         {/* Button to route history screen */}
         <TouchableOpacity
@@ -607,6 +611,14 @@ export default function HomeScreen() {
           <FontAwesome name="map-marker" size={24} color="#73000A" />
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
+
+        {/* Button to follow user */}
+        <TouchableOpacity
+          style={styles.customPinButton}
+          onPress={() => setFollowsUser(!followsUser)}
+        >
+          <FontAwesome name={followsUser ? "location-arrow" : "map-marker"} size={24} color="#73000A" />
+        </TouchableOpacity>
       </View>
 
       {/* Map */}
@@ -614,10 +626,10 @@ export default function HomeScreen() {
         ref={mapRef}
         style={styles.map}
         apiKey={GOOGLE_API_KEY}
-        provider={PROVIDER_GOOGLE}
+        provider={Platform.OS === "android" ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
         initialRegion={INITIAL_REGION}
         showsUserLocation={true}
-        followsUserLocation={true}
+        followsUserLocation={followsUser}
         showsTraffic={showTraffic}
         onPress={handleMapPress}
       >
@@ -890,7 +902,7 @@ export default function HomeScreen() {
             </ScrollView>
           ) : (
             <Text style={styles.routeDetailsText}>
-              Please click 'Start Nav'. Otherwise there are no directions
+              Please click 'Start Nav'. Otherwise, there are no directions
               available.
             </Text>
           )}
