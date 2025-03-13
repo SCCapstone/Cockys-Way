@@ -14,6 +14,7 @@ header {
     background: var(--garnet);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: sticky;
     top: 0;
     left: 0;
@@ -29,7 +30,6 @@ header {
 
 header ul {
     display: flex;
-    gap: 2em;
     padding: 0;
 }
 
@@ -43,6 +43,15 @@ header li {
 
 a {
     text-decoration: none;
+}
+
+nav a {
+    padding: 1em;
+    transition: background-color 0.2s ease-in;
+}
+
+nav a:hover {
+    background-color: var(--black);
 }
 
 .landing-section {
@@ -73,6 +82,12 @@ a {
     padding: 1rem 2rem;
     border-radius: 20px;
     font-size: 1.175rem;
+    transition: background-color 0.2s ease-in, color 0.2s ease-in;
+}
+
+.landing-section div a:hover {
+    background-color: var(--white);
+    color: var(--garnet);
 }
 
 .info {
@@ -128,6 +143,11 @@ a {
     display: block;
     text-decoration: none;
     color: var(--black);
+    transition: color 0.2s ease-in;
+}
+
+.profile-links a:hover {
+    color: var(--garnet);
 }
 
 footer {
@@ -145,9 +165,8 @@ footer p {
 }
 
 .hamburger {
-    margin: auto 0;
     cursor: pointer;
-    padding: 0 1.75rem;;
+    padding: 1em;
     display: none;
 }
 
@@ -181,14 +200,43 @@ footer p {
 
     .hamburger {
         display: block;
+        transition: background-color 0.2s ease-in;
     }
 
-    nav {
-        display: none;
+    .hamburger:hover {
+        background-color: var(--black);
     }
 
-    header ul {
+    .hamburger.active {
+        background-color: var(--black);
+    }
+
+    nav ul {
+        position: fixed;
+        left: -100%;
+        top: 61.6px;
+        flex-direction: column;
+        gap: 0;
+        background-color: var(--black);
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+
+    nav ul.active {
+        left: 0;
+    }
+
+    nav a {
         display: block;
+        width: inherit;
+        padding: 1em;
+        transition: background-color 0.2s ease-in, color 0.2s ease-in;
+    }
+
+    nav a:hover {
+        background-color: var(--white);
+        color: var(--black);
     }
 
     header > * {
