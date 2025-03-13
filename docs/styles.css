@@ -19,9 +19,13 @@ header {
     top: 0;
     left: 0;
     width: inherit;
-    padding: 0 1.75rem;
+    padding: 0 1rem;
     color: var(--white);
     font-size: 1.175rem;
+}
+
+header p {
+    padding: 0 1em;
 }
 
 .flex {
