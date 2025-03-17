@@ -21,7 +21,7 @@ export default {
     android: {
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
-        backgroundColor: "#ffffff",
+        backgroundColor: "#E6E9EC",
       },
       package: "com.ryanmalone.CockysWay",
       config: {
