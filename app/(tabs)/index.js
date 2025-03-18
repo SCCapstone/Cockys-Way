@@ -1,5 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
-import MapView, { Marker, PROVIDER_GOOGLE, PROVIDER_DEFAULT } from "react-native-maps";
+import MapView, {
+  Marker,
+  PROVIDER_GOOGLE,
+  PROVIDER_DEFAULT,
+} from "react-native-maps";
 import {
   StyleSheet,
   SafeAreaView,
@@ -71,6 +75,14 @@ export default function HomeScreen() {
   const [navigateToProfessorOffice, setNavigateToProfessorOffice] =
     useState(false);
 
+  // Tutorial constants
+  const [tutorialStep, setTutorialStep] = useState(0);
+  const [tutorialCompleted, setTutorialCompleted] = useState(false);
+  const startNavButtonRef = useRef(null);
+  const setStartButtonRef = useRef(null);
+  const resetLocationButtonRef = useRef(null);
+  const stopDirectionsButtonRef = useRef(null);
+
   const INITIAL_REGION = {
     latitude: 34.00039991787572,
     longitude: -81.03594096158815,
@@ -106,6 +118,7 @@ export default function HomeScreen() {
 
   // separate function to handle starting navigation by button instead of onMarkerSelected
   const handleStartNavigation = (marker) => {
+    if (!tutorialCompleted) return;
     setNavigationStarted(true);
     const route = {
       title: marker.title,
@@ -240,7 +253,7 @@ export default function HomeScreen() {
   const addAlternateNamesToLocation = async (location) => {
     const { id, title, description, custom } = location;
     if (custom) {
-      console.warn("skipping alternate names for custom pin: " + title);
+      //console.warn("skipping alternate names for custom pin: " + title);  I commented this because it was annoying me
       return;
     }
 
@@ -523,6 +536,7 @@ export default function HomeScreen() {
 
   // Handle stopping directions
   const handleStopDirections = () => {
+    if (!tutorialCompleted) return;
     setSelectedDestination(null);
     setShowTravelModeButtons(false);
     setShowRouteDetails(false);
@@ -542,6 +556,7 @@ export default function HomeScreen() {
 
   // Change the start location to selected marker
   const handleChangeStartLocation = () => {
+    if (!tutorialCompleted) return;
     if (selectedDestination) {
       setStartLocation({
         latitude: selectedDestination.latitude,
@@ -552,10 +567,200 @@ export default function HomeScreen() {
 
   // Reset start location to user's current location
   const handleResetStartLocation = () => {
+    if (!tutorialCompleted) return;
     if (userLocation) {
       setStartLocation(userLocation);
     }
   };
+
+  // Tutorial
+  const TUTORIAL_MARKER = {
+    id: "tutorial-marker",
+    latitude: 34.00039991787572,
+    longitude: -81.03594096158815,
+    title: "Tutorial Marker",
+    description: "This is a tutorial marker",
+    color: "green",
+  };
+
+  // Has user completed the tutorial?
+  useEffect(() => {
+    const checkTutorialStatus = async () => {
+      const tutorialStatus = await AsyncStorage.getItem("tutorialCompleted");
+      if (tutorialStatus === "true") {
+        setTutorialCompleted(true);
+      }
+    };
+    checkTutorialStatus();
+  }, []);
+
+  // Title, description, and what button to give tutorial on
+  const TUTORIAL_STEPS = [
+    {
+      title: "Start Navigation",
+      description:
+        "Click this button to start navigation to the selected destination.",
+      buttonId: "startNavButton",
+    },
+    {
+      title: "Set New Start Location",
+      description:
+        "Click this button to set the selected destination as the new start location.",
+      buttonId: "setStartButton",
+    },
+    {
+      title: "Reset Location",
+      description:
+        "Click this button to reset the start location to your current location.",
+      buttonId: "resetLocationButton",
+    },
+    {
+      title: "Stop Directions",
+      description: "Click this button to stop the current navigation.",
+      buttonId: "stopDirectionsButton",
+    },
+  ];
+
+  // Change style of current button in tutorial
+  const highlightButton = (buttonId) => {
+    if (startNavButtonRef.current)
+      startNavButtonRef.current.setNativeProps({ style: styles.routeButton });
+    if (setStartButtonRef.current)
+      setStartButtonRef.current.setNativeProps({ style: styles.routeButton });
+    if (resetLocationButtonRef.current)
+      resetLocationButtonRef.current.setNativeProps({
+        style: styles.routeButton,
+      });
+    if (stopDirectionsButtonRef.current)
+      stopDirectionsButtonRef.current.setNativeProps({
+        style: styles.routeButton,
+      });
+
+    switch (buttonId) {
+      case "startNavButton":
+        if (startNavButtonRef.current)
+          startNavButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+      case "setStartButton":
+        if (setStartButtonRef.current)
+          setStartButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+      case "resetLocationButton":
+        if (resetLocationButtonRef.current)
+          resetLocationButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+      case "stopDirectionsButton":
+        if (stopDirectionsButtonRef.current)
+          stopDirectionsButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+      default:
+        break;
+    }
+  };
+
+  // Display title and description of button, as well as current step
+  const TutorialOverlay = ({ step, onNext, onSkip }) => {
+    const currentStep = TUTORIAL_STEPS[step];
+
+    useEffect(() => {
+      if (!tutorialCompleted && step < TUTORIAL_STEPS.length) {
+        highlightButton(currentStep.buttonId);
+      }
+    }, [step, currentStep]);
+
+    return (
+      <Modal
+        transparent={true}
+        visible={!tutorialCompleted && step < TUTORIAL_STEPS.length}
+      >
+        <View style={styles.tutorialOverlay}>
+          <View style={styles.tutorialContent}>
+            {/* Display current step out of total steps at the top right */}
+            <View style={styles.tutorialStepIndicator}>
+              <Text style={styles.tutorialStepText}>
+                Step {step + 1} of {TUTORIAL_STEPS.length}
+              </Text>
+            </View>
+
+            <Text style={styles.tutorialTitle}>{currentStep.title}</Text>
+            <Text style={styles.tutorialDescription}>
+              {currentStep.description}
+            </Text>
+            <View style={styles.tutorialButtons}>
+              <TouchableOpacity style={styles.tutorialButton} onPress={onNext}>
+                <Text style={styles.tutorialButtonText}>Next</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.tutorialButton} onPress={onSkip}>
+                <Text style={styles.tutorialButtonText}>Skip</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
+  // For next step in tutorial
+  const handleNextStep = () => {
+    if (tutorialStep < TUTORIAL_STEPS.length - 1) {
+      setTutorialStep(tutorialStep + 1);
+    } else {
+      setTutorialCompleted(true);
+      AsyncStorage.setItem("tutorialCompleted", "true");
+
+      setFilteredMarkers((prevMarkers) =>
+        prevMarkers.filter((marker) => marker.id !== TUTORIAL_MARKER.id)
+      );
+    }
+  };
+
+  // To skip tutorial
+  const handleSkipTutorial = () => {
+    setTutorialCompleted(true);
+    AsyncStorage.setItem("tutorialCompleted", "true");
+
+    setFilteredMarkers((prevMarkers) =>
+      prevMarkers.filter((marker) => marker.id !== TUTORIAL_MARKER.id)
+    );
+    setSelectedMarker(null);
+    setSelectedDestination(null);
+    setShowRouteDetails(false);
+    setShowTravelModeButtons(false);
+  };
+
+  // To reset tutorial
+  const handleResetTutorial = async () => {
+    await AsyncStorage.removeItem("tutorialCompleted");
+    setTutorialCompleted(false);
+    setTutorialStep(0);
+    router.replace("/");
+  };
+
+  // Make sure tutorial marker is displaying on map, sometimes still doesn't work
+  useEffect(() => {
+    if (!tutorialCompleted) {
+      setFilteredMarkers((prevMarkers) => [...prevMarkers, TUTORIAL_MARKER]);
+      setSelectedMarker(TUTORIAL_MARKER);
+      setSelectedDestination(TUTORIAL_MARKER);
+      onMarkerSelected(TUTORIAL_MARKER);
+    } else {
+      setFilteredMarkers((prevMarkers) =>
+        prevMarkers.filter((marker) => marker.id !== TUTORIAL_MARKER.id)
+      );
+      setSelectedMarker(null);
+      setSelectedDestination(null);
+      setShowRouteDetails(false);
+      setShowTravelModeButtons(false);
+    }
+  }, [tutorialCompleted]);
 
   if (isLoading) {
     return (
@@ -591,7 +796,11 @@ export default function HomeScreen() {
             style={styles.trafficButton}
             onPress={() => setShowTraffic(!showTraffic)}
           >
-            <FontAwesome name="exclamation-triangle" size={24} color="#73000A" />
+            <FontAwesome
+              name="exclamation-triangle"
+              size={24}
+              color="#73000A"
+            />
           </TouchableOpacity>
         )}
 
@@ -617,7 +826,18 @@ export default function HomeScreen() {
           style={styles.customPinButton}
           onPress={() => setFollowsUser(!followsUser)}
         >
-          <FontAwesome name={followsUser ? "location-arrow" : "map-marker"} size={24} color="#73000A" />
+          <FontAwesome
+            name={followsUser ? "location-arrow" : "map-marker"}
+            size={24}
+            color="#73000A"
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.customPinButton}
+          onPress={handleResetTutorial}
+        >
+          <FontAwesome name="refresh" size={24} color="#73000A" />
         </TouchableOpacity>
       </View>
 
@@ -626,7 +846,9 @@ export default function HomeScreen() {
         ref={mapRef}
         style={styles.map}
         apiKey={GOOGLE_API_KEY}
-        provider={Platform.OS === "android" ? PROVIDER_GOOGLE : PROVIDER_DEFAULT}
+        provider={
+          Platform.OS === "android" ? PROVIDER_GOOGLE : PROVIDER_DEFAULT
+        }
         initialRegion={INITIAL_REGION}
         showsUserLocation={true}
         followsUserLocation={followsUser}
@@ -913,6 +1135,8 @@ export default function HomeScreen() {
             <TouchableOpacity
               style={styles.routeButton}
               onPress={() => handleStartNavigation(selectedMarker)}
+              ref={startNavButtonRef}
+              buttonId="startNavButton"
             >
               <FontAwesome name="map" size={24} color="#73000A" />
               <Text style={styles.routeButtonText}>Start Nav</Text>
@@ -922,6 +1146,8 @@ export default function HomeScreen() {
             <TouchableOpacity
               style={styles.routeButton}
               onPress={handleChangeStartLocation}
+              ref={setStartButtonRef}
+              buttonId="setStartButton"
             >
               <FontAwesome name="play" size={24} color="#73000A" />
               <Text style={styles.routeButtonText}>Set Start</Text>
@@ -931,6 +1157,8 @@ export default function HomeScreen() {
             <TouchableOpacity
               style={styles.routeButton}
               onPress={handleResetStartLocation}
+              ref={resetLocationButtonRef}
+              buttonId="resetLocationButton"
             >
               <FontAwesome name="times" size={24} color="#73000A" />
               <Text style={styles.routeButtonText}>Reset</Text>
@@ -940,6 +1168,8 @@ export default function HomeScreen() {
             <TouchableOpacity
               style={styles.routeButton}
               onPress={handleStopDirections}
+              ref={stopDirectionsButtonRef}
+              buttonId="stopDirectionsButton"
             >
               <FontAwesome name="stop" size={24} color="#73000A" />
               <Text style={styles.routeButtonText}>Stop</Text>
@@ -947,6 +1177,12 @@ export default function HomeScreen() {
           </View>
         </View>
       )}
+
+      <TutorialOverlay
+        step={tutorialStep}
+        onNext={handleNextStep}
+        onSkip={handleSkipTutorial}
+      />
     </SafeAreaView>
   );
 }

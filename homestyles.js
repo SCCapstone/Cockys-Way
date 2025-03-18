@@ -162,6 +162,7 @@ export default StyleSheet.create({
     paddingBottom: 5,
     marginLeft: 0,
     marginRight: 0,
+    borderColor: "#FFFFFF",
     borderRadius: 5,
     alignItems: "center",
     justifyContent: "center",
@@ -208,5 +209,67 @@ export default StyleSheet.create({
   exitButtonContainer: {
     flexDirection: "row",
     justifyContent: "flex-end",
+  },
+
+  // Tutorial styles
+  highlightedButton: {
+    backgroundColor: "#FBD690",
+    borderColor: "73000A",
+    borderWidth: 2,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  tutorialOverlay: {
+    flex: 1,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    paddingTop: 80,
+    borderRadius: 20,
+    borderColor: "#000",
+  },
+  tutorialContent: {
+    backgroundColor: "white",
+    padding: 12,
+    borderRadius: 20,
+    borderColor: "#000",
+    alignItems: "center",
+    marginTop: 50,
+  },
+  tutorialTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  tutorialDescription: {
+    fontSize: 16,
+    marginBottom: 20,
+  },
+  tutorialButtons: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  tutorialButton: {
+    marginHorizontal: 10,
+    padding: 10,
+    backgroundColor: "#e2e2e2",
+    borderRadius: 5,
+  },
+  tutorialButtonText: {
+    color: "black",
+  },
+  tutorialStepIndicator: {
+    position: "absolute",
+    top: 10,
+    right: 10,
+    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    padding: 5,
+    borderRadius: 5,
+  },
+  tutorialStepText: {
+    fontSize: 14,
+    color: "#73000A",
   },
 });
