@@ -23,6 +23,7 @@ const Class = ({
   onDeletePress,
 }) => {
   const [notification, setNotification] = useState(false);
+  const [added, setAdded] = useState(false);
   const router = useRouter();
 
   const addToSchedule = async () => {
@@ -46,19 +47,22 @@ const Class = ({
         section: section,
         srcdb: srcdb,
       });
+      setAdded(true);
+      ToastAndroid.show(
+        `${name} has successfully been added to your schedule!`,
+        ToastAndroid.LONG
+      );
     } catch (error) {
       console.log("error when adding class: " + error);
     }
-    ToastAndroid.show(`${name} has successfully been added to your schedule!`, ToastAndroid.LONG);
-    router.push("../(tabs)/schedule");
   };
 
   const navigateToCourseInfo = () => {
     router.push({
       pathname: "../courseInfo",
-      params: { crn, srcdb, instructor, meeting }
-    })
-  }
+      params: { crn, srcdb, instructor, meeting },
+    });
+  };
 
   return (
     <View style={styles.course}>
@@ -81,10 +85,13 @@ const Class = ({
               {
                 backgroundColor: pressed ? "#450006" : "#73000A",
               },
-              
             ]}
           >
-            <FontAwesome name="plus-circle" size={30} color="#FFFFFF" />
+            <FontAwesome
+              name={added ? "check-circle" : "plus-circle"} // Conditionally render the icon
+              size={30}
+              color="#FFFFFF"
+            />
           </Pressable>
         ) : (
           <>
@@ -122,7 +129,7 @@ const Class = ({
           </>
         )}
         <Pressable
-        onPress={navigateToCourseInfo}
+          onPress={navigateToCourseInfo}
           style={({ pressed }) => [
             {
               backgroundColor: pressed ? "#450006" : "transparent",
