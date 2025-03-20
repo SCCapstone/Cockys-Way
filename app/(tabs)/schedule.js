@@ -37,6 +37,7 @@ export default function Schedule() {
   const [modalVisibility, setModalVisibility] = useState(false);
   const [courseToDelete, setCourseToDelete] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [calenderVisibility, setCalendarVisibility] = useState(false);
 
   useEffect(() => {
     if (!user) {
@@ -112,6 +113,10 @@ export default function Schedule() {
             <View style={styles.loadingContainer}>
               <ActivityIndicator size="large" color="#73000A" />
             </View>
+          ) : calenderVisibility ? (
+            <View>
+              <Text>Hello world!</Text>
+            </View>
           ) : (
             <View style={styles.courses}>
               <FlatList
@@ -153,20 +158,32 @@ export default function Schedule() {
               </View>
             </View>
           </Modal>
-          <TouchableOpacity
+          {!calenderVisibility && (
+            <TouchableOpacity
             onPress={() => {
               router.push("../addClassForm");
             }}
             style={styles.addButton}
           >
-            <Text style={styles.addText}>Add a Class</Text>
-            <FontAwesome5
-              style={styles.addIcon}
-              name="plus"
-              size={20}
-              color="black"
-            />
-          </TouchableOpacity>
+              <Text style={styles.addText}>Add a Class</Text>
+              <FontAwesome5
+                style={styles.addIcon}
+                name="plus"
+                size={20}
+                color="black"
+              />
+            </TouchableOpacity>
+          )}
+          <View style={styles.bottomContainer}>
+            <TouchableOpacity
+              onPress={() => {
+                setCalendarVisibility(!calenderVisibility);
+              }}
+              style={styles.switchViewButton}
+            >
+              <Text style={styles.switchViewText}>Switch to {calenderVisibility ? "Calendar" : "List"}</Text>
+            </TouchableOpacity>
+          </View>
         </>
       ) : (
         <View style={styles.container}>
@@ -195,7 +212,7 @@ const styles = StyleSheet.create({
   addButton: {
     backgroundColor: "#AAAAAA",
     position: "absolute",
-    bottom: 20,
+    bottom: 85,
     right: 20,
     flexDirection: "row",
     gap: 5,
@@ -294,4 +311,35 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+  bottomContainer: {
+    // paddingHorizontal: 20,
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+    // borderColor: "red",
+    // borderWidth: 2,
+    paddingHorizontal: 20,
+    backgroundColor: "#AAAAAA"
+  },
+
+  switchViewButton: {
+    // borderColor: "#000000",
+    // borderWidth: 3,
+    width: "100%",
+    backgroundColor: "#73000A",
+    borderRadius: 10,
+    paddingVertical: 5,
+    marginVertical: 10,
+    // fontSize: 20,
+    // marginHorizontal: 20,
+    // paddingHorizontal: 20,
+    // paddingHorizontal: 15,
+  },
+
+  switchViewText: {
+    fontSize: 30,
+    textAlign: "center",
+    color: "#FFFFFF"
+  }
 });
