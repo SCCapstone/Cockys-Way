@@ -25,6 +25,7 @@ import {
 
 import Class from "../../components/Class";
 import { getAuth } from "firebase/auth";
+import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 export default function Schedule() {
   const router = useRouter();
@@ -114,8 +115,8 @@ export default function Schedule() {
               <ActivityIndicator size="large" color="#73000A" />
             </View>
           ) : calenderVisibility ? (
-            <View>
-              <Text>Hello world!</Text>
+            <View style={styles.calendarContainer}>
+              <Calendar />
             </View>
           ) : (
             <View style={styles.courses}>
@@ -181,7 +182,7 @@ export default function Schedule() {
               }}
               style={styles.switchViewButton}
             >
-              <Text style={styles.switchViewText}>Switch to {calenderVisibility ? "Calendar" : "List"}</Text>
+              <Text style={styles.switchViewText}>Switch to {calenderVisibility ? "List" : "Calendar"}</Text>
             </TouchableOpacity>
           </View>
         </>
@@ -208,6 +209,12 @@ const styles = StyleSheet.create({
     width: "100%",
     gap: 15,
   },
+
+  calendarContainer: {
+    paddingHorizontal: 20,
+    paddingTop: 15,
+    width: "100%",
+  },  
 
   addButton: {
     backgroundColor: "#AAAAAA",
