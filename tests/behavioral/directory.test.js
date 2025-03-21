@@ -111,6 +111,10 @@ jest.mock("firebase/auth", () => ({
   getAuth: () => ({
     currentUser: null,
   }),
+  onAuthStateChanged: (auth, callback) => {
+    callback(null); /// no user
+    return () => {};
+  },
 }));
 
 describe("Directory Screen", () => {

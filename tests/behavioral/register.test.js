@@ -14,14 +14,16 @@ jest.mock("../../FirebaseConfig", () => ({
 }));
 
 // Mock Firebase Auth functions
-jest.mock("firebase/auth", () => {
-  return {
-    getAuth: jest.fn(() => ({
-      currentUser: null,
-    })),
-    createUserWithEmailAndPassword: jest.fn(),
-  };
-});
+jest.mock("firebase/auth", () => ({
+  getAuth: () => ({
+    currentUser: null,
+  }),
+  onAuthStateChanged: (auth, callback) => {
+    callback(null); // no user
+    return () => {};
+  },
+  createUserWithEmailAndPassword: jest.fn(),
+}));
 
 // Mock Expo Router
 jest.mock("expo-router", () => ({

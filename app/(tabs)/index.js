@@ -34,16 +34,20 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Location from "expo-location";
 import MapViewDirections from "react-native-maps-directions";
 import { GOOGLE_API_KEY } from "@env";
-import styles from "../../homestyles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import axios from "axios";
 import { getAuth } from "firebase/auth";
+import { useContext } from "react";
+import { ThemeContext } from "../../ThemeContext";
+import createHomeStyles from "../../homestyles";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
 
 export default function HomeScreen() {
+  const { theme } = useContext(ThemeContext);
+  const styles = createHomeStyles(theme.colors);
   const router = useRouter();
   const [markers, setMarkers] = useState([]);
   const [filteredMarkers, setFilteredMarkers] = useState([]);
@@ -774,10 +778,12 @@ export default function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <SearchBar
         placeholder="Search Here..."
+        placeholderTextColor={theme.colors.text}
         onChangeText={(text) => setSearch(text)}
         value={search}
         containerStyle={styles.searchContainer}
         inputContainerStyle={styles.searchInputContainer}
+        inputStyle={{ color: theme.colors.garnetWhite }}
       />
       <View style={styles.buttonContainer}>
         {/* Button to filter pins*/}
@@ -786,7 +792,11 @@ export default function HomeScreen() {
           onPress={() => router.push("/PinFilterMain")}
         >
           <View style={styles.accentBox}>
-            <FontAwesome name="map-pin" size={24} color="#73000A" />
+            <FontAwesome
+              name="map-pin"
+              size={24}
+              color={theme.colors.garnetWhite}
+            />
           </View>
         </TouchableOpacity>
 
@@ -799,7 +809,7 @@ export default function HomeScreen() {
             <FontAwesome
               name="exclamation-triangle"
               size={24}
-              color="#73000A"
+              color={theme.colors.garnetWhite}
             />
           </TouchableOpacity>
         )}
@@ -809,7 +819,7 @@ export default function HomeScreen() {
           style={styles.historyButton}
           onPress={() => router.push("/routeHistory")}
         >
-          <FontAwesome name="book" size={24} color="#73000A" />
+          <FontAwesome name="book" size={24} color={theme.colors.garnetWhite} />
         </TouchableOpacity>
 
         {/* Button to add custom pin */}
@@ -817,7 +827,11 @@ export default function HomeScreen() {
           style={styles.customPinButton}
           onPress={() => setCreatingCustomPin(true)}
         >
-          <FontAwesome name="map-marker" size={24} color="#73000A" />
+          <FontAwesome
+            name="map-marker"
+            size={24}
+            color={theme.colors.garnetWhite}
+          />
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
 
@@ -829,7 +843,7 @@ export default function HomeScreen() {
           <FontAwesome
             name={followsUser ? "location-arrow" : "map-marker"}
             size={24}
-            color="#73000A"
+            color={theme.colors.garnetWhite}
           />
         </TouchableOpacity>
 
@@ -837,7 +851,11 @@ export default function HomeScreen() {
           style={styles.customPinButton}
           onPress={handleResetTutorial}
         >
-          <FontAwesome name="refresh" size={24} color="#73000A" />
+          <FontAwesome
+            name="refresh"
+            size={24}
+            color={theme.colors.garnetWhite}
+          />
         </TouchableOpacity>
       </View>
 

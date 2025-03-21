@@ -119,3 +119,5 @@ export default function Layout() {
     </ThemeProvider>
   );
 }
+
+export { theme } from "../ThemeContext";

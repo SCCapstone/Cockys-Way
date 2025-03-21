@@ -77,6 +77,7 @@ export default function Directory() {
       paddingHorizontal: 10,
       margin: 10,
       width: "95%",
+      color: colors.garnetWhite,
     },
     staffBox: {
       padding: 20,
@@ -103,7 +104,7 @@ export default function Directory() {
     },
     letterFont: {
       fontSize: 16,
-      color: colors.text,
+      color: colors.garnetWhite,
     },
   });
   console.log(colors);

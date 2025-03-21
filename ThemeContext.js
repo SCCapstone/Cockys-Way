@@ -1,7 +1,8 @@
 import React, { createContext, useEffect, useState } from "react";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import { FIRESTORE_DB } from "./FirebaseConfig";
+import * as SplashScreen from "expo-splash-screen";
 
 export const ThemeContext = createContext();
 
@@ -9,6 +10,7 @@ const customLightTheme = {
   dark: false,
   colors: {
     primary: "#73000A", // garnet
+    garnetWhite: "#73000A",
     background: "#FFFFFF", // white
     card: "#F2F2F2", // light gray
     text: "#000000", // black text
@@ -21,6 +23,7 @@ const customDarkTheme = {
   dark: true,
   colors: {
     primary: "#73000A", // dark version still using garnet
+    garnetWhite: "#FFFFFF",
     background: "#757474", // deep dark background
     card: "#2C2C2C", // card/drawer background
     text: "#E0E0E0", // white text
@@ -34,10 +37,10 @@ export const ThemeProvider = ({ children }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const loadThemeFromFirestore = async () => {
-      const user = getAuth().currentUser;
+    const unsubscribe = onAuthStateChanged(getAuth(), async (user) => {
       if (!user) {
         setIsLoaded(true);
+        await SplashScreen.hideAsync();
         return;
       }
 
@@ -56,9 +59,10 @@ export const ThemeProvider = ({ children }) => {
       }
 
       setIsLoaded(true);
-    };
+      await SplashScreen.hideAsync();
+    });
 
-    loadThemeFromFirestore();
+    return () => unsubscribe();
   }, []);
 
   const theme = isDarkTheme ? customDarkTheme : customLightTheme;
@@ -67,9 +71,7 @@ export const ThemeProvider = ({ children }) => {
     <ThemeContext.Provider
       value={{ isDarkTheme, setIsDarkTheme, theme, isLoaded }}
     >
-      {children}
+      {isLoaded ? children : null}
     </ThemeContext.Provider>
   );
 };
-
-export const appDefaultTheme = customLightTheme;

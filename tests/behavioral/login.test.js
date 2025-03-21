@@ -20,6 +20,10 @@ jest.mock("firebase/auth", () => ({
   getAuth: () => ({
     currentUser: null,
   }),
+  onAuthStateChanged: (auth, callback) => {
+    callback(null); // no user
+    return () => {};
+  },
 }));
 // Mock Expo Router
 jest.mock("expo-router", () => ({
