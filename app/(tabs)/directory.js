@@ -13,6 +13,9 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
 import { useRouter } from "expo-router";
+import { useTheme } from "@react-navigation/native";
+import { ThemeContext } from "../../ThemeContext";
+import { useContext } from "react";
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 const ITEM_HEIGHT = 100;
@@ -40,6 +43,70 @@ export default function Directory() {
   const [search, setSearch] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const flatListRef = useRef(null);
+
+  const { theme } = useContext(ThemeContext);
+  const { colors } = theme;
+  const styles = StyleSheet.create({
+    container: {
+      flexGrow: 1,
+      justifyContent: "flex-start",
+      backgroundColor: colors.background,
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    mainContent: {
+      flexDirection: "row",
+      flex: 1,
+    },
+    scrollViewContainer: {
+      flexGrow: 1,
+      paddingTop: 10,
+    },
+    scrollView: {
+      flex: 1,
+    },
+    searchBar: {
+      height: 40,
+      borderColor: colors.border,
+      backgroundColor: colors.border,
+      borderWidth: 1,
+      borderRadius: 5,
+      paddingHorizontal: 10,
+      margin: 10,
+      width: "95%",
+    },
+    staffBox: {
+      padding: 20,
+      margin: 10,
+      backgroundColor: colors.primary,
+      borderColor: colors.border,
+      borderWidth: 4,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
+    staffText: {
+      color: "#fff",
+      fontSize: 30,
+      fontFamily: "Abel",
+    },
+    letterContainer: {
+      justifyContent: "flex-start",
+      padding: 10,
+      marginTop: 30, // helps align the bar
+    },
+    letter: {
+      paddingTop: 5,
+    },
+    letterFont: {
+      fontSize: 16,
+      color: colors.text,
+    },
+  });
+  console.log(colors);
 
   /* Scroll to the first item that starts with the pressed
    * letter in the FlatList using alphabet bar
@@ -114,6 +181,7 @@ export default function Directory() {
     <SafeAreaView style={styles.container}>
       <TextInput
         placeholder="Search by Name"
+        placeholderTextColor={colors.text}
         value={search}
         onChangeText={(text) => setSearch(text)}
         style={styles.searchBar}
@@ -158,62 +226,3 @@ export default function Directory() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    justifyContent: "flex-start",
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  mainContent: {
-    flexDirection: "row",
-    flex: 1,
-  },
-  scrollViewContainer: {
-    flexGrow: 1,
-    paddingTop: 10,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  searchBar: {
-    height: 40,
-    borderColor: "#ccc",
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    margin: 10,
-    width: "95%",
-  },
-  staffBox: {
-    padding: 20,
-    margin: 10,
-    backgroundColor: "#73000A",
-    borderBlockColor: "#000",
-    borderWidth: 4,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  staffText: {
-    color: "#fff",
-    fontSize: 30,
-    fontFamily: "Abel",
-  },
-  letterContainer: {
-    justifyContent: "flex-start",
-    padding: 10,
-    marginTop: 30, // helps align the bar
-  },
-  letter: {
-    paddingTop: 5,
-  },
-  letterFont: {
-    fontSize: 16,
-    color: "#73000A",
-  },
-});

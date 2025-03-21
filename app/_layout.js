@@ -1,6 +1,20 @@
-import { Stack } from 'expo-router';
+import { Stack } from "expo-router";
+import { useContext } from "react";
+import { ThemeProvider, ThemeContext } from "../ThemeContext";
+import { ActivityIndicator, View } from "react-native";
+import { DefaultTheme } from "@react-navigation/native";
 
-export default function Layout() {
+function AppLayout() {
+  const { isLoaded } = useContext(ThemeContext);
+
+  if (!isLoaded) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
   return (
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -80,7 +94,7 @@ export default function Layout() {
           headerTintColor: "#73000A",
         }}
       />
-      <Stack.Screen 
+      <Stack.Screen
         name="courseInfo"
         options={{
           title: "Course Info",
@@ -90,3 +104,24 @@ export default function Layout() {
     </Stack>
   );
 }
+
+export default function Layout() {
+  return (
+    <ThemeProvider>
+      <AppLayout />
+    </ThemeProvider>
+  );
+}
+
+export const theme = {
+  dark: false,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: "#73000A",
+    background: "#FFFFFF",
+    text: "#000000",
+    card: "#F2F2F2",
+    border: "#E0E0E0",
+    notification: "#73000A",
+  },
+};
