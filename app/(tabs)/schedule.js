@@ -26,6 +26,7 @@ import {
 import Class from "../../components/Class";
 import { getAuth } from "firebase/auth";
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+import moment from "moment";
 
 export default function Schedule() {
   const router = useRouter();
@@ -39,6 +40,9 @@ export default function Schedule() {
   const [courseToDelete, setCourseToDelete] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [calenderVisibility, setCalendarVisibility] = useState(false);
+  const [markedDates, setMarkedDates] = useState({});
+  const [currentDay, setCurrentDay] = useState("");
+  const [currentEvents, setCurrentEvents] = useState([]);
 
   useEffect(() => {
     if (!user) {
@@ -65,6 +69,60 @@ export default function Schedule() {
     return () => unsubscribe();
   }, [user]);
 
+  useEffect(() => {
+    if (courses.length > 0) {
+      const parsedDates = parseMeetingTimes(courses);
+      setMarkedDates(parsedDates);
+    }
+  }, [courses]);
+
+  const parseMeetingTimes = (courses) => {
+    const daysMap = {
+      M: "Monday",
+      T: "Tuesday",
+      W: "Wednesday",
+      Th: "Thursday",
+      F: "Friday",
+    };
+  
+    let markedDates = {};
+  
+    courses.forEach((course) => {
+      if (!course.meeting) return;
+  
+      let meetingStr = course.meeting.replace(/Th/g, "X"); 
+      let matches = meetingStr.match(/([XMTWF]+)/g); 
+  
+      if (matches) {
+        matches.forEach((daysAbbrev) => {
+          let expandedDays = daysAbbrev.split("");
+  
+          expandedDays.forEach((dayAbbrev) => {
+            if(dayAbbrev === "X") dayAbbrev = "Th";
+            let dayFull = daysMap[dayAbbrev];
+  
+            if (dayFull) {
+              let today = moment();
+              let currentMonth = today.month();
+              let startOfMonth = moment().startOf("month");
+  
+              for (let i = 0; i < 31; i++) {
+                let date = startOfMonth.clone().add(i, "days");
+  
+                if (date.format("dddd") === dayFull && date.month() === currentMonth) {
+                  let formattedDate = date.format("YYYY-MM-DD");
+                  markedDates[formattedDate] = { marked: true };
+                }
+              }
+            }
+          });
+        });
+      }
+    });
+  
+    return markedDates;
+  };
+
   const handleDeletePress = (course) => {
     setCourseToDelete(course);
     setModalVisibility(true);
@@ -90,8 +148,6 @@ export default function Schedule() {
   };
 
   const renderCourse = (course) => {
-    // console.log('in render course');
-    // console.log(course);
     return (
       <Class
         crn={course.item.id}
@@ -116,7 +172,51 @@ export default function Schedule() {
             </View>
           ) : calenderVisibility ? (
             <View style={styles.calendarContainer}>
-              <Calendar />
+              <Calendar 
+                markedDates={markedDates}
+                onDayPress={day => {
+                  const selectedDate = day.dateString; 
+                  const selectedDayOfWeek = new Date(selectedDate).getDay(); 
+
+                  const dayNames = ["M", "T", "W", "Th", "F", "Sat", "Sun"];
+                  const dayAbbreviation = dayNames[selectedDayOfWeek]; 
+
+                  const daysMap = {
+                    M: "Monday",
+                    T: "Tuesday",
+                    W: "Wednesday",
+                    Th: "Thursday",
+                    F: "Friday",
+                  };
+
+                  const coursesForDay = courses.filter(course => {
+                    let daysScheduled = course.meeting.split(" ")[0]; 
+                    daysScheduled = daysScheduled.replace(/Th/g, "X");
+                    daysScheduled = daysScheduled.split("");
+
+                    for(let i = 0; i < daysScheduled.length; ++i) {
+                      if(daysScheduled[i] === "X") daysScheduled[i] = "Th"
+                    }
+
+                    return daysScheduled.includes(dayAbbreviation);
+                  });
+
+                  setCurrentDay(day.dateString);
+                  if (coursesForDay.length > 0) {
+                    let events = [];
+                    coursesForDay.forEach(course => {
+                      events.push(`${course.name} at ${course.meeting}`);
+                    });
+                    setCurrentEvents(events);
+                  } else {
+                    setCurrentEvents([]);
+                  }
+                }}
+              />
+              <View style={styles.toggleSection}>
+                <Text>{currentDay ? currentDay : "Select a date to view what's planned!"}</Text>
+                <Text>{currentEvents.join("\n")}</Text>
+              </View>
             </View>
           ) : (
             <View style={styles.courses}>
