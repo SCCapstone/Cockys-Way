@@ -1,9 +1,10 @@
-// register.test.js
-
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react-native";
 import Register from "../../app/register";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { ThemeProvider } from "../../ThemeContext";
+
+const renderWithTheme = (ui) => render(<ThemeProvider>{ui}</ThemeProvider>);
 
 // Mock FirebaseConfig to avoid `getReactNativePersistence` issue
 jest.mock("../../FirebaseConfig", () => ({
@@ -13,9 +14,14 @@ jest.mock("../../FirebaseConfig", () => ({
 }));
 
 // Mock Firebase Auth functions
-jest.mock("firebase/auth", () => ({
-  createUserWithEmailAndPassword: jest.fn(),
-}));
+jest.mock("firebase/auth", () => {
+  return {
+    getAuth: jest.fn(() => ({
+      currentUser: null,
+    })),
+    createUserWithEmailAndPassword: jest.fn(),
+  };
+});
 
 // Mock Expo Router
 jest.mock("expo-router", () => ({
@@ -38,7 +44,7 @@ describe("Register Screen", () => {
       user: { uid: "12345", email: "test@example.com" },
     });
 
-    const { getByPlaceholderText, getByTestId } = render(<Register />);
+    const { getByPlaceholderText, getByTestId } = renderWithTheme(<Register />);
 
     // Fill in the registration form
     fireEvent.changeText(
@@ -78,7 +84,7 @@ describe("Register Screen", () => {
       new Error("Registration Failed")
     );
 
-    const { getByPlaceholderText, getByTestId } = render(<Register />);
+    const { getByPlaceholderText, getByTestId } = renderWithTheme(<Register />);
 
     // Fill in the registration form with valid values
     fireEvent.changeText(

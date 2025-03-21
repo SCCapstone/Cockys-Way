@@ -8,7 +8,7 @@ import {
   Modal,
   Image,
   ActivityIndicator,
-  ToastAndroid
+  ToastAndroid,
 } from "react-native";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { useRouter } from "expo-router";
@@ -25,8 +25,10 @@ import {
 
 import Class from "../../components/Class";
 import { getAuth } from "firebase/auth";
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+import { Calendar, CalendarList, Agenda } from "react-native-calendars";
 import moment from "moment";
+import { useContext } from "react";
+import { ThemeContext } from "../../ThemeContext";
 
 export default function Schedule() {
   const router = useRouter();
@@ -43,6 +45,163 @@ export default function Schedule() {
   const [markedDates, setMarkedDates] = useState({});
   const [currentDay, setCurrentDay] = useState("");
   const [currentEvents, setCurrentEvents] = useState([]);
+  const { theme } = useContext(ThemeContext);
+  const { colors } = theme;
+
+  const styles = StyleSheet.create({
+    background: {
+      backgroundColor: colors.background,
+      flex: 1,
+    },
+    courses: {
+      paddingHorizontal: 20,
+      paddingTop: 15,
+      width: "100%",
+      gap: 15,
+    },
+
+    calendarContainer: {
+      paddingHorizontal: 20,
+      paddingTop: 15,
+      width: "100%",
+    },
+
+    addButton: {
+      backgroundColor: "#AAAAAA",
+      position: "absolute",
+      bottom: 85,
+      right: 20,
+      flexDirection: "row",
+      gap: 5,
+      borderRadius: 10,
+      padding: 10,
+      alignItems: "center",
+      zIndex: 999,
+    },
+
+    addText: {
+      fontSize: 20,
+    },
+
+    addIcon: {
+      // marginLeft: 10
+    },
+    noUser: {
+      fontSize: 30,
+      paddingHorizontal: 20,
+      color: colors.text,
+      // alignItems: "center",
+      // justifyContent: "center",
+      // flex: 1
+    },
+
+    container: {
+      width: "100%",
+      height: "100%",
+      justifyContent: "center",
+      alignItems: "center",
+      // paddingBottom: 20
+      // borderWidth: 3,
+      // borderColor: "#000000"
+    },
+
+    image: {
+      width: 150,
+      height: 150,
+      marginBottom: 20,
+    },
+
+    modalContainer: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "rgba(0,0,0,0.5)",
+      paddingHorizontal: 20,
+    },
+
+    modalContent: {
+      backgroundColor: colors.card,
+      padding: 20,
+      borderRadius: 10,
+      alignItems: "center",
+    },
+
+    modalText: {
+      fontSize: 25,
+      marginBottom: 10,
+      color: colors.text,
+    },
+
+    modalButtons: {
+      flexDirection: "row",
+      marginTop: 10,
+    },
+
+    modalButton: {
+      marginHorizontal: 10,
+      padding: 10,
+      borderRadius: 5,
+      // borderColor: "#000000",
+      // borderWidth: 2,
+      flex: 1,
+    },
+
+    cancelButton: {
+      backgroundColor: "#AAAAAA",
+    },
+
+    cancelText: {
+      color: "#000000",
+      textAlign: "center",
+      fontSize: 20,
+    },
+
+    confirmButton: {
+      backgroundColor: "#73000A",
+    },
+
+    confirmText: {
+      color: "#FFFFFF",
+      textAlign: "center",
+      fontSize: 20,
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+
+    bottomContainer: {
+      // paddingHorizontal: 20,
+      position: "absolute",
+      bottom: 0,
+      width: "100%",
+      // borderColor: "red",
+      // borderWidth: 2,
+      paddingHorizontal: 20,
+      backgroundColor: "#AAAAAA",
+    },
+
+    switchViewButton: {
+      // borderColor: "#000000",
+      // borderWidth: 3,
+      width: "100%",
+      backgroundColor: "#73000A",
+      borderRadius: 10,
+      paddingVertical: 5,
+      marginVertical: 10,
+      // fontSize: 20,
+      // marginHorizontal: 20,
+      // paddingHorizontal: 20,
+      // paddingHorizontal: 15,
+    },
+
+    switchViewText: {
+      fontSize: 30,
+      textAlign: "center",
+      color: "#FFFFFF",
+    },
+  });
 
   useEffect(() => {
     if (!user) {
@@ -84,32 +243,35 @@ export default function Schedule() {
       Th: "Thursday",
       F: "Friday",
     };
-  
+
     let markedDates = {};
-  
+
     courses.forEach((course) => {
       if (!course.meeting) return;
-  
-      let meetingStr = course.meeting.replace(/Th/g, "X"); 
-      let matches = meetingStr.match(/([XMTWF]+)/g); 
-  
+
+      let meetingStr = course.meeting.replace(/Th/g, "X");
+      let matches = meetingStr.match(/([XMTWF]+)/g);
+
       if (matches) {
         matches.forEach((daysAbbrev) => {
           let expandedDays = daysAbbrev.split("");
-  
+
           expandedDays.forEach((dayAbbrev) => {
-            if(dayAbbrev === "X") dayAbbrev = "Th";
+            if (dayAbbrev === "X") dayAbbrev = "Th";
             let dayFull = daysMap[dayAbbrev];
-  
+
             if (dayFull) {
               let today = moment();
               let currentMonth = today.month();
               let startOfMonth = moment().startOf("month");
-  
+
               for (let i = 0; i < 31; i++) {
                 let date = startOfMonth.clone().add(i, "days");
-  
-                if (date.format("dddd") === dayFull && date.month() === currentMonth) {
+
+                if (
+                  date.format("dddd") === dayFull &&
+                  date.month() === currentMonth
+                ) {
                   let formattedDate = date.format("YYYY-MM-DD");
                   markedDates[formattedDate] = { marked: true };
                 }
@@ -119,7 +281,7 @@ export default function Schedule() {
         });
       }
     });
-  
+
     return markedDates;
   };
 
@@ -141,7 +303,10 @@ export default function Schedule() {
       console.log("Error deleting course:", error);
     }
 
-    ToastAndroid.show(`${courseToDelete?.name} has successfully been deleted from your schedule!`, ToastAndroid.LONG);
+    ToastAndroid.show(
+      `${courseToDelete?.name} has successfully been deleted from your schedule!`,
+      ToastAndroid.LONG
+    );
 
     setIsModalVisible(false);
     setCourseToDelete(null);
@@ -171,15 +336,15 @@ export default function Schedule() {
               <ActivityIndicator size="large" color="#73000A" />
             </View>
           ) : calenderVisibility ? (
-            <View style={styles.calendarContainer}>
-              <Calendar 
+            <View style={[styles.calendarContainer, styles.background]}>
+              <Calendar
                 markedDates={markedDates}
-                onDayPress={day => {
-                  const selectedDate = day.dateString; 
-                  const selectedDayOfWeek = new Date(selectedDate).getDay(); 
+                onDayPress={(day) => {
+                  const selectedDate = day.dateString;
+                  const selectedDayOfWeek = new Date(selectedDate).getDay();
 
                   const dayNames = ["M", "T", "W", "Th", "F", "Sat", "Sun"];
-                  const dayAbbreviation = dayNames[selectedDayOfWeek]; 
+                  const dayAbbreviation = dayNames[selectedDayOfWeek];
 
                   const daysMap = {
                     M: "Monday",
@@ -189,13 +354,13 @@ export default function Schedule() {
                     F: "Friday",
                   };
 
-                  const coursesForDay = courses.filter(course => {
-                    let daysScheduled = course.meeting.split(" ")[0]; 
+                  const coursesForDay = courses.filter((course) => {
+                    let daysScheduled = course.meeting.split(" ")[0];
                     daysScheduled = daysScheduled.replace(/Th/g, "X");
                     daysScheduled = daysScheduled.split("");
 
-                    for(let i = 0; i < daysScheduled.length; ++i) {
-                      if(daysScheduled[i] === "X") daysScheduled[i] = "Th"
+                    for (let i = 0; i < daysScheduled.length; ++i) {
+                      if (daysScheduled[i] === "X") daysScheduled[i] = "Th";
                     }
 
                     return daysScheduled.includes(dayAbbreviation);
@@ -204,7 +369,7 @@ export default function Schedule() {
                   setCurrentDay(day.dateString);
                   if (coursesForDay.length > 0) {
                     let events = [];
-                    coursesForDay.forEach(course => {
+                    coursesForDay.forEach((course) => {
                       events.push(`${course.name} at ${course.meeting}`);
                     });
                     setCurrentEvents(events);
@@ -214,12 +379,16 @@ export default function Schedule() {
                 }}
               />
               <View style={styles.toggleSection}>
-                <Text>{currentDay ? currentDay : "Select a date to view what's planned!"}</Text>
+                <Text>
+                  {currentDay
+                    ? currentDay
+                    : "Select a date to view what's planned!"}
+                </Text>
                 <Text>{currentEvents.join("\n")}</Text>
               </View>
             </View>
           ) : (
-            <View style={styles.courses}>
+            <View style={[styles.courses, styles.background]}>
               <FlatList
                 data={courses}
                 renderItem={(courses) => renderCourse(courses)}
@@ -261,11 +430,11 @@ export default function Schedule() {
           </Modal>
           {!calenderVisibility && (
             <TouchableOpacity
-            onPress={() => {
-              router.push("../addClassForm");
-            }}
-            style={styles.addButton}
-          >
+              onPress={() => {
+                router.push("../addClassForm");
+              }}
+              style={styles.addButton}
+            >
               <Text style={styles.addText}>Add a Class</Text>
               <FontAwesome5
                 style={styles.addIcon}
@@ -282,12 +451,14 @@ export default function Schedule() {
               }}
               style={styles.switchViewButton}
             >
-              <Text style={styles.switchViewText}>Switch to {calenderVisibility ? "List" : "Calendar"}</Text>
+              <Text style={styles.switchViewText}>
+                Switch to {calenderVisibility ? "List" : "Calendar"}
+              </Text>
             </TouchableOpacity>
           </View>
         </>
       ) : (
-        <View style={styles.container}>
+        <View style={[styles.container, styles.background]}>
           <Image
             style={styles.image}
             source={require("../../assets/images/cockys-way.png")}
@@ -301,152 +472,3 @@ export default function Schedule() {
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  courses: {
-    paddingHorizontal: 20,
-    paddingTop: 15,
-    width: "100%",
-    gap: 15,
-  },
-
-  calendarContainer: {
-    paddingHorizontal: 20,
-    paddingTop: 15,
-    width: "100%",
-  },  
-
-  addButton: {
-    backgroundColor: "#AAAAAA",
-    position: "absolute",
-    bottom: 85,
-    right: 20,
-    flexDirection: "row",
-    gap: 5,
-    borderRadius: 10,
-    padding: 10,
-    alignItems: "center",
-    zIndex: 999,
-  },
-
-  addText: {
-    fontSize: 20,
-  },
-
-  addIcon: {
-    // marginLeft: 10
-  },
-  noUser: {
-    fontSize: 30,
-    paddingHorizontal: 20,
-    // alignItems: "center",
-    // justifyContent: "center",
-    // flex: 1
-  },
-
-  container: {
-    width: "100%",
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
-    // paddingBottom: 20
-    // borderWidth: 3,
-    // borderColor: "#000000"
-  },
-
-  image: {
-    width: 150,
-    height: 150,
-    marginBottom: 20,
-  },
-
-  modalContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0,0,0,0.5)",
-    paddingHorizontal: 20,
-  },
-
-  modalContent: {
-    backgroundColor: "white",
-    padding: 20,
-    borderRadius: 10,
-    alignItems: "center",
-  },
-
-  modalText: {
-    fontSize: 25,
-    marginBottom: 10,
-  },
-
-  modalButtons: {
-    flexDirection: "row",
-    marginTop: 10,
-  },
-
-  modalButton: {
-    marginHorizontal: 10,
-    padding: 10,
-    borderRadius: 5,
-    // borderColor: "#000000",
-    // borderWidth: 2,
-    flex: 1,
-  },
-
-  cancelButton: {
-    backgroundColor: "#AAAAAA",
-  },
-
-  cancelText: {
-    color: "#000000",
-    textAlign: "center",
-    fontSize: 20,
-  },
-
-  confirmButton: {
-    backgroundColor: "#73000A",
-  },
-
-  confirmText: {
-    color: "#FFFFFF",
-    textAlign: "center",
-    fontSize: 20,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  bottomContainer: {
-    // paddingHorizontal: 20,
-    position: "absolute",
-    bottom: 0,
-    width: "100%",
-    // borderColor: "red",
-    // borderWidth: 2,
-    paddingHorizontal: 20,
-    backgroundColor: "#AAAAAA"
-  },
-
-  switchViewButton: {
-    // borderColor: "#000000",
-    // borderWidth: 3,
-    width: "100%",
-    backgroundColor: "#73000A",
-    borderRadius: 10,
-    paddingVertical: 5,
-    marginVertical: 10,
-    // fontSize: 20,
-    // marginHorizontal: 20,
-    // paddingHorizontal: 20,
-    // paddingHorizontal: 15,
-  },
-
-  switchViewText: {
-    fontSize: 30,
-    textAlign: "center",
-    color: "#FFFFFF"
-  }
-});

@@ -5,7 +5,7 @@ import { ActivityIndicator, View } from "react-native";
 import { DefaultTheme } from "@react-navigation/native";
 
 function AppLayout() {
-  const { isLoaded } = useContext(ThemeContext);
+  const { isLoaded, theme } = useContext(ThemeContext);
 
   if (!isLoaded) {
     return (
@@ -15,15 +15,22 @@ function AppLayout() {
     );
   }
 
+  const screenOptions = {
+    headerStyle: {
+      backgroundColor: theme.colors.card,
+    },
+    headerTintColor: theme.colors.text,
+  };
+
   return (
-    <Stack>
+    <Stack screenOptions={screenOptions}>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen
         name="login"
         options={{
           title: "Login",
           headerBackTitle: "Back",
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
@@ -31,14 +38,14 @@ function AppLayout() {
         options={{
           title: "Register",
           headerBackTitleVisible: false,
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
         name="professorInfo"
         options={{
           title: "",
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
           headerBackTitle: "Back",
         }}
       />
@@ -47,7 +54,7 @@ function AppLayout() {
         options={{
           title: "Add Class",
           headerBackTitleVisible: false,
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
@@ -55,7 +62,7 @@ function AppLayout() {
         options={{
           title: "Forgot Password",
           headerBackTitleVisible: false,
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
@@ -63,42 +70,42 @@ function AppLayout() {
         options={{
           title: "Search Results",
           headerBackTitleVisible: false,
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
         name="PrivacySecurity"
         options={{
           title: "Privacy and Security",
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
         name="favLocations"
         options={{
           title: "Favorite Locations",
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
         name="accessibility"
         options={{
           title: "Accessibility",
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
         name="PinFilterMain"
         options={{
           title: "Filter Pins",
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
         name="courseInfo"
         options={{
           title: "Course Info",
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
     </Stack>
@@ -112,16 +119,3 @@ export default function Layout() {
     </ThemeProvider>
   );
 }
-
-export const theme = {
-  dark: false,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: "#73000A",
-    background: "#FFFFFF",
-    text: "#000000",
-    card: "#F2F2F2",
-    border: "#E0E0E0",
-    notification: "#73000A",
-  },
-};

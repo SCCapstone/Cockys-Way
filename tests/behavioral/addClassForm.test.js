@@ -35,10 +35,14 @@ describe("AddClassForm", () => {
     fireEvent.press(dropdown);
 
     // get the other inputs and change their text as if a user was searching for a class
-    const subjectInput = getByPlaceholderText("Subject");
+    const subjectInput = getByPlaceholderText(
+      "Subject (CSCE, ENGL, MATH, etc.)"
+    );
     fireEvent.changeText(subjectInput, "CSCE");
 
-    const courseNumberInput = getByPlaceholderText("Course Number");
+    const courseNumberInput = getByPlaceholderText(
+      "Course Number (101, 240, 567, etc.)"
+    );
     fireEvent.changeText(courseNumberInput, "101");
 
     // press the search for classes button

@@ -2,6 +2,9 @@ import React from "react";
 import { render, fireEvent, waitFor, act } from "@testing-library/react-native";
 import Directory from "../../app/(tabs)/directory";
 import { useRouter } from "expo-router";
+import { ThemeProvider } from "../../ThemeContext";
+
+const renderWithTheme = (ui) => render(<ThemeProvider>{ui}</ThemeProvider>);
 
 // mock the firebase config
 jest.mock("../../FirebaseConfig", () => ({
@@ -104,6 +107,12 @@ jest.mock("expo-router", () => ({
 // mock for FontAwesome icons
 jest.mock("@expo/vector-icons/FontAwesome", () => "FontAwesome");
 
+jest.mock("firebase/auth", () => ({
+  getAuth: () => ({
+    currentUser: null,
+  }),
+}));
+
 describe("Directory Screen", () => {
   // setup router mock before each test
   const mockPush = jest.fn();
@@ -113,7 +122,7 @@ describe("Directory Screen", () => {
   });
 
   it("renders alphabet bar and allows scrolling to sections", async () => {
-    const { getByText, queryByText } = render(<Directory />);
+    const { getByText, queryByText } = renderWithTheme(<Directory />);
 
     // wait for the data to load (Whitney Abreu should be displayed first)
     await waitFor(() => {
@@ -140,7 +149,7 @@ describe("Directory Screen", () => {
   });
 
   it("navigates to professor info when a professor name is clicked", async () => {
-    const { getByText, queryByText } = render(<Directory />);
+    const { getByText, queryByText } = renderWithTheme(<Directory />);
 
     // wait for the data to load (Whitney Abreu should be displayed first)
     await waitFor(() => {
@@ -160,7 +169,9 @@ describe("Directory Screen", () => {
   });
 
   it("filters professors based on search input", async () => {
-    const { getByPlaceholderText, queryByText } = render(<Directory />);
+    const { getByPlaceholderText, queryByText } = renderWithTheme(
+      <Directory />
+    );
 
     // wait for the data to load (Whitney Abreu should be displayed first)
     await waitFor(() => {
