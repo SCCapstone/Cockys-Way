@@ -107,7 +107,6 @@ export default function Directory() {
       color: colors.garnetWhite,
     },
   });
-  console.log(colors);
 
   /* Scroll to the first item that starts with the pressed
    * letter in the FlatList using alphabet bar
