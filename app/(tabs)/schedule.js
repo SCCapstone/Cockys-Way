@@ -44,7 +44,7 @@ export default function Schedule() {
   const [calenderVisibility, setCalendarVisibility] = useState(false);
   const [markedDates, setMarkedDates] = useState({});
   const [currentDay, setCurrentDay] = useState("");
-  const [currentEvents, setCurrentEvents] = useState([]);
+  const [currentCourses, setCurrentCourses] = useState([]);
   const { theme } = useContext(ThemeContext);
   const { colors } = theme;
 
@@ -243,46 +243,89 @@ export default function Schedule() {
       Th: "Thursday",
       F: "Friday",
     };
-
+  
+    const semesterDates = {
+      "202408": { start: "2024-08-08", end: "2024-12-16" },
+      "202501": { start: "2025-01-13", end: "2025-05-17" },
+    };
+  
     let markedDates = {};
-
+  
     courses.forEach((course) => {
-      if (!course.meeting) return;
-
-      let meetingStr = course.meeting.replace(/Th/g, "X");
-      let matches = meetingStr.match(/([XMTWF]+)/g);
-
+      if (!course.meeting || !course.srcdb || !semesterDates[course.srcdb]) return;
+  
+      let { start, end } = semesterDates[course.srcdb];
+      let startDate = moment(start);
+      let endDate = moment(end);
+  
+      // Extracting days properly by ensuring "Th" is captured as its own entity
+      let meetingStr = course.meeting.replace(/Th/g, "X"); // Temporarily replace "Th" to avoid confusion with "T"
+      let matches = meetingStr.match(/(X|M|T|W|F)/g); // Now match days correctly
       if (matches) {
-        matches.forEach((daysAbbrev) => {
-          let expandedDays = daysAbbrev.split("");
-
-          expandedDays.forEach((dayAbbrev) => {
-            if (dayAbbrev === "X") dayAbbrev = "Th";
-            let dayFull = daysMap[dayAbbrev];
-
-            if (dayFull) {
-              let today = moment();
-              let currentMonth = today.month();
-              let startOfMonth = moment().startOf("month");
-
-              for (let i = 0; i < 31; i++) {
-                let date = startOfMonth.clone().add(i, "days");
-
-                if (
-                  date.format("dddd") === dayFull &&
-                  date.month() === currentMonth
-                ) {
-                  let formattedDate = date.format("YYYY-MM-DD");
-                  markedDates[formattedDate] = { marked: true };
-                }
+        matches = matches.map((d) => (d === "X" ? "Th" : d)); // Convert "X" back to "Th"
+  
+        matches.forEach((dayAbbrev) => {
+          let dayFull = daysMap[dayAbbrev];
+  
+          if (dayFull) {
+            let currentDate = startDate.clone();
+            while (currentDate.isSameOrBefore(endDate)) {
+              if (currentDate.format("dddd") === dayFull) {
+                let formattedDate = currentDate.format("YYYY-MM-DD");
+                markedDates[formattedDate] = { marked: true };
               }
+              currentDate.add(1, "day");
             }
-          });
+          }
         });
       }
     });
-
+  
     return markedDates;
+  };
+
+  const daysMap = {
+    M: "Monday",
+    T: "Tuesday",
+    W: "Wednesday",
+    Th: "Thursday",
+    F: "Friday",
+  };
+  
+  const semesterDates = {
+    "202408": { start: "2024-08-08", end: "2024-12-16" },
+    "202501": { start: "2025-01-13", end: "2025-05-17" },
+  };
+  
+  const getCoursesForDay = (selectedDate, courses) => {
+    let selectedMoment = moment(selectedDate);
+    let selectedWeekday = selectedMoment.format("dddd"); // Get full weekday name
+    let relevantCourses = [];
+  
+    courses.forEach((course) => {
+      if (!course.meeting || !course.srcdb || !semesterDates[course.srcdb]) return;
+  
+      let { start, end } = semesterDates[course.srcdb];
+      let startDate = moment(start);
+      let endDate = moment(end);
+  
+      // Ensure the selected date is within the course's semester range
+      if (!selectedMoment.isBetween(startDate, endDate, null, "[]")) return;
+  
+      // Process meeting string to extract days properly
+      let meetingStr = course.meeting.replace(/Th/g, "X"); // Temporarily replace "Th" with "X"
+      let matches = meetingStr.match(/(X|M|T|W|F)/g);
+      if (matches) {
+        matches = matches.map((d) => (d === "X" ? "Th" : d)); // Convert "X" back to "Th"
+  
+        // If the course meets on the selected weekday, add to results
+        if (matches.some((dayAbbrev) => daysMap[dayAbbrev] === selectedWeekday)) {
+          relevantCourses.push(`${course.code}-${course.section}: ${course.name} at ${course.meeting}`);
+        }
+      }
+    });
+  
+    return relevantCourses;
   };
 
   const handleDeletePress = (course) => {
@@ -340,42 +383,8 @@ export default function Schedule() {
               <Calendar
                 markedDates={markedDates}
                 onDayPress={(day) => {
-                  const selectedDate = day.dateString;
-                  const selectedDayOfWeek = new Date(selectedDate).getDay();
-
-                  const dayNames = ["M", "T", "W", "Th", "F", "Sat", "Sun"];
-                  const dayAbbreviation = dayNames[selectedDayOfWeek];
-
-                  const daysMap = {
-                    M: "Monday",
-                    T: "Tuesday",
-                    W: "Wednesday",
-                    Th: "Thursday",
-                    F: "Friday",
-                  };
-
-                  const coursesForDay = courses.filter((course) => {
-                    let daysScheduled = course.meeting.split(" ")[0];
-                    daysScheduled = daysScheduled.replace(/Th/g, "X");
-                    daysScheduled = daysScheduled.split("");
-
-                    for (let i = 0; i < daysScheduled.length; ++i) {
-                      if (daysScheduled[i] === "X") daysScheduled[i] = "Th";
-                    }
-
-                    return daysScheduled.includes(dayAbbreviation);
-                  });
-
                   setCurrentDay(day.dateString);
-                  if (coursesForDay.length > 0) {
-                    let events = [];
-                    coursesForDay.forEach((course) => {
-                      events.push(`${course.name} at ${course.meeting}`);
-                    });
-                    setCurrentEvents(events);
-                  } else {
-                    setCurrentEvents([]);
-                  }
+                  setCurrentCourses(getCoursesForDay(day.dateString, courses));
                 }}
               />
               <View style={styles.toggleSection}>
@@ -384,7 +393,7 @@ export default function Schedule() {
                     ? currentDay
                     : "Select a date to view what's planned!"}
                 </Text>
-                <Text>{currentEvents.join("\n")}</Text>
+                <Text>{currentCourses}</Text>
               </View>
             </View>
           ) : (
