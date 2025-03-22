@@ -978,7 +978,7 @@ export default function HomeScreen() {
             }}
             apikey={GOOGLE_API_KEY}
             strokeWidth={4}
-            strokeColor="#73000a"
+            strokeColor={theme.dark ? "#FFF" : "#73000a"}
             mode={travelMode}
             onReady={(result) => {
               setRouteDetails({
