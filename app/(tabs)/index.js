@@ -180,6 +180,7 @@ export default function HomeScreen() {
           setNavigateToProfessorOffice(true);
         } // end of NEW CODE FOR PROF OFFICE INFO
       } catch (err) {
+        console.error("Error fetching markers:", err);
         Alert.alert("Error fetching data");
         setIsLoading(false);
       }
@@ -1090,7 +1091,10 @@ export default function HomeScreen() {
 
       {/* Route Details and Stop Button */}
       {showRouteDetails && (
-        <View style={styles.routeDetailsContainer}>
+        <View
+          testID="route-details-container"
+          style={styles.routeDetailsContainer}
+        >
           {/* Marker info here: Title, Description, Category, Tag, etc.
               You will need to change the variable in setSelectedDestination */}
           <View style={styles.titleContainer}>
