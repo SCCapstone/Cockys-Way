@@ -10,6 +10,8 @@ import { useLocalSearchParams } from "expo-router";
 import fetchCourseList from "../hook/fetchCourseList";
 import Class from "../components/Class";
 import fetchCourseInfo from "../hook/fetchCourseInfo";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 
 export const getInfo = (subject, semester) => {
   console.log(fetchCourseList(subject, semester));
@@ -19,6 +21,28 @@ export const getInfo = (subject, semester) => {
 const AddClassSearchResults = () => {
   const { semester, subject, number } = useLocalSearchParams();
   const [courses, setCourses] = useState([]);
+  const { theme } = useContext(ThemeContext);
+  const { colors } = theme;
+
+  const styles = StyleSheet.create({
+    container: {
+      paddingTop: 30,
+      paddingHorizontal: 20,
+      flex: 1,
+      backgroundColor: colors.background,
+    },
+    header: {
+      textAlign: "center",
+      fontSize: 25,
+      marginBottom: 20,
+      color: colors.text,
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+  });
 
   const info = getInfo(subject, semester);
   let courseList = info.data;
@@ -69,21 +93,3 @@ const AddClassSearchResults = () => {
 };
 
 export default AddClassSearchResults;
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 30,
-    paddingHorizontal: 20,
-    flex: 1,
-  },
-  header: {
-    textAlign: "center",
-    fontSize: 25,
-    marginBottom: 20,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});

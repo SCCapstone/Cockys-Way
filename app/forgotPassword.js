@@ -78,7 +78,7 @@ const ForgotPassword = () => {
       marginTop: 20,
     },
     buttonText: {
-      color: "#fff",
+      color: colors.alwaysWhite,
       fontSize: 25,
       textAlign: "center",
     },

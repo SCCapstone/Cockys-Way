@@ -76,7 +76,7 @@ const Register = () => {
       marginTop: 20,
     },
     buttonText: {
-      color: "#FFF",
+      color: colors.alwaysWhite,
       fontSize: 25,
       textAlign: "center",
     },

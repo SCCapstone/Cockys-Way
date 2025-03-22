@@ -90,7 +90,7 @@ export default function Directory() {
       alignItems: "center",
     },
     staffText: {
-      color: "#fff",
+      color: colors.alwaysWhite,
       fontSize: 30,
       fontFamily: "Abel",
     },

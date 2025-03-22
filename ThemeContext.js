@@ -16,6 +16,9 @@ const customLightTheme = {
     text: "#000000", // black text
     border: "#E0E0E0", // light border
     notification: "#73000A", // match primary
+    alwaysWhite: "#FFFFFF", // white
+    placeholder: "#A9A9A9", // light gray placeholder
+    lightGarnet: "#D5B4BA", // light garnet
   },
 };
 
@@ -29,6 +32,9 @@ const customDarkTheme = {
     text: "#E0E0E0", // white text
     border: "#5a5a5a", // darker border
     notification: "#FF8A80", // lighter red
+    alwaysWhite: "#FFFFFF", // white
+    placeholder: "#A9A9A9", // light
+    lightGarnet: "#9C6B70", // light garnet
   },
 };
 

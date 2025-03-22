@@ -65,7 +65,7 @@ export default function SettingsScreen() {
     },
     settingText: {
       fontSize: 22.5,
-      color: "#FFF",
+      color: colors.alwaysWhite,
       fontFamily: "Abel_400Regular",
     },
   });

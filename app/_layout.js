@@ -52,9 +52,9 @@ function AppLayout() {
       <Stack.Screen
         name="addClassForm"
         options={{
-          title: "Add Class",
-          headerBackTitleVisible: false,
+          title: "Search for Classes",
           headerTintColor: theme.colors.text,
+          headerBackTitle: "Back",
         }}
       />
       <Stack.Screen
@@ -77,6 +77,7 @@ function AppLayout() {
         name="PrivacySecurity"
         options={{
           title: "Privacy and Security",
+          headerBackTitle: "Back",
           headerTintColor: theme.colors.text,
         }}
       />
@@ -85,6 +86,7 @@ function AppLayout() {
         options={{
           title: "Favorite Locations",
           headerTintColor: theme.colors.text,
+          headerBackTitle: "Back",
         }}
       />
       <Stack.Screen
@@ -92,19 +94,46 @@ function AppLayout() {
         options={{
           title: "Accessibility",
           headerTintColor: theme.colors.text,
+          headerBackTitle: "Back",
         }}
       />
+      <Stack.Screen
+        name="MyAccount"
+        options={{
+          title: "My Account",
+          headerTintColor: theme.colors.text,
+          headerBackTitle: "Back",
+        }}
+      />
+
       <Stack.Screen
         name="PinFilterMain"
         options={{
           title: "Filter Pins",
+          headerBackTitle: "Back",
           headerTintColor: theme.colors.text,
+        }}
+      />
+      <Stack.Screen
+        name="routeHistory"
+        options={{
+          title: "Route History",
+          headerTintColor: theme.colors.text,
+          headerBackTitle: "Back",
         }}
       />
       <Stack.Screen
         name="courseInfo"
         options={{
           title: "Course Info",
+          headerTintColor: theme.colors.text,
+        }}
+      />
+      <Stack.Screen
+        name="SignOut"
+        options={{
+          title: "Sign Out",
+          headerBackTitle: "Back",
           headerTintColor: theme.colors.text,
         }}
       />
