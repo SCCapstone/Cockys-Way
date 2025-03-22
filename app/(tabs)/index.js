@@ -1108,13 +1108,21 @@ export default function HomeScreen() {
                 style={styles.exitButton}
                 onPress={handleFavorite}
               >
-                <FontAwesome name="star" size={24} color="#73000A" />
+                <FontAwesome
+                  name="star"
+                  size={24}
+                  color={theme.colors.garnetWhite}
+                />
               </TouchableOpacity>
               <TouchableOpacity
                 style={styles.exitButton}
                 onPress={handleStopDirections}
               >
-                <FontAwesome name="times" size={24} color="#73000A" />
+                <FontAwesome
+                  name="times"
+                  size={24}
+                  color={theme.colors.garnetWhite}
+                />
               </TouchableOpacity>
             </View>
           </View>
@@ -1162,7 +1170,11 @@ export default function HomeScreen() {
               ref={startNavButtonRef}
               buttonId="startNavButton"
             >
-              <FontAwesome name="map" size={24} color="#73000A" />
+              <FontAwesome
+                name="map"
+                size={24}
+                color={theme.colors.garnetWhite}
+              />
               <Text style={styles.routeButtonText}>Start Nav</Text>
             </TouchableOpacity>
 
@@ -1173,7 +1185,11 @@ export default function HomeScreen() {
               ref={setStartButtonRef}
               buttonId="setStartButton"
             >
-              <FontAwesome name="play" size={24} color="#73000A" />
+              <FontAwesome
+                name="play"
+                size={24}
+                color={theme.colors.garnetWhite}
+              />
               <Text style={styles.routeButtonText}>Set Start</Text>
             </TouchableOpacity>
 
@@ -1184,7 +1200,11 @@ export default function HomeScreen() {
               ref={resetLocationButtonRef}
               buttonId="resetLocationButton"
             >
-              <FontAwesome name="times" size={24} color="#73000A" />
+              <FontAwesome
+                name="times"
+                size={24}
+                color={theme.colors.garnetWhite}
+              />
               <Text style={styles.routeButtonText}>Reset</Text>
             </TouchableOpacity>
 
@@ -1195,7 +1215,11 @@ export default function HomeScreen() {
               ref={stopDirectionsButtonRef}
               buttonId="stopDirectionsButton"
             >
-              <FontAwesome name="stop" size={24} color="#73000A" />
+              <FontAwesome
+                name="stop"
+                size={24}
+                color={theme.colors.garnetWhite}
+              />
               <Text style={styles.routeButtonText}>Stop</Text>
             </TouchableOpacity>
           </View>

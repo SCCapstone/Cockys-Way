@@ -1,3 +1,5 @@
+// JSON provided by https://mapstyle.withgoogle.com/
+
 const darkMapStyle = [
   {
     elementType: "geometry",
