@@ -41,6 +41,7 @@ import { getAuth } from "firebase/auth";
 import { useContext } from "react";
 import { ThemeContext } from "../../ThemeContext";
 import createHomeStyles from "../../homestyles";
+import darkMapStyle from "../../mapStyles";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -873,6 +874,7 @@ export default function HomeScreen() {
         followsUserLocation={followsUser}
         showsTraffic={showTraffic}
         onPress={handleMapPress}
+        customMapStyle={theme.dark ? darkMapStyle : []}
       >
         {/* render markers normally */}
         {/*{markers.map((marker) => (
