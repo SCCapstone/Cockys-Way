@@ -121,7 +121,7 @@ export default function HomeScreen() {
           latitudeDelta: 0.015,
           longitudeDelta: 0.015,
         },
-        2500 // 2500 is duration of zoom in ms
+        950 // 950 is duration of zoom in ms - reduced to handle dark mode styles
       );
     }
   };
