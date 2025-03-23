@@ -74,6 +74,9 @@ export default function HomeScreen() {
   const [newTitle, setNewTitle] = useState("");
   const [newDescription, setNewDescription] = useState("");
 
+  const [userFavorites, setUserFavorites] = useState([]);
+  const [isFavorited, setIsFavorited] = useState(false);
+
   // Get professor's office location if navigated from ProfessorInfo.js
   const { latitude, longitude } = useLocalSearchParams();
   const [selectedMarker, setSelectedMarker] = useState(null);
@@ -106,6 +109,8 @@ export default function HomeScreen() {
     setShowRouteDetails(true);
     setShowTravelModeButtons(true);
     setRouteSteps([]);
+
+    setIsFavorited(userFavorites.includes(marker.id));
 
     // Zoom in on marker region
     if (mapRef.current) {
@@ -190,6 +195,28 @@ export default function HomeScreen() {
     fetchMarkers();
     //  }, []); // ORIG. COMMENTED OUT FOR OFFICE TEST
   }, [latitude, longitude]);
+
+  /*
+   * I used the useEffect so that all favorites already stored
+   * would be fetched when the app first starts so the star icon
+   * would display correctly
+   */
+  useEffect(() => {
+    const fetchUserFavorites = async () => {
+      const user = getAuth().currentUser;
+      if (user) {
+        const uid = user.uid;
+        const userFavoritesRef = doc(FIRESTORE_DB, "favorites", uid);
+        const docSnap = await getDoc(userFavoritesRef);
+        if (docSnap.exists()) {
+          const favorites = docSnap.data().locations || [];
+          setUserFavorites(favorites);
+        }
+      }
+    };
+
+    fetchUserFavorites();
+  }, []);
 
   // getting all the alternate names of locations to add to Firestore
   // changed from using longitude & latitude to title due to
@@ -552,11 +579,46 @@ export default function HomeScreen() {
   };
 
   const handleFavorite = async (marker) => {
+    // checking for the user since users are required for favorites
     const user = getAuth().currentUser;
-    if (user) {
-      const uid = user.uid;
-      // Continue implementation here
-      return;
+    if (!user || !selectedMarker) return;
+
+    const uid = user.uid;
+    const userFavoritesRef = doc(FIRESTORE_DB, "favorites", uid);
+
+    try {
+      // try to get the user's favorites from firestore using their uid
+      const userDoc = await getDoc(userFavoritesRef);
+      const currentFavorites = userDoc.exists()
+        ? userDoc.data().locations || []
+        : [];
+
+      /*
+       * if the selected marker is within their favorites array in firestore
+       * then remove it from the array and update firestore
+       */
+      if (currentFavorites.includes(selectedMarker.id)) {
+        const updatedFavorites = currentFavorites.filter(
+          (id) => id !== selectedMarker.id
+        );
+        await updateDoc(userFavoritesRef, { locations: updatedFavorites });
+        setUserFavorites(updatedFavorites);
+        setIsFavorited(false);
+      } else {
+        // if the selected marker is not in their favorites array
+        // then add it to the array and update firestore
+        const updatedFavorites = [...currentFavorites, selectedMarker.id];
+        if (userDoc.exists()) {
+          await updateDoc(userFavoritesRef, { locations: updatedFavorites });
+        } else {
+          await setDoc(userFavoritesRef, { locations: updatedFavorites });
+        }
+        setUserFavorites(updatedFavorites);
+        setIsFavorited(true);
+      }
+    } catch (error) {
+      console.error("Error updating favorites:", error);
+      Alert.alert("Error", "Could not update favorites");
     }
   };
 
@@ -1109,7 +1171,7 @@ export default function HomeScreen() {
                 onPress={handleFavorite}
               >
                 <FontAwesome
-                  name="star"
+                  name={isFavorited ? "star" : "star-o"}
                   size={24}
                   color={theme.colors.garnetWhite}
                 />
