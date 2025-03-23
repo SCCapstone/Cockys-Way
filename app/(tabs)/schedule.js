@@ -386,6 +386,9 @@ export default function Schedule() {
                   setCurrentDay(day.dateString);
                   setCurrentCourses(getCoursesForDay(day.dateString, courses));
                 }}
+                onDayLongPress={(day) => {
+                  console.log('hey long press');
+                }}
               />
               <View style={styles.toggleSection}>
                 <Text>
@@ -457,6 +460,9 @@ export default function Schedule() {
             <TouchableOpacity
               onPress={() => {
                 setCalendarVisibility(!calenderVisibility);
+                setCurrentDay("");
+                setCurrentCourses([]);
+                // console.log("currentDay: "+ currentDay)
               }}
               style={styles.switchViewButton}
             >
