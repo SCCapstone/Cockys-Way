@@ -1,3 +1,15 @@
+jest.mock("firebase/auth", () => ({
+  getAuth: () => ({
+    currentUser: null,
+  }),
+  onAuthStateChanged: (auth, callback) => {
+    callback(null); /// no user
+    return () => {};
+  },
+  initializeAuth: jest.fn(),
+  getReactNativePersistence: jest.fn(), // ✅ This line fixes the error
+}));
+
 import React from "react";
 import { render, fireEvent, waitFor, act } from "@testing-library/react-native";
 import Directory from "../../app/(tabs)/directory";
@@ -107,15 +119,6 @@ jest.mock("expo-router", () => ({
 // mock for FontAwesome icons
 jest.mock("@expo/vector-icons/FontAwesome", () => "FontAwesome");
 
-jest.mock("firebase/auth", () => ({
-  getAuth: () => ({
-    currentUser: null,
-  }),
-  onAuthStateChanged: (auth, callback) => {
-    callback(null); /// no user
-    return () => {};
-  },
-}));
 
 describe("Directory Screen", () => {
   // setup router mock before each test
