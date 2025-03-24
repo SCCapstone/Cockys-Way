@@ -22,6 +22,8 @@ const ITEM_HEIGHT = 100;
 
 // Format name to be First Last (and cuts off titles, middle initials, etc.)
 export const formatName = (name) => {
+  if (!name || typeof name !== "string") return "";
+
   const parts = name.split(/[\s,]+/);
   if (parts.length >= 2) {
     return `${parts[1]} ${parts[0]}`;
@@ -29,6 +31,7 @@ export const formatName = (name) => {
     return name;
   }
 };
+
 
 export default function Directory() {
   // Used for navigation

@@ -17,4 +17,15 @@ module.exports = {
   initializeAuth: jest.fn(),
 
   getReactNativePersistence: jest.fn(() => 'mockedPersistence'),
+
+  updateEmail: jest.fn(() => Promise.resolve()),
+  updatePassword: jest.fn(() => Promise.resolve()),
+  reauthenticateWithCredential: jest.fn(() => Promise.resolve()),
+  EmailAuthProvider: {
+    credential: jest.fn((email, password) => ({
+      email,
+      password,
+    })),
+  },
+  sendEmailVerification: jest.fn(() => Promise.resolve()),
 };

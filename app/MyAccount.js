@@ -225,7 +225,9 @@ export default function MyAccountScreen() {
       setUserInfo(userData);
     };
     fetchUserInfo();
-  }, [auth]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  
 
   return (
     <ScrollView style={styles.container}>
