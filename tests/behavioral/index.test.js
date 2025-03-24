@@ -1,9 +1,11 @@
 import React from "react";
+import {act} from 'react-test-renderer';  
 import { render, waitFor, fireEvent } from "@testing-library/react-native";
 import HomeScreen from "../../app/(tabs)";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import * as Location from "expo-location";
 import { ThemeContext } from "../../ThemeContext";
+
 
 const mockTheme = {
   colors: {
@@ -41,7 +43,7 @@ jest.mock("react-native-maps", () => {
     }));
 
     return (
-      <View {...props} ref={ref} testID="map-view">
+      <View {...props} ref={ref} testID="map-view" customMapStyle={props.customMapStyle}>
         {props.children}
       </View>
     );
@@ -62,7 +64,7 @@ jest.mock("react-native-maps", () => {
       </View>
     ),
     PROVIDER_GOOGLE: "google",
-  };
+  };  
 });
 
 jest.mock("@expo/vector-icons/FontAwesome", () => {
@@ -126,6 +128,13 @@ jest.mock("firebase/firestore", () => ({
       ],
     })
   ),
+  getDoc: jest.fn(() =>
+    Promise.resolve({ exists: () => false, data: () => ({}) })
+  ),
+  updateDoc: jest.fn(),
+  addDoc: jest.fn(() => Promise.resolve({ id: "mock-id" })),
+  deleteDoc: jest.fn(),
+  doc: jest.fn(),
 }));
 
 jest.mock("@react-native-async-storage/async-storage", () => ({
@@ -266,5 +275,47 @@ describe("HomeScreen", () => {
     fireEvent.press(startNavButton);
     expect(startNavButton).toBeTruthy();
     console.log("Start Nav button pressed!");
+  });
+});
+
+it("applies darkMapStyle when theme.dark is true", async () => {
+  const { getByTestId } = render(
+    <ThemeContext.Provider value={{ theme: { ...mockTheme, dark: true } }}>
+      <HomeScreen />
+    </ThemeContext.Provider>
+  );
+
+  await waitFor(() => {
+    const map = getByTestId("map-view");
+    expect(map.props.customMapStyle).toBeTruthy();
+  });
+
+  console.log("Dark mode style applied to map!");
+});
+
+it("applies default map style when theme.dark is false", async () => {
+  const { getByTestId } = render(
+    <ThemeContext.Provider value={{ theme: { ...mockTheme, dark: false } }}>
+      <HomeScreen />
+    </ThemeContext.Provider>
+  );
+
+  await waitFor(() => {
+    const map = getByTestId("map-view");
+    expect(map.props.customMapStyle).toEqual([]);
+  });
+
+  console.log("Light mode style confirmed.");
+});
+
+it("matches snapshot in dark mode", async () => {
+  const { toJSON } = render(
+    <ThemeContext.Provider value={{ theme: { ...mockTheme, dark: true } }}>
+      <HomeScreen />
+    </ThemeContext.Provider>
+  );
+
+  await waitFor(() => {
+    expect(toJSON()).toMatchSnapshot();
   });
 });

@@ -925,6 +925,7 @@ export default function HomeScreen() {
 
       {/* Map */}
       <MapView
+        testID="map"
         ref={mapRef}
         style={styles.map}
         apiKey={GOOGLE_API_KEY}
