@@ -7,6 +7,9 @@ import {
   ScrollView,
   TouchableOpacity,
   Alert,
+  Modal,
+  Pressable,
+  TextInput,
 } from "react-native";
 import { useFonts, Abel_400Regular } from "@expo-google-fonts/abel";
 import * as SplashScreen from "expo-splash-screen";
@@ -16,12 +19,18 @@ import { router } from "expo-router";
 import { getAuth } from "firebase/auth";
 import { useTheme } from "@react-navigation/native";
 import { ThemeContext } from "../../ThemeContext";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function SettingsScreen() {
   const [isEnabled, setIsEnabled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  // hold the ics link for blackboard cal
+  const [icsLink, setIcsLink] = useState("");
+  const [hasChanged, setHasChanged] = useState(false);
+  const [originalLink, setOriginalLink] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
   const firestore = getFirestore();
   const { setIsDarkTheme } = useContext(ThemeContext);
 
@@ -68,6 +77,62 @@ export default function SettingsScreen() {
       color: colors.alwaysWhite,
       fontFamily: "Abel_400Regular",
     },
+    blackboardInput: {
+      backgroundColor: "#fff",
+      color: "#000",
+      marginTop: 10,
+      borderRadius: 5,
+      backgroundColor: colors.card,
+      color: colors.text,
+    },
+    saveButton: {
+      marginTop: 10,
+      backgroundColor: colors.alwaysWhite,
+      padding: 10,
+      borderRadius: 5,
+    },
+    saveButtonText: {
+      color: colors.primary,
+      textAlign: "center",
+      fontFamily: "Abel_400Regular",
+      fontSize: 20,
+    },
+    infoRow: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+    },
+    blackboardLabel: {
+      color: colors.alwaysWhite,
+      fontSize: 20,
+    },
+    modalBackdrop: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "rgba(0,0,0,0.5)",
+    },
+    modalContainer: {
+      backgroundColor: colors.alwaysWhite,
+      padding: 20,
+      borderRadius: 10,
+      maxWidth: "80%",
+    },
+    modalTitle: {
+      fontSize: 18,
+      fontFamily: "Abel_400Regular",
+      marginBottom: 10,
+    },
+    modalText: {
+      fontSize: 16,
+      fontFamily: "Abel_400Regular",
+      marginBottom: 20,
+    },
+    modalCloseText: {
+      color: colors.primary,
+      textAlign: "right",
+      fontSize: 16,
+    },
   });
 
   useEffect(() => {
@@ -86,6 +151,11 @@ export default function SettingsScreen() {
             const theme = data.settings?.theme || "light";
             setIsEnabled(notificationsEnabled);
             setIsDarkMode(theme === "dark");
+
+            // Set the ICS link and the original link to compare against
+            const ics = data.settings?.icsLink || "";
+            setIcsLink(ics);
+            setOriginalLink(ics);
           } else {
             console.log("No settings document found for user.");
           }
@@ -165,6 +235,28 @@ export default function SettingsScreen() {
 
   if (!fontsLoaded) return null;
 
+  // saves the ics link to the user's settings in firestore under settings collection
+  const saveBlackboardLink = async () => {
+    const user = getAuth().currentUser;
+    if (user) {
+      const uid = user.uid;
+      try {
+        const userDocRef = doc(firestore, "settings", uid);
+        await setDoc(userDocRef, { settings: { icsLink } }, { merge: true });
+        setOriginalLink(icsLink);
+        setHasChanged(false);
+      } catch (error) {
+        console.error("Error saving Blackboard link: ", error);
+      }
+    } else {
+      Alert.alert(
+        "Sign In Required",
+        "Please sign in to save your Blackboard link.",
+        [{ text: "OK" }]
+      );
+    }
+  };
+
   return (
     <ScrollView
       style={[styles.container, { backgroundColor: colors.background }]}
@@ -236,6 +328,65 @@ export default function SettingsScreen() {
 />
         </View>
       </View>
+      {/* input for blackboard link */}
+      <View style={styles.settingItem}>
+        <View style={styles.accentBox}>
+          <View style={styles.infoRow}>
+            <Text style={styles.blackboardLabel}>Blackboard Link</Text>
+            <FontAwesome5
+              name="info-circle"
+              size={20}
+              color={colors.alwaysWhite}
+              style={{ marginLeft: 10 }}
+              onPress={() => setModalVisible(true)}
+            />
+          </View>
+          <TextInput
+            style={styles.blackboardInput}
+            value={icsLink}
+            onChangeText={(text) => {
+              setIcsLink(text);
+              setHasChanged(text !== originalLink);
+            }}
+            placeholder="Enter your Blackboard link"
+            placeholderTextColor="#888"
+          />
+          {hasChanged && (
+            <TouchableOpacity
+              style={styles.saveButton}
+              onPress={saveBlackboardLink}
+            >
+              <Text style={styles.saveButtonText}>Save</Text>
+            </TouchableOpacity>
+          )}
+        </View>
+      </View>
+      {/* modal that appears to explain how to get blackboard ics link for cal */}
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setInfoModalVisible(false)}
+      >
+        <View style={styles.modalBackdrop}>
+          <View style={styles.modalContainer}>
+            <Text style={styles.modalTitle}>Blackboard .ics Link</Text>
+            <Text style={styles.modalText}>
+              To find your blackboard calendar link follow these steps:{"\n"}
+              1. Go to blackboard.sc.edu and sign in{"\n"}
+              2. Click on the calendar button{"\n"}
+              3. Press on the settings cog in the top right corner{"\n"}
+              4. Select the calendar's/classes you want included{"\n"}
+              5. Press the three dots: "..."{"\n"}
+              6. Press "Share" calendar{"\n"}
+              7. Copy the link (you may need to press "Generate Link" first)
+            </Text>
+            <Pressable onPress={() => setModalVisible(false)}>
+              <Text style={styles.modalCloseText}>Close</Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
     </ScrollView>
   );
 }
