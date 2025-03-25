@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View, Pressable, ToastAndroid } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { useState } from "react";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 
-import { doc, setDoc, deleteDoc } from "firebase/firestore";
+import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
 import { FIRESTORE_DB } from "../FirebaseConfig";
 import { getAuth } from "firebase/auth";
 import { useRouter } from "expo-router";
@@ -26,7 +26,25 @@ const Class = ({
   const [added, setAdded] = useState(false);
   const router = useRouter();
 
-  const addToSchedule = async () => {
+  useEffect(() => {
+    const checkIfCourseIsAdded = async () => {
+      const auth = getAuth();
+      const user = auth.currentUser;
+
+      if (!user) return;
+
+      const docRef = doc(FIRESTORE_DB, "schedules", user.uid, "courses", crn);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        setAdded(true);
+      }
+    };
+
+    checkIfCourseIsAdded();
+  }, [crn]);
+
+  const toggleInSchedule = async () => {
     const db = FIRESTORE_DB;
 
     const auth = getAuth();
@@ -36,22 +54,30 @@ const Class = ({
       console.log("no user found when trying to add course");
       return;
     }
-
+    const docRef = doc(db, "schedules", user.uid, "courses", crn);
     try {
-      const docRef = doc(db, "schedules", user.uid, "courses", crn);
-      await setDoc(docRef, {
-        code: code,
-        instructor: instructor,
-        meeting: meeting,
-        name: name,
-        section: section,
-        srcdb: srcdb,
-      });
-      setAdded(true);
-      ToastAndroid.show(
-        `${name} has successfully been added to your schedule!`,
-        ToastAndroid.LONG
-      );
+      if (!added) {
+        await setDoc(docRef, {
+          code: code,
+          instructor: instructor,
+          meeting: meeting,
+          name: name,
+          section: section,
+          srcdb: srcdb,
+        });
+        setAdded(true);
+        ToastAndroid.show(
+          `${name} has successfully been added to your schedule!`,
+          ToastAndroid.LONG
+        );
+      } else {
+        await deleteDoc(docRef);
+        setAdded(false);
+        ToastAndroid.show(
+          `${name} has been removed from your schedule`,
+          ToastAndroid.LONG
+        );
+      }
     } catch (error) {
       console.log("error when adding class: " + error);
     }
@@ -78,7 +104,7 @@ const Class = ({
         {fromSearch ? (
           <Pressable
             onPress={() => {
-              addToSchedule();
+              toggleInSchedule();
             }}
             style={({ pressed }) => [
               styles.button,
