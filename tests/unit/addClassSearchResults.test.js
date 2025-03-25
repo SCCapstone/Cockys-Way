@@ -1,3 +1,8 @@
+// Mock FirebaseConfig before class component imports it
+jest.mock("../../FirebaseConfig", () => ({
+  FIREBASE_DB: {},
+}));
+
 import { getInfo } from "../../app/addClassSearchResults";
 import fetchInfo from "../../hook/fetchCourseList";
 
