@@ -35,14 +35,15 @@ jest.mock("firebase/firestore", () => ({
 
 // Mock fonts and splash screen
 jest.mock("expo-font", () => ({
-    useFonts: jest.fn(() => [true]),
-    loadAsync: jest.fn(),
-  }));
-  
-  jest.mock("@expo-google-fonts/abel", () => ({
-    useFonts: jest.fn(() => [true]),
-    Abel_400Regular: {}, // dummy font value to avoid undefined error
-  }));  
+  useFonts: jest.fn(() => [true]),
+  loadAsync: jest.fn(),
+  isLoaded: jest.fn(() => true), // <- this is the missing function causing your error
+}));
+
+jest.mock("@expo-google-fonts/abel", () => ({
+  useFonts: jest.fn(() => [true]),
+  Abel_400Regular: {}, // dummy font value to avoid undefined error
+}));
 
 jest.mock("expo-splash-screen", () => ({
   preventAutoHideAsync: jest.fn(),
@@ -65,7 +66,9 @@ describe("SettingsScreen", () => {
 
   const renderWithTheme = () =>
     render(
-      <ThemeContext.Provider value={{ theme: mockTheme, setIsDarkTheme: mockSetIsDarkTheme }}>
+      <ThemeContext.Provider
+        value={{ theme: mockTheme, setIsDarkTheme: mockSetIsDarkTheme }}
+      >
         <SettingsScreen />
       </ThemeContext.Provider>
     );

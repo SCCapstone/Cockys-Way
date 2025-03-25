@@ -24,10 +24,18 @@ jest.mock("firebase/auth", () => ({
 jest.mock("firebase/firestore", () => {
   return {
     collection: jest.fn(),
-    onSnapshot: jest.fn((_, callback) => {
-      // Simulate onSnapshot firing once with fake course data
+    doc: jest.fn(() => ({})),
+    getDoc: jest.fn(() =>
+      Promise.resolve({
+        exists: () => true,
+        data: () => ({
+          theme: "light",
+        }),
+      })
+    ),
+    onSnapshot: jest.fn((_, onNext) => {
       setImmediate(() => {
-        callback({
+        onNext({
           docs: [
             {
               id: "course1",
@@ -38,14 +46,16 @@ jest.mock("firebase/firestore", () => {
               }),
             },
           ],
+          exists: () => true, // needed if you're using onSnapshot for individual docs
+          data: () => ({
+            theme: "light",
+          }),
         });
       });
-
-      // Return a mock unsubscribe function
-      return jest.fn();
+      return jest.fn(); // unsubscribe mock
     }),
-    getFirestore: jest.fn(), // Mock getFirestore function (this will do nothing)
-    deleteDoc: jest.fn(), // Mock deleteDoc function
+    getFirestore: jest.fn(),
+    deleteDoc: jest.fn(),
   };
 });
 
