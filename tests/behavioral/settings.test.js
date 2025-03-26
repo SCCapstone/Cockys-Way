@@ -106,6 +106,60 @@ describe("SettingsScreen", () => {
     expect(firestore.setDoc).toHaveBeenCalled();
   });
 
+  it("opens/closes the Blackboard link help modal when pressed", async () => {
+    const { getByTestId, getByText, queryByText } = renderWithTheme();
+    // Check to make sure modal is closed
+    expect(queryByText("Blackboard .ics Link")).toBeFalsy();
+
+    // open the modal
+    const helpLinkText = await waitFor(() => getByTestId("infoButton"));
+    fireEvent.press(helpLinkText);
+    expect(getByText("Blackboard .ics Link")).toBeTruthy();
+
+    // Close the modal
+    const closeButton = getByText("Close");
+    fireEvent.press(closeButton);
+    expect(queryByText("Blackboard .ics Link")).toBeFalsy();
+  });
+
+  it("shows the Save button when Blackboard link input changes", async () => {
+    const { getByPlaceholderText, getByText, queryByText } = renderWithTheme();
+    expect(queryByText("Save")).toBeFalsy();
+
+    const input = await waitFor(() =>
+      getByPlaceholderText("Enter your Blackboard link")
+    );
+
+    fireEvent.changeText(input, "testing");
+
+    expect(getByText("Save")).toBeTruthy();
+  });
+
+  it("saves Blackboard link to Firestore when Save is pressed", async () => {
+    const { getByPlaceholderText, getByText } = renderWithTheme();
+
+    const input = await waitFor(() =>
+      getByPlaceholderText("Enter your Blackboard link")
+    );
+
+    fireEvent.changeText(input, "testing");
+    fireEvent.press(getByText("Save"));
+
+    expect(firestore.setDoc.mock.calls).toEqual(
+      expect.arrayContaining([
+        expect.arrayContaining([
+          expect.anything(),
+          expect.objectContaining({
+            settings: expect.objectContaining({
+              icsLink: "testing",
+            }),
+          }),
+          { merge: true },
+        ]),
+      ])
+    );
+  });
+
   it("navigates to correct screens", async () => {
     const { getByText } = renderWithTheme();
 

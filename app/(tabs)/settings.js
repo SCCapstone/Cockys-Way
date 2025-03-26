@@ -303,14 +303,14 @@ export default function SettingsScreen() {
         <View style={styles.accentBoxSmall}>
           <Text style={styles.settingText}>Enable Notifications</Text>
           <Switch
-  accessibilityRole="switch"
-  accessibilityLabel="Enable Notifications"
-  trackColor={{ false: "#000000", true: "#FFFFFF" }}
-  thumbColor={isEnabled ? "#F3F3F3" : "#FFFFFF"}
-  ios_backgroundColor="#F3F3F3"
-  onValueChange={toggleSwitch}
-  value={isEnabled}
-/>
+            accessibilityRole="switch"
+            accessibilityLabel="Enable Notifications"
+            trackColor={{ false: "#000000", true: "#FFFFFF" }}
+            thumbColor={isEnabled ? "#F3F3F3" : "#FFFFFF"}
+            ios_backgroundColor="#F3F3F3"
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+          />
         </View>
       </View>
 
@@ -318,14 +318,14 @@ export default function SettingsScreen() {
         <View style={styles.accentBoxSmall}>
           <Text style={styles.settingText}>Dark Mode</Text>
           <Switch
-  accessibilityRole="switch"
-  accessibilityLabel="Dark Mode"
-  trackColor={{ false: "#000000", true: "#FFFFFF" }}
-  thumbColor={isDarkMode ? "#F3F3F3" : "#FFFFFF"}
-  ios_backgroundColor="#F3F3F3"
-  onValueChange={toggleDarkMode}
-  value={isDarkMode}
-/>
+            accessibilityRole="switch"
+            accessibilityLabel="Dark Mode"
+            trackColor={{ false: "#000000", true: "#FFFFFF" }}
+            thumbColor={isDarkMode ? "#F3F3F3" : "#FFFFFF"}
+            ios_backgroundColor="#F3F3F3"
+            onValueChange={toggleDarkMode}
+            value={isDarkMode}
+          />
         </View>
       </View>
       {/* input for blackboard link */}
@@ -339,6 +339,7 @@ export default function SettingsScreen() {
               color={colors.alwaysWhite}
               style={{ marginLeft: 10 }}
               onPress={() => setModalVisible(true)}
+              testID="infoButton"
             />
           </View>
           <TextInput
