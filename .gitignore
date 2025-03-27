@@ -324,6 +324,9 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# firebase service for push notifications
+/cockys-way-firebase-adminsdk-s781u-1a68f7cd2f.json
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,windows,macos,reactnative,firebase
 
 android

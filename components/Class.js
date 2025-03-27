@@ -9,6 +9,92 @@ import { FIRESTORE_DB } from "../FirebaseConfig";
 import { getAuth } from "firebase/auth";
 import { useRouter } from "expo-router";
 
+//
+import { useRef } from 'react';
+import { Button, Platform } from 'react-native';
+import * as Device from 'expo-device';
+import * as Notifications from 'expo-notifications';
+import Constants from 'expo-constants';
+//
+
+// //
+// Notifications.setNotificationHandler({
+//   handleNotification: async () => ({
+//     shouldShowAlert: true,
+//     shouldPlaySound: true,
+//     shouldSetBadge: true,
+//   }),
+// });
+
+// async function sendPushNotification(expoPushToken) {
+//   const message = {
+//     to: expoPushToken,
+//     sound: 'default',
+//     title: 'Original Title',
+//     body: 'And here is the body!',
+//     data: { someData: 'goes here' },
+//   };
+
+//   await fetch('https://exp.host/--/api/v2/push/send', {
+//     method: 'POST',
+//     headers: {
+//       Accept: 'application/json',
+//       'Accept-encoding': 'gzip, deflate',
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(message),
+//   });
+// }
+
+// function handleRegistrationError(errorMessage) {
+//   alert(errorMessage);
+//   throw new Error(errorMessage);
+// }
+
+// async function registerForPushNotificationsAsync() {
+//   if (Platform.OS === 'android') {
+//     Notifications.setNotificationChannelAsync('default', {
+//       name: 'default',
+//       importance: Notifications.AndroidImportance.MAX,
+//       vibrationPattern: [0, 250, 250, 250],
+//       lightColor: '#FF231F7C',
+//     });
+//   }
+
+//   if (Device.isDevice) {
+//     const { status: existingStatus } = await Notifications.getPermissionsAsync();
+//     let finalStatus = existingStatus;
+//     if (existingStatus !== 'granted') {
+//       const { status } = await Notifications.requestPermissionsAsync();
+//       finalStatus = status;
+//     }
+//     if (finalStatus !== 'granted') {
+//       handleRegistrationError('Permission not granted to get push token for push notification!');
+//       return;
+//     }
+//     const projectId =
+//       Constants?.expoConfig?.extra?.eas?.projectId ?? Constants?.easConfig?.projectId;
+//     if (!projectId) {
+//       handleRegistrationError('Project ID not found');
+//     }
+//     try {
+//       const pushTokenString = (
+//         await Notifications.getExpoPushTokenAsync({
+//           projectId,
+//         })
+//       ).data;
+//       console.log(pushTokenString);
+//       return pushTokenString;
+//     } catch (e) {
+//       handleRegistrationError(`${e}`);
+//     }
+//   } else {
+//     handleRegistrationError('Must use physical device for push notifications');
+//   }
+// }
+// //
+
+
 import fetchCourseInfo from "../hook/fetchCourseInfo";
 
 const Class = ({
@@ -22,9 +108,117 @@ const Class = ({
   fromSearch = false,
   onDeletePress,
 }) => {
-  const [notification, setNotification] = useState(false);
+  const [notificationIcon, setNotificationIcon] = useState(false);
   const [added, setAdded] = useState(false);
   const router = useRouter();
+
+  //
+  const [expoPushToken, setExpoPushToken] = useState('');
+  const [notification, setNotification] = useState(undefined);
+  const notificationListener = useRef();
+  const responseListener = useRef();
+  //
+
+
+//
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: true,
+  }),
+});
+
+async function sendPushNotification(expoPushToken) {
+  const message = {
+    to: expoPushToken,
+    sound: 'default',
+    title: `${name} is about to start!`,
+    body: 'Class starts in 30 minutes!',
+    data: { someData: 'goes here' },
+  };
+
+  await fetch('https://exp.host/--/api/v2/push/send', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Accept-encoding': 'gzip, deflate',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(message),
+  });
+}
+
+function handleRegistrationError(errorMessage) {
+  alert(errorMessage);
+  throw new Error(errorMessage);
+}
+
+async function registerForPushNotificationsAsync() {
+  if (Platform.OS === 'android') {
+    Notifications.setNotificationChannelAsync('default', {
+      name: 'default',
+      importance: Notifications.AndroidImportance.MAX,
+      vibrationPattern: [0, 250, 250, 250],
+      lightColor: '#FF231F7C',
+    });
+  }
+
+  if (Device.isDevice) {
+    const { status: existingStatus } = await Notifications.getPermissionsAsync();
+    let finalStatus = existingStatus;
+    if (existingStatus !== 'granted') {
+      const { status } = await Notifications.requestPermissionsAsync();
+      finalStatus = status;
+    }
+    if (finalStatus !== 'granted') {
+      handleRegistrationError('Permission not granted to get push token for push notification!');
+      return;
+    }
+    const projectId =
+      Constants?.expoConfig?.extra?.eas?.projectId ?? Constants?.easConfig?.projectId;
+    if (!projectId) {
+      handleRegistrationError('Project ID not found');
+    }
+    try {
+      const pushTokenString = (
+        await Notifications.getExpoPushTokenAsync({
+          projectId,
+        })
+      ).data;
+      console.log(pushTokenString);
+      return pushTokenString;
+    } catch (e) {
+      handleRegistrationError(`${e}`);
+    }
+  } else {
+    handleRegistrationError('Must use physical device for push notifications');
+  }
+}
+//
+
+  //
+  useEffect(() => {
+    registerForPushNotificationsAsync()
+      .then(token => setExpoPushToken(token ?? ''))
+      .catch((error) => setExpoPushToken(`${error}`));
+
+    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+      setNotification(notification);
+    });
+
+    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
+      console.log(response);
+    });
+
+    return () => {
+      notificationListener.current &&
+        Notifications.removeNotificationSubscription(notificationListener.current);
+      responseListener.current &&
+        Notifications.removeNotificationSubscription(responseListener.current);
+    };
+  }, []);
+  //
 
   useEffect(() => {
     const checkIfCourseIsAdded = async () => {
@@ -99,6 +293,7 @@ const Class = ({
         <Text style={styles.courseInfo}>{name}</Text>
         <Text style={styles.courseInfo}>{instructor}</Text>
         <Text style={styles.courseInfo}>{meeting}</Text>
+        <Text>expo push token: {expoPushToken}</Text>
       </View>
       <View style={styles.courseIcons}>
         {fromSearch ? (
@@ -122,8 +317,9 @@ const Class = ({
         ) : (
           <>
             <Pressable
-              onPress={() => {
-                setNotification(!notification);
+              onPress={async () => {
+                await sendPushNotification(expoPushToken);
+                setNotificationIcon(!notificationIcon);
               }}
               style={({ pressed }) => [
                 {
@@ -135,7 +331,7 @@ const Class = ({
             >
               <FontAwesome5
                 testID="bell-icon"
-                name={notification ? "bell" : "bell-slash"}
+                name={notificationIcon ? "bell" : "bell-slash"}
                 size={30}
                 color="#FFFFFF"
               />
