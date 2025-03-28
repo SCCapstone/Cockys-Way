@@ -7,12 +7,11 @@ import { doc, setDoc, deleteDoc, getDoc } from "firebase/firestore";
 import { FIRESTORE_DB } from "../FirebaseConfig";
 import { getAuth } from "firebase/auth";
 import { useRouter } from "expo-router";
-import { useRef } from 'react';
-import { Button, Platform } from 'react-native';
-import * as Device from 'expo-device';
-import * as Notifications from 'expo-notifications';
-import Constants from 'expo-constants';
-
+import { useRef } from "react";
+import { Button, Platform } from "react-native";
+import * as Device from "expo-device";
+import * as Notifications from "expo-notifications";
+import Constants from "expo-constants";
 
 import fetchCourseInfo from "../hook/fetchCourseInfo";
 
@@ -30,162 +29,171 @@ const Class = ({
   const [notificationIcon, setNotificationIcon] = useState(false);
   const [added, setAdded] = useState(false);
   const router = useRouter();
-  const [expoPushToken, setExpoPushToken] = useState('');
+  const [expoPushToken, setExpoPushToken] = useState("");
   const [notification, setNotification] = useState(undefined);
   const notificationListener = useRef();
   const responseListener = useRef();
 
   const DAY_MAP = { M: 1, T: 2, W: 3, Th: 4, F: 5 };
 
-const scheduleCourseNotifications = async (meeting, expoPushToken) => {
-    const sessions = meeting.split('; ');
-    
+  const scheduleCourseNotifications = async (meeting, expoPushToken) => {
+    if (!meeting || meeting.length === 0) return;
+    const sessions = meeting.split("; ");
+
     for (const session of sessions) {
-        const [daysPart, timePart] = session.split(' ');
-        const firstPeriod = timePart.match(/[ap]/)?.[0];
-        
-        if (!firstPeriod) continue;
-        
-        const startTime = timePart.split('-')[0];
-        let [hour, minute] = startTime.match(/\d+/g).map(Number);
-        
-        if (firstPeriod === 'p' && hour !== 12) hour += 12;
-        if (firstPeriod === 'a' && hour === 12) hour = 0;
-        
-        minute -= 30;
-        if (minute < 0) {
-            minute += 60;
-            hour -= 1;
-        }
-        
-        for (const day of Object.keys(DAY_MAP)) {
-            if (daysPart.includes(day)) {
-                const notificationTime = new Date();
-                notificationTime.setHours(hour, minute, 0, 0);
-                notificationTime.setDate(notificationTime.getDate() + ((DAY_MAP[day] - notificationTime.getDay() + 7) % 7));
+      const [daysPart, timePart] = session.split(" ");
+      const firstPeriod = timePart.match(/[ap]/)?.[0];
 
-                console.log(notificationTime);
-                
-                await Notifications.scheduleNotificationAsync({
-                    content: {
-                        title: `${name} is about to start!`,
-                        body: "Class starts in 30 minutes!",
-                    },
-                    trigger: {
-                        type: Notifications.SchedulableTriggerInputTypes.DATE,
-                        date: notificationTime,
-                        repeats: true,
-                    },
-                });
-            }
+      if (!firstPeriod) continue;
+
+      const startTime = timePart.split("-")[0];
+      let [hour, minute] = startTime.match(/\d+/g).map(Number);
+
+      if (firstPeriod === "p" && hour !== 12) hour += 12;
+      if (firstPeriod === "a" && hour === 12) hour = 0;
+
+      minute -= 30;
+      if (minute < 0) {
+        minute += 60;
+        hour -= 1;
+      }
+
+      for (const day of Object.keys(DAY_MAP)) {
+        if (daysPart.includes(day)) {
+          const notificationTime = new Date();
+          notificationTime.setHours(hour, minute, 0, 0);
+          notificationTime.setDate(
+            notificationTime.getDate() +
+              ((DAY_MAP[day] - notificationTime.getDay() + 7) % 7)
+          );
+
+          console.log(notificationTime);
+
+          await Notifications.scheduleNotificationAsync({
+            content: {
+              title: `${name} is about to start!`,
+              body: "Class starts in 30 minutes!",
+            },
+            trigger: {
+              type: Notifications.SchedulableTriggerInputTypes.DATE,
+              date: notificationTime,
+              repeats: true,
+            },
+          });
         }
+      }
     }
-};
-
-const cancelScheduledNotifications = async () => {
-  await Notifications.cancelAllScheduledNotificationsAsync();
-};
-
-
-
-Notifications.setNotificationHandler({
-  handleNotification: async () => ({
-    shouldShowAlert: true,
-    shouldPlaySound: true,
-    shouldSetBadge: true,
-  }),
-});
-
-async function sendPushNotification(expoPushToken) {
-  const message = {
-    to: expoPushToken,
-    sound: 'default',
-    title: `${name} is about to start!`,
-    body: 'Class starts in 30 minutes!',
-    data: { someData: 'goes here' },
   };
 
-  await fetch('https://exp.host/--/api/v2/push/send', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Accept-encoding': 'gzip, deflate',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(message),
+  const cancelScheduledNotifications = async () => {
+    await Notifications.cancelAllScheduledNotificationsAsync();
+  };
+
+  Notifications.setNotificationHandler({
+    handleNotification: async () => ({
+      shouldShowAlert: true,
+      shouldPlaySound: true,
+      shouldSetBadge: true,
+    }),
   });
-}
 
-function handleRegistrationError(errorMessage) {
-  alert(errorMessage);
-  throw new Error(errorMessage);
-}
+  async function sendPushNotification(expoPushToken) {
+    const message = {
+      to: expoPushToken,
+      sound: "default",
+      title: `${name} is about to start!`,
+      body: "Class starts in 30 minutes!",
+      data: { someData: "goes here" },
+    };
 
-async function registerForPushNotificationsAsync() {
-  if (Platform.OS === 'android') {
-    Notifications.setNotificationChannelAsync('default', {
-      name: 'default',
-      importance: Notifications.AndroidImportance.MAX,
-      vibrationPattern: [0, 250, 250, 250],
-      lightColor: '#FF231F7C',
+    await fetch("https://exp.host/--/api/v2/push/send", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Accept-encoding": "gzip, deflate",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(message),
     });
   }
 
-  if (Device.isDevice) {
-    const { status: existingStatus } = await Notifications.getPermissionsAsync();
-    let finalStatus = existingStatus;
-    if (existingStatus !== 'granted') {
-      const { status } = await Notifications.requestPermissionsAsync();
-      finalStatus = status;
-    }
-    if (finalStatus !== 'granted') {
-      handleRegistrationError('Permission not granted to get push token for push notification!');
-      return;
-    }
-    const projectId =
-      Constants?.expoConfig?.extra?.eas?.projectId ?? Constants?.easConfig?.projectId;
-    if (!projectId) {
-      handleRegistrationError('Project ID not found');
-    }
-    try {
-      const pushTokenString = (
-        await Notifications.getExpoPushTokenAsync({
-          projectId,
-        })
-      ).data;
-      console.log(pushTokenString);
-      return pushTokenString;
-    } catch (e) {
-      handleRegistrationError(`${e}`);
-    }
-  } else {
-    handleRegistrationError('Must use physical device for push notifications');
+  function handleRegistrationError(errorMessage) {
+    alert(errorMessage);
+    throw new Error(errorMessage);
   }
-}
 
+  async function registerForPushNotificationsAsync() {
+    if (Platform.OS === "android") {
+      Notifications.setNotificationChannelAsync("default", {
+        name: "default",
+        importance: Notifications.AndroidImportance.MAX,
+        vibrationPattern: [0, 250, 250, 250],
+        lightColor: "#FF231F7C",
+      });
+    }
 
+    if (Device.isDevice) {
+      const { status: existingStatus } =
+        await Notifications.getPermissionsAsync();
+      let finalStatus = existingStatus;
+      if (existingStatus !== "granted") {
+        const { status } = await Notifications.requestPermissionsAsync();
+        finalStatus = status;
+      }
+      if (finalStatus !== "granted") {
+        handleRegistrationError(
+          "Permission not granted to get push token for push notification!"
+        );
+        return;
+      }
+      const projectId =
+        Constants?.expoConfig?.extra?.eas?.projectId ??
+        Constants?.easConfig?.projectId;
+      if (!projectId) {
+        handleRegistrationError("Project ID not found");
+      }
+      try {
+        const pushTokenString = (
+          await Notifications.getExpoPushTokenAsync({
+            projectId,
+          })
+        ).data;
+        console.log(pushTokenString);
+        return pushTokenString;
+      } catch (e) {
+        handleRegistrationError(`${e}`);
+      }
+    } else {
+      handleRegistrationError(
+        "Must use physical device for push notifications"
+      );
+    }
+  }
 
   useEffect(() => {
     registerForPushNotificationsAsync()
-      .then(token => setExpoPushToken(token ?? ''))
+      .then((token) => setExpoPushToken(token ?? ""))
       .catch((error) => setExpoPushToken(`${error}`));
 
-    notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
-      setNotification(notification);
-    });
+    notificationListener.current =
+      Notifications.addNotificationReceivedListener((notification) => {
+        setNotification(notification);
+      });
 
-    responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
-      console.log(response);
-    });
+    responseListener.current =
+      Notifications.addNotificationResponseReceivedListener((response) => {
+        console.log(response);
+      });
 
     return () => {
       notificationListener.current &&
-        Notifications.removeNotificationSubscription(notificationListener.current);
+        Notifications.removeNotificationSubscription(
+          notificationListener.current
+        );
       responseListener.current &&
         Notifications.removeNotificationSubscription(responseListener.current);
     };
   }, []);
-
 
   useEffect(() => {
     const checkIfCourseIsAdded = async () => {
@@ -275,7 +283,7 @@ async function registerForPushNotificationsAsync() {
             ]}
           >
             <FontAwesome
-              name={added ? "check-circle" : "plus-circle"} 
+              name={added ? "check-circle" : "plus-circle"}
               size={30}
               color="#FFFFFF"
             />
@@ -283,14 +291,14 @@ async function registerForPushNotificationsAsync() {
         ) : (
           <>
             <Pressable
-                onPress={async () => {
-                  if (!notificationIcon) {
-                    await scheduleCourseNotifications(meeting, expoPushToken);
-                  } else {
-                    await cancelScheduledNotifications(); 
-                  }
-                  setNotificationIcon(!notificationIcon);
-                }}
+              onPress={async () => {
+                if (!notificationIcon) {
+                  await scheduleCourseNotifications(meeting, expoPushToken);
+                } else {
+                  await cancelScheduledNotifications();
+                }
+                setNotificationIcon(!notificationIcon);
+              }}
               style={({ pressed }) => [
                 {
                   backgroundColor: pressed ? "#450006" : "transparent",
