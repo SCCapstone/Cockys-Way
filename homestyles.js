@@ -71,7 +71,7 @@ const createHomeStyles = (colors) =>
       borderColor: colors.text,
     },
     pinActionText: {
-      color: colors.primary,
+      color: colors.text,
       fontSize: 16,
       fontWeight: "bold",
     },
