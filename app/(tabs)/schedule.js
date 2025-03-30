@@ -205,6 +205,9 @@ export default function Schedule() {
     },
   });
 
+  const blackboardDot = {color: "#73000A"};
+  const courseDot = {color: "#AAAAAA"};
+
   useEffect(() => {
     if (!user) {
       console.log("no user found");
@@ -277,10 +280,26 @@ export default function Schedule() {
       const blackboardMarked = {};
       blackboardEvents.forEach((event) => {
         const date = moment(event.start).format("YYYY-MM-DD");
-        blackboardMarked[date] = { marked: true, dotColor: "blue" };
+
+        if (!blackboardMarked[date]) {
+          blackboardMarked[date] = { dots: [blackboardDot] };
+        } else {
+          blackboardMarked[date].dots.push(blackboardDot);
+        }
       });
 
-      const combined = { ...parsedCourseDates, ...blackboardMarked };
+      const combined = { ...parsedCourseDates };
+
+      Object.keys(blackboardMarked).forEach((date) => {
+        if (combined[date]) {
+          combined[date] = {
+            ...combined[date],
+            dots: [...(combined[date].dots || []), ...blackboardMarked[date].dots],
+          };
+        } else {
+          combined[date] = blackboardMarked[date];
+        }
+      });
 
       setMarkedDates(combined);
     }
@@ -310,11 +329,10 @@ export default function Schedule() {
       let startDate = moment(start);
       let endDate = moment(end);
 
-      // Extracting days properly by ensuring "Th" is captured as its own entity
-      let meetingStr = course.meeting.replace(/Th/g, "X"); // Temporarily replace "Th" to avoid confusion with "T"
-      let matches = meetingStr.match(/(X|M|T|W|F)/g); // Now match days correctly
+      let meetingStr = course.meeting.replace(/Th/g, "X"); 
+      let matches = meetingStr.match(/(X|M|T|W|F)/g); 
       if (matches) {
-        matches = matches.map((d) => (d === "X" ? "Th" : d)); // Convert "X" back to "Th"
+        matches = matches.map((d) => (d === "X" ? "Th" : d)); 
 
         matches.forEach((dayAbbrev) => {
           let dayFull = daysMap[dayAbbrev];
@@ -325,6 +343,13 @@ export default function Schedule() {
               if (currentDate.format("dddd") === dayFull) {
                 let formattedDate = currentDate.format("YYYY-MM-DD");
                 markedDates[formattedDate] = { marked: true };
+
+                if(!markedDates[formattedDate].dots) {
+                  markedDates[formattedDate].dots = [courseDot];
+                } else {
+                  markedDates[formattedDate].dots.push(courseDot);
+                }
+                // console.log(markedDates[formattedDate]);
               }
               currentDate.add(1, "day");
             }
@@ -351,7 +376,7 @@ export default function Schedule() {
 
   const getCoursesForDay = (selectedDate, courses) => {
     let selectedMoment = moment(selectedDate);
-    let selectedWeekday = selectedMoment.format("dddd"); // Get full weekday name
+    let selectedWeekday = selectedMoment.format("dddd"); 
     let relevantCourses = [];
 
     courses.forEach((course) => {
@@ -362,16 +387,14 @@ export default function Schedule() {
       let startDate = moment(start);
       let endDate = moment(end);
 
-      // Ensure the selected date is within the course's semester range
+
       if (!selectedMoment.isBetween(startDate, endDate, null, "[]")) return;
 
-      // Process meeting string to extract days properly
-      let meetingStr = course.meeting.replace(/Th/g, "X"); // Temporarily replace "Th" with "X"
+      let meetingStr = course.meeting.replace(/Th/g, "X"); 
       let matches = meetingStr.match(/(X|M|T|W|F)/g);
       if (matches) {
-        matches = matches.map((d) => (d === "X" ? "Th" : d)); // Convert "X" back to "Th"
+        matches = matches.map((d) => (d === "X" ? "Th" : d)); 
 
-        // If the course meets on the selected weekday, add to results
         if (
           matches.some((dayAbbrev) => daysMap[dayAbbrev] === selectedWeekday)
         ) {
@@ -448,6 +471,7 @@ export default function Schedule() {
           ) : calenderVisibility ? (
             <View style={[styles.calendarContainer, styles.background]}>
               <Calendar
+                markingType={'multi-dot'}
                 markedDates={markedDates}
                 onDayPress={(day) => {
                   setCurrentDay(day.dateString);
@@ -460,22 +484,30 @@ export default function Schedule() {
                     blackboardEvents
                   );
                   setCurrentCourses([...courseList, ...blackboardList]);
-                }}
-                onDayLongPress={(day) => {
-                  console.log("hey long press");
+                  // console.log(blackboardList);
                 }}
               />
               <View style={styles.toggleSection}>
-                <Text style={{ color: colors.text }}>
+                <Text style={{ color: colors.text, marginBottom: 7, fontSize: 15 }}>
                   {currentDay
                     ? currentDay
                     : "Select a date to view what's planned!"}
                 </Text>
-                {currentCourses.map((item, index) => (
-                  <Text key={index} style={{ color: colors.text }}>
-                    {item}
-                  </Text>
-                ))}
+                {currentCourses.map((item, index) => {
+                  const regex = /^\d{3}-\d{3}:$/;
+                  
+                  const parts = item.split(" ");
+                  // console.log(parts);
+                  const isCourse = parts[1] && regex.test(parts[1]);
+                  const bg = isCourse ? "#AAAAAA" : "#73000A";
+                  const text = isCourse ? colors.text : "#FFFFFF";
+
+                  return (
+                    <Text key={index} style={{ color: text, backgroundColor: bg, padding: 5, marginBottom: 7, borderRadius: 7, fontSize: 15 }}>
+                      {item}
+                    </Text>
+                  )
+                })}
               </View>
             </View>
           ) : (

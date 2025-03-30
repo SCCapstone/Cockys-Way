@@ -66,9 +66,7 @@ const Class = ({
             notificationTime.getDate() +
               ((DAY_MAP[day] - notificationTime.getDay() + 7) % 7)
           );
-
-          console.log(notificationTime);
-
+          
           await Notifications.scheduleNotificationAsync({
             content: {
               title: `${name} is about to start!`,
