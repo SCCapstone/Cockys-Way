@@ -26,6 +26,7 @@ import {
   collection,
   getDocs,
   getDoc,
+  setDoc,
 } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { useRouter, useLocalSearchParams } from "expo-router";
@@ -1175,6 +1176,7 @@ export default function HomeScreen() {
                   name={isFavorited ? "star" : "star-o"}
                   size={24}
                   color={theme.colors.garnetWhite}
+                  testID="favorite-icon"
                 />
               </TouchableOpacity>
               <TouchableOpacity

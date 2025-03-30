@@ -1,11 +1,11 @@
 import React from "react";
-import {act} from 'react-test-renderer';  
+import { act } from "react-test-renderer";
 import { render, waitFor, fireEvent } from "@testing-library/react-native";
 import HomeScreen from "../../app/(tabs)";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import * as Location from "expo-location";
 import { ThemeContext } from "../../ThemeContext";
-
+import * as firestore from "firebase/firestore";
 
 const mockTheme = {
   colors: {
@@ -19,14 +19,14 @@ jest.mock("expo-router", () => ({
   useLocalSearchParams: jest.fn(),
 }));
 
-jest.mock("../../FirebaseConfig", () => ({
-  FIREBASE_AUTH: {
-    currentUser: null,
-  },
-  FIRESTORE_DB: {
-    collection: jest.fn(),
-  },
-}));
+jest.mock("../../FirebaseConfig", () => {
+  return {
+    FIREBASE_AUTH: {
+      currentUser: { uid: "test-user" },
+    },
+    FIRESTORE_DB: {},
+  };
+});
 
 jest.mock("expo-location", () => ({
   requestForegroundPermissionsAsync: jest.fn(),
@@ -43,7 +43,12 @@ jest.mock("react-native-maps", () => {
     }));
 
     return (
-      <View {...props} ref={ref} testID="map-view" customMapStyle={props.customMapStyle}>
+      <View
+        {...props}
+        ref={ref}
+        testID="map-view"
+        customMapStyle={props.customMapStyle}
+      >
         {props.children}
       </View>
     );
@@ -64,12 +69,16 @@ jest.mock("react-native-maps", () => {
       </View>
     ),
     PROVIDER_GOOGLE: "google",
-  };  
+  };
 });
 
 jest.mock("@expo/vector-icons/FontAwesome", () => {
-  const { View } = require("react-native");
-  const MockIcon = () => <View testID="font-awesome-icon" />;
+  const { View, Text } = require("react-native");
+  const MockIcon = (props) => (
+    <View testID={props.testID || "font-awesome-icon"}>
+      <Text>{props.name}</Text>
+    </View>
+  );
   MockIcon.isLoaded = true;
   return MockIcon;
 });
@@ -131,10 +140,11 @@ jest.mock("firebase/firestore", () => ({
   getDoc: jest.fn(() =>
     Promise.resolve({ exists: () => false, data: () => ({}) })
   ),
-  updateDoc: jest.fn(),
+  updateDoc: jest.fn(() => Promise.resolve()),
   addDoc: jest.fn(() => Promise.resolve({ id: "mock-id" })),
   deleteDoc: jest.fn(),
   doc: jest.fn(),
+  setDoc: jest.fn(() => Promise.resolve()),
 }));
 
 jest.mock("@react-native-async-storage/async-storage", () => ({
@@ -317,5 +327,72 @@ it("matches snapshot in dark mode", async () => {
 
   await waitFor(() => {
     expect(toJSON()).toMatchSnapshot();
+  });
+});
+
+it("toggles favorite icon and updates Firestore", async () => {
+  const { getByText, queryAllByTestId, getByTestId, queryByText } = render(
+    <ThemeContext.Provider value={{ theme: mockTheme }}>
+      <HomeScreen />
+    </ThemeContext.Provider>
+  );
+
+  await waitFor(() => {
+    expect(queryByText("Skip")).toBeTruthy();
+  });
+  fireEvent.press(queryByText("Skip"));
+
+  await waitFor(() => {
+    const markers = queryAllByTestId("marker");
+    expect(markers.length).toBeGreaterThan(0);
+  });
+
+  const markers = queryAllByTestId("marker");
+  const targetMarker = markers.find(
+    (marker) => marker.props.title === "1000 Catawba Street"
+  );
+  expect(targetMarker).toBeTruthy();
+  fireEvent.press(targetMarker);
+
+  await waitFor(() => {
+    expect(getByTestId("route-details-container")).toBeTruthy();
+    expect(queryByText("1000 Catawba Street")).toBeTruthy();
+  });
+
+  // check for initial state of favorite icon
+  let favoriteButton = getByTestId("favorite-icon");
+  expect(favoriteButton).toBeTruthy();
+
+  // initially not favorited
+  await waitFor(() => {
+    expect(getByText("star-o")).toBeTruthy();
+  });
+
+  // press the favorite button
+  fireEvent.press(favoriteButton);
+  await waitFor(() => {
+    expect(getByText("star")).toBeTruthy();
+  });
+
+  // press the favorite button again to unfavorite
+  await act(async () => {
+    // simulate that the location is currently favorited so unfavorite logic runs
+    firestore.getDoc.mockImplementationOnce(() =>
+      Promise.resolve({
+        exists: () => true,
+        data: () => ({ locations: [223277] }),
+      })
+    );
+    favoriteButton = getByTestId("favorite-icon");
+    fireEvent.press(favoriteButton);
+  });
+
+  console.log(
+    "Favorite icon state after 2nd press:",
+    getByTestId("favorite-icon").props.children.props.children
+  );
+
+  await waitFor(() => {
+    expect(getByText("star-o")).toBeTruthy();
   });
 });
