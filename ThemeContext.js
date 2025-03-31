@@ -19,6 +19,7 @@ const customLightTheme = {
     alwaysWhite: "#FFFFFF", // white
     placeholder: "#A9A9A9", // light gray placeholder
     lightGarnet: "#D5B4BA", // light garnet
+    disabledDay: "#B6BCC2" // black
   },
 };
 
@@ -35,6 +36,7 @@ const customDarkTheme = {
     alwaysWhite: "#FFFFFF", // white
     placeholder: "#A9A9A9", // light
     lightGarnet: "#9C6B70", // light garnet
+    disabledDay: "#75797D" // white
   },
 };
 

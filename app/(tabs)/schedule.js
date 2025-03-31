@@ -47,6 +47,7 @@ export default function Schedule() {
   const [currentDay, setCurrentDay] = useState("");
   const [currentCourses, setCurrentCourses] = useState([]);
   const [blackboardEvents, setBlackboardEvents] = useState([]);
+  const [themeKey, setThemeKey] = useState(0);
   const { theme } = useContext(ThemeContext);
   const { colors } = theme;
 
@@ -208,6 +209,9 @@ export default function Schedule() {
   const blackboardDot = {color: "#73000A"};
   const courseDot = {color: "#AAAAAA"};
 
+  useEffect(() => {
+    setThemeKey((prev) => prev + 1);
+  }, [colors])
   useEffect(() => {
     if (!user) {
       console.log("no user found");
@@ -471,6 +475,7 @@ export default function Schedule() {
           ) : calenderVisibility ? (
             <View style={[styles.calendarContainer, styles.background]}>
               <Calendar
+                key={themeKey}
                 testID="calendar"
                 markingType={'multi-dot'}
                 markedDates={markedDates}
@@ -485,7 +490,13 @@ export default function Schedule() {
                     blackboardEvents
                   );
                   setCurrentCourses([...courseList, ...blackboardList]);
-                  // console.log(blackboardList);
+                }}
+                theme={{
+                  calendarBackground: colors.card,
+                  dayTextColor: colors.text,
+                  textDisabledColor: colors.disabledDay,
+                  arrowColor: colors.primary,
+                  monthTextColor: colors.text,
                 }}
               />
               <View style={styles.toggleSection}>

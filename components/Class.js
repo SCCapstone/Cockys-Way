@@ -163,7 +163,7 @@ const Class = ({
       }
     } else {
       handleRegistrationError(
-        "Must use physical device for push notifications"
+        "You MUST use a physical device for push notifications.\nEmulators do not support push notifications. "
       );
     }
   }
