@@ -126,4 +126,27 @@ describe("Schedule Page", () => {
     fireEvent.press(toggleBell);
     await waitFor(() => expect(getText()).toBe(initial));
   });
+
+  it("renders the calendar and allows selecting a date", async () => {
+    const { getByText, getByTestId } = renderWithTheme(<Schedule />);
+  
+    // Toggle to calendar view
+    const switchButton = await waitFor(() => getByText(/Switch to Calendar/i));
+    fireEvent.press(switchButton);
+  
+    // Wait until calendar appears
+    const calendar = await waitFor(() => getByTestId("calendar"));
+  
+    // Select a day
+    fireEvent(calendar, "onDayPress", {
+      dateString: "2024-09-20",
+    });
+  
+    // Confirm selected day appears in output
+    await waitFor(() => {
+      expect(getByText("2024-09-20")).toBeTruthy();
+    });
+  });
+  
+  
 });
