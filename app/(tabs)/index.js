@@ -496,11 +496,17 @@ export default function HomeScreen() {
 
   */
 
+      // had to fix search after adding pin filters
+      // State to track search results
+  const [searchResults, setSearchResults] = useState([]);
+
   // Update filtered markers based on search input
   useEffect(() => {
     if (search === "") {
+      // If no search query, reset to visible markers
+      setSearchResults([]);
       // ORIG
-      setFilteredMarkers(markers);
+      //setFilteredMarkers(markers);
     } else {
       const filtered = markers.filter((marker) => {
         const searchLower = search.toLowerCase();
@@ -510,10 +516,14 @@ export default function HomeScreen() {
           .includes(searchLower);
         return titleMatch || descriptionMatch;
       });
-      setFilteredMarkers(filtered);
+      //setFilteredMarkers(filtered);
+      setSearchResults(filtered);
     }
     //console.log("Filtered Markers:", filteredMarkers); // debugging error when using search
   }, [search, markers]);
+
+  // Determine which markers to display on the map
+  const markersToDisplay = searchResults.length > 0 ? searchResults : visibleMarkers;
 
   // Request location permissions and set startLocation
   // merged both perms and set user location into one -Isaac
@@ -1254,12 +1264,39 @@ export default function HomeScreen() {
         {/* render markers normally */}
         {}
 
+        {markersToDisplay.map((marker) => {
+          // attempting to fix search bar 3/31
+          const { id, latitude, longitude, title, description, color } = marker;
+          
+          return (
+            <Marker
+              key={id}
+              coordinate={{
+                latitude,
+                longitude,
+              }}
+              title={title}
+              description={description}
+              pinColor={color ? color : "red"}
+              onPress={() => onMarkerSelected(marker)}
+              zIndex={selectedMarker?.id === id ? 1000 : 1} // Bring selected marker to the front
+              style={
+                selectedMarker?.id === id ? { transform: [{ scale: 1.5 }] } : {}
+              } // Enlarge selected marker
+              tracksViewChanges={selectedMarker?.id === id} // Re-render selected marker
+            />
+          );
+        })}
+
         {/* display all markers */}
         {}
         {/* Commented out above. Originally showed ALL markers. See "Display filtered markers" below.*/}
         
-        {/* Display Visible Markers */}
-        {visibleMarkers.map((marker) => {
+        {/* Display Visible Markers 
+              Commented out to account for search. go back to this if 
+              markersToDisplay is not working properly. -Chloe 3/31/25
+          */}
+        {/*visibleMarkers.map((marker) => {
           const { id, latitude, longitude, title, description, color } = marker;
 
           return (
@@ -1280,7 +1317,7 @@ export default function HomeScreen() {
               tracksViewChanges={selectedMarker?.id === id} // re-render selected marker
             />
           );
-        })}
+        })*/}
 
         {/* Why is this here? This is basically the exact same MapViewDirections as below?
         -Isaac March 4    */}

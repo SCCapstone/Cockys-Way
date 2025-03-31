@@ -37,11 +37,7 @@ SplashScreen.preventAutoHideAsync();
 
 /*
         Chloe To-Do:
-        -   Get their data, then add a favorites & visibility variable
-                -   NEED Visibility, maybe not Favorites yet
-
-
-                NOTE: IN THE MIDDLE OF CHANGING LOCATIONS TO MARKERS
+        -   FIX DEFAULT SHOWN PINS TO BE COLLEGES & SCHOOLS
 
 */
 
@@ -120,6 +116,19 @@ export default function FilterPinsMainScreen() {
       fontSize: 22.5,
       fontFamily: "Abel_400Regular",
       color: colors.alwaysWhite,
+    },
+      // toggle all
+    toggleButton: {
+      backgroundColor: colors.primary,
+      padding: 10,
+      borderRadius: 5,
+      marginBottom: 20,
+      alignItems: "center",
+    },
+    toggleButtonText: {
+      color: colors.alwaysWhite,
+      fontSize: 18,
+      fontWeight: "bold",
     },
   });
 
@@ -252,6 +261,26 @@ export default function FilterPinsMainScreen() {
   };
 
 
+  const toggleAllCategories = () => {
+    // debugging: toggle all styles suddenly broke after 3/31 merge
+    //console.log("Toggle Button Style:", styles.toggleButton);
+    //console.log("Toggle Button Text Style:", styles.toggleButtonText);
+    const newVisibility = {};
+    const shouldHideAll = allVisible;
+  
+    categories.forEach((category) => {
+      if (Array.isArray(category.catId)) {
+        category.catId.forEach((id) => {
+          newVisibility[id] = !shouldHideAll;
+        });
+      } else {
+        newVisibility[category.catId] = !shouldHideAll;
+      }
+    });
+  
+    setCategoryVisibility(newVisibility);
+    setAllVisible(!shouldHideAll);
+  };
 
 
   const getFilteredLocations = (locations, catId) => {
@@ -425,6 +454,8 @@ const updateAccessibilitySettings = async (newSettings) => {
 };
 */
 
+/*
+    COMMENTED OUT AFTER THEMECONTEXT OVERHAUL
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -494,6 +525,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginBottom: 20,
     alignItems: "center",
+    borderWidth: 2, // Add border for debugging
+  borderColor: "#FFFFFF", // White border
   },
   toggleButtonText: {
     color: "#FFFFFF", // White text
@@ -501,6 +534,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
+*/
 
 // export { updateAccessibilitySettings };
 
