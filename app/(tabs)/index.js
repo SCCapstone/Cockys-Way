@@ -50,11 +50,13 @@ SplashScreen.preventAutoHideAsync();
 
 /*
       ERRORS AFTER 3/31 PIN FILTER MERGE:
-      - Route button throws error "cannot read peoperty 'latitude' of null"
-      
       - this error has been here since the searchbar was even added, but
         using search bar shows pop-up saying 
           "A props object containing a "key" prop is being spread into JSX"
+
+
+      Not errors, but things to fix:
+      - Locations with longer names will push the x button off the screen
 
 */
 
@@ -218,10 +220,13 @@ export default function HomeScreen() {
             id: "searched-location",
             latitude: parseFloat(latitude),
             longitude: parseFloat(longitude),
-            title: "Searched Location",
+            title: "Professor's Office",
             description: "Professor's office location",
-            color: "blue",
+            color: "yellow",
           };
+
+          // added prof nav marker code
+          setProfessorOfficeMarker(newMarker);
 
           setMarkers((prevMarkers) => [...prevMarkers, newMarker]);
           setFilteredMarkers((prevMarkers) => [...prevMarkers, newMarker]);
@@ -413,18 +418,26 @@ export default function HomeScreen() {
     }
   }; // end of addAlternateNamesToLocation
 
-  // THROWS ERROR FOR EVERYTHING. FIX.
-  // ALSO ADJUST SEARCH.
+  // state to track prof office
+  // we want prof office to be shown on map when navigated from ProfessorInfo,
+  // even if it's hidden by category visibility
+  const [professorOfficeMarker, setProfessorOfficeMarker] = useState(null);
 
   // move the map to selected marker when found
   useEffect(() => {
     //if (selectedMarker && mapRef.current) {
-    if (navigateToProfessorOffice && selectedMarker && mapRef.current) {
+    if (navigateToProfessorOffice 
+      //&& selectedMarker   // testing to make prof off shown
+      && professorOfficeMarker
+      && mapRef.current) {
       setTimeout(() => {
         mapRef.current.animateToRegion(
           {
-            latitude: selectedMarker.latitude,
-            longitude: selectedMarker.longitude,
+            //latitude: selectedMarker.latitude,
+            //longitude: selectedMarker.longitude,
+            latitude: professorOfficeMarker.latitude,
+            longitude: professorOfficeMarker.longitude,
+
             latitudeDelta: 0.01,
             longitudeDelta: 0.01,
           },
@@ -471,7 +484,17 @@ export default function HomeScreen() {
   }, [search, markers]);
 
   // Determine which markers to display on the map
-  const markersToDisplay = searchResults.length > 0 ? searchResults : visibleMarkers;
+  /*
+      This includes:
+      - Search results, if using search bar
+      - Visible markers, if using Pin Filters
+      - Office Location, if navigating to professor office
+  */
+  const markersToDisplay = searchResults.length > 0 
+  ? searchResults 
+  : professorOfficeMarker
+  ? [...visibleMarkers, professorOfficeMarker]
+  : visibleMarkers;
 
   // Request location permissions and set startLocation
   // merged both perms and set user location into one -Isaac

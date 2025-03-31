@@ -126,7 +126,7 @@ else:
         
         git checkout main - you'll have to git add . and git commit -m [message] in your branch first, but don't push
         git pull
-        git checkout [branch-name
+        git checkout [branch-name]
         git merge main
 
 
