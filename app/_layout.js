@@ -1,8 +1,10 @@
-import { Stack } from "expo-router";
+import { Stack, Slot } from "expo-router";
 import { useContext } from "react";
 import { ThemeProvider, ThemeContext } from "../ThemeContext";
 import { ActivityIndicator, View } from "react-native";
 import { DefaultTheme } from "@react-navigation/native";
+import { CategoryVisibilityProvider } from "./CategoryVisibilityContext";
+// added above line to connect Map with Pin Filter page for Visibility use
 
 function AppLayout() {
   const { isLoaded, theme } = useContext(ThemeContext);
@@ -22,15 +24,8 @@ function AppLayout() {
     headerTintColor: theme.colors.text,
   };
 
-import { Stack, Slot } from 'expo-router';
-import { CategoryVisibilityProvider } from "./CategoryVisibilityContext";
-// added above line to connect Map with Pin Filter page for Visibility use
-
-export default function Layout() {
   return (
     <Stack screenOptions={screenOptions}>
-    <CategoryVisibilityProvider>
-    <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen
         name="login"
@@ -145,15 +140,16 @@ export default function Layout() {
         }}
       />
     </Stack>
-    </CategoryVisibilityProvider>
   );
 }
 
 export default function Layout() {
   return (
+    <CategoryVisibilityProvider>
     <ThemeProvider>
       <AppLayout />
     </ThemeProvider>
+    </CategoryVisibilityProvider>
   );
 }
 
