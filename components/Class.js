@@ -257,8 +257,9 @@ const Class = ({
     });
   };
 
+  //added testID to the class component 30 MARCH 2025
   return (
-    <View style={styles.course}>
+    <View style={styles.course} testID={`class-${code}-${section}`}> 
       <View style={styles.courseText}>
         <Text style={styles.courseHeader}>
           {code}-{section}

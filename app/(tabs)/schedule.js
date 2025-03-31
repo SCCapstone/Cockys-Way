@@ -471,6 +471,7 @@ export default function Schedule() {
           ) : calenderVisibility ? (
             <View style={[styles.calendarContainer, styles.background]}>
               <Calendar
+                testID="calendar"
                 markingType={'multi-dot'}
                 markedDates={markedDates}
                 onDayPress={(day) => {
