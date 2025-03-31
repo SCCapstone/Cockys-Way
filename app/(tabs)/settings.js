@@ -84,6 +84,7 @@ export default function SettingsScreen() {
       borderRadius: 5,
       backgroundColor: colors.card,
       color: colors.text,
+      padding: 10,
     },
     saveButton: {
       marginTop: 10,
