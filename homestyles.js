@@ -75,43 +75,43 @@ const createHomeStyles = (colors) =>
       fontSize: 16,
       fontWeight: "bold",
     },
-  // Adding custom pin popup          COME BACK TO HERE & CHANGE USING colors
-  notificationBox: {
-    position: "absolute",
-    top: 20, // Distance from the top of the screen
-    left: "10%", // Center the box horizontally
-    right: "10%",
-    backgroundColor: "#73000A",
-    padding: 10,
-    borderRadius: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5, // For Android shadow
-    zIndex: 1000, // Ensure it appears above other components
-  },
-  notificationText: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-  // cancelling creating custom pin
-  cancelButton: {
-    backgroundColor: "white",
-    paddingVertical: 8,
-    paddingHorizontal: 20,
-    borderRadius: 5,
-    marginTop: 8,
-  },
-  cancelButtonText: {
-    color: "#73000A", // Garnet color for text
-    fontSize: 14,
-    fontWeight: "bold",
-  },
+    // Adding custom pin popup          COME BACK TO HERE & CHANGE USING colors
+    notificationBox: {
+      position: "absolute",
+      top: 20, // Distance from the top of the screen
+      left: "10%", // Center the box horizontally
+      right: "10%",
+      backgroundColor: "#73000A",
+      padding: 10,
+      borderRadius: 10,
+      alignItems: "center",
+      justifyContent: "center",
+      shadowColor: "#000",
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+      elevation: 5, // For Android shadow
+      zIndex: 1000, // Ensure it appears above other components
+    },
+    notificationText: {
+      color: "white",
+      fontSize: 16,
+      fontWeight: "bold",
+      textAlign: "center",
+    },
+    // cancelling creating custom pin
+    cancelButton: {
+      backgroundColor: "white",
+      paddingVertical: 8,
+      paddingHorizontal: 20,
+      borderRadius: 5,
+      marginTop: 8,
+    },
+    cancelButtonText: {
+      color: "#73000A", // Garnet color for text
+      fontSize: 14,
+      fontWeight: "bold",
+    },
     modalContainer: {
       flex: 1,
       justifyContent: "center",
@@ -185,7 +185,7 @@ const createHomeStyles = (colors) =>
       left: 20,
       right: 20,
       backgroundColor: colors.card,
-      padding: 10,
+      padding: 15,
       borderRadius: 5,
       elevation: 5,
       opacity: 0.9,
@@ -194,6 +194,7 @@ const createHomeStyles = (colors) =>
       fontSize: 15,
       marginBottom: 5,
       color: colors.text,
+      flexShrink: 1,
     },
     routeButton: {
       backgroundColor: colors.card,
@@ -232,6 +233,33 @@ const createHomeStyles = (colors) =>
       justifyContent: "center",
       alignItems: "center",
     },
+    titleContainer: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      position: "relative",
+      alignItems: "flex-start",
+      minHeight: 60,
+      flexWrap: "wrap",
+      paddingRight: 50,
+      marginBottom: 10,
+    },
+    titleText: {
+      fontSize: 15,
+      color: colors.text,
+      flex: 1,
+      paddingRight: 50,
+      minHeight: 60,
+      flexShrink: 1,
+    },
+    exitButtonContainer: {
+      flexDirection: "row",
+      justifyContent: "flex-end",
+      position: "absolute",
+      right: 0,
+      top: 0,
+      width: 90,
+      paddingLeft: 5,
+    },
     exitButton: {
       backgroundColor: colors.card,
       padding: 5,
@@ -241,16 +269,7 @@ const createHomeStyles = (colors) =>
       borderColor: colors.text,
       width: 40,
       height: 35,
-      justifyContent: "flex-end",
       margin: 5,
-    },
-    titleContainer: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-    },
-    exitButtonContainer: {
-      flexDirection: "row",
-      justifyContent: "flex-end",
     },
     highlightedButton: {
       backgroundColor: "#FBD690",

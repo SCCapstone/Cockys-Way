@@ -43,7 +43,10 @@ import { ThemeContext } from "../../ThemeContext";
 import createHomeStyles from "../../homestyles";
 import darkMapStyle from "../../mapStyles";
 import uuid from "react-native-uuid";
-import { CategoryVisibilityProvider, CategoryVisibilityContext } from "../CategoryVisibilityContext";
+import {
+  CategoryVisibilityProvider,
+  CategoryVisibilityContext,
+} from "../CategoryVisibilityContext";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -57,7 +60,6 @@ SplashScreen.preventAutoHideAsync();
           "A props object containing a "key" prop is being spread into JSX"
 
 */
-
 
 export default function HomeScreen() {
   const { theme } = useContext(ThemeContext);
@@ -83,7 +85,8 @@ export default function HomeScreen() {
   const [creatingCustomPin, setCreatingCustomPin] = useState(false);
   const [customPinLocation, setCustomPinLocation] = useState(null);
   // popup to show user how to add custom pins
-  const [showCustomPinNotification, setShowCustomPinNotification] = useState(false); // previously named with Modal instead of Notification
+  const [showCustomPinNotification, setShowCustomPinNotification] =
+    useState(false); // previously named with Modal instead of Notification
   // adjusting custom pins
   const [isRenameModalVisible, setIsRenameModalVisible] = useState(false);
   const [newTitle, setNewTitle] = useState("");
@@ -93,8 +96,9 @@ export default function HomeScreen() {
   const [isFavorited, setIsFavorited] = useState(false);
 
   // category isibility toggle
-  const { categoryVisibility, isInitialized  } = useContext(CategoryVisibilityContext);
-
+  const { categoryVisibility, isInitialized } = useContext(
+    CategoryVisibilityContext
+  );
 
   // Get professor's office location if navigated from ProfessorInfo.js
   const { latitude, longitude } = useLocalSearchParams();
@@ -175,7 +179,7 @@ export default function HomeScreen() {
 
         // Fetching the user's custom pins
         let customPins = [];
-        const auth = getAuth();// Check if the user is logged in
+        const auth = getAuth(); // Check if the user is logged in
         const user = auth.currentUser;
 
         if (user) {
@@ -196,21 +200,20 @@ export default function HomeScreen() {
         setIsLoading(false);
 
         // Process each location to add alternate names to description
-          for (const location of db_data) {
-
+        for (const location of db_data) {
           // Ignore custom pins (made em all blue, so skip blue)
           if (location.color === "blue") {
             //console.log(`Skipping custom pin: ${location.title}`); // Debugging
             continue; // Skip this iteration for custom pins
           }
 
-            if (
+          if (
             !location.description ||
             !location.description.includes("Alternate Names:")
           ) {
-              await addAlternateNamesToLocation(location);
-            }
+            await addAlternateNamesToLocation(location);
           }
+        }
 
         // When coming from Professor Info page
         if (latitude & longitude) {
@@ -239,8 +242,8 @@ export default function HomeScreen() {
     fetchMarkers();
     //  }, []); // ORIG. COMMENTED OUT FOR OFFICE TEST
   }, [latitude, longitude]); // end of fetching markers
-// might be able to replace above line with the line above it, but id dont want to deal with any
-// errors that may occur as a result atm
+  // might be able to replace above line with the line above it, but id dont want to deal with any
+  // errors that may occur as a result atm
 
   const [visibleMarkers, setVisibleMarkers] = useState([]);
 
@@ -355,7 +358,6 @@ export default function HomeScreen() {
       return;
     }
 
-
     try {
       //const docId = id.toString(); // Convert `id` to string before Firestore update
       //const docRef = doc(FIRESTORE_DB, "locTest", docId);
@@ -372,13 +374,12 @@ export default function HomeScreen() {
         `Firestore document ${title} found. Proceeding with update...`
       );
 
-
-
-
       const alternateNames = await getAlternateNames(title);
 
       if (!Array.isArray(alternateNames) || alternateNames.length === 0) {
-        console.warn(`No valid alternate names found for location "${title}". Skipping update.`);
+        console.warn(
+          `No valid alternate names found for location "${title}". Skipping update.`
+        );
         return;
       }
 
@@ -387,16 +388,18 @@ export default function HomeScreen() {
         .filter((name) => typeof name === "string" && name.trim().length > 0);
 
       if (cleanedAlternateNames.length === 0) {
-        console.warn(`Skipping update for "${title}" as no valid alternate names remain.`);
+        console.warn(
+          `Skipping update for "${title}" as no valid alternate names remain.`
+        );
         return;
       }
 
-      const updatedDescription = `Alternate Names: ${cleanedAlternateNames.join(", ")}`;
-
+      const updatedDescription = `Alternate Names: ${cleanedAlternateNames.join(
+        ", "
+      )}`;
 
       // idk why i commented this out but lets see what happens if i uncomment it out during the 3/31/25 merge
       await updateDoc(docRef, { description: updatedDescription });
-
 
       //await updateDoc(doc(FIRESTORE_DB, "locTest", id.toString()), {
       //  description: updatedDescription,
@@ -444,8 +447,8 @@ export default function HomeScreen() {
 
   */
 
-      // had to fix search after adding pin filters
-      // State to track search results
+  // had to fix search after adding pin filters
+  // State to track search results
   const [searchResults, setSearchResults] = useState([]);
 
   // Update filtered markers based on search input
@@ -471,7 +474,8 @@ export default function HomeScreen() {
   }, [search, markers]);
 
   // Determine which markers to display on the map
-  const markersToDisplay = searchResults.length > 0 ? searchResults : visibleMarkers;
+  const markersToDisplay =
+    searchResults.length > 0 ? searchResults : visibleMarkers;
 
   // Request location permissions and set startLocation
   // merged both perms and set user location into one -Isaac
@@ -527,7 +531,7 @@ export default function HomeScreen() {
         Alert.alert("Error", "You must be logged in to add custom pins.");
         return;
       }
-  
+
       const userId = user.uid;
 
       const newPin = {
@@ -556,10 +560,10 @@ export default function HomeScreen() {
         // If the document doesn't exist, create it with the new pin
         await setDoc(userDocRef, { pins: [newPin] });
       }
-      
+
       setMarkers((prevMarkers) => [...prevMarkers, newPin]);
       setFilteredMarkers((prevMarkers) => [...prevMarkers, newPin]);
-      
+
       // just so we can see it was added right
       Alert.alert("Success", "Custom pin added successfully!");
     } catch (error) {
@@ -593,7 +597,6 @@ export default function HomeScreen() {
   const handleRenamePin = async () => {
     if (newTitle && newDescription) {
       try {
-
         // Get the current user's ID
         const auth = getAuth();
         const user = auth.currentUser;
@@ -646,7 +649,6 @@ export default function HomeScreen() {
         } else {
           Alert.alert("Error", "No custom pins found for this user.");
         }
-
       } catch (error) {
         Alert.alert("Error renaming pin", error.message);
       }
@@ -673,7 +675,10 @@ export default function HomeScreen() {
               const user = auth.currentUser;
 
               if (!user) {
-                Alert.alert("Error", "You must be logged in to delete custom pins.");
+                Alert.alert(
+                  "Error",
+                  "You must be logged in to delete custom pins."
+                );
                 return;
               }
 
@@ -690,10 +695,10 @@ export default function HomeScreen() {
                     existingPin.latitude !== pin.latitude ||
                     existingPin.longitude !== pin.longitude
                 );
-  
+
                 // Update Firestore with the new pins array
                 await updateDoc(userDocRef, { pins: updatedPins });
-  
+
                 // Update local state
                 setMarkers((prevMarkers) =>
                   prevMarkers.filter(
@@ -710,17 +715,15 @@ export default function HomeScreen() {
                   )
                 );
 
-              // Reset selectedMarker to hide the edit/delete menu
-              setSelectedMarker(null);
-              // same for the route menu
-              handleStopDirections();
-  
+                // Reset selectedMarker to hide the edit/delete menu
+                setSelectedMarker(null);
+                // same for the route menu
+                handleStopDirections();
+
                 Alert.alert("Success", "Custom pin deleted successfully!");
               } else {
                 Alert.alert("Error", "No custom pins found for this user.");
               }
-              
-
             } catch (error) {
               Alert.alert("Error deleting pin", error.message);
             }
@@ -735,6 +738,7 @@ export default function HomeScreen() {
   const handleStopDirections = () => {
     if (!tutorialCompleted) return;
     setSelectedDestination(null);
+    setSelectedMarker(null);
     setShowTravelModeButtons(false);
     setShowRouteDetails(false);
     setRouteDetails(null);
@@ -994,10 +998,11 @@ export default function HomeScreen() {
     }
   }, [tutorialCompleted]);
 
- 
-  if (isLoading 
+  if (
+    isLoading ||
     //|| markers.length === 0                   // UNCOMMENT IF THIS BREAKS 3/31/25
-    || !isInitialized) {
+    !isInitialized
+  ) {
     //if (!isInitialized || isLoading) {
     return (
       <View style={styles.loadingContainer}>
@@ -1008,161 +1013,164 @@ export default function HomeScreen() {
 
   return (
     // attempting visibility
-  <CategoryVisibilityProvider markers={markers}>
-    <SafeAreaView style={styles.container}>
-
-      <SearchBar
-        placeholder="Search Here..."
-        placeholderTextColor={theme.colors.text}
-        onChangeText={(text) => setSearch(text)}
-        value={search}
-        containerStyle={styles.searchContainer}
-        inputContainerStyle={styles.searchInputContainer}
-        inputStyle={{ color: theme.colors.garnetWhite }}
-      />
-      <View style={styles.buttonContainer}>
-        {/* Button to filter pins*/}
-        <TouchableOpacity
-          style={styles.filterButton}
-          onPress={() => router.push("/PinFilterMain")}
-        >
-          <View style={styles.accentBox}>
-            <FontAwesome
-              name="map-pin"
-              size={24}
-              color={theme.colors.garnetWhite}
-            />
-          </View>
-        </TouchableOpacity>
-
-        {/* Button to show/hide traffic */}
-        {Platform.OS !== "ios" && (
+    <CategoryVisibilityProvider markers={markers}>
+      <SafeAreaView style={styles.container}>
+        <SearchBar
+          placeholder="Search Here..."
+          placeholderTextColor={theme.colors.text}
+          onChangeText={(text) => setSearch(text)}
+          value={search}
+          containerStyle={styles.searchContainer}
+          inputContainerStyle={styles.searchInputContainer}
+          inputStyle={{ color: theme.colors.garnetWhite }}
+        />
+        <View style={styles.buttonContainer}>
+          {/* Button to filter pins*/}
           <TouchableOpacity
-            style={styles.trafficButton}
-            onPress={() => setShowTraffic(!showTraffic)}
+            style={styles.filterButton}
+            onPress={() => router.push("/PinFilterMain")}
+          >
+            <View style={styles.accentBox}>
+              <FontAwesome
+                name="map-pin"
+                size={24}
+                color={theme.colors.garnetWhite}
+              />
+            </View>
+          </TouchableOpacity>
+
+          {/* Button to show/hide traffic */}
+          {Platform.OS !== "ios" && (
+            <TouchableOpacity
+              style={styles.trafficButton}
+              onPress={() => setShowTraffic(!showTraffic)}
+            >
+              <FontAwesome
+                name="exclamation-triangle"
+                size={24}
+                color={theme.colors.garnetWhite}
+              />
+            </TouchableOpacity>
+          )}
+
+          {/* Button to route history screen */}
+          <TouchableOpacity
+            style={styles.historyButton}
+            onPress={() => router.push("/routeHistory")}
           >
             <FontAwesome
-              name="exclamation-triangle"
+              name="book"
               size={24}
               color={theme.colors.garnetWhite}
             />
           </TouchableOpacity>
-        )}
 
-        {/* Button to route history screen */}
-        <TouchableOpacity
-          style={styles.historyButton}
-          onPress={() => router.push("/routeHistory")}
-        >
-          <FontAwesome name="book" size={24} color={theme.colors.garnetWhite} />
-        </TouchableOpacity>
-
-        {/* Button to add custom pin */}
-        <TouchableOpacity
-          style={styles.customPinButton}
-          onPress={() => {
-            //setShowCustomPinModal(true);
-            setShowCustomPinNotification(true);
-            setCreatingCustomPin(true)
-          }}
-        >
-          <FontAwesome
-            name="map-marker"
-            size={24}
-            color={theme.colors.garnetWhite}
-          />
-          <Text style={styles.buttonText}>+</Text>
-        </TouchableOpacity>
-
-        {/* Button to follow user */}
-        <TouchableOpacity
-          style={styles.customPinButton}
-          onPress={() => setFollowsUser(!followsUser)}
-        >
-          <FontAwesome
-            name={followsUser ? "location-arrow" : "map-marker"}
-            size={24}
-            color={theme.colors.garnetWhite}
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.customPinButton}
-          onPress={handleResetTutorial}
-        >
-          <FontAwesome
-            name="refresh"
-            size={24}
-            color={theme.colors.garnetWhite}
-          />
-        </TouchableOpacity>
-
-        
-      </View>
-      {showCustomPinNotification && (
-        <View style={styles.notificationBox}>
-          <Text style={styles.notificationText}>
-            Tap anywhere on the map to create a custom pin.
-          </Text>
+          {/* Button to add custom pin */}
           <TouchableOpacity
-            style={styles.cancelButton}
+            style={styles.customPinButton}
             onPress={() => {
-              setCreatingCustomPin(false);
-              setShowCustomPinNotification(false);
+              //setShowCustomPinModal(true);
+              setShowCustomPinNotification(true);
+              setCreatingCustomPin(true);
             }}
           >
-            <Text style={styles.cancelButtonText}>Cancel</Text>
+            <FontAwesome
+              name="map-marker"
+              size={24}
+              color={theme.colors.garnetWhite}
+            />
+            <Text style={styles.buttonText}>+</Text>
+          </TouchableOpacity>
+
+          {/* Button to follow user */}
+          <TouchableOpacity
+            style={styles.customPinButton}
+            onPress={() => setFollowsUser(!followsUser)}
+          >
+            <FontAwesome
+              name={followsUser ? "location-arrow" : "map-marker"}
+              size={24}
+              color={theme.colors.garnetWhite}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.customPinButton}
+            onPress={handleResetTutorial}
+          >
+            <FontAwesome
+              name="refresh"
+              size={24}
+              color={theme.colors.garnetWhite}
+            />
           </TouchableOpacity>
         </View>
-      )}
-
-      {/* Map */}
-      <MapView
-        testID="map"
-        ref={mapRef}
-        style={styles.map}
-        apiKey={GOOGLE_API_KEY}
-        provider={
-          Platform.OS === "android" ? PROVIDER_GOOGLE : PROVIDER_DEFAULT
-        }
-        initialRegion={INITIAL_REGION}
-        showsUserLocation={true}
-        followsUserLocation={followsUser}
-        showsTraffic={showTraffic}
-        onPress={handleMapPress}
-        customMapStyle={theme.dark ? darkMapStyle : []}
-      >
-        {/* render markers normally */}
-
-
-        {/* Render all markers. Accounts for Searchbar, filtered pins, and default CategoryVisibilityContext. */}
-        {markersToDisplay.map((marker) => {
-          const { id, latitude, longitude, title, description, color } = marker;
-          
-          return (
-            <Marker
-              key={id}
-              coordinate={{
-                latitude,
-                longitude,
+        {showCustomPinNotification && (
+          <View style={styles.notificationBox}>
+            <Text style={styles.notificationText}>
+              Tap anywhere on the map to create a custom pin.
+            </Text>
+            <TouchableOpacity
+              style={styles.cancelButton}
+              onPress={() => {
+                setCreatingCustomPin(false);
+                setShowCustomPinNotification(false);
               }}
-              title={title}
-              description={description}
-              pinColor={color ? color : "red"}
-              onPress={() => onMarkerSelected(marker)}
-              zIndex={selectedMarker?.id === id ? 1000 : 1} // Bring selected marker to the front
-              style={
-                selectedMarker?.id === id ? { transform: [{ scale: 1.5 }] } : {}
-              } // Enlarge selected marker
-              tracksViewChanges={selectedMarker?.id === id} // Re-render selected marker
-            />
-          );
-        })}
+            >
+              <Text style={styles.cancelButtonText}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
+        )}
 
-        {/* Why is this here? This is basically the exact same MapViewDirections as below?
+        {/* Map */}
+        <MapView
+          testID="map"
+          ref={mapRef}
+          style={styles.map}
+          apiKey={GOOGLE_API_KEY}
+          provider={
+            Platform.OS === "android" ? PROVIDER_GOOGLE : PROVIDER_DEFAULT
+          }
+          initialRegion={INITIAL_REGION}
+          showsUserLocation={true}
+          followsUserLocation={followsUser}
+          showsTraffic={showTraffic}
+          onPress={handleMapPress}
+          customMapStyle={theme.dark ? darkMapStyle : []}
+        >
+          {/* render markers normally */}
+
+          {/* Render all markers. Accounts for Searchbar, filtered pins, and default CategoryVisibilityContext. */}
+          {markersToDisplay.map((marker) => {
+            const { id, latitude, longitude, title, description, color } =
+              marker;
+
+            return (
+              <Marker
+                key={id}
+                coordinate={{
+                  latitude,
+                  longitude,
+                }}
+                title={title}
+                description={description}
+                pinColor={color ? color : "red"}
+                onPress={() => onMarkerSelected(marker)}
+                zIndex={selectedMarker?.id === id ? 1000 : 1} // Bring selected marker to the front
+                style={
+                  selectedMarker?.id === id
+                    ? { transform: [{ scale: 1.5 }] }
+                    : {}
+                } // Enlarge selected marker
+                tracksViewChanges={selectedMarker?.id === id} // Re-render selected marker
+              />
+            );
+          })}
+
+          {/* Why is this here? This is basically the exact same MapViewDirections as below?
         -Isaac March 4    */}
-        {/* display prof. office if selected */}
-        {/* {selectedDestination && (
+          {/* display prof. office if selected */}
+          {/* {selectedDestination && (
           <MapViewDirections
             origin={userLocation}
             destination={{
@@ -1183,34 +1191,36 @@ export default function HomeScreen() {
             onError={(error) => Alert.alert("Error getting directions", error)}
           />
         )} */}
-        {/* End of displaying prof office if selected */}
+          {/* End of displaying prof office if selected */}
 
-        {/* Directions */}
-        {startLocation && selectedDestination && navigationStarted && (
-          <MapViewDirections
-            origin={startLocation}
-            destination={{
-              latitude: selectedDestination.latitude,
-              longitude: selectedDestination.longitude,
-            }}
-            apikey={GOOGLE_API_KEY}
-            strokeWidth={4}
-            strokeColor={theme.dark ? "#FFF" : "#73000a"}
-            mode={travelMode}
-            onReady={(result) => {
-              setRouteDetails({
-                distance: result.distance,
-                duration: result.duration,
-              });
-              setRouteSteps(result.legs[0].steps || []);
-            }}
-            onError={(error) => Alert.alert("Error getting directions", error)}
-          />
-        )}
-      </MapView>
+          {/* Directions */}
+          {startLocation && selectedDestination && navigationStarted && (
+            <MapViewDirections
+              origin={startLocation}
+              destination={{
+                latitude: selectedDestination.latitude,
+                longitude: selectedDestination.longitude,
+              }}
+              apikey={GOOGLE_API_KEY}
+              strokeWidth={4}
+              strokeColor={theme.dark ? "#FFF" : "#73000a"}
+              mode={travelMode}
+              onReady={(result) => {
+                setRouteDetails({
+                  distance: result.distance,
+                  duration: result.duration,
+                });
+                setRouteSteps(result.legs[0].steps || []);
+              }}
+              onError={(error) =>
+                Alert.alert("Error getting directions", error)
+              }
+            />
+          )}
+        </MapView>
 
-      {/* Modal for Custom Pin Instructions */}
-      {/*}
+        {/* Modal for Custom Pin Instructions */}
+        {/*}
       <Modal
         animationType="slide"
         transparent={true}
@@ -1232,8 +1242,8 @@ export default function HomeScreen() {
         </View>
       </Modal> */}
 
-      {/* Custom Pin Actions */}
-      {/*selectedMarker && selectedMarker.color === "blue" && (
+        {/* Custom Pin Actions */}
+        {/*selectedMarker && selectedMarker.color === "blue" && (
         <View style={styles.pinActionsContainer}>
           <TouchableOpacity
             style={styles.pinActionButton}
@@ -1249,230 +1259,234 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
       )*/}
-      {selectedMarker && selectedMarker.color === "blue" && (
-        <View style={styles.pinActionsContainer}>
-          <TouchableOpacity
-            style={styles.pinActionButton}
-            onPress={() => showRenameModal(selectedMarker)}
-          >
-            <Text style={styles.pinActionText}>Rename</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.pinActionButton}
-            onPress={() => handleDeletePin(selectedMarker)}
-          >
-            <Text style={styles.pinActionText}>Delete</Text>
-          </TouchableOpacity>
-        </View>
-      )}
-
-      {/* Adjusting Custom Pin (Renaming / New Description) */}
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={isRenameModalVisible}
-        onRequestClose={() => setIsRenameModalVisible(false)}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Enter new title for the pin:</Text>
-            <TextInput
-              style={styles.modalInput}
-              value={newTitle}
-              onChangeText={setNewTitle}
-            />
-            <Text style={styles.modalText}>
-              Enter new description for the pin:
-            </Text>
-            <TextInput
-              style={styles.modalInput}
-              value={newDescription}
-              onChangeText={setNewDescription}
-            />
-            <Button title="Rename" onPress={handleRenamePin} />
-            <Button
-              title="Cancel"
-              onPress={() => setIsRenameModalVisible(false)}
-            />
+        {selectedMarker && selectedMarker.color === "blue" && (
+          <View style={styles.pinActionsContainer}>
+            <TouchableOpacity
+              style={styles.pinActionButton}
+              onPress={() => showRenameModal(selectedMarker)}
+            >
+              <Text style={styles.pinActionText}>Rename</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.pinActionButton}
+              onPress={() => handleDeletePin(selectedMarker)}
+            >
+              <Text style={styles.pinActionText}>Delete</Text>
+            </TouchableOpacity>
           </View>
-        </View>
-      </Modal>
+        )}
 
-      {/* Travel Mode Buttons (Overlay) */}
-      {showTravelModeButtons && (
-        <View style={styles.travelModeOverlay}>
-          <TouchableOpacity
-            style={[
-              styles.travelModeButton,
-              travelMode === "DRIVING" && styles.activeTravelMode,
-            ]}
-            onPress={() => setTravelMode("DRIVING")}
-          >
-            <Text style={styles.travelModeText}>Driving</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              styles.travelModeButton,
-              travelMode === "WALKING" && styles.activeTravelMode,
-            ]}
-            onPress={() => setTravelMode("WALKING")}
-          >
-            <Text style={styles.travelModeText}>Walking</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              styles.travelModeButton,
-              travelMode === "BICYCLING" && styles.activeTravelMode,
-            ]}
-            onPress={() => setTravelMode("BICYCLING")}
-          >
-            <Text style={styles.travelModeText}>Biking</Text>
-          </TouchableOpacity>
-        </View>
-      )}
-
-      {/* Route Details and Stop Button */}
-      {showRouteDetails && (
-        <View
-          testID="route-details-container"
-          style={styles.routeDetailsContainer}
+        {/* Adjusting Custom Pin (Renaming / New Description) */}
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={isRenameModalVisible}
+          onRequestClose={() => setIsRenameModalVisible(false)}
         >
-          {/* Marker info here: Title, Description, Category, Tag, etc.
+          <View style={styles.modalContainer}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Enter new title for the pin:</Text>
+              <TextInput
+                style={styles.modalInput}
+                value={newTitle}
+                onChangeText={setNewTitle}
+              />
+              <Text style={styles.modalText}>
+                Enter new description for the pin:
+              </Text>
+              <TextInput
+                style={styles.modalInput}
+                value={newDescription}
+                onChangeText={setNewDescription}
+              />
+              <Button title="Rename" onPress={handleRenamePin} />
+              <Button
+                title="Cancel"
+                onPress={() => setIsRenameModalVisible(false)}
+              />
+            </View>
+          </View>
+        </Modal>
+
+        {/* Travel Mode Buttons (Overlay) */}
+        {showTravelModeButtons && (
+          <View style={styles.travelModeOverlay}>
+            <TouchableOpacity
+              style={[
+                styles.travelModeButton,
+                travelMode === "DRIVING" && styles.activeTravelMode,
+              ]}
+              onPress={() => setTravelMode("DRIVING")}
+            >
+              <Text style={styles.travelModeText}>Driving</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.travelModeButton,
+                travelMode === "WALKING" && styles.activeTravelMode,
+              ]}
+              onPress={() => setTravelMode("WALKING")}
+            >
+              <Text style={styles.travelModeText}>Walking</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.travelModeButton,
+                travelMode === "BICYCLING" && styles.activeTravelMode,
+              ]}
+              onPress={() => setTravelMode("BICYCLING")}
+            >
+              <Text style={styles.travelModeText}>Biking</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+
+        {/* Route Details and Stop Button */}
+        {showRouteDetails && (
+          <View
+            testID="route-details-container"
+            style={styles.routeDetailsContainer}
+          >
+            {/* Marker info here: Title, Description, Category, Tag, etc.
               You will need to change the variable in setSelectedDestination */}
-          <View style={styles.titleContainer}>
-            <Text style={styles.routeDetailsText}>
-              {selectedDestination ? selectedDestination.title : ""}
-            </Text>
-            <View style={styles.exitButtonContainer}>
+            <View style={styles.titleContainer}>
+              <Text
+                style={styles.titleText}
+                numberOfLines={3}
+                ellipsizeMode="tail"
+              >
+                {selectedDestination ? selectedDestination.title : ""}
+              </Text>
+              <View style={styles.exitButtonContainer}>
+                <TouchableOpacity
+                  style={styles.exitButton}
+                  onPress={handleFavorite}
+                >
+                  <FontAwesome
+                    name={isFavorited ? "star" : "star-o"}
+                    size={24}
+                    color={theme.colors.garnetWhite}
+                    testID="favorite-icon"
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.exitButton}
+                  onPress={handleStopDirections}
+                >
+                  <FontAwesome
+                    name="times"
+                    size={24}
+                    color={theme.colors.garnetWhite}
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            {/* Total Distance and Duration */}
+            {routeDetails && (
+              <>
+                <Text style={styles.routeDetailsText}>
+                  Total Distance: {routeDetails.distance.toFixed(2)} miles
+                </Text>
+                <Text style={styles.routeDetailsText}>
+                  Total Duration: {Math.ceil(routeDetails.duration)} minutes
+                </Text>
+              </>
+            )}
+
+            {/* Step-by-Step Instructions */}
+            {routeSteps && routeSteps.length > 0 ? (
+              <ScrollView style={{ maxHeight: 150 }}>
+                {routeSteps.map((step, index) => (
+                  <View key={index} style={{ marginBottom: 10 }}>
+                    <Text style={styles.routeDetailsText}>
+                      {step.html_instructions.replace(/<[^>]+>/g, "")}
+                    </Text>
+                    <Text style={styles.routeDetailsText}>
+                      Distance: {step.distance.text}, Duration:{" "}
+                      {step.duration.text}
+                    </Text>
+                  </View>
+                ))}
+              </ScrollView>
+            ) : (
+              <Text style={styles.routeDetailsText}>
+                Please click 'Start Nav'. Otherwise, there are no directions
+                available.
+              </Text>
+            )}
+
+            {/* Buttons */}
+            <View style={styles.routeButtonsContainer}>
+              {/* Start navigation button*/}
               <TouchableOpacity
-                style={styles.exitButton}
-                onPress={handleFavorite}
+                style={styles.routeButton}
+                onPress={() => handleStartNavigation(selectedMarker)}
+                ref={startNavButtonRef}
+                buttonId="startNavButton"
               >
                 <FontAwesome
-                  name={isFavorited ? "star" : "star-o"}
+                  name="map"
                   size={24}
                   color={theme.colors.garnetWhite}
-                  testID="favorite-icon"
                 />
+                <Text style={styles.routeButtonText}>Start Nav</Text>
               </TouchableOpacity>
+
+              {/* Set new start location button */}
               <TouchableOpacity
-                style={styles.exitButton}
-                onPress={handleStopDirections}
+                style={styles.routeButton}
+                onPress={handleChangeStartLocation}
+                ref={setStartButtonRef}
+                buttonId="setStartButton"
+              >
+                <FontAwesome
+                  name="play"
+                  size={24}
+                  color={theme.colors.garnetWhite}
+                />
+                <Text style={styles.routeButtonText}>Set Start</Text>
+              </TouchableOpacity>
+
+              {/* Reset Location Button */}
+              <TouchableOpacity
+                style={styles.routeButton}
+                onPress={handleResetStartLocation}
+                ref={resetLocationButtonRef}
+                buttonId="resetLocationButton"
               >
                 <FontAwesome
                   name="times"
                   size={24}
                   color={theme.colors.garnetWhite}
                 />
+                <Text style={styles.routeButtonText}>Reset</Text>
+              </TouchableOpacity>
+
+              {/* Stop Directions Button */}
+              <TouchableOpacity
+                style={styles.routeButton}
+                onPress={handleStopDirections}
+                ref={stopDirectionsButtonRef}
+                buttonId="stopDirectionsButton"
+              >
+                <FontAwesome
+                  name="stop"
+                  size={24}
+                  color={theme.colors.garnetWhite}
+                />
+                <Text style={styles.routeButtonText}>Stop</Text>
               </TouchableOpacity>
             </View>
           </View>
+        )}
 
-          {/* Total Distance and Duration */}
-          {routeDetails && (
-            <>
-              <Text style={styles.routeDetailsText}>
-                Total Distance: {routeDetails.distance.toFixed(2)} miles
-              </Text>
-              <Text style={styles.routeDetailsText}>
-                Total Duration: {Math.ceil(routeDetails.duration)} minutes
-              </Text>
-            </>
-          )}
-
-          {/* Step-by-Step Instructions */}
-          {routeSteps && routeSteps.length > 0 ? (
-            <ScrollView style={{ maxHeight: 150 }}>
-              {routeSteps.map((step, index) => (
-                <View key={index} style={{ marginBottom: 10 }}>
-                  <Text style={styles.routeDetailsText}>
-                    {step.html_instructions.replace(/<[^>]+>/g, "")}
-                  </Text>
-                  <Text style={styles.routeDetailsText}>
-                    Distance: {step.distance.text}, Duration:{" "}
-                    {step.duration.text}
-                  </Text>
-                </View>
-              ))}
-            </ScrollView>
-          ) : (
-            <Text style={styles.routeDetailsText}>
-              Please click 'Start Nav'. Otherwise, there are no directions
-              available.
-            </Text>
-          )}
-
-          {/* Buttons */}
-          <View style={styles.routeButtonsContainer}>
-            {/* Start navigation button*/}
-            <TouchableOpacity
-              style={styles.routeButton}
-              onPress={() => handleStartNavigation(selectedMarker)}
-              ref={startNavButtonRef}
-              buttonId="startNavButton"
-            >
-              <FontAwesome
-                name="map"
-                size={24}
-                color={theme.colors.garnetWhite}
-              />
-              <Text style={styles.routeButtonText}>Start Nav</Text>
-            </TouchableOpacity>
-
-            {/* Set new start location button */}
-            <TouchableOpacity
-              style={styles.routeButton}
-              onPress={handleChangeStartLocation}
-              ref={setStartButtonRef}
-              buttonId="setStartButton"
-            >
-              <FontAwesome
-                name="play"
-                size={24}
-                color={theme.colors.garnetWhite}
-              />
-              <Text style={styles.routeButtonText}>Set Start</Text>
-            </TouchableOpacity>
-
-            {/* Reset Location Button */}
-            <TouchableOpacity
-              style={styles.routeButton}
-              onPress={handleResetStartLocation}
-              ref={resetLocationButtonRef}
-              buttonId="resetLocationButton"
-            >
-              <FontAwesome
-                name="times"
-                size={24}
-                color={theme.colors.garnetWhite}
-              />
-              <Text style={styles.routeButtonText}>Reset</Text>
-            </TouchableOpacity>
-
-            {/* Stop Directions Button */}
-            <TouchableOpacity
-              style={styles.routeButton}
-              onPress={handleStopDirections}
-              ref={stopDirectionsButtonRef}
-              buttonId="stopDirectionsButton"
-            >
-              <FontAwesome
-                name="stop"
-                size={24}
-                color={theme.colors.garnetWhite}
-              />
-              <Text style={styles.routeButtonText}>Stop</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      )}
-
-      <TutorialOverlay
-        step={tutorialStep}
-        onNext={handleNextStep}
-        onSkip={handleSkipTutorial}
-      />
-    </SafeAreaView>
-  </CategoryVisibilityProvider>
+        <TutorialOverlay
+          step={tutorialStep}
+          onNext={handleNextStep}
+          onSkip={handleSkipTutorial}
+        />
+      </SafeAreaView>
+    </CategoryVisibilityProvider>
   );
 }
