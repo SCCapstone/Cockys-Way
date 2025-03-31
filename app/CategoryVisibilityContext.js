@@ -6,11 +6,11 @@ export const CategoryVisibilityContext = createContext();
 
 export const CategoryVisibilityProvider = ({ children, markers }) => {
   const [categoryVisibility, setCategoryVisibility] = useState({});
-  const [isInitialized, setIsInitialized] = useState(false);    // changing it so default shown categories are from here
+  const [isInitialized, setIsInitialized] = useState(false); // changing it so default shown categories are from here
 
   useEffect(() => {
     const initializeVisibility = () => {
-        console.log("Initializing category visibility..."); // Debugging
+      //  console.log("Initializing category visibility..."); // Debugging
       const initialVisibility = {};
 
       // make just colleges & schools shown by default
@@ -30,25 +30,24 @@ export const CategoryVisibilityProvider = ({ children, markers }) => {
             initialVisibility[marker.catId] = false; // Hidden
           }
         });
-
       } //else {
       //  console.warn("Markers array is empty or undefined."); // Debugging
       //}
 
-        setCategoryVisibility(initialVisibility);
-        setIsInitialized(true); // Initialization should be DONE. 
-        console.log("Category visibility initialized:", initialVisibility); // debug
+      setCategoryVisibility(initialVisibility);
+      setIsInitialized(true); // Initialization should be DONE.
+      // console.log("Category visibility initialized:", initialVisibility); // debug
     };
     //console.log("Initialized 2: ", isInitialized);    // Debugging
 
-      if (!isInitialized) {
-        initializeVisibility();
-      }
+    if (!isInitialized) {
+      initializeVisibility();
+    }
   }, [markers, isInitialized]);
 
   // Log `isInitialized` whenever it changes
   useEffect(() => {
-    console.log("isInitialized updated:", isInitialized);
+    // console.log("isInitialized updated:", isInitialized);
   }, [isInitialized]);
 
   return (

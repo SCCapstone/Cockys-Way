@@ -70,13 +70,58 @@ export default function RouteHistory() {
     },
   });
 
+  const isValidRoute = (item) => {
+    return (
+      item &&
+      item.title &&
+      item.startLocation &&
+      item.startLocation.latitude !== undefined &&
+      item.startLocation.longitude !== undefined &&
+      item.endLocation &&
+      item.endLocation.latitude !== undefined &&
+      item.endLocation.longitude !== undefined &&
+      item.travelMode &&
+      item.timestamp
+    );
+  };
+
+  const cleanRouteHistory = async () => {
+    try {
+      const history = await AsyncStorage.getItem("routeHistory");
+      if (history) {
+        const parsedHistory = JSON.parse(history);
+        const validHistory = parsedHistory.filter(isValidRoute);
+
+        if (validHistory.length !== parsedHistory.length) {
+          await AsyncStorage.setItem(
+            "routeHistory",
+            JSON.stringify(validHistory)
+          );
+          setRouteHistory(validHistory);
+          return true;
+        }
+      }
+      return false;
+    } catch (error) {
+      console.error("Error cleaning route history: ", error);
+      return false;
+    }
+  };
+
   //Fetch route history
   useEffect(() => {
     const fetchRouteHistory = async () => {
       try {
+        await cleanRouteHistory();
+
         const history = await AsyncStorage.getItem("routeHistory");
         if (history) {
-          setRouteHistory(JSON.parse(history));
+          // Sort by timestamp
+          const parsedHistory = JSON.parse(history);
+          const sortedHistory = parsedHistory.sort((a, b) => {
+            return new Date(b.timestamp) - new Date(a.timestamp);
+          });
+          setRouteHistory(sortedHistory);
         }
       } catch (error) {
         console.error("Route history fetch error: ", error);
@@ -110,6 +155,26 @@ export default function RouteHistory() {
     }
   };
 
+  // Safely render location text
+  const renderLocationText = (label, location) => {
+    if (
+      !location ||
+      location.latitude === undefined ||
+      location.longitude === undefined
+    ) {
+      return (
+        <Text style={[styles.routeText, { color: colors.error }]}>
+          {label}: Invalid location data
+        </Text>
+      );
+    }
+    return (
+      <Text style={styles.routeText}>
+        {label}: {location.latitude}, {location.longitude}
+      </Text>
+    );
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Route History</Text>
@@ -120,17 +185,19 @@ export default function RouteHistory() {
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item, index }) => (
             <View style={styles.routeItem}>
-              <Text style={styles.routeText}>Title: {item.title}</Text>
               <Text style={styles.routeText}>
-                Start: {item.startLocation.latitude},{" "}
-                {item.startLocation.longitude}
+                Title: {item.title || "Untitled"}
+              </Text>
+              {renderLocationText("Start", item.startLocation)}
+              {renderLocationText("End", item.endLocation)}
+              <Text style={styles.routeText}>
+                Mode: {item.travelMode || "Unknown"}
               </Text>
               <Text style={styles.routeText}>
-                End: {item.endLocation.latitude}, {item.endLocation.longitude}
-              </Text>
-              <Text style={styles.routeText}>Mode: {item.travelMode}</Text>
-              <Text style={styles.routeText}>
-                Date: {new Date(item.timestamp).toLocaleString()}
+                Date:{" "}
+                {item.timestamp
+                  ? new Date(item.timestamp).toLocaleString()
+                  : "Unknown date"}
               </Text>
               <TouchableOpacity
                 style={styles.deleteButton}
