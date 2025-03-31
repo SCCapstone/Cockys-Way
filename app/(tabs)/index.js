@@ -48,6 +48,16 @@ import { CategoryVisibilityProvider, CategoryVisibilityContext } from "../Catego
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
 
+/*
+      ERRORS AFTER 3/31 PIN FILTER MERGE:
+      - Route button throws error "cannot read peoperty 'latitude' of null"
+      
+      - this error has been here since the searchbar was even added, but
+        using search bar shows pop-up saying 
+          "A props object containing a "key" prop is being spread into JSX"
+
+*/
+
 
 export default function HomeScreen() {
   const { theme } = useContext(ThemeContext);
@@ -177,16 +187,12 @@ export default function HomeScreen() {
 
         // Fetching the user's custom pins
         let customPins = [];
-
-        // Check if the user is logged in
-        const auth = getAuth();
+        const auth = getAuth();// Check if the user is logged in
         const user = auth.currentUser;
 
         if (user) {
           const userId = user.uid;
-
-          // Fetch custom pins for the logged-in user
-          const userDocRef = doc(FIRESTORE_DB, "custom-pins", userId);
+          const userDocRef = doc(FIRESTORE_DB, "custom-pins", userId); // Fetch custom pins for the logged-in user
           const userDocSnap = await getDoc(userDocRef);
 
           if (userDocSnap.exists()) {
@@ -200,8 +206,7 @@ export default function HomeScreen() {
         //setMarkers(db_data);
         //setFilteredMarkers(db_data);
         setMarkers(allMarkers);
-        setFilteredMarkers(allMarkers);
-
+        //setFilteredMarkers(allMarkers);     // commented out 3/31/25
         setIsLoading(false);
 
         // Process each location to add alternate names to description
@@ -254,14 +259,33 @@ export default function HomeScreen() {
   //  (marker) => categoryVisibility[marker.catId] !== false
   //);
 
+  // Filter visible markers based on category visibility
+  /*
   useEffect(() => {
-    if (markers.length > 0 && Object.keys(categoryVisibility).length > 0) {
-      const filteredMarkers = markers.filter(
-        (marker) => categoryVisibility[marker.catId] !== false // Only show markers with visible categories
-      );
+    if (isInitialized && markers.length > 0 && Object.keys(categoryVisibility).length > 0) {
+      //const filteredMarkers = markers.filter(
+      //  (marker) => categoryVisibility[marker.catId] !== false // Only show markers with visible categories
+      //);
+      const filteredMarkers = markers.filter((marker) => {
+        // Include custom pins (e.g., `custom: true`) or markers with visible categories
+        return marker.custom || categoryVisibility[marker.catId] !== false;
+      });
+      setVisibleMarkers(filteredMarkers);
+    } else {
+      console.log("Markers not available for visibility filtering. (This means custom pins not there. this is bad)"); // Debugging
+    }
+  }, [isInitialized, categoryVisibility, markers]);
+  */
+
+  useEffect(() => {
+    if (isInitialized && markers.length > 0) {
+      const filteredMarkers = markers.filter((marker) => {
+        // WAS IT GENUINELY JUST BC I HAD !== FALSE INSTEAD OF === TRUE. Thats insane.
+        return marker.custom || categoryVisibility[marker.catId] === true;
+      });
       setVisibleMarkers(filteredMarkers);
     }
-  }, [categoryVisibility, markers]);
+  }, [isInitialized, categoryVisibility, markers]);
 
   /*
    * I used the useEffect so that all favorites already stored
@@ -1126,7 +1150,10 @@ export default function HomeScreen() {
     }
   }, [tutorialCompleted]);
 
-  if (isLoading || markers.length === 0) {
+ 
+  if (isLoading 
+    //|| markers.length === 0                   // UNCOMMENT IF THIS BREAKS 3/31/25
+    || !isInitialized) {
     //if (!isInitialized || isLoading) {
     return (
       <View style={styles.loadingContainer}>

@@ -11,10 +11,7 @@ export const CategoryVisibilityProvider = ({ children, markers }) => {
   useEffect(() => {
     const initializeVisibility = () => {
         console.log("Initializing category visibility..."); // Debugging
-
       const initialVisibility = {};
-
-      // Initialize visibility for all categories
 
       // make just colleges & schools shown by default
       const collegesAndSchoolsCatIds = [
@@ -34,12 +31,9 @@ export const CategoryVisibilityProvider = ({ children, markers }) => {
           }
         });
 
-        
-        
-        
-      } else {
-        console.warn("Markers array is empty or undefined."); // Debugging
-      }
+      } //else {
+      //  console.warn("Markers array is empty or undefined."); // Debugging
+      //}
 
         setCategoryVisibility(initialVisibility);
         setIsInitialized(true); // Initialization should be DONE. 
@@ -47,12 +41,13 @@ export const CategoryVisibilityProvider = ({ children, markers }) => {
     };
     //console.log("Initialized 2: ", isInitialized);    // Debugging
 
-    if (markers && markers.length > 0) {
+    //if (markers && markers.length > 0) {
+    //    initializeVisibility();
+    //}
+      if (!isInitialized) {
         initializeVisibility();
-    } //else {
-        //console.warn("Markers not available for initialization."); // Debugging
-      //}
-  }, [markers]);
+      }
+  }, [markers, isInitialized]);
 
   // Log `isInitialized` whenever it changes
   useEffect(() => {

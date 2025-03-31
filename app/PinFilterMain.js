@@ -37,7 +37,8 @@ SplashScreen.preventAutoHideAsync();
 
 /*
         Chloe To-Do:
-        -   FIX DEFAULT SHOWN PINS TO BE COLLEGES & SCHOOLS
+        -   FIX DEFAULT SHOWN PINS TO BE COLLEGES & SCHOOLS           done :D
+        -   FIX IT SHOW CATEGORIES WITH ARRAY CATID SHOW LOCATIONS    done yippee
 
 */
 
@@ -261,26 +262,66 @@ export default function FilterPinsMainScreen() {
   };
 
 
-  const toggleAllCategories = () => {
-    // debugging: toggle all styles suddenly broke after 3/31 merge
-    //console.log("Toggle Button Style:", styles.toggleButton);
-    //console.log("Toggle Button Text Style:", styles.toggleButtonText);
-    const newVisibility = {};
-    const shouldHideAll = allVisible;
-  
-    categories.forEach((category) => {
-      if (Array.isArray(category.catId)) {
-        category.catId.forEach((id) => {
-          newVisibility[id] = !shouldHideAll;
+    // Making all cetegories visible/hidden
+    const toggleAllCategories = () => {
+      /*
+      const newVisibility = {};
+      categories.forEach((category) => {
+        if (Array.isArray(category.catId)) {
+          category.catId.forEach((id) => {
+            newVisibility[id] = allVisible;
+          });
+        } else {
+          newVisibility[category.catId] = allVisible; 
+        }
+      });
+
+      setCategoryVisibility(newVisibility);
+      setAllVisible(!allVisible);
+      */
+      const newVisibility = {};
+      const shouldHideAll = allVisible; // use current allVisible state to decide what to do
+    
+
+      categories.forEach((category) => {
+        if (Array.isArray(category.catId)) {
+          category.catId.forEach((id) => {
+            newVisibility[id] = !shouldHideAll; // Toggle visibility based on `shouldHideAll`
+          });
+        } else {
+          newVisibility[category.catId] = !shouldHideAll; // Toggle visibility based on `shouldHideAll`
+        }
+      });
+    
+      setCategoryVisibility(newVisibility);
+      setAllVisible(!shouldHideAll); 
+    };
+
+    const toggleCategoryVisibility = (catId) => {
+      /*setCategoryVisibility((prev) => ({
+        ...prev,
+        [catId]: !prev[catId], // Toggle the visibility for the given category
+      })); */
+      if (Array.isArray(catId)) {
+        // If catId is an array, toggle visibility for all IDs in the array
+        setCategoryVisibility((prev) => {
+          const updatedVisibility = { ...prev };
+          const shouldHide = catId.every((id) => prev[id]); // Check if all IDs are currently visible
+          catId.forEach((id) => {
+            updatedVisibility[id] = !shouldHide; // Toggle visibility for each ID
+          });
+          return updatedVisibility;
         });
       } else {
-        newVisibility[category.catId] = !shouldHideAll;
+        // If catId is a single value, toggle visibility for that ID
+        setCategoryVisibility((prev) => ({
+          ...prev,
+          [catId]: !prev[catId],
+        }));
+
       }
-    });
-  
-    setCategoryVisibility(newVisibility);
-    setAllVisible(!shouldHideAll);
-  };
+
+    };
 
 
   const getFilteredLocations = (locations, catId) => {
@@ -389,16 +430,6 @@ export default function FilterPinsMainScreen() {
               </TouchableOpacity>
   
               {dropdownVisibility[category.label] && filteredNames.length > 0 && (
-                // changed FlatList to View
-//                <FlatList
-//                  data={filteredNames}
-//                  keyExtractor={(item, index) => index.toString()}
-//                  renderItem={({ item }) => (
-//                    <View style={styles.dropdownItem}>
-//                      <Text>{item}</Text>
-//                    </View>
-//                  )}
-//                /> 
                 <View>
                 
                   {/*
@@ -409,7 +440,14 @@ export default function FilterPinsMainScreen() {
                   >
                     <Text>{location.title}</Text>
                   </TouchableOpacity> */}
-                  <View>
+
+                  {filteredNames.map((location, index) => (
+                    <View key={index} style={styles.dropdownItem}>
+                      <Text>{location}</Text>
+                    </View>
+                  ))}
+
+                  {/*<View>
                     {filteredNames
                       .filter(() => categoryVisibility[category.catId]) // Only show if category is visible
                       .map((location, index) => (
@@ -418,7 +456,8 @@ export default function FilterPinsMainScreen() {
                           <Text>{location}</Text>
                         </View>
                       ))}
-                  </View>
+                  </View> */}
+
               </View>
             )}
 
