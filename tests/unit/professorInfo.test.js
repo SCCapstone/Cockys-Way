@@ -1,3 +1,6 @@
+jest.mock("../../FirebaseConfig", () => ({
+  FIREBASE_DB: {},
+}));
 import { checkHours } from "../../app/professorInfo";
 
 describe("checkHours", () => {

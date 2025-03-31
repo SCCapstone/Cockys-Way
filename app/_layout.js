@@ -1,9 +1,34 @@
+import { Stack } from "expo-router";
+import { useContext } from "react";
+import { ThemeProvider, ThemeContext } from "../ThemeContext";
+import { ActivityIndicator, View } from "react-native";
+import { DefaultTheme } from "@react-navigation/native";
+
+function AppLayout() {
+  const { isLoaded, theme } = useContext(ThemeContext);
+
+  if (!isLoaded) {
+    return (
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
+  const screenOptions = {
+    headerStyle: {
+      backgroundColor: theme.colors.card,
+    },
+    headerTintColor: theme.colors.text,
+  };
+
 import { Stack, Slot } from 'expo-router';
 import { CategoryVisibilityProvider } from "./CategoryVisibilityContext";
 // added above line to connect Map with Pin Filter page for Visibility use
 
 export default function Layout() {
   return (
+    <Stack screenOptions={screenOptions}>
     <CategoryVisibilityProvider>
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -12,7 +37,7 @@ export default function Layout() {
         options={{
           title: "Login",
           headerBackTitle: "Back",
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
@@ -20,23 +45,23 @@ export default function Layout() {
         options={{
           title: "Register",
           headerBackTitleVisible: false,
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
         name="professorInfo"
         options={{
           title: "",
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
           headerBackTitle: "Back",
         }}
       />
       <Stack.Screen
         name="addClassForm"
         options={{
-          title: "Add Class",
-          headerBackTitleVisible: false,
-          headerTintColor: "#73000A",
+          title: "Search for Classes",
+          headerTintColor: theme.colors.text,
+          headerBackTitle: "Back",
         }}
       />
       <Stack.Screen
@@ -44,7 +69,7 @@ export default function Layout() {
         options={{
           title: "Forgot Password",
           headerBackTitleVisible: false,
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
@@ -52,45 +77,84 @@ export default function Layout() {
         options={{
           title: "Search Results",
           headerBackTitleVisible: false,
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
         name="PrivacySecurity"
         options={{
           title: "Privacy and Security",
-          headerTintColor: "#73000A",
+          headerBackTitle: "Back",
+          headerTintColor: theme.colors.text,
         }}
       />
       <Stack.Screen
         name="favLocations"
         options={{
           title: "Favorite Locations",
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
+          headerBackTitle: "Back",
         }}
       />
       <Stack.Screen
         name="accessibility"
         options={{
           title: "Accessibility",
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
+          headerBackTitle: "Back",
         }}
       />
+      <Stack.Screen
+        name="MyAccount"
+        options={{
+          title: "My Account",
+          headerTintColor: theme.colors.text,
+          headerBackTitle: "Back",
+        }}
+      />
+
       <Stack.Screen
         name="PinFilterMain"
         options={{
           title: "Filter Pins",
-          headerTintColor: "#73000A",
+          headerBackTitle: "Back",
+          headerTintColor: theme.colors.text,
         }}
       />
-      <Stack.Screen 
+      <Stack.Screen
+        name="routeHistory"
+        options={{
+          title: "Route History",
+          headerTintColor: theme.colors.text,
+          headerBackTitle: "Back",
+        }}
+      />
+      <Stack.Screen
         name="courseInfo"
         options={{
           title: "Course Info",
-          headerTintColor: "#73000A",
+          headerTintColor: theme.colors.text,
+        }}
+      />
+      <Stack.Screen
+        name="SignOut"
+        options={{
+          title: "Sign Out",
+          headerBackTitle: "Back",
+          headerTintColor: theme.colors.text,
         }}
       />
     </Stack>
     </CategoryVisibilityProvider>
   );
 }
+
+export default function Layout() {
+  return (
+    <ThemeProvider>
+      <AppLayout />
+    </ThemeProvider>
+  );
+}
+
+export { theme } from "../ThemeContext";

@@ -7,9 +7,68 @@ import {
   TouchableOpacity,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 
 export default function RouteHistory() {
   const [routeHistory, setRouteHistory] = useState([]);
+  const { theme } = useContext(ThemeContext);
+  const { colors } = theme;
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      padding: 16,
+      backgroundColor: colors.background,
+    },
+    title: {
+      fontSize: 24,
+      fontWeight: "bold",
+      marginBottom: 16,
+      color: colors.primary,
+    },
+    routeItem: {
+      padding: 16,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.white,
+      backgroundColor: colors.card,
+      borderRadius: 8,
+      marginBottom: 12,
+    },
+    routeText: {
+      fontSize: 16,
+      marginBottom: 4,
+      color: colors.text,
+    },
+    deleteButton: {
+      backgroundColor: colors.primary,
+      padding: 8,
+      borderRadius: 4,
+      alignItems: "center",
+      marginTop: 8,
+    },
+    deleteButtonText: {
+      color: colors.alwaysWhite,
+      fontSize: 14,
+    },
+    noHistoryText: {
+      fontSize: 16,
+      textAlign: "center",
+      marginTop: 16,
+      color: colors.alwaysWhite,
+    },
+    clearButton: {
+      backgroundColor: colors.primary,
+      padding: 16,
+      borderRadius: 8,
+      alignItems: "center",
+      marginTop: 16,
+    },
+    clearButtonText: {
+      color: colors.alwaysWhite,
+      fontSize: 16,
+    },
+  });
 
   //Fetch route history
   useEffect(() => {
@@ -92,52 +151,3 @@ export default function RouteHistory() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: "#fff",
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 16,
-  },
-  routeItem: {
-    padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
-  },
-  routeText: {
-    fontSize: 16,
-    marginBottom: 4,
-  },
-  deleteButton: {
-    backgroundColor: "#73000a",
-    padding: 8,
-    borderRadius: 4,
-    alignItems: "center",
-    marginTop: 8,
-  },
-  deleteButtonText: {
-    color: "white",
-    fontSize: 14,
-  },
-  noHistoryText: {
-    fontSize: 16,
-    textAlign: "center",
-    marginTop: 16,
-  },
-  clearButton: {
-    backgroundColor: "#73000a",
-    padding: 16,
-    borderRadius: 8,
-    alignItems: "center",
-    marginTop: 16,
-  },
-  clearButtonText: {
-    color: "#fff",
-    fontSize: 16,
-  },
-});

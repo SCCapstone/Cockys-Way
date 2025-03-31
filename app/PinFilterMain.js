@@ -1,21 +1,34 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, Switch, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native';
-import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
-import * as SplashScreen from 'expo-splash-screen';
+import React, { useState, useEffect, useContext } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  SafeAreaView,
+  Alert,
+  Switch,
+  TouchableOpacity,
+  FlatList,
+  ActivityIndicator,
+} from "react-native";
+import { useFonts, Abel_400Regular } from "@expo-google-fonts/abel";
+import * as SplashScreen from "expo-splash-screen";
 import { FIREBASE_AUTH, FIREBASE_DB, FIRESTORE_DB } from "../FirebaseConfig";
 import { updateProfile, getAuth } from "firebase/auth";
-import { 
+import {
   addDoc,
   updateDoc,
   deleteDoc,
   getDoc,
-  collection, 
-  getDocs, 
-  doc, 
+  collection,
+  getDocs,
+  doc,
   setDoc,
 } from "firebase/firestore";
-import { router } from 'expo-router';
-import { useNavigation } from '@react-navigation/native'; // hopefully to send user to map
+import { router } from "expo-router";
+import { useNavigation } from "@react-navigation/native"; // hopefully to send user to map
+//import { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 import FontAwesome from '@expo/vector-icons/FontAwesome'; // for visibility icon
 import { CategoryVisibilityContext, CategoryVisibilityProvider } from "./CategoryVisibilityContext";
 
@@ -34,16 +47,81 @@ SplashScreen.preventAutoHideAsync();
 
 // Main component
 export default function FilterPinsMainScreen() {
-    let [fontsLoaded] = useFonts({
-      Abel_400Regular,
-    });
+  let [fontsLoaded] = useFonts({
+    Abel_400Regular,
+  });
 
-    const [dropdownVisibility, setDropdownVisibility] = useState({});
-    const [locations, setLocations] = useState([]);
+  const [dropdownVisibility, setDropdownVisibility] = useState({});
+  const [locations, setLocations] = useState([]);
     // trying to rename all this to markers to make life easier (copium)
+    // NOT DONE YET. WILL DO LATER -C
     //const [markers, setMarkers] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    //const navigation = useNavigation();
+  const [isLoading, setIsLoading] = useState(true);
+  const navigation = useNavigation();
+  const { theme } = useContext(ThemeContext);
+  const { colors } = theme;
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      padding: 20,
+      backgroundColor: colors.background,
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    header: {
+      fontSize: 30,
+      fontWeight: "bold",
+      marginBottom: 20,
+      color: colors.primary,
+      fontFamily: "Abel_400Regular",
+    },
+    content: {
+      padding: 20,
+      borderRadius: 5,
+    },
+    text: {
+      fontSize: 18,
+      color: colors.text,
+      fontFamily: "Abel_400Regular",
+      marginLeft: 20,
+    },
+    settingItem: {
+      padding: 5,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border,
+    },
+    dropdownItem: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      paddingVertical: 15,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border,
+    },
+    accentBox: {
+      backgroundColor: colors.primary,
+      padding: 10,
+      borderRadius: 5,
+      flex: 1,
+    },
+    accentBoxSmall: {
+      backgroundColor: colors.primary,
+      padding: 5,
+      borderRadius: 5,
+      flex: 1,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
+    settingText: {
+      fontSize: 22.5,
+      fontFamily: "Abel_400Regular",
+      color: colors.alwaysWhite,
+    },
+  });
 
     // Working more towards toggling visibility of locations in categories
     //const [categoryVisibility, setCategoryVisibility] = useState({});
@@ -114,85 +192,8 @@ export default function FilterPinsMainScreen() {
       { label: "Other Buildings", catId: 9492 },
 
 
-      //{ label: "Athletics", catId: 21035 },
-      // Check back to make sure ALL locations listed
-      /*
-        Using this to keep track of locations that werent placed
-
-        Founders Park:  21035
-        Park Place: 9497            THIS IS UNIVERSITY HOUSING
-        S35 - CLA North - resident undergrad: 21046     RESIDENT UNDERGRAD PARKING
-      
-        Colleges & schools:
-        Arnold School of Public Health
-        Arts and Sciences
-        Darla Moore School of Business
-        Education
-        Honors College
-
-        */
-    ];
-
-    // Making all cetegories visible/hidden
-    const toggleAllCategories = () => {
-      /*
-      const newVisibility = {};
-      categories.forEach((category) => {
-        if (Array.isArray(category.catId)) {
-          category.catId.forEach((id) => {
-            newVisibility[id] = allVisible;
-          });
-        } else {
-          newVisibility[category.catId] = allVisible; 
-        }
-      });
-
-      setCategoryVisibility(newVisibility);
-      setAllVisible(!allVisible);
-      */
-      const newVisibility = {};
-      const shouldHideAll = allVisible; // use current allVisible state to decide what to do
-    
-
-      categories.forEach((category) => {
-        if (Array.isArray(category.catId)) {
-          category.catId.forEach((id) => {
-            newVisibility[id] = !shouldHideAll; // Toggle visibility based on `shouldHideAll`
-          });
-        } else {
-          newVisibility[category.catId] = !shouldHideAll; // Toggle visibility based on `shouldHideAll`
-        }
-      });
-    
-      setCategoryVisibility(newVisibility);
-      setAllVisible(!shouldHideAll); 
-    };
-
-    const toggleCategoryVisibility = (catId) => {
-      /*setCategoryVisibility((prev) => ({
-        ...prev,
-        [catId]: !prev[catId], // Toggle the visibility for the given category
-      })); */
-      if (Array.isArray(catId)) {
-        // If catId is an array, toggle visibility for all IDs in the array
-        setCategoryVisibility((prev) => {
-          const updatedVisibility = { ...prev };
-          const shouldHide = catId.every((id) => prev[id]); // Check if all IDs are currently visible
-          catId.forEach((id) => {
-            updatedVisibility[id] = !shouldHide; // Toggle visibility for each ID
-          });
-          return updatedVisibility;
-        });
-      } else {
-        // If catId is a single value, toggle visibility for that ID
-        setCategoryVisibility((prev) => ({
-          ...prev,
-          [catId]: !prev[catId],
-        }));
-
-      }
-
-    };
+    // ok all locations should be listed
+  ];
 
   // NEW FETCH LOCATIONS FROM FIRESTORE
   //useEffect(() => {
@@ -219,6 +220,7 @@ export default function FilterPinsMainScreen() {
     };
 
     //fetchLocations();
+    // MAY NEED TO UNCOMMENT IF BROKEN. COMMENTED OUT AFTER NEW CONTEXT. -C
   //}, []);
 
   useEffect(() => {
@@ -226,71 +228,7 @@ export default function FilterPinsMainScreen() {
     console.log("Locations fetched:", locations);
   }, []);
 
-//  const [isVisibilityInitialized, setIsVisibilityInitialized] = useState(false);
-  // initialize visibility
-  
 
-//  useEffect(() => {
-    // Initialize only undefined categories
-    //const initialVisibility = { ...categoryVisibility };
-//    const initialVisibility = {};
-    
-//    categories.forEach((category) => {
-      /*
-      if (Array.isArray(category.catId)) {
-        category.catId.forEach((id) => {
-          if (initialVisibility[id] === undefined) {
-            initialVisibility[id] = true; // Default to visible
-          }
-        });
-      } else {
-        if (initialVisibility[category.catId] === undefined) {
-          initialVisibility[category.catId] = true; // Default to visible
-        }
-      }
-        */
-//      if (category.label === "Colleges & Schools") {
-        // Set all IDs in "Colleges & Schools" to visible
-//        if (Array.isArray(category.catId)) {
-//          category.catId.forEach((id) => {
-//            initialVisibility[id] = true; // Visible
-//          });
-//        } else {
-//          initialVisibility[category.catId] = true; // Visible
-//        }
-//      } else {
-        // Set all other categories to hidden
-//        if (Array.isArray(category.catId)) {
-//          category.catId.forEach((id) => {
-//            initialVisibility[id] = false; // Hidden
-//          });
-//        } else {
-//          initialVisibility[category.catId] = false; // Hidden
-//        }
-//      }
-
-
-//    }); // end of forEach(category)
-
-//    setCategoryVisibility(initialVisibility);
-
-    // Check if all categories are visible and set `allVisible` accordingly
-    /*const allCategoriesVisible = categories.every((category) => {
-      if (Array.isArray(category.catId)) {
-        return category.catId.every((id) => initialVisibility[id] === true);
-      }
-      return initialVisibility[category.catId] === true;
-    }); */
-    //setAllVisible(allCategoriesVisible);
-    // Since only "Colleges & Schools" is visible, set `allVisible` to false
-//    setAllVisible(false);
-
-    // Mark visibility initialization as complete
-//    setIsVisibilityInitialized(true);
-  
-    // Fetch locations from Firestore
-//    fetchLocations();
-//  }, []); 
 
   // previous useEffect dealt with initial visibility before I moved that to CategoryVisibilityContext.js
   useEffect(() => {
@@ -319,7 +257,7 @@ export default function FilterPinsMainScreen() {
   const getFilteredLocations = (locations, catId) => {
     //console.log("Filtering locations for catId:", catId);
     //console.log("Available locations:", locations);
-  
+
     const filtered = locations
       //.filter((location) => location.catId === catId && location.title)
       .filter((location) => {
@@ -330,25 +268,24 @@ export default function FilterPinsMainScreen() {
       })
       .map((location) => location.title)
       .sort();
-  
+
     //console.log("Filtered locations:", filtered);
     return filtered;
   };
 
-/*
+  /*
   const getFilteredLocations = (locations, parent) => {
     return locations
       .filter((location) => location.parent === parent && location.title)
       .map((location) => location.title)                    // Changed name to title
       .sort();
   };
-*/ 
-    useEffect(() => {
-      if (fontsLoaded) {
-        SplashScreen.hideAsync();
-      }
-    }, [fontsLoaded]);
-      
+*/
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
 
     if (!fontsLoaded 
       || isLoading 
@@ -454,21 +391,22 @@ export default function FilterPinsMainScreen() {
                       ))}
                   </View>
               </View>
-              )}
-
-            {dropdownVisibility[category.label] && filteredNames.length === 0 && (
-              <View style={styles.dropdownItem}>
-                <Text>No locations available for this category.</Text>
-              </View>
             )}
 
-            </View>
-          );
-        })}
-      </ScrollView>
-    );
-  }
-
+            {dropdownVisibility[category.label] &&
+              filteredNames.length === 0 && (
+                <View style={styles.dropdownItem}>
+                  <Text style={styles.text}>
+                    No locations available for this category.
+                  </Text>
+                </View>
+              )}
+          </View>
+        );
+      })}
+    </ScrollView>
+  );
+}
 
 /*          Uncomment if code breaks
 const updateAccessibilitySettings = async (newSettings) => {
@@ -565,8 +503,6 @@ const styles = StyleSheet.create({
 });
 
 // export { updateAccessibilitySettings };
-
-
 
 /*
         For Chloe because her memory is Absolutely Horrible

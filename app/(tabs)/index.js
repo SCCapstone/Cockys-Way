@@ -1,5 +1,9 @@
 import React, { useEffect, useState, useRef, useContext } from "react";
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, {
+  Marker,
+  PROVIDER_GOOGLE,
+  PROVIDER_DEFAULT,
+} from "react-native-maps";
 import {
   StyleSheet,
   SafeAreaView,
@@ -12,6 +16,7 @@ import {
   Modal,
   TextInput,
   Button,
+  Platform,
 } from "react-native";
 import {
   addDoc,
@@ -30,11 +35,13 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Location from "expo-location";
 import MapViewDirections from "react-native-maps-directions";
 import { GOOGLE_API_KEY } from "@env";
-import styles from "../../homestyles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import axios from 'axios';
-import { getAuth } from 'firebase/auth';
+import axios from "axios";
+import { getAuth } from "firebase/auth";
+import { ThemeContext } from "../../ThemeContext";
+import createHomeStyles from "../../homestyles";
+import darkMapStyle from "../../mapStyles";
 import uuid from "react-native-uuid";
 import { CategoryVisibilityProvider, CategoryVisibilityContext } from "../CategoryVisibilityContext";
 
@@ -43,7 +50,8 @@ SplashScreen.preventAutoHideAsync();
 
 
 export default function HomeScreen() {
-
+  const { theme } = useContext(ThemeContext);
+  const styles = createHomeStyles(theme.colors);
   const router = useRouter();
   const [markers, setMarkers] = useState([]);
   const [filteredMarkers, setFilteredMarkers] = useState([]);
@@ -57,6 +65,8 @@ export default function HomeScreen() {
   const [showRouteDetails, setShowRouteDetails] = useState(false);
   const [showTraffic, setShowTraffic] = useState(false);
   const [routeSteps, setRouteSteps] = useState([]);
+  const [navigationStarted, setNavigationStarted] = useState(false);
+  const [followsUser, setFollowsUser] = useState(false);
   const mapRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
   // Creating custom pins
@@ -70,6 +80,9 @@ export default function HomeScreen() {
   const [newTitle, setNewTitle] = useState("");
   const [newDescription, setNewDescription] = useState("");
 
+  const [userFavorites, setUserFavorites] = useState([]);
+  const [isFavorited, setIsFavorited] = useState(false);
+
   // Working more towards toggling visibility of locations in categories
   //const [categoryVisibility, setCategoryVisibility] = useState({});
   const { categoryVisibility, isInitialized  } = useContext(CategoryVisibilityContext);
@@ -80,6 +93,14 @@ export default function HomeScreen() {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [navigateToProfessorOffice, setNavigateToProfessorOffice] =
     useState(false);
+
+  // Tutorial constants
+  const [tutorialStep, setTutorialStep] = useState(0);
+  const [tutorialCompleted, setTutorialCompleted] = useState(false);
+  const startNavButtonRef = useRef(null);
+  const setStartButtonRef = useRef(null);
+  const resetLocationButtonRef = useRef(null);
+  const stopDirectionsButtonRef = useRef(null);
 
   const INITIAL_REGION = {
     latitude: 34.00039991787572,
@@ -96,9 +117,30 @@ export default function HomeScreen() {
       title: marker.title,
     });
 
-    setShowTravelModeButtons(true);
     setShowRouteDetails(true);
+    setShowTravelModeButtons(true);
+    setRouteSteps([]);
 
+    setIsFavorited(userFavorites.includes(marker.id));
+
+    // Zoom in on marker region
+    if (mapRef.current) {
+      mapRef.current.animateToRegion(
+        {
+          latitude: marker.latitude - 0.0025, //subtraction will make marker more centered on screen
+          longitude: marker.longitude,
+          latitudeDelta: 0.015,
+          longitudeDelta: 0.015,
+        },
+        950 // 950 is duration of zoom in ms - reduced to handle dark mode styles
+      );
+    }
+  };
+
+  // separate function to handle starting navigation by button instead of onMarkerSelected
+  const handleStartNavigation = (marker) => {
+    if (!tutorialCompleted) return;
+    setNavigationStarted(true);
     const route = {
       title: marker.title,
       startLocation: startLocation,
@@ -110,22 +152,9 @@ export default function HomeScreen() {
       travelMode,
     };
     saveRouteHistory(route);
-
-    // Zoom in on marker region
-    if (mapRef.current) {
-      mapRef.current.animateToRegion(
-        {
-          latitude: marker.latitude - 0.0025, //subtraction will make marker more centered on screen
-          longitude: marker.longitude,
-          latitudeDelta: 0.015,
-          longitudeDelta: 0.015,
-        },
-        2500 // 2500 is duration of zoom in ms
-      );
-    }
   };
 
-  // category visibility from pin filter
+  // category visibility from pin filter      uncomment if errors occur after merge
   /*
   const toggleCategoryVisibility = (catId) => {
     setCategoryVisibility((prev) => ({
@@ -176,7 +205,7 @@ export default function HomeScreen() {
         setIsLoading(false);
 
         // Process each location to add alternate names to description
-        for (const location of db_data) {
+          for (const location of db_data) {
 
           // Ignore custom pins (made em all blue, so skip blue)
           if (location.color === "blue") {
@@ -184,10 +213,13 @@ export default function HomeScreen() {
             continue; // Skip this iteration for custom pins
           }
 
-          if (!location.description || !location.description.includes('Alternate Names:')) {
-            await addAlternateNamesToLocation(location);
+            if (
+            !location.description ||
+            !location.description.includes("Alternate Names:")
+          ) {
+              await addAlternateNamesToLocation(location);
+            }
           }
-        }
 
         // When coming from Professor Info page
         if (latitude & longitude) {
@@ -207,6 +239,7 @@ export default function HomeScreen() {
           setNavigateToProfessorOffice(true);
         } // end of NEW CODE FOR PROF OFFICE INFO
       } catch (err) {
+        console.error("Error fetching markers:", err);
         Alert.alert("Error fetching data");
         setIsLoading(false);
       }
@@ -220,15 +253,8 @@ export default function HomeScreen() {
   //const visibleMarkers = markers.filter(
   //  (marker) => categoryVisibility[marker.catId] !== false
   //);
-  // 3/27/25 4:30pm
 
   useEffect(() => {
-    /*
-    const filteredMarkers = markers.filter(
-      (marker) => categoryVisibility[marker.catId] !== false // Only show markers with visible categories
-    );
-    setVisibleMarkers(filteredMarkers);
-    */
     if (markers.length > 0 && Object.keys(categoryVisibility).length > 0) {
       const filteredMarkers = markers.filter(
         (marker) => categoryVisibility[marker.catId] !== false // Only show markers with visible categories
@@ -237,54 +263,83 @@ export default function HomeScreen() {
     }
   }, [categoryVisibility, markers]);
 
-    // getting all the alternate names of locations to add to Firestore
-    // changed from using longitude & latitude to title due to
-    // incorrect coordinates in firestore (correct general area, but not Exact 
-    // coords in google)
-    //    GOOGLE. COMMENTED OUT TO TEST NOMINATIM
-    const getAlternateNames = async (title) => {
-      try {
-        const response = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+  /*
+   * I used the useEffect so that all favorites already stored
+   * would be fetched when the app first starts so the star icon
+   * would display correctly
+   */
+  useEffect(() => {
+    const fetchUserFavorites = async () => {
+      const user = getAuth().currentUser;
+      if (user) {
+        const uid = user.uid;
+        const userFavoritesRef = doc(FIRESTORE_DB, "favorites", uid);
+        const docSnap = await getDoc(userFavoritesRef);
+        if (docSnap.exists()) {
+          const favorites = docSnap.data().locations || [];
+          setUserFavorites(favorites);
+        }
+      }
+    };
+
+    fetchUserFavorites();
+  }, []);
+
+  // getting all the alternate names of locations to add to Firestore
+  // changed from using longitude & latitude to title due to
+  // incorrect coordinates in firestore (correct general area, but not Exact
+  // coords in google)
+  //    GOOGLE. COMMENTED OUT TO TEST NOMINATIM
+  const getAlternateNames = async (title) => {
+    try {
+      const response = await axios.get(
+        "https://maps.googleapis.com/maps/api/geocode/json",
+        {
           params: {
             address: title,
-            components: 'administrative_area:SC|country:US',
+            components: "administrative_area:SC|country:US",
             key: GOOGLE_API_KEY,
           },
-        });
-        //console.log(`Google API Response for "${title}":`, response.data); // Debugging
-    
-        if (response.data.status === 'OK' && response.data.results.length > 0) {
-          const results = response.data.results;
-
-          // error handling
-          //if (!Array.isArray(results) || results.length === 0) {
-          //  console.error(`Error fetching alternate names: No valid results for ${title}`);
-          //  return []; // Ensure we return an array
-          //}
-
-          const alternateNames = results.map((result) => result.formatted_address);
-          const addresses = results.map((result) => 
-            result.address_components?.map((component) => component.long_name) || []
-          );
-          
-          //const combinedNames = [...new Set([...alternateNames, ...addresses.flat()])];
-          const combinedNames = [...new Set([...alternateNames, ...addresses])];
-          //console.log(`Alternate Names for "${title}":`, combinedNames);
-
-          return combinedNames;
-        } else {
-          // trying to get this to WORK
-          console.warn(`Warning: No results found for "${title}"`);
-          return [];
-          //console.error('Error fetching alternate names:', response.data.status);
-          //return [];
         }
-      } catch (error) {
-        console.error('Error fetching alternate names:', error);
+      );
+      //console.log(`Google API Response for "${title}":`, response.data); // Debugging
+
+      if (response.data.status === "OK" && response.data.results.length > 0) {
+        const results = response.data.results;
+
+        // error handling
+        //if (!Array.isArray(results) || results.length === 0) {
+        //  console.error(`Error fetching alternate names: No valid results for ${title}`);
+        //  return []; // Ensure we return an array
+        //}
+
+        const alternateNames = results.map(
+          (result) => result.formatted_address
+        );
+        const addresses = results.map(
+          (result) =>
+            result.address_components?.map(
+              (component) => component.long_name
+            ) || []
+        );
+
+        //const combinedNames = [...new Set([...alternateNames, ...addresses.flat()])];
+        const combinedNames = [...new Set([...alternateNames, ...addresses])];
+        //console.log(`Alternate Names for "${title}":`, combinedNames);
+
+        return combinedNames;
+      } else {
+        // trying to get this to WORK
+        console.warn(`Warning: No results found for "${title}"`);
         return [];
+        //console.error('Error fetching alternate names:', response.data.status);
+        //return [];
       }
-    };  // end of getAlternateNames
-    
+    } catch (error) {
+      console.error("Error fetching alternate names:", error);
+      return [];
+    }
+  }; // end of getAlternateNames
 
   /*
     For testing:
@@ -296,7 +351,11 @@ export default function HomeScreen() {
   // adding the alternate names to Firestore
   // changed to updating the description instead
   const addAlternateNamesToLocation = async (location) => {
-    const { id, title, description } = location;
+    const { id, title, description, custom } = location;
+    if (custom) {
+      //console.warn("skipping alternate names for custom pin: " + title);  I commented this because it was annoying me
+      return;
+    }
 
     // trying to use title instead of id
     if (!title || typeof title !== "string") {
@@ -306,38 +365,45 @@ export default function HomeScreen() {
 
     /*
     const alternateNames = await getAlternateNames(title);
-  
+
     //if (!Array.isArray(alternateNames)) {
     //  console.error(`Error: alternateNames is not an array for location ${id}`);
     //  return;
     //}
 
     if (!Array.isArray(alternateNames) || alternateNames.length === 0) {
-      console.warn(`No valid alternate names found for location "${title}". Skipping update.`);
+      console.warn(
+        `No valid alternate names found for location "${title}". Skipping update.`
+      );
       return; // Skip update if no valid names
       //console.error(`Error: No alternate names found for location ${id}`);
       //return; // Exit early if no valid alternate names
     }
 
     // Ensure all values properly formatted before joining
-    const cleanedAlternateNames = alternateNames.flat().filter(name => typeof name === 'string' && name.trim().length > 0);
-      
+    const cleanedAlternateNames = alternateNames
+      .flat()
+      .filter((name) => typeof name === "string" && name.trim().length > 0);
+
     //console.log(`Cleaned alternateNames for ${title}:`, cleanedAlternateNames);
     if (cleanedAlternateNames.length === 0) {
-      console.warn(`Skipping update for ${title} as no valid alternate names remain.`);
+      console.warn(
+        `Skipping update for ${title} as no valid alternate names remain.`
+      );
       return;
     }
 
     // changing to single line to make firestore stop hating it
-    const alternateNamesString = cleanedAlternateNames.join(', ');
+    const alternateNamesString = cleanedAlternateNames.join(", ");
     //const updatedDescription = description
     //  ? `${description} | Alternate Names: ${alternateNamesString}`
     //  : `Alternate Names: ${alternateNamesString}`;
     // REPLACING ALL DESCRIPTIONS
-    const updatedDescription = `Alternate Names: ${cleanedAlternateNames.join(', ')}`;
+    const updatedDescription = `Alternate Names: ${cleanedAlternateNames.join(
+      ", "
+    )}`;
 
-
-      // ok getting alt names for lke half the locations, just issues updating them...
+    // ok getting alt names for lke half the locations, just issues updating them...
     //console.log(`Existing Description:`, description);
     //console.log(`Updated Description (Single Line):`,updatedDescription);
     */ // commented out 3/26/25
@@ -346,7 +412,7 @@ export default function HomeScreen() {
       //const docId = id.toString(); // Convert `id` to string before Firestore update
       //const docRef = doc(FIRESTORE_DB, "locTest", docId);
       const docRef = doc(FIRESTORE_DB, "locTest", title);
-      
+
       // Check if document exists
       const docSnap = await getDoc(docRef);
       if (!docSnap.exists()) {
@@ -354,7 +420,9 @@ export default function HomeScreen() {
         return;
       }
 
-      console.log(`Firestore document ${title} found. Proceeding with update...`);
+      console.log(
+        `Firestore document ${title} found. Proceeding with update...`
+      );
 
 
 
@@ -378,16 +446,22 @@ export default function HomeScreen() {
       const updatedDescription = `Alternate Names: ${cleanedAlternateNames.join(", ")}`;
 
 
-      //await updateDoc(docRef, { description: updatedDescription }); // 3/26/25 COMMENTED OUT
+      // idk why i commented this out but lets see what happens if i uncomment it out during the 3/31/25 merge
+      await updateDoc(docRef, { description: updatedDescription });
 
 
       //await updateDoc(doc(FIRESTORE_DB, "locTest", id.toString()), {
       //  description: updatedDescription,
       //});
 
-      console.log(`Updated location ${title} with alternate names in description`);
+      console.log(
+        `Updated location ${title} with alternate names in description`
+      );
     } catch (error) {
-      console.error(`Error updating location ${title} with alternate names:`, error);
+      console.error(
+        `Error updating location ${title} with alternate names:`,
+        error
+      );
     }
   }; // end of addAlternateNamesToLocation
 
@@ -431,7 +505,9 @@ export default function HomeScreen() {
       const filtered = markers.filter((marker) => {
         const searchLower = search.toLowerCase();
         const titleMatch = marker.title.toLowerCase().includes(searchLower);
-        const descriptionMatch = marker.description.toLowerCase().includes(searchLower);
+        const descriptionMatch = marker.description
+          .toLowerCase()
+          .includes(searchLower);
         return titleMatch || descriptionMatch;
       });
       setFilteredMarkers(filtered);
@@ -538,6 +614,7 @@ export default function HomeScreen() {
         title: "Custom Pin",
         description: "User-added pin",
         color: "blue",
+        custom: true,
       };
 
       // Reference to the user's document in the "custom-pins" collection
@@ -772,14 +849,62 @@ export default function HomeScreen() {
 
   // Handle stopping directions
   const handleStopDirections = () => {
+    if (!tutorialCompleted) return;
     setSelectedDestination(null);
     setShowTravelModeButtons(false);
     setShowRouteDetails(false);
     setRouteDetails(null);
+    setRouteSteps([]);
+    setNavigationStarted(false);
+  };
+
+  const handleFavorite = async (marker) => {
+    // checking for the user since users are required for favorites
+    const user = getAuth().currentUser;
+    if (!user || !selectedMarker) return;
+
+    const uid = user.uid;
+    const userFavoritesRef = doc(FIRESTORE_DB, "favorites", uid);
+
+    try {
+      // try to get the user's favorites from firestore using their uid
+      const userDoc = await getDoc(userFavoritesRef);
+      const currentFavorites = userDoc.exists()
+        ? userDoc.data().locations || []
+        : [];
+
+      /*
+       * if the selected marker is within their favorites array in firestore
+       * then remove it from the array and update firestore
+       */
+      if (currentFavorites.includes(selectedMarker.id)) {
+        const updatedFavorites = currentFavorites.filter(
+          (id) => id !== selectedMarker.id
+        );
+        await updateDoc(userFavoritesRef, { locations: updatedFavorites });
+        setUserFavorites(updatedFavorites);
+        setIsFavorited(false);
+      } else {
+        // if the selected marker is not in their favorites array
+        // then add it to the array and update firestore
+        const updatedFavorites = [...currentFavorites, selectedMarker.id];
+        if (userDoc.exists()) {
+          await updateDoc(userFavoritesRef, { locations: updatedFavorites });
+        } else {
+          await setDoc(userFavoritesRef, { locations: updatedFavorites });
+        }
+        setUserFavorites(updatedFavorites);
+        setIsFavorited(true);
+      }
+    } catch (error) {
+      console.error("Error updating favorites:", error);
+      Alert.alert("Error", "Could not update favorites");
+    }
   };
 
   // Change the start location to selected marker
   const handleChangeStartLocation = () => {
+    if (!tutorialCompleted) return;
     if (selectedDestination) {
       setStartLocation({
         latitude: selectedDestination.latitude,
@@ -796,10 +921,200 @@ export default function HomeScreen() {
 
   // Reset start location to user's current location
   const handleResetStartLocation = () => {
+    if (!tutorialCompleted) return;
     if (userLocation) {
       setStartLocation(userLocation);
     }
   };
+
+  // Tutorial
+  const TUTORIAL_MARKER = {
+    id: "tutorial-marker",
+    latitude: 34.00039991787572,
+    longitude: -81.03594096158815,
+    title: "Tutorial Marker",
+    description: "This is a tutorial marker",
+    color: "green",
+  };
+
+  // Has user completed the tutorial?
+  useEffect(() => {
+    const checkTutorialStatus = async () => {
+      const tutorialStatus = await AsyncStorage.getItem("tutorialCompleted");
+      if (tutorialStatus === "true") {
+        setTutorialCompleted(true);
+      }
+    };
+    checkTutorialStatus();
+  }, []);
+
+  // Title, description, and what button to give tutorial on
+  const TUTORIAL_STEPS = [
+    {
+      title: "Start Navigation",
+      description:
+        "Click this button to start navigation to the selected destination.",
+      buttonId: "startNavButton",
+    },
+    {
+      title: "Set New Start Location",
+      description:
+        "Click this button to set the selected destination as the new start location.",
+      buttonId: "setStartButton",
+    },
+    {
+      title: "Reset Location",
+      description:
+        "Click this button to reset the start location to your current location.",
+      buttonId: "resetLocationButton",
+    },
+    {
+      title: "Stop Directions",
+      description: "Click this button to stop the current navigation.",
+      buttonId: "stopDirectionsButton",
+    },
+  ];
+
+  // Change style of current button in tutorial
+  const highlightButton = (buttonId) => {
+    if (startNavButtonRef.current)
+      startNavButtonRef.current.setNativeProps({ style: styles.routeButton });
+    if (setStartButtonRef.current)
+      setStartButtonRef.current.setNativeProps({ style: styles.routeButton });
+    if (resetLocationButtonRef.current)
+      resetLocationButtonRef.current.setNativeProps({
+        style: styles.routeButton,
+      });
+    if (stopDirectionsButtonRef.current)
+      stopDirectionsButtonRef.current.setNativeProps({
+        style: styles.routeButton,
+      });
+
+    switch (buttonId) {
+      case "startNavButton":
+        if (startNavButtonRef.current)
+          startNavButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+      case "setStartButton":
+        if (setStartButtonRef.current)
+          setStartButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+      case "resetLocationButton":
+        if (resetLocationButtonRef.current)
+          resetLocationButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+      case "stopDirectionsButton":
+        if (stopDirectionsButtonRef.current)
+          stopDirectionsButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+      default:
+        break;
+    }
+  };
+
+  // Display title and description of button, as well as current step
+  const TutorialOverlay = ({ step, onNext, onSkip }) => {
+    const currentStep = TUTORIAL_STEPS[step];
+
+    useEffect(() => {
+      if (!tutorialCompleted && step < TUTORIAL_STEPS.length) {
+        highlightButton(currentStep.buttonId);
+      }
+    }, [step, currentStep]);
+
+    return (
+      <Modal
+        transparent={true}
+        visible={!tutorialCompleted && step < TUTORIAL_STEPS.length}
+      >
+        <View style={styles.tutorialOverlay}>
+          <View style={styles.tutorialContent}>
+            {/* Display current step out of total steps at the top right */}
+            <View style={styles.tutorialStepIndicator}>
+              <Text style={styles.tutorialStepText}>
+                Step {step + 1} of {TUTORIAL_STEPS.length}
+              </Text>
+            </View>
+
+            <Text style={styles.tutorialTitle}>{currentStep.title}</Text>
+            <Text style={styles.tutorialDescription}>
+              {currentStep.description}
+            </Text>
+            <View style={styles.tutorialButtons}>
+              <TouchableOpacity style={styles.tutorialButton} onPress={onNext}>
+                <Text style={styles.tutorialButtonText}>Next</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.tutorialButton} onPress={onSkip}>
+                <Text style={styles.tutorialButtonText}>Skip</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
+  // For next step in tutorial
+  const handleNextStep = () => {
+    if (tutorialStep < TUTORIAL_STEPS.length - 1) {
+      setTutorialStep(tutorialStep + 1);
+    } else {
+      setTutorialCompleted(true);
+      AsyncStorage.setItem("tutorialCompleted", "true");
+
+      setFilteredMarkers((prevMarkers) =>
+        prevMarkers.filter((marker) => marker.id !== TUTORIAL_MARKER.id)
+      );
+    }
+  };
+
+  // To skip tutorial
+  const handleSkipTutorial = () => {
+    setTutorialCompleted(true);
+    AsyncStorage.setItem("tutorialCompleted", "true");
+
+    setFilteredMarkers((prevMarkers) =>
+      prevMarkers.filter((marker) => marker.id !== TUTORIAL_MARKER.id)
+    );
+    setSelectedMarker(null);
+    setSelectedDestination(null);
+    setShowRouteDetails(false);
+    setShowTravelModeButtons(false);
+  };
+
+  // To reset tutorial
+  const handleResetTutorial = async () => {
+    await AsyncStorage.removeItem("tutorialCompleted");
+    setTutorialCompleted(false);
+    setTutorialStep(0);
+    router.replace("/");
+  };
+
+  // Make sure tutorial marker is displaying on map, sometimes still doesn't work
+  useEffect(() => {
+    if (!tutorialCompleted) {
+      setFilteredMarkers((prevMarkers) => [...prevMarkers, TUTORIAL_MARKER]);
+      setSelectedMarker(TUTORIAL_MARKER);
+      setSelectedDestination(TUTORIAL_MARKER);
+      onMarkerSelected(TUTORIAL_MARKER);
+    } else {
+      setFilteredMarkers((prevMarkers) =>
+        prevMarkers.filter((marker) => marker.id !== TUTORIAL_MARKER.id)
+      );
+      setSelectedMarker(null);
+      setSelectedDestination(null);
+      setShowRouteDetails(false);
+      setShowTravelModeButtons(false);
+    }
+  }, [tutorialCompleted]);
 
   if (isLoading || markers.length === 0) {
     //if (!isInitialized || isLoading) {
@@ -817,10 +1132,12 @@ export default function HomeScreen() {
 
       <SearchBar
         placeholder="Search Here..."
+        placeholderTextColor={theme.colors.text}
         onChangeText={(text) => setSearch(text)}
         value={search}
         containerStyle={styles.searchContainer}
         inputContainerStyle={styles.searchInputContainer}
+        inputStyle={{ color: theme.colors.garnetWhite }}
       />
       <View style={styles.buttonContainer}>
         {/* Button to filter pins*/}
@@ -829,24 +1146,34 @@ export default function HomeScreen() {
           onPress={() => router.push("/PinFilterMain")}
         >
           <View style={styles.accentBox}>
-            <FontAwesome name="map-pin" size={24} color="#73000A" />
+            <FontAwesome
+              name="map-pin"
+              size={24}
+              color={theme.colors.garnetWhite}
+            />
           </View>
         </TouchableOpacity>
 
         {/* Button to show/hide traffic */}
-        <TouchableOpacity
-          style={styles.trafficButton}
-          onPress={() => setShowTraffic(!showTraffic)}
-        >
-          <FontAwesome name="exclamation-triangle" size={24} color="#73000A" />
-        </TouchableOpacity>
+        {Platform.OS !== "ios" && (
+          <TouchableOpacity
+            style={styles.trafficButton}
+            onPress={() => setShowTraffic(!showTraffic)}
+          >
+            <FontAwesome
+              name="exclamation-triangle"
+              size={24}
+              color={theme.colors.garnetWhite}
+            />
+          </TouchableOpacity>
+        )}
 
         {/* Button to route history screen */}
         <TouchableOpacity
           style={styles.historyButton}
           onPress={() => router.push("/routeHistory")}
         >
-          <FontAwesome name="book" size={24} color="#73000A" />
+          <FontAwesome name="book" size={24} color={theme.colors.garnetWhite} />
         </TouchableOpacity>
 
         {/* Button to add custom pin */}
@@ -858,8 +1185,35 @@ export default function HomeScreen() {
             setCreatingCustomPin(true)
           }}
         >
-          <FontAwesome name="map-marker" size={24} color="#73000A" />
+          <FontAwesome
+            name="map-marker"
+            size={24}
+            color={theme.colors.garnetWhite}
+          />
           <Text style={styles.buttonText}>+</Text>
+        </TouchableOpacity>
+
+        {/* Button to follow user */}
+        <TouchableOpacity
+          style={styles.customPinButton}
+          onPress={() => setFollowsUser(!followsUser)}
+        >
+          <FontAwesome
+            name={followsUser ? "location-arrow" : "map-marker"}
+            size={24}
+            color={theme.colors.garnetWhite}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.customPinButton}
+          onPress={handleResetTutorial}
+        >
+          <FontAwesome
+            name="refresh"
+            size={24}
+            color={theme.colors.garnetWhite}
+          />
         </TouchableOpacity>
 
         
@@ -883,15 +1237,19 @@ export default function HomeScreen() {
 
       {/* Map */}
       <MapView
+        testID="map"
         ref={mapRef}
         style={styles.map}
         apiKey={GOOGLE_API_KEY}
-        provider={PROVIDER_GOOGLE}
+        provider={
+          Platform.OS === "android" ? PROVIDER_GOOGLE : PROVIDER_DEFAULT
+        }
         initialRegion={INITIAL_REGION}
         showsUserLocation={true}
-        followsUserLocation={true}
+        followsUserLocation={followsUser}
         showsTraffic={showTraffic}
         onPress={handleMapPress}
+        customMapStyle={theme.dark ? darkMapStyle : []}
       >
         {/* render markers normally */}
         {}
@@ -924,8 +1282,10 @@ export default function HomeScreen() {
           );
         })}
 
+        {/* Why is this here? This is basically the exact same MapViewDirections as below?
+        -Isaac March 4    */}
         {/* display prof. office if selected */}
-        {selectedDestination && (
+        {/* {selectedDestination && (
           <MapViewDirections
             origin={userLocation}
             destination={{
@@ -945,11 +1305,12 @@ export default function HomeScreen() {
             }}
             onError={(error) => Alert.alert("Error getting directions", error)}
           />
-        )}
-        {/* End of displaying prof office if selected*/}
+        )} */}
+        {/* End of displaying prof office if selected */}
 
         {/* Display filtered markers */}
         {/*           REPLACE WITH VISIBLE MARKERS
+
         {filteredMarkers.map((marker) => {
           // changed to only pass through necessary props to get rid of minor error popup when using search
           const { id, latitude, longitude, title, description, color, catId } = marker;
@@ -983,7 +1344,7 @@ export default function HomeScreen() {
         
 
         {/* Directions */}
-        {startLocation && selectedDestination && (
+        {startLocation && selectedDestination && navigationStarted && (
           <MapViewDirections
             origin={startLocation}
             destination={{
@@ -992,7 +1353,7 @@ export default function HomeScreen() {
             }}
             apikey={GOOGLE_API_KEY}
             strokeWidth={4}
-            strokeColor="#73000a"
+            strokeColor={theme.dark ? "#FFF" : "#73000a"}
             mode={travelMode}
             onReady={(result) => {
               setRouteDetails({
@@ -1123,35 +1484,59 @@ export default function HomeScreen() {
             ]}
             onPress={() => setTravelMode("BICYCLING")}
           >
-            <Text style={styles.travelModeText}>Bicycling</Text>
+            <Text style={styles.travelModeText}>Biking</Text>
           </TouchableOpacity>
         </View>
       )}
 
       {/* Route Details and Stop Button */}
-      {showRouteDetails && routeDetails && (
-        <View style={styles.routeDetailsContainer}>
+      {showRouteDetails && (
+        <View
+          testID="route-details-container"
+          style={styles.routeDetailsContainer}
+        >
           {/* Marker info here: Title, Description, Category, Tag, etc.
               You will need to change the variable in setSelectedDestination */}
           <View style={styles.titleContainer}>
             <Text style={styles.routeDetailsText}>
               {selectedDestination ? selectedDestination.title : ""}
             </Text>
-            <TouchableOpacity
-              style={styles.exitButton}
-              onPress={handleStopDirections}
-            >
-              <FontAwesome name="times" size={24} color="#73000A" />
-            </TouchableOpacity>
+            <View style={styles.exitButtonContainer}>
+              <TouchableOpacity
+                style={styles.exitButton}
+                onPress={handleFavorite}
+              >
+                <FontAwesome
+                  name={isFavorited ? "star" : "star-o"}
+                  size={24}
+                  color={theme.colors.garnetWhite}
+                  testID="favorite-icon"
+                />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={styles.exitButton}
+                onPress={handleStopDirections}
+              >
+                <FontAwesome
+                  name="times"
+                  size={24}
+                  color={theme.colors.garnetWhite}
+                />
+              </TouchableOpacity>
+            </View>
           </View>
 
           {/* Total Distance and Duration */}
-          <Text style={styles.routeDetailsText}>
-            Total Distance: {routeDetails.distance.toFixed(2)} miles
-          </Text>
-          <Text style={styles.routeDetailsText}>
-            Total Duration: {Math.ceil(routeDetails.duration)} minutes
-          </Text>
+          {routeDetails && (
+            <>
+              <Text style={styles.routeDetailsText}>
+                Total Distance: {routeDetails.distance.toFixed(2)} miles
+              </Text>
+              <Text style={styles.routeDetailsText}>
+                Total Duration: {Math.ceil(routeDetails.duration)} minutes
+              </Text>
+            </>
+          )}
 
           {/* Step-by-Step Instructions */}
           {routeSteps && routeSteps.length > 0 ? (
@@ -1169,17 +1554,41 @@ export default function HomeScreen() {
               ))}
             </ScrollView>
           ) : (
-            <Text style={styles.routeDetailsText}>No steps available.</Text>
+            <Text style={styles.routeDetailsText}>
+              Please click 'Start Nav'. Otherwise, there are no directions
+              available.
+            </Text>
           )}
 
           {/* Buttons */}
           <View style={styles.routeButtonsContainer}>
+            {/* Start navigation button*/}
+            <TouchableOpacity
+              style={styles.routeButton}
+              onPress={() => handleStartNavigation(selectedMarker)}
+              ref={startNavButtonRef}
+              buttonId="startNavButton"
+            >
+              <FontAwesome
+                name="map"
+                size={24}
+                color={theme.colors.garnetWhite}
+              />
+              <Text style={styles.routeButtonText}>Start Nav</Text>
+            </TouchableOpacity>
+
             {/* Set new start location button */}
             <TouchableOpacity
               style={styles.routeButton}
               onPress={handleChangeStartLocation}
+              ref={setStartButtonRef}
+              buttonId="setStartButton"
             >
-              <FontAwesome name="play" size={24} color="#73000A" />
+              <FontAwesome
+                name="play"
+                size={24}
+                color={theme.colors.garnetWhite}
+              />
               <Text style={styles.routeButtonText}>Set Start</Text>
             </TouchableOpacity>
 
@@ -1187,22 +1596,40 @@ export default function HomeScreen() {
             <TouchableOpacity
               style={styles.routeButton}
               onPress={handleResetStartLocation}
+              ref={resetLocationButtonRef}
+              buttonId="resetLocationButton"
             >
-              <FontAwesome name="times" size={24} color="#73000A" />
-              <Text style={styles.routeButtonText}>Reset Location</Text>
+              <FontAwesome
+                name="times"
+                size={24}
+                color={theme.colors.garnetWhite}
+              />
+              <Text style={styles.routeButtonText}>Reset</Text>
             </TouchableOpacity>
 
             {/* Stop Directions Button */}
             <TouchableOpacity
               style={styles.routeButton}
               onPress={handleStopDirections}
+              ref={stopDirectionsButtonRef}
+              buttonId="stopDirectionsButton"
             >
-              <FontAwesome name="stop" size={24} color="#73000A" />
-              <Text style={styles.routeButtonText}>Stop Directions</Text>
+              <FontAwesome
+                name="stop"
+                size={24}
+                color={theme.colors.garnetWhite}
+              />
+              <Text style={styles.routeButtonText}>Stop</Text>
             </TouchableOpacity>
           </View>
         </View>
       )}
+
+      <TutorialOverlay
+        step={tutorialStep}
+        onNext={handleNextStep}
+        onSkip={handleSkipTutorial}
+      />
     </SafeAreaView>
   </CategoryVisibilityProvider>
   );

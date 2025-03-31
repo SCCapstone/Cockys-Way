@@ -1,28 +1,41 @@
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react-native";
 import Schedule from "../../app/(tabs)/schedule";
+import { ThemeProvider } from "../../ThemeContext";
+
+const renderWithTheme = (ui) => render(<ThemeProvider>{ui}</ThemeProvider>);
 
 // firebase authenticaiton mock to simulate a user being logged in
-jest.mock("firebase/auth", () => {
-  return {
-    getAuth: jest.fn(() => ({
-      currentUser: { uid: "test-uid" },
-    })),
-    initializeAuth: jest.fn(() => ({
-      currentUser: { uid: "test-uid" },
-    })),
-    getReactNativePersistence: jest.fn(), // Important to resolve error
-  };
-});
+jest.mock("firebase/auth", () => ({
+  getAuth: () => ({
+    currentUser: { uid: "test-uid" },
+  }),
+  initializeAuth: jest.fn(() => ({
+    currentUser: { uid: "test-uid" },
+  })),
+  getReactNativePersistence: jest.fn(),
+  onAuthStateChanged: (auth, callback) => {
+    callback({ uid: "test-uid" }); // signed-in user
+    return () => {};
+  },
+}));
 
 // Mock teh data that we got from firestore with fake data
 jest.mock("firebase/firestore", () => {
   return {
     collection: jest.fn(),
-    onSnapshot: jest.fn((_, callback) => {
-      // Simulate onSnapshot firing once with fake course data
+    doc: jest.fn(() => ({})),
+    getDoc: jest.fn(() =>
+      Promise.resolve({
+        exists: () => true,
+        data: () => ({
+          theme: "light",
+        }),
+      })
+    ),
+    onSnapshot: jest.fn((_, onNext) => {
       setImmediate(() => {
-        callback({
+        onNext({
           docs: [
             {
               id: "course1",
@@ -33,14 +46,16 @@ jest.mock("firebase/firestore", () => {
               }),
             },
           ],
+          exists: () => true, // needed if you're using onSnapshot for individual docs
+          data: () => ({
+            theme: "light",
+          }),
         });
       });
-
-      // Return a mock unsubscribe function
-      return jest.fn();
+      return jest.fn(); // unsubscribe mock
     }),
-    getFirestore: jest.fn(), // Mock getFirestore function (this will do nothing)
-    deleteDoc: jest.fn(), // Mock deleteDoc function
+    getFirestore: jest.fn(),
+    deleteDoc: jest.fn(),
   };
 });
 
@@ -68,7 +83,7 @@ jest.mock("expo-font", () => ({
 
 describe("Schedule Page", () => {
   it("shows the delete confirmation modal when the trash icon is pressed", async () => {
-    const { getByTestId, getByText } = render(<Schedule />); // renders schedule page
+    const { getByTestId, getByText } = renderWithTheme(<Schedule />); // renders schedule page
 
     // wait for the course to appear
     await waitFor(() => {
@@ -89,7 +104,7 @@ describe("Schedule Page", () => {
   });
 
   it("toggles the bell icon when pressed", async () => {
-    const { getByTestId } = render(<Schedule />);
+    const { getByTestId } = renderWithTheme(<Schedule />);
     // get pressable and icon
     const toggleBell = await waitFor(() => getByTestId("toggle-bell"));
     const bellIcon = getByTestId("bell-icon");
@@ -111,4 +126,27 @@ describe("Schedule Page", () => {
     fireEvent.press(toggleBell);
     await waitFor(() => expect(getText()).toBe(initial));
   });
+
+  it("renders the calendar and allows selecting a date", async () => {
+    const { getByText, getByTestId } = renderWithTheme(<Schedule />);
+  
+    // Toggle to calendar view
+    const switchButton = await waitFor(() => getByText(/Switch to Calendar/i));
+    fireEvent.press(switchButton);
+  
+    // Wait until calendar appears
+    const calendar = await waitFor(() => getByTestId("calendar"));
+  
+    // Select a day
+    fireEvent(calendar, "onDayPress", {
+      dateString: "2024-09-20",
+    });
+  
+    // Confirm selected day appears in output
+    await waitFor(() => {
+      expect(getByText("2024-09-20")).toBeTruthy();
+    });
+  });
+  
+  
 });

@@ -3,6 +3,9 @@ import { render, fireEvent, waitFor } from "@testing-library/react-native";
 import Login from "../../app/login";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { router } from "expo-router";
+import { ThemeProvider } from "../../ThemeContext";
+
+const renderWithTheme = (ui) => render(<ThemeProvider>{ui}</ThemeProvider>);
 
 // Mock FirebaseConfig to avoid `getReactNativePersistence` issue
 jest.mock("../../FirebaseConfig", () => ({
@@ -14,8 +17,14 @@ jest.mock("../../FirebaseConfig", () => ({
 // Mock Firebase Auth functions
 jest.mock("firebase/auth", () => ({
   signInWithEmailAndPassword: jest.fn(),
+  getAuth: () => ({
+    currentUser: null,
+  }),
+  onAuthStateChanged: (auth, callback) => {
+    callback(null); // no user
+    return () => {};
+  },
 }));
-
 // Mock Expo Router
 jest.mock("expo-router", () => ({
   router: {
@@ -31,7 +40,7 @@ describe("Login Screen", () => {
       user: { uid: "12345", email: "test@example.com" },
     });
 
-    const { getByPlaceholderText, getByTestId } = render(<Login />);
+    const { getByPlaceholderText, getByTestId } = renderWithTheme(<Login />);
 
     // Find inputs
     const emailInput = getByPlaceholderText("Type Your Email");
@@ -59,7 +68,7 @@ describe("Login Screen", () => {
     // function rejects the login
     signInWithEmailAndPassword.mockRejectedValue(new Error("Login Failed!"));
 
-    const { getByPlaceholderText, getByTestId } = render(<Login />);
+    const { getByPlaceholderText, getByTestId } = renderWithTheme(<Login />);
 
     // inputs
     const emailInput = getByPlaceholderText("Type Your Email");
@@ -81,7 +90,7 @@ describe("Login Screen", () => {
   });
 
   it("navigates to the forgot password page when the forgot password button is clicked", () => {
-    const { getByText } = render(<Login />);
+    const { getByText } = renderWithTheme(<Login />);
 
     // Finds the button based on its text
     const forgotPasswordButton = getByText("Forgot Password?");
@@ -94,7 +103,7 @@ describe("Login Screen", () => {
   });
 
   it("navigates to register page when button is clicked", () => {
-    const { getByText } = render(<Login />);
+    const { getByText } = renderWithTheme(<Login />);
 
     const registerButton = getByText("Don't have an account? Register!");
 

@@ -15,6 +15,8 @@ import {
 import { FIREBASE_AUTH } from "../FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { router } from "expo-router";
+import { ThemeContext } from "../ThemeContext";
+import { useContext } from "react";
 
 const Login = () => {
   // Manage Email and Password State
@@ -22,6 +24,68 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const auth = FIREBASE_AUTH;
+
+  const { theme } = useContext(ThemeContext);
+  const { colors } = theme;
+
+  const styles = StyleSheet.create({
+    background: {
+      backgroundColor: colors.background,
+      flex: 1,
+    },
+    container: {
+      marginHorizontal: 20,
+      justifyContent: "center",
+      backgroundColor: colors.background,
+    },
+    inputBox: {
+      padding: 12,
+      borderWidth: 2,
+      marginBottom: 10,
+      borderColor: colors.border,
+      color: colors.text,
+      backgroundColor: colors.border,
+    },
+    title: {
+      fontSize: 24,
+      marginBottom: 10,
+      textAlign: "center",
+      color: colors.primary,
+      fontWeight: "bold",
+    },
+    image: {
+      width: 150,
+      height: 150,
+      alignSelf: "center",
+      marginBottom: 20,
+      marginTop: "20%",
+    },
+    label: {
+      color: colors.primary,
+      fontSize: 18,
+      marginBottom: 3,
+    },
+    button: {
+      backgroundColor: colors.primary,
+      paddingVertical: 10,
+      borderRadius: 100,
+      marginTop: 20,
+    },
+    buttonText: {
+      color: colors.alwaysWhite,
+      fontSize: 25,
+      textAlign: "center",
+    },
+    registerButtonText: {
+      color: colors.primary,
+      fontSize: 17,
+      textAlign: "center",
+      marginTop: 10,
+    },
+    registerButtonPosition: {
+      marginTop: "50%",
+    },
+  });
 
   const signIn = async () => {
     setLoading(true);
@@ -41,7 +105,7 @@ const Login = () => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.background}>
       <View style={styles.container}>
         <Image
           style={styles.image}
@@ -54,6 +118,7 @@ const Login = () => {
           <TextInput
             style={styles.inputBox}
             placeholder="Type Your Email"
+            placeholderTextColor={colors.text}
             value={email}
             autoCapitalize="none"
             onChangeText={(text) => setEmail(text)}
@@ -62,6 +127,7 @@ const Login = () => {
           <TextInput
             style={styles.inputBox}
             placeholder="Type Your Password"
+            placeholderTextColor={colors.text}
             autoCapitalize="none"
             secureTextEntry={true}
             onChangeText={(text) => setPassword(text)}
@@ -107,54 +173,3 @@ const Login = () => {
 };
 
 export default Login;
-
-const styles = StyleSheet.create({
-  container: {
-    marginHorizontal: 20,
-    justifyContent: "center",
-  },
-  inputBox: {
-    padding: 12,
-    borderWidth: 2,
-    marginBottom: 10,
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 10,
-    textAlign: "center",
-    color: "#73000A",
-    fontWeight: "bold",
-  },
-  image: {
-    width: 150,
-    height: 150,
-    alignSelf: "center",
-    marginBottom: 20,
-    marginTop: "20%",
-  },
-  label: {
-    color: "#73000A",
-    fontSize: 18,
-    marginBottom: 3,
-  },
-  button: {
-    backgroundColor: "#73000A",
-    paddingVertical: 10,
-    borderRadius: 100,
-    marginTop: 20,
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 25,
-    textAlign: "center",
-  },
-  registerButtonText: {
-    color: "#73000A",
-    fontSize: 17,
-    textAlign: "center",
-    marginTop: 10,
-  },
-  registerButtonPosition: {
-    marginTop: "50%",
-  },
-});

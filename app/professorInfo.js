@@ -14,6 +14,8 @@ import { useEffect, useState } from "react";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import axios from "axios";
+import { ThemeContext } from "../ThemeContext";
+import { useContext } from "react";
 
 import defaultImage from "../assets/professorInfo/200x200.png";
 
@@ -44,9 +46,14 @@ const addressBounds = (lat, long) => {
 };
 
 const searchAddress = async (address) => {
-  const cleanedAddress = address
+  let cleanedAddress = address
     .replace(/-\d{4}$/, "")
-    .replace(/\b[Rr]oom\s*\d{1,4}\b/, "");
+    .replace(/\b[Rr]oom\s*\d{1,4}\b/, "")
+    .replace(/^\d+\s*Storey Innovation Center/i, "Storey Innovation Center");
+  if (!/columbia,?\s*(sc|south carolina)/i.test(cleanedAddress)) {
+    cleanedAddress += ", Columbia, SC";
+  }
+  console.log("CLEANED ADDRESS " + cleanedAddress);
   try {
     const response = await axios.get(
       `https://nominatim.openstreetmap.org/search`,
@@ -103,6 +110,112 @@ export default function ProfessorInfo() {
   const [professor, setProfessor] = useState(null);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const { theme } = useContext(ThemeContext);
+  const { colors } = theme;
+
+  const styles = StyleSheet.create({
+    background: {
+      backgroundColor: colors.background,
+    },
+    container: {
+      alignItems: "center",
+      paddingBottom: 30,
+      backgroundColor: colors.background,
+    },
+    title: {
+      fontSize: 30,
+      fontWeight: "bold",
+      marginTop: 20,
+      color: colors.primary,
+    },
+    subtitle: {
+      fontSize: 20,
+      fontWeight: "bold",
+      color: colors.primary,
+    },
+    flexRow: {
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    topInfo: {
+      flexDirection: "row",
+      marginTop: 20,
+      width: "95%",
+    },
+    midBox: {
+      flex: 1,
+      alignItems: "center",
+      margin: 5,
+    },
+    image: {
+      height: 225,
+      width: 200,
+    },
+    quickLook: {
+      backgroundColor: colors.lightGarnet,
+      alignItems: "left",
+      padding: 10,
+    },
+    quickLookHeader: {
+      fontSize: 23,
+      color: colors.primary,
+    },
+    quickLookText: {
+      fontSize: 20,
+      marginTop: 10,
+      color: colors.text,
+    },
+    circle: {
+      marginRight: 10,
+      marginTop: 10,
+    },
+    line: {
+      borderBottomColor: colors.primary,
+      borderBottomWidth: 2,
+      width: "95%",
+      marginTop: 2,
+      marginBottom: 2,
+    },
+    officeInfo: {
+      width: "95%",
+      margin: 5,
+    },
+    spacer: {
+      marginTop: 20,
+    },
+    social: {
+      marginLeft: 30,
+      fontSize: 20,
+      color: colors.text,
+    },
+    radius: {
+      borderBottomLeftRadius: 20,
+      borderBottomRightRadius: 20,
+    },
+    navigateButton: {
+      backgroundColor: colors.primary,
+      padding: 10,
+      marginTop: 10,
+      borderRadius: 5,
+      alignItems: "center",
+    },
+    navigateButtonText: {
+      color: colors.alwaysWhite,
+      fontSize: 18,
+      fontWeight: "bold",
+    },
+    loadingContainer: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: colors.background,
+    },
+    loadingText: {
+      marginTop: 10,
+      fontSize: 16,
+      color: colors.primary,
+    },
+  });
 
   useEffect(() => {
     if (item) {
@@ -173,7 +286,10 @@ export default function ProfessorInfo() {
   const indicator = checkHours(officeHours) ? "Available" : "Unavailable";
   const circleColor = indicator === "Available" ? "#39C75A" : "#FF0000";
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView
+      contentContainerStyle={styles.container}
+      style={styles.background}
+    >
       <Text style={styles.title}>{professor.name}</Text>
       <Text style={styles.subtitle}>{professor.title}</Text>
       <View style={styles.topInfo}>
@@ -211,18 +327,20 @@ export default function ProfessorInfo() {
 
         {/* TODO: NEED TO UPDATE WITH OFFICE INFO IN DB */}
         {professor.office ? (
-          <Text style={styles.quickLookText}>{professor.office}</Text>
+          <>
+            <Text style={styles.quickLookText}>{professor.office}</Text>
+            <TouchableOpacity
+              style={styles.navigateButton}
+              onPress={navigateToOffice}
+            >
+              <Text style={styles.navigateButtonText}>Navigate to Office</Text>
+            </TouchableOpacity>
+          </>
         ) : (
           <Text style={styles.quickLookText}>
             No office information available.
           </Text>
         )}
-        <TouchableOpacity
-          style={styles.navigateButton}
-          onPress={navigateToOffice}
-        >
-          <Text style={styles.navigateButtonText}>Navigate to Office</Text>
-        </TouchableOpacity>
       </View>
       <View style={styles.line}></View>
       <View style={[styles.officeInfo, styles.quickLook]}>
@@ -274,100 +392,3 @@ export default function ProfessorInfo() {
     </ScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    paddingBottom: 30,
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: "bold",
-    marginTop: 20,
-    color: "#73000A",
-  },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#73000A",
-  },
-  flexRow: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  topInfo: {
-    flexDirection: "row",
-    marginTop: 20,
-    width: "95%",
-  },
-  midBox: {
-    flex: 1,
-    alignItems: "center",
-    margin: 5,
-  },
-  image: {
-    height: 225,
-    width: 200,
-  },
-  quickLook: {
-    backgroundColor: "#D5B4BA",
-    alignItems: "left",
-    padding: 10,
-  },
-  quickLookHeader: {
-    fontSize: 23,
-    color: "#73000A",
-  },
-  quickLookText: {
-    fontSize: 20,
-    marginTop: 10,
-  },
-  circle: {
-    marginRight: 10,
-    marginTop: 10,
-  },
-  line: {
-    borderBottomColor: "#73000A",
-    borderBottomWidth: 2,
-    width: "95%",
-    marginTop: 2,
-    marginBottom: 2,
-  },
-  officeInfo: {
-    width: "95%",
-    margin: 5,
-  },
-  spacer: {
-    marginTop: 20,
-  },
-  social: {
-    marginLeft: 30,
-    fontSize: 20,
-  },
-  radius: {
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-  },
-  navigateButton: {
-    backgroundColor: "#73000A",
-    padding: 10,
-    marginTop: 10,
-    borderRadius: 5,
-    alignItems: "center",
-  },
-  navigateButtonText: {
-    color: "#FFFFFF",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  loadingText: {
-    marginTop: 10,
-    fontSize: 16,
-    color: "#73000A",
-  },
-});
