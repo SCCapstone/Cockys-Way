@@ -72,6 +72,43 @@ export default StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
   },
+  // Adding custom pin popup
+  notificationBox: {
+    position: "absolute",
+    top: 20, // Distance from the top of the screen
+    left: "10%", // Center the box horizontally
+    right: "10%",
+    backgroundColor: "#73000A",
+    padding: 10,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5, // For Android shadow
+    zIndex: 1000, // Ensure it appears above other components
+  },
+  notificationText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  // cancelling creating custom pin
+  cancelButton: {
+    backgroundColor: "white",
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    marginTop: 8,
+  },
+  cancelButtonText: {
+    color: "#73000A", // Garnet color for text
+    fontSize: 14,
+    fontWeight: "bold",
+  },
   // renaming pin
   modalContainer: {
     flex: 1,

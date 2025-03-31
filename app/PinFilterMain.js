@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { View, Text, StyleSheet, ScrollView, SafeAreaView, Alert, Switch, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native';
 import { useFonts, Abel_400Regular } from '@expo-google-fonts/abel';
 import * as SplashScreen from 'expo-splash-screen';
@@ -16,6 +16,9 @@ import {
 } from "firebase/firestore";
 import { router } from 'expo-router';
 import { useNavigation } from '@react-navigation/native'; // hopefully to send user to map
+import FontAwesome from '@expo/vector-icons/FontAwesome'; // for visibility icon
+import { CategoryVisibilityContext, CategoryVisibilityProvider } from "./CategoryVisibilityContext";
+
 
 SplashScreen.preventAutoHideAsync();
 
@@ -23,6 +26,9 @@ SplashScreen.preventAutoHideAsync();
         Chloe To-Do:
         -   Get their data, then add a favorites & visibility variable
                 -   NEED Visibility, maybe not Favorites yet
+
+
+                NOTE: IN THE MIDDLE OF CHANGING LOCATIONS TO MARKERS
 
 */
 
@@ -34,43 +40,159 @@ export default function FilterPinsMainScreen() {
 
     const [dropdownVisibility, setDropdownVisibility] = useState({});
     const [locations, setLocations] = useState([]);
+    // trying to rename all this to markers to make life easier (copium)
+    //const [markers, setMarkers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const navigation = useNavigation();
+    //const navigation = useNavigation();
+
+    // Working more towards toggling visibility of locations in categories
+    //const [categoryVisibility, setCategoryVisibility] = useState({});
+    const { categoryVisibility, 
+      setCategoryVisibility, 
+      //isInitialized 
+    } = useContext(CategoryVisibilityContext);
+    // for changing ALL locations to visible/hidden
+    const [allVisible, setAllVisible] = useState(true);
+
+    // Debugging: Checking if isInitialized is right bc this mf keeps loading like a mf
+    //console.log("PinFilterMain - isInitialized:", isInitialized);
+    console.log("PinFilterMain - categoryVisibility:", categoryVisibility);
+
+
+    /*
+    if (!isInitialized) {
+      console.log("Waiting for category visibility to initialize...");
+      return (
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+          <ActivityIndicator size="large" color="#73000A" />
+        </View>
+      );
+    }
+      */
+
+    if (!categoryVisibility || !setCategoryVisibility) {
+      console.error("CategoryVisibilityContext is not available.");
+    }
+    console.log("Category visibility initialized:", categoryVisibility);
+
+    //console.log("CategoryVisibilityContext:", { categoryVisibility, setCategoryVisibility });
+    //console.log("CategoryVisibilityContext:", categoryVisibility);
 
     const categories = [
       { label: "Accessible Parking", catId: 23393 },
       { label: "Administrative Buildings", catId: 23396 },
-      { label: "Arnold School of Public Health", catId: 24912 },
+      //{ label: "Arnold School of Public Health", catId: 24912 },
       { label: "Arts", catId: 59489 },
-      { label: "Arts and Sciences", catId: 24903 },
-      { label: "Colleges & Schools", catId: 24560 },
-      { label: "Darla Moore School of Business", catId: 24904 },
+      //{ label: "Arts and Sciences", catId: 24903 },
+      { label: "Athletics", catId: 21035 },
+      { label: "Colleges & Schools", catId: [24560, 24912, 24903, 24904, 24905, 24914, 
+                                              24907, 24902, 24908, 24906, 24909, 24910,
+                                              24911, 24913, 24901] },
+      //{ label: "Darla Moore School of Business", catId: 24904 },
       { label: "Dining", catId: 21041 },
-      { label: "Education", catId: 24905 },
+      //{ label: "Education", catId: 24905 },
       { label: "Greek Village", catId: 24199 },
       { label: "HRSM", catId: 24561 },
-      { label: "Honors College", catId: 24914 },
-      { label: "Housing", catId: 24197 },
+      //{ label: "Honors College", catId: 24914 },
+      { label: "Housing", catId: [24197, 9497] },
       { label: "Humanities", catId: 59492 },
-      { label: "Information & Communications", catId: 24907 },
+      //{ label: "Information & Communications", catId: 24907 },
       { label: "Interdisciplinary", catId: 59493 },
-      { label: "Joseph F. Rice School of Law", catId: 24902 },
-      { label: "Medicine", catId: 24908 },
-      { label: "Molinaroli College of Engineering and Computing ", catId: 24906 },
-      { label: "Music", catId: 24909 },
-      { label: "Nursing", catId: 24910 },
-      { label: "Parking", catId: 9495 },
-      { label: "Pharmacy", catId: 24911 },
+      //{ label: "Joseph F. Rice School of Law", catId: 24902 },
+      //{ label: "Medicine", catId: 24908 },
+      //{ label: "Molinaroli College of Engineering and Computing ", catId: 24906 },
+      //{ label: "Music", catId: 24909 },
+      //{ label: "Nursing", catId: 24910 },
+
+      //{ label: "Parking", catId: 9495 },
+      { label: "Parking", catId: [21046, 21047, 21048, 21049, 21050, 21780, 69645, 69646, 61610] },
+      //{ label: "Pharmacy", catId: 24911 },
       { label: "Sciences", catId: 59490 },
       { label: "Social Sciences", catId: 59491 },
-      { label: "Social Work", catId: 24913 },
-      { label: "The Graduate School ", catId: 24901 },
+      //{ label: "Social Work", catId: 24913 },
+      //{ label: "The Graduate School ", catId: 24901 },
       { label: "Other Buildings", catId: 9492 },
 
 
       //{ label: "Athletics", catId: 21035 },
       // Check back to make sure ALL locations listed
+      /*
+        Using this to keep track of locations that werent placed
+
+        Founders Park:  21035
+        Park Place: 9497            THIS IS UNIVERSITY HOUSING
+        S35 - CLA North - resident undergrad: 21046     RESIDENT UNDERGRAD PARKING
+      
+        Colleges & schools:
+        Arnold School of Public Health
+        Arts and Sciences
+        Darla Moore School of Business
+        Education
+        Honors College
+
+        */
     ];
+
+    // Making all cetegories visible/hidden
+    const toggleAllCategories = () => {
+      /*
+      const newVisibility = {};
+      categories.forEach((category) => {
+        if (Array.isArray(category.catId)) {
+          category.catId.forEach((id) => {
+            newVisibility[id] = allVisible;
+          });
+        } else {
+          newVisibility[category.catId] = allVisible; 
+        }
+      });
+
+      setCategoryVisibility(newVisibility);
+      setAllVisible(!allVisible);
+      */
+      const newVisibility = {};
+      const shouldHideAll = allVisible; // use current allVisible state to decide what to do
+    
+
+      categories.forEach((category) => {
+        if (Array.isArray(category.catId)) {
+          category.catId.forEach((id) => {
+            newVisibility[id] = !shouldHideAll; // Toggle visibility based on `shouldHideAll`
+          });
+        } else {
+          newVisibility[category.catId] = !shouldHideAll; // Toggle visibility based on `shouldHideAll`
+        }
+      });
+    
+      setCategoryVisibility(newVisibility);
+      setAllVisible(!shouldHideAll); 
+    };
+
+    const toggleCategoryVisibility = (catId) => {
+      /*setCategoryVisibility((prev) => ({
+        ...prev,
+        [catId]: !prev[catId], // Toggle the visibility for the given category
+      })); */
+      if (Array.isArray(catId)) {
+        // If catId is an array, toggle visibility for all IDs in the array
+        setCategoryVisibility((prev) => {
+          const updatedVisibility = { ...prev };
+          const shouldHide = catId.every((id) => prev[id]); // Check if all IDs are currently visible
+          catId.forEach((id) => {
+            updatedVisibility[id] = !shouldHide; // Toggle visibility for each ID
+          });
+          return updatedVisibility;
+        });
+      } else {
+        // If catId is a single value, toggle visibility for that ID
+        setCategoryVisibility((prev) => ({
+          ...prev,
+          [catId]: !prev[catId],
+        }));
+
+      }
+
+    };
 
   // NEW FETCH LOCATIONS FROM FIRESTORE
   //useEffect(() => {
@@ -80,11 +202,14 @@ export default function FilterPinsMainScreen() {
         const db_data = query.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
-        }));
+        }))
+        .filter((location) => location.color !== "blue"); // IGNORE CUSTOM PINS
 
         //setMarkers(db_data);
         //setFilteredMarkers(db_data);
-        setLocations(db_data);
+
+        setLocations(db_data);  // renamed at 6pm 3/27/25
+        //setMarkers(db_data);
         setIsLoading(false);
 
       } catch (err) {
@@ -93,12 +218,92 @@ export default function FilterPinsMainScreen() {
       }
     };
 
-    fetchLocations();
+    //fetchLocations();
   //}, []);
 
   useEffect(() => {
     fetchLocations();
+    console.log("Locations fetched:", locations);
   }, []);
+
+//  const [isVisibilityInitialized, setIsVisibilityInitialized] = useState(false);
+  // initialize visibility
+  
+
+//  useEffect(() => {
+    // Initialize only undefined categories
+    //const initialVisibility = { ...categoryVisibility };
+//    const initialVisibility = {};
+    
+//    categories.forEach((category) => {
+      /*
+      if (Array.isArray(category.catId)) {
+        category.catId.forEach((id) => {
+          if (initialVisibility[id] === undefined) {
+            initialVisibility[id] = true; // Default to visible
+          }
+        });
+      } else {
+        if (initialVisibility[category.catId] === undefined) {
+          initialVisibility[category.catId] = true; // Default to visible
+        }
+      }
+        */
+//      if (category.label === "Colleges & Schools") {
+        // Set all IDs in "Colleges & Schools" to visible
+//        if (Array.isArray(category.catId)) {
+//          category.catId.forEach((id) => {
+//            initialVisibility[id] = true; // Visible
+//          });
+//        } else {
+//          initialVisibility[category.catId] = true; // Visible
+//        }
+//      } else {
+        // Set all other categories to hidden
+//        if (Array.isArray(category.catId)) {
+//          category.catId.forEach((id) => {
+//            initialVisibility[id] = false; // Hidden
+//          });
+//        } else {
+//          initialVisibility[category.catId] = false; // Hidden
+//        }
+//      }
+
+
+//    }); // end of forEach(category)
+
+//    setCategoryVisibility(initialVisibility);
+
+    // Check if all categories are visible and set `allVisible` accordingly
+    /*const allCategoriesVisible = categories.every((category) => {
+      if (Array.isArray(category.catId)) {
+        return category.catId.every((id) => initialVisibility[id] === true);
+      }
+      return initialVisibility[category.catId] === true;
+    }); */
+    //setAllVisible(allCategoriesVisible);
+    // Since only "Colleges & Schools" is visible, set `allVisible` to false
+//    setAllVisible(false);
+
+    // Mark visibility initialization as complete
+//    setIsVisibilityInitialized(true);
+  
+    // Fetch locations from Firestore
+//    fetchLocations();
+//  }, []); 
+
+  // previous useEffect dealt with initial visibility before I moved that to CategoryVisibilityContext.js
+  useEffect(() => {
+    const allCategoriesVisible = categories.every((category) => {
+      if (Array.isArray(category.catId)) {
+        return category.catId.every((id) => categoryVisibility[id]);
+      }
+      return categoryVisibility[category.catId];
+    });
+
+    setAllVisible(allCategoriesVisible);
+  }, [categoryVisibility]);
+
 
 
   const toggleDropdown = (label) => {
@@ -110,12 +315,19 @@ export default function FilterPinsMainScreen() {
 
 
 
+
   const getFilteredLocations = (locations, catId) => {
     //console.log("Filtering locations for catId:", catId);
     //console.log("Available locations:", locations);
   
     const filtered = locations
-      .filter((location) => location.catId === catId && location.title)
+      //.filter((location) => location.catId === catId && location.title)
+      .filter((location) => {
+        if (Array.isArray(catId)) {
+          return catId.includes(location.catId); // Check if location.catId is in the array
+        }
+        return location.catId === catId; // Check for single catId
+      })
       .map((location) => location.title)
       .sort();
   
@@ -138,7 +350,11 @@ export default function FilterPinsMainScreen() {
     }, [fontsLoaded]);
       
 
-    if (!fontsLoaded || isLoading) {
+    if (!fontsLoaded 
+      || isLoading 
+      //|| !isInitialized
+    ) {
+      console.log("Waiting for fonts, locations, or category visibility to initialize...");
         return (
           <View style={styles.loadingContainer}>
             <ActivityIndicator size="large" color="#73000A" />
@@ -157,6 +373,16 @@ export default function FilterPinsMainScreen() {
     return (
       <ScrollView style={styles.container}>
         <Text style={styles.header}>Filter Pins</Text>
+
+        {/* Add the toggle all button */}
+        <TouchableOpacity
+          style={styles.toggleButton}
+          onPress={toggleAllCategories}
+        >
+          <Text style={styles.toggleButtonText}>
+            {allVisible ? "Click to Hide All Categories" : "Click to Show All Categories"}
+          </Text>
+        </TouchableOpacity>
   
         {categories.map((category) => {
           const filteredNames = getFilteredLocations(locations, category.catId);    // ORIGINAL
@@ -172,6 +398,27 @@ export default function FilterPinsMainScreen() {
                     <View style={styles.accentBox}>
                         <Text style={styles.settingText}>{category.label}</Text>
                     </View>
+
+                    {/* Add the visibility toggle icon */}
+                    <TouchableOpacity
+                      onPress={() => toggleCategoryVisibility(category.catId)}
+                    >
+                      <FontAwesome
+                        //name={categoryVisibility[category.catId] ? "eye" : "eye-slash"}
+                        name={
+                          Array.isArray(category.catId)
+                            ? category.catId.every((id) => categoryVisibility[id]) // Check if all IDs are visible
+                              ? "eye"
+                              : "eye-slash"
+                            : categoryVisibility[category.catId]
+                            ? "eye"
+                            : "eye-slash"
+                        } // changed logic to account for categories which might be arrays
+                        size={24}
+                        color="#FFFFFF"
+                      />
+                    </TouchableOpacity>
+
                 </View>
               </TouchableOpacity>
   
@@ -187,15 +434,25 @@ export default function FilterPinsMainScreen() {
 //                  )}
 //                /> 
                 <View>
-                {filteredNames.map((name, index) => (
+                
+                  {/*
                   <TouchableOpacity
                     key={index}
                     style={styles.dropdownItem}
-                    onPress={() => navigation.navigate('Map', { location: name })}
+                    onPress={() => router.push('Map', { location })}
                   >
-                    <Text>{name}</Text>
-                  </TouchableOpacity>
-                ))}
+                    <Text>{location.title}</Text>
+                  </TouchableOpacity> */}
+                  <View>
+                    {filteredNames
+                      .filter(() => categoryVisibility[category.catId]) // Only show if category is visible
+                      .map((location, index) => (
+                        <View
+                          key={index} style={styles.dropdownItem}>
+                          <Text>{location}</Text>
+                        </View>
+                      ))}
+                  </View>
               </View>
               )}
 
@@ -291,6 +548,19 @@ const styles = StyleSheet.create({
     fontSize: 22.5,
     color: '#FFFFFF', // White text
     fontFamily: 'Abel_400Regular',
+  },
+  // toggle all
+  toggleButton: {
+    backgroundColor: "#73000A", // Garnet color
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 20,
+    alignItems: "center",
+  },
+  toggleButtonText: {
+    color: "#FFFFFF", // White text
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
 

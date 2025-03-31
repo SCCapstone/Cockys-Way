@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import {
   StyleSheet,
@@ -21,6 +21,7 @@ import {
   collection,
   getDocs,
   getDoc,
+  setDoc,
 } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { useRouter, useLocalSearchParams } from "expo-router";
@@ -33,11 +34,16 @@ import styles from "../../homestyles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import axios from 'axios';
+import { getAuth } from 'firebase/auth';
+import uuid from "react-native-uuid";
+import { CategoryVisibilityProvider, CategoryVisibilityContext } from "../CategoryVisibilityContext";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
 
+
 export default function HomeScreen() {
+
   const router = useRouter();
   const [markers, setMarkers] = useState([]);
   const [filteredMarkers, setFilteredMarkers] = useState([]);
@@ -56,10 +62,18 @@ export default function HomeScreen() {
   // Creating custom pins
   const [creatingCustomPin, setCreatingCustomPin] = useState(false);
   const [customPinLocation, setCustomPinLocation] = useState(null);
+  // popup to show user how to add custom pins
+  //const [showCustomPinModal, setShowCustomPinModal] = useState(false);
+  const [showCustomPinNotification, setShowCustomPinNotification] = useState(false);
   // adjusting custom pins
   const [isRenameModalVisible, setIsRenameModalVisible] = useState(false);
   const [newTitle, setNewTitle] = useState("");
   const [newDescription, setNewDescription] = useState("");
+
+  // Working more towards toggling visibility of locations in categories
+  //const [categoryVisibility, setCategoryVisibility] = useState({});
+  const { categoryVisibility, isInitialized  } = useContext(CategoryVisibilityContext);
+
 
   // Get professor's office location if navigated from ProfessorInfo.js
   const { latitude, longitude } = useLocalSearchParams();
@@ -111,27 +125,69 @@ export default function HomeScreen() {
     }
   };
 
+  // category visibility from pin filter
+  /*
+  const toggleCategoryVisibility = (catId) => {
+    setCategoryVisibility((prev) => ({
+      ...prev,
+      [catId]: !prev[catId], // Toggle the visibility for the given category
+    }));
+  };
+  */
+
   // Fetch markers from Firebase
   useEffect(() => {
     const fetchMarkers = async () => {
       try {
-        //const query = await getDocs(collection(FIRESTORE_DB, "markers"));   // OG
+        // Fetching public markers from locTest
         const query = await getDocs(collection(FIRESTORE_DB, "locTest")); // Changed to use what Chloe brought in
         const db_data = query.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
 
-        setMarkers(db_data);
-        setFilteredMarkers(db_data);
+        // Fetching the user's custom pins
+        let customPins = [];
+
+        // Check if the user is logged in
+        const auth = getAuth();
+        const user = auth.currentUser;
+
+        if (user) {
+          const userId = user.uid;
+
+          // Fetch custom pins for the logged-in user
+          const userDocRef = doc(FIRESTORE_DB, "custom-pins", userId);
+          const userDocSnap = await getDoc(userDocRef);
+
+          if (userDocSnap.exists()) {
+            customPins = userDocSnap.data().pins || [];
+          }
+        }
+
+        // Merge public markers with custom pins
+        const allMarkers = [...db_data, ...customPins];
+
+        //setMarkers(db_data);
+        //setFilteredMarkers(db_data);
+        setMarkers(allMarkers);
+        setFilteredMarkers(allMarkers);
+
         setIsLoading(false);
 
         // Process each location to add alternate names to description
-      for (const location of db_data) {
-        if (!location.description || !location.description.includes('Alternate Names:')) {
-          await addAlternateNamesToLocation(location);
+        for (const location of db_data) {
+
+          // Ignore custom pins (made em all blue, so skip blue)
+          if (location.color === "blue") {
+            //console.log(`Skipping custom pin: ${location.title}`);
+            continue; // Skip this iteration for custom pins
+          }
+
+          if (!location.description || !location.description.includes('Alternate Names:')) {
+            await addAlternateNamesToLocation(location);
+          }
         }
-      }
 
         // When coming from Professor Info page
         if (latitude & longitude) {
@@ -158,7 +214,28 @@ export default function HomeScreen() {
 
     fetchMarkers();
     //  }, []); // ORIG. COMMENTED OUT FOR OFFICE TEST
-  }, [latitude, longitude]);
+  }, [latitude, longitude]); // end of fetching markers
+
+  const [visibleMarkers, setVisibleMarkers] = useState([]);
+  //const visibleMarkers = markers.filter(
+  //  (marker) => categoryVisibility[marker.catId] !== false
+  //);
+  // 3/27/25 4:30pm
+
+  useEffect(() => {
+    /*
+    const filteredMarkers = markers.filter(
+      (marker) => categoryVisibility[marker.catId] !== false // Only show markers with visible categories
+    );
+    setVisibleMarkers(filteredMarkers);
+    */
+    if (markers.length > 0 && Object.keys(categoryVisibility).length > 0) {
+      const filteredMarkers = markers.filter(
+        (marker) => categoryVisibility[marker.catId] !== false // Only show markers with visible categories
+      );
+      setVisibleMarkers(filteredMarkers);
+    }
+  }, [categoryVisibility, markers]);
 
     // getting all the alternate names of locations to add to Firestore
     // changed from using longitude & latitude to title due to
@@ -227,6 +304,7 @@ export default function HomeScreen() {
       return;
     }
 
+    /*
     const alternateNames = await getAlternateNames(title);
   
     //if (!Array.isArray(alternateNames)) {
@@ -262,6 +340,7 @@ export default function HomeScreen() {
       // ok getting alt names for lke half the locations, just issues updating them...
     //console.log(`Existing Description:`, description);
     //console.log(`Updated Description (Single Line):`,updatedDescription);
+    */ // commented out 3/26/25
 
     try {
       //const docId = id.toString(); // Convert `id` to string before Firestore update
@@ -277,7 +356,29 @@ export default function HomeScreen() {
 
       console.log(`Firestore document ${title} found. Proceeding with update...`);
 
-      await updateDoc(docRef, { description: updatedDescription });
+
+
+
+      const alternateNames = await getAlternateNames(title);
+
+      if (!Array.isArray(alternateNames) || alternateNames.length === 0) {
+        console.warn(`No valid alternate names found for location "${title}". Skipping update.`);
+        return;
+      }
+
+      const cleanedAlternateNames = alternateNames
+        .flat()
+        .filter((name) => typeof name === "string" && name.trim().length > 0);
+
+      if (cleanedAlternateNames.length === 0) {
+        console.warn(`Skipping update for "${title}" as no valid alternate names remain.`);
+        return;
+      }
+
+      const updatedDescription = `Alternate Names: ${cleanedAlternateNames.join(", ")}`;
+
+
+      //await updateDoc(docRef, { description: updatedDescription }); // 3/26/25 COMMENTED OUT
 
 
       //await updateDoc(doc(FIRESTORE_DB, "locTest", id.toString()), {
@@ -368,6 +469,41 @@ export default function HomeScreen() {
     prepare();
   }, []);
 
+  // Initialize default category visibility
+  /*
+  useEffect(() => {
+    const initializeCategoryVisibility = () => {
+      const visibility = {};
+      markers.forEach((marker) => {
+        if (marker.catId && visibility[marker.catId] === undefined) {
+          visibility[marker.catId] = true; // Default to visible
+        }
+      });
+      setCategoryVisibility(visibility);
+    };
+  
+    initializeCategoryVisibility();
+  }, [markers]);
+  */
+ 
+  //const [isVisibilityInitialized, setIsVisibilityInitialized] = useState(false);
+  /*
+  useEffect(() => {
+    const initialVisibility = {};
+  
+    // Initialize visibility for all categories
+    markers.forEach((marker) => {
+      if (marker.catId === 24560 || marker.catId === 24912 || marker.catId === 24903 || marker.catId === 24904 || marker.catId === 24905 || marker.catId === 24914 || marker.catId === 24907 || marker.catId === 24902 || marker.catId === 24908 || marker.catId === 24906 || marker.catId === 24909 || marker.catId === 24910 || marker.catId === 24911 || marker.catId === 24913 || marker.catId === 24901) {
+        initialVisibility[marker.catId] = true; // Colleges & Schools visible
+      } else {
+        initialVisibility[marker.catId] = false; // All other categories hidden
+      }
+    });
+  
+    setCategoryVisibility(initialVisibility);
+    setIsVisibilityInitialized(true); // Mark initialization as complete
+  }, [markers]); */
+
   // Save route history
   const saveRouteHistory = async (route) => {
     try {
@@ -383,18 +519,54 @@ export default function HomeScreen() {
   // Adding a custom pin to Firestore
   const addCustomPinToFirestore = async (latitude, longitude) => {
     try {
+      // Changing the way custom pins are saved in firestore
+      // Get the current user's ID
+      const auth = getAuth();
+      const user = auth.currentUser;
+
+      if (!user) {
+        Alert.alert("Error", "You must be logged in to add custom pins.");
+        return;
+      }
+  
+      const userId = user.uid;
+
       const newPin = {
+        id: uuid.v4(), // Generate a unique id so the error popup stops yelling
         latitude,
         longitude,
         title: "Custom Pin",
         description: "User-added pin",
         color: "blue",
       };
+
+      // Reference to the user's document in the "custom-pins" collection
+      const userDocRef = doc(FIRESTORE_DB, "custom-pins", userId);
+
+      // Check if the document exists
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (userDocSnap.exists()) {
+        // If the document exists, update the pins array
+        const existingPins = userDocSnap.data().pins || [];
+        const updatedPins = [...existingPins, newPin];
+
+        await updateDoc(userDocRef, { pins: updatedPins });
+      } else {
+        // If the document doesn't exist, create it with the new pin
+        await setDoc(userDocRef, { pins: [newPin] });
+      }
+
+
       //await addDoc(collection(FIRESTORE_DB, "locTest"), newPin);
-      const docRef = await addDoc(collection(FIRESTORE_DB, "locTest"), newPin);
-      newPin.id = docRef.id;
+      //const docRef = await addDoc(collection(FIRESTORE_DB, "locTest"), newPin);
+      //newPin.id = docRef.id;
+      
       setMarkers((prevMarkers) => [...prevMarkers, newPin]);
       setFilteredMarkers((prevMarkers) => [...prevMarkers, newPin]);
+      
+      // just so we can see it was added right
+      Alert.alert("Success", "Custom pin added successfully!");
     } catch (error) {
       Alert.alert("Error adding custom pin", error.message);
     }
@@ -407,6 +579,7 @@ export default function HomeScreen() {
       setCustomPinLocation({ latitude, longitude });
       setCreatingCustomPin(false);
       // Add the custom pin to Firestore
+      setShowCustomPinNotification(false);
       addCustomPinToFirestore(latitude, longitude);
     }
   };
@@ -425,6 +598,62 @@ export default function HomeScreen() {
   const handleRenamePin = async () => {
     if (newTitle && newDescription) {
       try {
+
+        // Get the current user's ID
+        const auth = getAuth();
+        const user = auth.currentUser;
+
+        if (!user) {
+          Alert.alert("Error", "You must be logged in to rename custom pins.");
+          return;
+        }
+
+        const userId = user.uid;
+        const userDocRef = doc(FIRESTORE_DB, "custom-pins", userId);
+
+        // Fetch the user's pins
+        const userDocSnap = await getDoc(userDocRef);
+
+        if (userDocSnap.exists()) {
+          const existingPins = userDocSnap.data().pins || [];
+
+          // Find the pin to rename and update its title and description
+          const updatedPins = existingPins.map((pin) =>
+            pin.latitude === selectedMarker.latitude &&
+            pin.longitude === selectedMarker.longitude
+              ? { ...pin, title: newTitle, description: newDescription }
+              : pin
+          );
+
+          // Update Firestore with the new pins array
+          await updateDoc(userDocRef, { pins: updatedPins });
+
+          // Update local state
+          setMarkers((prevMarkers) =>
+            prevMarkers.map((marker) =>
+              marker.latitude === selectedMarker.latitude &&
+              marker.longitude === selectedMarker.longitude
+                ? { ...marker, title: newTitle, description: newDescription }
+                : marker
+            )
+          );
+          setFilteredMarkers((prevMarkers) =>
+            prevMarkers.map((marker) =>
+              marker.latitude === selectedMarker.latitude &&
+              marker.longitude === selectedMarker.longitude
+                ? { ...marker, title: newTitle, description: newDescription }
+                : marker
+            )
+          );
+
+          setIsRenameModalVisible(false);
+          Alert.alert("Success", "Custom pin renamed successfully!");
+        } else {
+          Alert.alert("Error", "No custom pins found for this user.");
+        }
+
+
+        /*
         await updateDoc(doc(FIRESTORE_DB, "locTest", selectedMarker.id), {
           title: newTitle,
           description: newDescription,
@@ -444,6 +673,7 @@ export default function HomeScreen() {
           )
         );
         setIsRenameModalVisible(false);
+        */
       } catch (error) {
         Alert.alert("Error renaming pin", error.message);
       }
@@ -465,13 +695,71 @@ export default function HomeScreen() {
           text: "CONFIRM",
           onPress: async () => {
             try {
-              await deleteDoc(doc(FIRESTORE_DB, "locTest", pin.id));
+              // get user data to only delete the user's cutom pin
+              const auth = getAuth();
+              const user = auth.currentUser;
+
+              if (!user) {
+                Alert.alert("Error", "You must be logged in to delete custom pins.");
+                return;
+              }
+
+              const userId = user.uid;
+              const userDocRef = doc(FIRESTORE_DB, "custom-pins", userId);
+
+              // Fetch the users pins
+              const userDocSnap = await getDoc(userDocRef);
+
+              if (userDocSnap.exists()) {
+                const existingPins = userDocSnap.data().pins || [];
+                const updatedPins = existingPins.filter(
+                  (existingPin) =>
+                    existingPin.latitude !== pin.latitude ||
+                    existingPin.longitude !== pin.longitude
+                );
+  
+                // Update Firestore with the new pins array
+                await updateDoc(userDocRef, { pins: updatedPins });
+  
+                // Update local state
+                setMarkers((prevMarkers) =>
+                  prevMarkers.filter(
+                    (marker) =>
+                      marker.latitude !== pin.latitude ||
+                      marker.longitude !== pin.longitude
+                  )
+                );
+                setFilteredMarkers((prevMarkers) =>
+                  prevMarkers.filter(
+                    (marker) =>
+                      marker.latitude !== pin.latitude ||
+                      marker.longitude !== pin.longitude
+                  )
+                );
+
+              // Reset selectedMarker to hide the edit/delete menu
+              setSelectedMarker(null);
+              // same for the route menu
+              handleStopDirections();
+  
+                Alert.alert("Success", "Custom pin deleted successfully!");
+              } else {
+                Alert.alert("Error", "No custom pins found for this user.");
+              }
+
+
+              //await deleteDoc(doc(FIRESTORE_DB, "locTest", pin.id));
+              /*
+              await deleteDoc(doc(FIRESTORE_DB, "custom-pins", pin.id));
               setMarkers((prevMarkers) =>
                 prevMarkers.filter((marker) => marker.id !== pin.id)
               );
               setFilteredMarkers((prevMarkers) =>
                 prevMarkers.filter((marker) => marker.id !== pin.id)
               );
+              */
+              
+
             } catch (error) {
               Alert.alert("Error deleting pin", error.message);
             }
@@ -500,6 +788,12 @@ export default function HomeScreen() {
     }
   };
 
+  // Update marker visibility based on category
+  // commented out 3/27/25 4:30
+//  const visibleMarkers = markers.filter(
+//    (marker) => categoryVisibility[marker.catId] !== false // Only show markers with visible categories
+//  );
+
   // Reset start location to user's current location
   const handleResetStartLocation = () => {
     if (userLocation) {
@@ -507,7 +801,8 @@ export default function HomeScreen() {
     }
   };
 
-  if (isLoading) {
+  if (isLoading || markers.length === 0) {
+    //if (!isInitialized || isLoading) {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#73000A" />
@@ -516,7 +811,10 @@ export default function HomeScreen() {
   }
 
   return (
+    // attempting visibility
+  <CategoryVisibilityProvider markers={markers}>
     <SafeAreaView style={styles.container}>
+
       <SearchBar
         placeholder="Search Here..."
         onChangeText={(text) => setSearch(text)}
@@ -554,12 +852,34 @@ export default function HomeScreen() {
         {/* Button to add custom pin */}
         <TouchableOpacity
           style={styles.customPinButton}
-          onPress={() => setCreatingCustomPin(true)}
+          onPress={() => {
+            //setShowCustomPinModal(true);
+            setShowCustomPinNotification(true);
+            setCreatingCustomPin(true)
+          }}
         >
           <FontAwesome name="map-marker" size={24} color="#73000A" />
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
+
+        
       </View>
+      {showCustomPinNotification && (
+        <View style={styles.notificationBox}>
+          <Text style={styles.notificationText}>
+            Tap anywhere on the map to create a custom pin.
+          </Text>
+          <TouchableOpacity
+            style={styles.cancelButton}
+            onPress={() => {
+              setCreatingCustomPin(false);
+              setShowCustomPinNotification(false);
+            }}
+          >
+            <Text style={styles.cancelButtonText}>Cancel</Text>
+          </TouchableOpacity>
+        </View>
+      )}
 
       {/* Map */}
       <MapView
@@ -574,29 +894,35 @@ export default function HomeScreen() {
         onPress={handleMapPress}
       >
         {/* render markers normally */}
-        {/*{markers.map((marker) => (
-        //  <Marker
-        //    key={marker.id}
-        //    coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
-        //    title={marker.title}
-        //    pinColor={selectedMarker?.id === marker.id ? "blue" : "red"} // Highlight selected marker
-        //  />
-        //))}
-        */}
+        {}
 
         {/* display all markers */}
-        {/*markers.map((marker) => (
-          <Marker
-            key={marker.id}
-            coordinate={{
-              latitude: marker.latitude,
-              longitude: marker.longitude,
-            }}
-            title={marker.title}
-            pinColor={selectedMarker?.id === marker.id ? "blue" : "red"} // Highlight selected marker
-          />
-        ))*/}
+        {}
         {/* Commented out above. Originally showed ALL markers. See "Display filtered markers" below.*/}
+        
+        {/* Display Visible Markers */}
+        {visibleMarkers.map((marker) => {
+          const { id, latitude, longitude, title, description, color } = marker;
+
+          return (
+            <Marker
+              key={id}
+              coordinate={{
+                latitude,
+                longitude,
+              }}
+              title={title}
+              description={description}
+              pinColor={color ? color : "red"}
+              onPress={() => onMarkerSelected(marker)}
+              zIndex={selectedMarker?.id === id ? 1000 : 1} // marker to front
+              style={
+                selectedMarker?.id === id ? { transform: [{ scale: 1.5 }] } : {}
+              } // biggering
+              tracksViewChanges={selectedMarker?.id === id} // re-render selected marker
+            />
+          );
+        })}
 
         {/* display prof. office if selected */}
         {selectedDestination && (
@@ -623,25 +949,16 @@ export default function HomeScreen() {
         {/* End of displaying prof office if selected*/}
 
         {/* Display filtered markers */}
-        {/*filteredMarkers.map((marker) => (
-          <Marker
-            key={marker.id}
-            coordinate={{
-              latitude: marker.latitude,
-              longitude: marker.longitude,
-            }}
-            title={marker.title}
-            description={marker.description}
-            pinColor={marker.color ? marker.color : "red"}
-            onPress={() => onMarkerSelected(marker)}
-            zIndex={selectedMarker?.id === marker.id ? 1000 : 1} // marker to front
-            style={selectedMarker?.id === marker.id ? { transform: [{ scale: 1.5 }] } : {}} // biggering
-            tracksViewChanges={selectedMarker?.id === marker.id} // re-render selected marker
-          />
-        ))*/}
+        {/*           REPLACE WITH VISIBLE MARKERS
         {filteredMarkers.map((marker) => {
           // changed to only pass through necessary props to get rid of minor error popup when using search
-          const { id, latitude, longitude, title, description, color } = marker;
+          const { id, latitude, longitude, title, description, color, catId } = marker;
+
+          // Check if the marker's category is visible
+          if (categoryVisibility[catId] === false) {
+            return null; // Skip rendering this marker
+          }
+
           return (
             <Marker
               key={id}
@@ -661,6 +978,9 @@ export default function HomeScreen() {
             />
           ); // end of filteredMarkers return statement
         })}
+          */}
+
+        
 
         {/* Directions */}
         {startLocation && selectedDestination && (
@@ -685,6 +1005,29 @@ export default function HomeScreen() {
           />
         )}
       </MapView>
+
+      {/* Modal for Custom Pin Instructions */}
+      {/*}
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={showCustomPinModal}
+        onRequestClose={() => setShowCustomPinModal(false)}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>
+              Tap anywhere on the map to create a custom pin.
+            </Text>
+            <TouchableOpacity
+              style={styles.modalButton}
+              onPress={() => setShowCustomPinModal(false)}
+            >
+              <Text style={styles.modalButtonText}>Got it!</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal> */}
 
       {/* Custom Pin Actions */}
       {/*selectedMarker && selectedMarker.color === "blue" && (
@@ -861,5 +1204,6 @@ export default function HomeScreen() {
         </View>
       )}
     </SafeAreaView>
+  </CategoryVisibilityProvider>
   );
 }

@@ -124,7 +124,7 @@ export default function ProfessorInfo() {
     );
   }
 
-  // ✅ Function to navigate to office location on the map
+  // Function to navigate to office location on the map
   const navigateToOffice = async () => {
     if (!professor.office) {
       Alert.alert("No office information available");

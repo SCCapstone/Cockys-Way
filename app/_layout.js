@@ -1,7 +1,10 @@
-import { Stack } from 'expo-router';
+import { Stack, Slot } from 'expo-router';
+import { CategoryVisibilityProvider } from "./CategoryVisibilityContext";
+// added above line to connect Map with Pin Filter page for Visibility use
 
 export default function Layout() {
   return (
+    <CategoryVisibilityProvider>
     <Stack>
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen
@@ -88,5 +91,6 @@ export default function Layout() {
         }}
       />
     </Stack>
+    </CategoryVisibilityProvider>
   );
 }
