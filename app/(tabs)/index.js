@@ -83,8 +83,7 @@ export default function HomeScreen() {
   const [creatingCustomPin, setCreatingCustomPin] = useState(false);
   const [customPinLocation, setCustomPinLocation] = useState(null);
   // popup to show user how to add custom pins
-  //const [showCustomPinModal, setShowCustomPinModal] = useState(false);
-  const [showCustomPinNotification, setShowCustomPinNotification] = useState(false);
+  const [showCustomPinNotification, setShowCustomPinNotification] = useState(false); // previously named with Modal instead of Notification
   // adjusting custom pins
   const [isRenameModalVisible, setIsRenameModalVisible] = useState(false);
   const [newTitle, setNewTitle] = useState("");
@@ -93,8 +92,7 @@ export default function HomeScreen() {
   const [userFavorites, setUserFavorites] = useState([]);
   const [isFavorited, setIsFavorited] = useState(false);
 
-  // Working more towards toggling visibility of locations in categories
-  //const [categoryVisibility, setCategoryVisibility] = useState({});
+  // category isibility toggle
   const { categoryVisibility, isInitialized  } = useContext(CategoryVisibilityContext);
 
 
@@ -164,16 +162,6 @@ export default function HomeScreen() {
     saveRouteHistory(route);
   };
 
-  // category visibility from pin filter      uncomment if errors occur after merge
-  /*
-  const toggleCategoryVisibility = (catId) => {
-    setCategoryVisibility((prev) => ({
-      ...prev,
-      [catId]: !prev[catId], // Toggle the visibility for the given category
-    }));
-  };
-  */
-
   // Fetch markers from Firebase
   useEffect(() => {
     const fetchMarkers = async () => {
@@ -203,10 +191,8 @@ export default function HomeScreen() {
         // Merge public markers with custom pins
         const allMarkers = [...db_data, ...customPins];
 
-        //setMarkers(db_data);
-        //setFilteredMarkers(db_data);
         setMarkers(allMarkers);
-        //setFilteredMarkers(allMarkers);     // commented out 3/31/25
+        //setFilteredMarkers(allMarkers);     // uncomment if fetching markers breaks
         setIsLoading(false);
 
         // Process each location to add alternate names to description
@@ -214,7 +200,7 @@ export default function HomeScreen() {
 
           // Ignore custom pins (made em all blue, so skip blue)
           if (location.color === "blue") {
-            //console.log(`Skipping custom pin: ${location.title}`);
+            //console.log(`Skipping custom pin: ${location.title}`); // Debugging
             continue; // Skip this iteration for custom pins
           }
 
@@ -242,7 +228,7 @@ export default function HomeScreen() {
           setSelectedMarker(newMarker);
           setSelectedDestination(newMarker);
           setNavigateToProfessorOffice(true);
-        } // end of NEW CODE FOR PROF OFFICE INFO
+        } // end of CODE FOR PROF OFFICE INFO
       } catch (err) {
         console.error("Error fetching markers:", err);
         Alert.alert("Error fetching data");
@@ -253,30 +239,12 @@ export default function HomeScreen() {
     fetchMarkers();
     //  }, []); // ORIG. COMMENTED OUT FOR OFFICE TEST
   }, [latitude, longitude]); // end of fetching markers
+// might be able to replace above line with the line above it, but id dont want to deal with any
+// errors that may occur as a result atm
 
   const [visibleMarkers, setVisibleMarkers] = useState([]);
-  //const visibleMarkers = markers.filter(
-  //  (marker) => categoryVisibility[marker.catId] !== false
-  //);
 
   // Filter visible markers based on category visibility
-  /*
-  useEffect(() => {
-    if (isInitialized && markers.length > 0 && Object.keys(categoryVisibility).length > 0) {
-      //const filteredMarkers = markers.filter(
-      //  (marker) => categoryVisibility[marker.catId] !== false // Only show markers with visible categories
-      //);
-      const filteredMarkers = markers.filter((marker) => {
-        // Include custom pins (e.g., `custom: true`) or markers with visible categories
-        return marker.custom || categoryVisibility[marker.catId] !== false;
-      });
-      setVisibleMarkers(filteredMarkers);
-    } else {
-      console.log("Markers not available for visibility filtering. (This means custom pins not there. this is bad)"); // Debugging
-    }
-  }, [isInitialized, categoryVisibility, markers]);
-  */
-
   useEffect(() => {
     if (isInitialized && markers.length > 0) {
       const filteredMarkers = markers.filter((marker) => {
@@ -387,50 +355,6 @@ export default function HomeScreen() {
       return;
     }
 
-    /*
-    const alternateNames = await getAlternateNames(title);
-
-    //if (!Array.isArray(alternateNames)) {
-    //  console.error(`Error: alternateNames is not an array for location ${id}`);
-    //  return;
-    //}
-
-    if (!Array.isArray(alternateNames) || alternateNames.length === 0) {
-      console.warn(
-        `No valid alternate names found for location "${title}". Skipping update.`
-      );
-      return; // Skip update if no valid names
-      //console.error(`Error: No alternate names found for location ${id}`);
-      //return; // Exit early if no valid alternate names
-    }
-
-    // Ensure all values properly formatted before joining
-    const cleanedAlternateNames = alternateNames
-      .flat()
-      .filter((name) => typeof name === "string" && name.trim().length > 0);
-
-    //console.log(`Cleaned alternateNames for ${title}:`, cleanedAlternateNames);
-    if (cleanedAlternateNames.length === 0) {
-      console.warn(
-        `Skipping update for ${title} as no valid alternate names remain.`
-      );
-      return;
-    }
-
-    // changing to single line to make firestore stop hating it
-    const alternateNamesString = cleanedAlternateNames.join(", ");
-    //const updatedDescription = description
-    //  ? `${description} | Alternate Names: ${alternateNamesString}`
-    //  : `Alternate Names: ${alternateNamesString}`;
-    // REPLACING ALL DESCRIPTIONS
-    const updatedDescription = `Alternate Names: ${cleanedAlternateNames.join(
-      ", "
-    )}`;
-
-    // ok getting alt names for lke half the locations, just issues updating them...
-    //console.log(`Existing Description:`, description);
-    //console.log(`Updated Description (Single Line):`,updatedDescription);
-    */ // commented out 3/26/25
 
     try {
       //const docId = id.toString(); // Convert `id` to string before Firestore update
@@ -579,41 +503,6 @@ export default function HomeScreen() {
     prepare();
   }, []);
 
-  // Initialize default category visibility
-  /*
-  useEffect(() => {
-    const initializeCategoryVisibility = () => {
-      const visibility = {};
-      markers.forEach((marker) => {
-        if (marker.catId && visibility[marker.catId] === undefined) {
-          visibility[marker.catId] = true; // Default to visible
-        }
-      });
-      setCategoryVisibility(visibility);
-    };
-  
-    initializeCategoryVisibility();
-  }, [markers]);
-  */
- 
-  //const [isVisibilityInitialized, setIsVisibilityInitialized] = useState(false);
-  /*
-  useEffect(() => {
-    const initialVisibility = {};
-  
-    // Initialize visibility for all categories
-    markers.forEach((marker) => {
-      if (marker.catId === 24560 || marker.catId === 24912 || marker.catId === 24903 || marker.catId === 24904 || marker.catId === 24905 || marker.catId === 24914 || marker.catId === 24907 || marker.catId === 24902 || marker.catId === 24908 || marker.catId === 24906 || marker.catId === 24909 || marker.catId === 24910 || marker.catId === 24911 || marker.catId === 24913 || marker.catId === 24901) {
-        initialVisibility[marker.catId] = true; // Colleges & Schools visible
-      } else {
-        initialVisibility[marker.catId] = false; // All other categories hidden
-      }
-    });
-  
-    setCategoryVisibility(initialVisibility);
-    setIsVisibilityInitialized(true); // Mark initialization as complete
-  }, [markers]); */
-
   // Save route history
   const saveRouteHistory = async (route) => {
     try {
@@ -667,11 +556,6 @@ export default function HomeScreen() {
         // If the document doesn't exist, create it with the new pin
         await setDoc(userDocRef, { pins: [newPin] });
       }
-
-
-      //await addDoc(collection(FIRESTORE_DB, "locTest"), newPin);
-      //const docRef = await addDoc(collection(FIRESTORE_DB, "locTest"), newPin);
-      //newPin.id = docRef.id;
       
       setMarkers((prevMarkers) => [...prevMarkers, newPin]);
       setFilteredMarkers((prevMarkers) => [...prevMarkers, newPin]);
@@ -763,28 +647,6 @@ export default function HomeScreen() {
           Alert.alert("Error", "No custom pins found for this user.");
         }
 
-
-        /*
-        await updateDoc(doc(FIRESTORE_DB, "locTest", selectedMarker.id), {
-          title: newTitle,
-          description: newDescription,
-        });
-        setMarkers((prevMarkers) =>
-          prevMarkers.map((marker) =>
-            marker.id === selectedMarker.id
-              ? { ...marker, title: newTitle, description: newDescription }
-              : marker
-          )
-        );
-        setFilteredMarkers((prevMarkers) =>
-          prevMarkers.map((marker) =>
-            marker.id === selectedMarker.id
-              ? { ...marker, title: newTitle, description: newDescription }
-              : marker
-          )
-        );
-        setIsRenameModalVisible(false);
-        */
       } catch (error) {
         Alert.alert("Error renaming pin", error.message);
       }
@@ -857,18 +719,6 @@ export default function HomeScreen() {
               } else {
                 Alert.alert("Error", "No custom pins found for this user.");
               }
-
-
-              //await deleteDoc(doc(FIRESTORE_DB, "locTest", pin.id));
-              /*
-              await deleteDoc(doc(FIRESTORE_DB, "custom-pins", pin.id));
-              setMarkers((prevMarkers) =>
-                prevMarkers.filter((marker) => marker.id !== pin.id)
-              );
-              setFilteredMarkers((prevMarkers) =>
-                prevMarkers.filter((marker) => marker.id !== pin.id)
-              );
-              */
               
 
             } catch (error) {
@@ -946,12 +796,6 @@ export default function HomeScreen() {
       });
     }
   };
-
-  // Update marker visibility based on category
-  // commented out 3/27/25 4:30
-//  const visibleMarkers = markers.filter(
-//    (marker) => categoryVisibility[marker.catId] !== false // Only show markers with visible categories
-//  );
 
   // Reset start location to user's current location
   const handleResetStartLocation = () => {
@@ -1289,10 +1133,10 @@ export default function HomeScreen() {
         customMapStyle={theme.dark ? darkMapStyle : []}
       >
         {/* render markers normally */}
-        {}
 
+
+        {/* Render all markers. Accounts for Searchbar, filtered pins, and default CategoryVisibilityContext. */}
         {markersToDisplay.map((marker) => {
-          // attempting to fix search bar 3/31
           const { id, latitude, longitude, title, description, color } = marker;
           
           return (
@@ -1314,37 +1158,6 @@ export default function HomeScreen() {
             />
           );
         })}
-
-        {/* display all markers */}
-        {}
-        {/* Commented out above. Originally showed ALL markers. See "Display filtered markers" below.*/}
-        
-        {/* Display Visible Markers 
-              Commented out to account for search. go back to this if 
-              markersToDisplay is not working properly. -Chloe 3/31/25
-          */}
-        {/*visibleMarkers.map((marker) => {
-          const { id, latitude, longitude, title, description, color } = marker;
-
-          return (
-            <Marker
-              key={id}
-              coordinate={{
-                latitude,
-                longitude,
-              }}
-              title={title}
-              description={description}
-              pinColor={color ? color : "red"}
-              onPress={() => onMarkerSelected(marker)}
-              zIndex={selectedMarker?.id === id ? 1000 : 1} // marker to front
-              style={
-                selectedMarker?.id === id ? { transform: [{ scale: 1.5 }] } : {}
-              } // biggering
-              tracksViewChanges={selectedMarker?.id === id} // re-render selected marker
-            />
-          );
-        })*/}
 
         {/* Why is this here? This is basically the exact same MapViewDirections as below?
         -Isaac March 4    */}
@@ -1371,41 +1184,6 @@ export default function HomeScreen() {
           />
         )} */}
         {/* End of displaying prof office if selected */}
-
-        {/* Display filtered markers */}
-        {/*           REPLACE WITH VISIBLE MARKERS
-
-        {filteredMarkers.map((marker) => {
-          // changed to only pass through necessary props to get rid of minor error popup when using search
-          const { id, latitude, longitude, title, description, color, catId } = marker;
-
-          // Check if the marker's category is visible
-          if (categoryVisibility[catId] === false) {
-            return null; // Skip rendering this marker
-          }
-
-          return (
-            <Marker
-              key={id}
-              coordinate={{
-                latitude,
-                longitude,
-              }}
-              title={title}
-              description={description}
-              pinColor={color ? color : "red"}
-              onPress={() => onMarkerSelected(marker)}
-              zIndex={selectedMarker?.id === id ? 1000 : 1} // marker to front
-              style={
-                selectedMarker?.id === id ? { transform: [{ scale: 1.5 }] } : {}
-              } // biggering
-              tracksViewChanges={selectedMarker?.id === id} // re-render selected marker
-            />
-          ); // end of filteredMarkers return statement
-        })}
-          */}
-
-        
 
         {/* Directions */}
         {startLocation && selectedDestination && navigationStarted && (

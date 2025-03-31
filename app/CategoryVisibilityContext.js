@@ -41,9 +41,6 @@ export const CategoryVisibilityProvider = ({ children, markers }) => {
     };
     //console.log("Initialized 2: ", isInitialized);    // Debugging
 
-    //if (markers && markers.length > 0) {
-    //    initializeVisibility();
-    //}
       if (!isInitialized) {
         initializeVisibility();
       }

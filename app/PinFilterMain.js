@@ -37,8 +37,7 @@ SplashScreen.preventAutoHideAsync();
 
 /*
         Chloe To-Do:
-        -   FIX DEFAULT SHOWN PINS TO BE COLLEGES & SCHOOLS           done :D
-        -   FIX IT SHOW CATEGORIES WITH ARRAY CATID SHOW LOCATIONS    done yippee
+        - Errors should have been resolved
 
 */
 
@@ -50,9 +49,6 @@ export default function FilterPinsMainScreen() {
 
   const [dropdownVisibility, setDropdownVisibility] = useState({});
   const [locations, setLocations] = useState([]);
-    // trying to rename all this to markers to make life easier (copium)
-    // NOT DONE YET. WILL DO LATER -C
-    //const [markers, setMarkers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const navigation = useNavigation();
   const { theme } = useContext(ThemeContext);
@@ -134,7 +130,6 @@ export default function FilterPinsMainScreen() {
   });
 
     // Working more towards toggling visibility of locations in categories
-    //const [categoryVisibility, setCategoryVisibility] = useState({});
     const { categoryVisibility, 
       setCategoryVisibility, 
       //isInitialized 
@@ -142,21 +137,9 @@ export default function FilterPinsMainScreen() {
     // for changing ALL locations to visible/hidden
     const [allVisible, setAllVisible] = useState(true);
 
-    // Debugging: Checking if isInitialized is right bc this mf keeps loading like a mf
-    //console.log("PinFilterMain - isInitialized:", isInitialized);
+    // Debugging: Checking if isInitialized is right
     console.log("PinFilterMain - categoryVisibility:", categoryVisibility);
 
-
-    /*
-    if (!isInitialized) {
-      console.log("Waiting for category visibility to initialize...");
-      return (
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <ActivityIndicator size="large" color="#73000A" />
-        </View>
-      );
-    }
-      */
 
     if (!categoryVisibility || !setCategoryVisibility) {
       console.error("CategoryVisibilityContext is not available.");
@@ -216,11 +199,7 @@ export default function FilterPinsMainScreen() {
         }))
         .filter((location) => location.color !== "blue"); // IGNORE CUSTOM PINS
 
-        //setMarkers(db_data);
-        //setFilteredMarkers(db_data);
-
-        setLocations(db_data);  // renamed at 6pm 3/27/25
-        //setMarkers(db_data);
+        setLocations(db_data); // previously setMarkers
         setIsLoading(false);
 
       } catch (err) {
@@ -228,10 +207,6 @@ export default function FilterPinsMainScreen() {
         setIsLoading(false);
       }
     };
-
-    //fetchLocations();
-    // MAY NEED TO UNCOMMENT IF BROKEN. COMMENTED OUT AFTER NEW CONTEXT. -C
-  //}, []);
 
   useEffect(() => {
     fetchLocations();
@@ -264,26 +239,11 @@ export default function FilterPinsMainScreen() {
 
     // Making all cetegories visible/hidden
     const toggleAllCategories = () => {
-      /*
-      const newVisibility = {};
-      categories.forEach((category) => {
-        if (Array.isArray(category.catId)) {
-          category.catId.forEach((id) => {
-            newVisibility[id] = allVisible;
-          });
-        } else {
-          newVisibility[category.catId] = allVisible; 
-        }
-      });
-
-      setCategoryVisibility(newVisibility);
-      setAllVisible(!allVisible);
-      */
       const newVisibility = {};
       const shouldHideAll = allVisible; // use current allVisible state to decide what to do
     
-
       categories.forEach((category) => {
+        // bc some categoris catid listed as array
         if (Array.isArray(category.catId)) {
           category.catId.forEach((id) => {
             newVisibility[id] = !shouldHideAll; // Toggle visibility based on `shouldHideAll`
@@ -298,22 +258,18 @@ export default function FilterPinsMainScreen() {
     };
 
     const toggleCategoryVisibility = (catId) => {
-      /*setCategoryVisibility((prev) => ({
-        ...prev,
-        [catId]: !prev[catId], // Toggle the visibility for the given category
-      })); */
       if (Array.isArray(catId)) {
-        // If catId is an array, toggle visibility for all IDs in the array
+        // If catId is array, toggle visibility for all is in the array
         setCategoryVisibility((prev) => {
           const updatedVisibility = { ...prev };
-          const shouldHide = catId.every((id) => prev[id]); // Check if all IDs are currently visible
+          const shouldHide = catId.every((id) => prev[id]); // Check if all ids currently visible
           catId.forEach((id) => {
             updatedVisibility[id] = !shouldHide; // Toggle visibility for each ID
           });
           return updatedVisibility;
         });
       } else {
-        // If catId is a single value, toggle visibility for that ID
+        // If catId is single value, toggle visibility for that single id
         setCategoryVisibility((prev) => ({
           ...prev,
           [catId]: !prev[catId],
@@ -343,14 +299,6 @@ export default function FilterPinsMainScreen() {
     return filtered;
   };
 
-  /*
-  const getFilteredLocations = (locations, parent) => {
-    return locations
-      .filter((location) => location.parent === parent && location.title)
-      .map((location) => location.title)                    // Changed name to title
-      .sort();
-  };
-*/
   useEffect(() => {
     if (fontsLoaded) {
       SplashScreen.hideAsync();
@@ -369,13 +317,6 @@ export default function FilterPinsMainScreen() {
         );
     }
 
-
- //   const toggleDropdown = (label) => {
-//      setDropdownVisibility((prev) => ({
-//        ...prev,
-//        [label]: !prev[label],
-//      }));
-//    };
   
     return (
       <ScrollView style={styles.container}>
@@ -392,8 +333,7 @@ export default function FilterPinsMainScreen() {
         </TouchableOpacity>
   
         {categories.map((category) => {
-          const filteredNames = getFilteredLocations(locations, category.catId);    // ORIGINAL
-          //const filteredNames = getFilteredLocations(locations, category.parent);
+          const filteredNames = getFilteredLocations(locations, category.catId);
   
           return (
             <View key={category.label}>
@@ -411,7 +351,6 @@ export default function FilterPinsMainScreen() {
                       onPress={() => toggleCategoryVisibility(category.catId)}
                     >
                       <FontAwesome
-                        //name={categoryVisibility[category.catId] ? "eye" : "eye-slash"}
                         name={
                           Array.isArray(category.catId)
                             ? category.catId.every((id) => categoryVisibility[id]) // Check if all IDs are visible
@@ -420,7 +359,7 @@ export default function FilterPinsMainScreen() {
                             : categoryVisibility[category.catId]
                             ? "eye"
                             : "eye-slash"
-                        } // changed logic to account for categories which might be arrays
+                        } // changed logic to account for categories that are arrays
                         size={24}
                         color="#FFFFFF"
                       />
@@ -431,32 +370,13 @@ export default function FilterPinsMainScreen() {
   
               {dropdownVisibility[category.label] && filteredNames.length > 0 && (
                 <View>
-                
-                  {/*
-                  <TouchableOpacity
-                    key={index}
-                    style={styles.dropdownItem}
-                    onPress={() => router.push('Map', { location })}
-                  >
-                    <Text>{location.title}</Text>
-                  </TouchableOpacity> */}
-
                   {filteredNames.map((location, index) => (
                     <View key={index} style={styles.dropdownItem}>
                       <Text>{location}</Text>
                     </View>
                   ))}
 
-                  {/*<View>
-                    {filteredNames
-                      .filter(() => categoryVisibility[category.catId]) // Only show if category is visible
-                      .map((location, index) => (
-                        <View
-                          key={index} style={styles.dropdownItem}>
-                          <Text>{location}</Text>
-                        </View>
-                      ))}
-                  </View> */}
+                  {/*ok should work now*/}
 
               </View>
             )}
@@ -476,115 +396,3 @@ export default function FilterPinsMainScreen() {
   );
 }
 
-/*          Uncomment if code breaks
-const updateAccessibilitySettings = async (newSettings) => {
-  const user = getAuth().currentUser;
-  if (user) {
-    try {
-      const userDoc = doc(FIREBASE_DB, "users", user.uid);
-      await setDoc(userDoc, newSettings, { merge: true });
-      console.log("Accessibility settings updated successfully");
-    } catch (error) {
-      console.error("Error updating accessibility settings:", error);
-    }
-  } else {
-    console.error("No UID provided");
-  }
-};
-*/
-
-/*
-    COMMENTED OUT AFTER THEMECONTEXT OVERHAUL
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-    backgroundColor: '#F3F3F3',
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  header: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#73000A',
-    fontFamily: 'Abel_400Regular',
-  },
-  content: {
-    backgroundColor: '#FFFFFF',
-    padding: 20,
-    borderRadius: 5,
-  },
-  text: {
-    fontSize: 18,
-    color: '#000000',
-    fontFamily: 'Abel_400Regular',
-  },
-  settingItem: {
-   padding: 5,
-    backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-  },
-  dropdownItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0', // Light grey border
-  },
-  accentBox: {
-    backgroundColor: '#73000A', // Garnet background for buttons
-    padding: 10,
-    borderRadius: 5,
-    flex: 1,
-  },
-  accentBoxSmall: {
-    backgroundColor: '#73000A', // Garnet background for smaller sections
-    padding: 5,
-    borderRadius: 5,
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  settingText: {
-    fontSize: 22.5,
-    color: '#FFFFFF', // White text
-    fontFamily: 'Abel_400Regular',
-  },
-  // toggle all
-  toggleButton: {
-    backgroundColor: "#73000A", // Garnet color
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 20,
-    alignItems: "center",
-    borderWidth: 2, // Add border for debugging
-  borderColor: "#FFFFFF", // White border
-  },
-  toggleButtonText: {
-    color: "#FFFFFF", // White text
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-});
-*/
-
-// export { updateAccessibilitySettings };
-
-/*
-        For Chloe because her memory is Absolutely Horrible
-
-        To commit:
-        git pull
-        git add .
-        git commit -m "Message"
-        git push
-    
-
-*/
