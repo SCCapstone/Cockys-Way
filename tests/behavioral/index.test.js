@@ -5,6 +5,7 @@ import HomeScreen from "../../app/(tabs)";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import * as Location from "expo-location";
 import { ThemeContext } from "../../ThemeContext";
+import { CategoryVisibilityContext } from "../../app/CategoryVisibilityContext";
 import * as firestore from "firebase/firestore";
 
 const mockTheme = {
@@ -13,6 +14,36 @@ const mockTheme = {
     garnetWhite: "#FFFFFF",
   },
 };
+
+const mockCategoryVisibility = {
+  categoryVisibility: {
+    9492: true,
+    23396: true,
+  },
+  isInitialized: true,
+};
+
+jest.mock("../../app/CategoryVisibilityContext", () => {
+  const React = require("react");
+  const actual = jest.requireActual("../../app/CategoryVisibilityContext");
+  return {
+    ...actual,
+    CategoryVisibilityContext: React.createContext({
+      categoryVisibility: {
+        9492: true,
+        23396: true,
+      },
+      isInitialized: true,
+    }),
+    useCategoryVisibility: () => ({
+      categoryVisibility: {
+        9492: true,
+        23396: true,
+      },
+      isInitialized: true,
+    }),
+  };
+});
 
 jest.mock("expo-router", () => ({
   useRouter: jest.fn(),
@@ -154,45 +185,48 @@ jest.mock("@react-native-async-storage/async-storage", () => ({
 }));
 
 jest.mock("react-native-elements", () => {
-  const { View, TextInput } = require("react-native");
+  const { View } = require("react-native");
   return {
-    SearchBar: (props) => (
-      <View testID="search-bar">
-        <TextInput
-          testID="search-bar-input"
-          placeholder={props.placeholder}
-          onChangeText={props.onChangeText}
-          value={props.value}
-        />
-      </View>
-    ),
     Icon: () => <View testID="icon" />,
   };
 });
 
 describe("HomeScreen", () => {
   const mockPush = jest.fn();
+  const mockCategoryVisibility = {
+    categoryVisibility: {
+      9492: true,
+      23396: true,
+    },
+    isInitialized: true,
+  };
+
   beforeEach(() => {
     jest.clearAllMocks();
     useRouter.mockReturnValue({ push: mockPush });
+    useLocalSearchParams.mockReturnValue({});
+
+    Location.requestForegroundPermissionsAsync.mockResolvedValue({
+      status: "granted",
+    });
+    Location.getCurrentPositionAsync.mockResolvedValue({
+      coords: { latitude: 34.0004, longitude: -81.0359 },
+    });
   });
 
-  useLocalSearchParams.mockReturnValue({});
-
-  Location.requestForegroundPermissionsAsync.mockResolvedValue({
-    status: "granted",
-  });
-  Location.getCurrentPositionAsync.mockResolvedValue({
-    coords: { latitude: 34.0004, longitude: -81.0359 },
-  });
+  const renderHomeScreen = (props = {}) => {
+    return render(
+      <ThemeContext.Provider value={{ theme: mockTheme }}>
+        <CategoryVisibilityContext.Provider value={mockCategoryVisibility}>
+          <HomeScreen {...props} />
+        </CategoryVisibilityContext.Provider>
+      </ThemeContext.Provider>
+    );
+  };
 
   // test markers are displayed and selectable
   it("markers displayed on map", async () => {
-    const { queryByText, queryAllByTestId, getByTestId } = render(
-      <ThemeContext.Provider value={{ theme: mockTheme }}>
-        <HomeScreen />
-      </ThemeContext.Provider>
-    );
+    const { queryByText, queryAllByTestId, getByTestId } = renderHomeScreen();
 
     // make sure to skip tutorial
     await waitFor(() => {
@@ -211,11 +245,7 @@ describe("HomeScreen", () => {
   });
 
   it("selecting a marker", async () => {
-    const { queryByText, queryAllByTestId, getByTestId } = render(
-      <ThemeContext.Provider value={{ theme: mockTheme }}>
-        <HomeScreen />
-      </ThemeContext.Provider>
-    );
+    const { queryByText, queryAllByTestId, getByTestId } = renderHomeScreen();
 
     await waitFor(() => {
       expect(queryByText("Skip")).toBeTruthy();
@@ -246,12 +276,62 @@ describe("HomeScreen", () => {
     });
   });
 
-  it("selecting Start Nav button", async () => {
-    const { queryByText, queryAllByTestId, getByTestId } = render(
-      <ThemeContext.Provider value={{ theme: mockTheme }}>
-        <HomeScreen />
-      </ThemeContext.Provider>
+  it("search successfully for '1027' and select the correct marker", async () => {
+    const { queryByText, queryAllByTestId, getByTestId, getByPlaceholderText } =
+      renderHomeScreen();
+
+    await waitFor(() => {
+      expect(queryByText("Skip")).toBeTruthy();
+    });
+    const skipButton = queryByText("Skip");
+    fireEvent.press(skipButton);
+
+    // look for search input
+    const searchInput = getByPlaceholderText("Search Here...");
+    expect(searchInput).toBeTruthy();
+
+    // type "1027" into the search input
+    fireEvent.changeText(searchInput, "1027");
+
+    // let markers update
+    await waitFor(() => {
+      const markers = queryAllByTestId("marker");
+      // only marker shown should be the 1027 Barnwell St marker
+      expect(markers.length).toBe(1);
+      expect(markers[0].props.title).toBe(
+        "1027 Barnwell St. (University Foundations)"
+      );
+    });
+    // confirm cannot see 1005 Idlewilde Boulevard marker
+    const idlewildeMarker = queryAllByTestId("marker").find(
+      (marker) => marker.props.title === "1005 Idlewilde Boulevard"
     );
+    expect(idlewildeMarker).toBeFalsy();
+
+    // select 1027 Barnwell St marker
+    const barnwellMarker = queryAllByTestId("marker").find(
+      (marker) =>
+        marker.props.title === "1027 Barnwell St. (University Foundations)"
+    );
+    expect(barnwellMarker).toBeTruthy();
+    fireEvent.press(barnwellMarker);
+
+    // verify route details show correct details
+    await waitFor(() => {
+      const routeDetailsContainer = getByTestId("route-details-container");
+      expect(routeDetailsContainer).toBeTruthy();
+      expect(
+        queryByText("1027 Barnwell St. (University Foundations)")
+      ).toBeTruthy();
+      // Verify Idlewilde is not shown
+      expect(queryByText("1005 Idlewilde Boulevard")).toBeFalsy();
+    });
+
+    console.log("Search test passed!");
+  });
+
+  it("selecting Start Nav button", async () => {
+    const { queryByText, queryAllByTestId, getByTestId } = renderHomeScreen();
 
     await waitFor(() => {
       expect(queryByText("Skip")).toBeTruthy();
@@ -286,113 +366,98 @@ describe("HomeScreen", () => {
     expect(startNavButton).toBeTruthy();
     console.log("Start Nav button pressed!");
   });
-});
 
-it("applies darkMapStyle when theme.dark is true", async () => {
-  const { getByTestId } = render(
-    <ThemeContext.Provider value={{ theme: { ...mockTheme, dark: true } }}>
-      <HomeScreen />
-    </ThemeContext.Provider>
-  );
+  it("applies darkMapStyle when theme.dark is true", async () => {
+    const { getByTestId } = renderHomeScreen();
 
-  await waitFor(() => {
-    const map = getByTestId("map-view");
-    expect(map.props.customMapStyle).toBeTruthy();
+    await waitFor(() => {
+      const map = getByTestId("map-view");
+      expect(map.props.customMapStyle).toBeTruthy();
+    });
+
+    console.log("Dark mode style applied to map!");
   });
 
-  console.log("Dark mode style applied to map!");
-});
+  it("applies default map style when theme.dark is false", async () => {
+    const { getByTestId } = renderHomeScreen();
 
-it("applies default map style when theme.dark is false", async () => {
-  const { getByTestId } = render(
-    <ThemeContext.Provider value={{ theme: { ...mockTheme, dark: false } }}>
-      <HomeScreen />
-    </ThemeContext.Provider>
-  );
+    await waitFor(() => {
+      const map = getByTestId("map-view");
+      expect(map.props.customMapStyle).toEqual([]);
+    });
 
-  await waitFor(() => {
-    const map = getByTestId("map-view");
-    expect(map.props.customMapStyle).toEqual([]);
+    console.log("Light mode style confirmed.");
   });
 
-  console.log("Light mode style confirmed.");
-});
+  it("matches snapshot in dark mode", async () => {
+    const { toJSON } = renderHomeScreen();
 
-it("matches snapshot in dark mode", async () => {
-  const { toJSON } = render(
-    <ThemeContext.Provider value={{ theme: { ...mockTheme, dark: true } }}>
-      <HomeScreen />
-    </ThemeContext.Provider>
-  );
-
-  await waitFor(() => {
-    expect(toJSON()).toMatchSnapshot();
+    await waitFor(() => {
+      expect(toJSON()).toMatchSnapshot();
+    });
   });
-});
 
-it("toggles favorite icon and updates Firestore", async () => {
-  const { getByText, queryAllByTestId, getByTestId, queryByText } = render(
-    <ThemeContext.Provider value={{ theme: mockTheme }}>
-      <HomeScreen />
-    </ThemeContext.Provider>
-  );
+  it("toggles favorite icon and updates Firestore", async () => {
+    const { getByText, queryAllByTestId, getByTestId, queryByText } =
+      renderHomeScreen();
 
-  await waitFor(() => {
-    expect(queryByText("Skip")).toBeTruthy();
-  });
-  fireEvent.press(queryByText("Skip"));
+    await waitFor(() => {
+      expect(queryByText("Skip")).toBeTruthy();
+    });
+    fireEvent.press(queryByText("Skip"));
 
-  await waitFor(() => {
+    await waitFor(() => {
+      const markers = queryAllByTestId("marker");
+      expect(markers.length).toBeGreaterThan(0);
+    });
+
     const markers = queryAllByTestId("marker");
-    expect(markers.length).toBeGreaterThan(0);
-  });
-
-  const markers = queryAllByTestId("marker");
-  const targetMarker = markers.find(
-    (marker) => marker.props.title === "1000 Catawba Street"
-  );
-  expect(targetMarker).toBeTruthy();
-  fireEvent.press(targetMarker);
-
-  await waitFor(() => {
-    expect(getByTestId("route-details-container")).toBeTruthy();
-    expect(queryByText("1000 Catawba Street")).toBeTruthy();
-  });
-
-  // check for initial state of favorite icon
-  let favoriteButton = getByTestId("favorite-icon");
-  expect(favoriteButton).toBeTruthy();
-
-  // initially not favorited
-  await waitFor(() => {
-    expect(getByText("star-o")).toBeTruthy();
-  });
-
-  // press the favorite button
-  fireEvent.press(favoriteButton);
-  await waitFor(() => {
-    expect(getByText("star")).toBeTruthy();
-  });
-
-  // press the favorite button again to unfavorite
-  await act(async () => {
-    // simulate that the location is currently favorited so unfavorite logic runs
-    firestore.getDoc.mockImplementationOnce(() =>
-      Promise.resolve({
-        exists: () => true,
-        data: () => ({ locations: [223277] }),
-      })
+    const targetMarker = markers.find(
+      (marker) => marker.props.title === "1000 Catawba Street"
     );
-    favoriteButton = getByTestId("favorite-icon");
+    expect(targetMarker).toBeTruthy();
+    fireEvent.press(targetMarker);
+
+    await waitFor(() => {
+      expect(getByTestId("route-details-container")).toBeTruthy();
+      expect(queryByText("1000 Catawba Street")).toBeTruthy();
+    });
+
+    // check for initial state of favorite icon
+    let favoriteButton = getByTestId("favorite-icon");
+    expect(favoriteButton).toBeTruthy();
+
+    // initially not favorited
+    await waitFor(() => {
+      expect(getByText("star-o")).toBeTruthy();
+    });
+
+    // press the favorite button
     fireEvent.press(favoriteButton);
-  });
+    await waitFor(() => {
+      expect(getByText("star")).toBeTruthy();
+    });
 
-  console.log(
-    "Favorite icon state after 2nd press:",
-    getByTestId("favorite-icon").props.children.props.children
-  );
+    // press the favorite button again to unfavorite
+    await act(async () => {
+      // simulate that the location is currently favorited so unfavorite logic runs
+      firestore.getDoc.mockImplementationOnce(() =>
+        Promise.resolve({
+          exists: () => true,
+          data: () => ({ locations: [223277] }),
+        })
+      );
+      favoriteButton = getByTestId("favorite-icon");
+      fireEvent.press(favoriteButton);
+    });
 
-  await waitFor(() => {
-    expect(getByText("star-o")).toBeTruthy();
+    console.log(
+      "Favorite icon state after 2nd press:",
+      getByTestId("favorite-icon").props.children.props.children
+    );
+
+    await waitFor(() => {
+      expect(getByText("star-o")).toBeTruthy();
+    });
   });
 });

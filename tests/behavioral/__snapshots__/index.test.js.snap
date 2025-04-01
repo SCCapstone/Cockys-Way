@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snapshot in dark mode 1`] = `
+exports[`HomeScreen matches snapshot in dark mode 1`] = `
 <View
   style={
     {
