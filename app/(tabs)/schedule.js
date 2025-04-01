@@ -31,6 +31,22 @@ import { useContext } from "react";
 import { ThemeContext } from "../../ThemeContext";
 import ical from "ical.js";
 
+export const getBlackboardEventsForDay = (selectedDate, blackboardEvents) => {
+  console.log("selected date: " + selectedDate);
+  console.log("blackboard events: ");
+  console.log(blackboardEvents);
+  const filteredEvents = blackboardEvents
+  .filter(
+    (event) => moment(event.start).format("YYYY-MM-DD") === selectedDate
+  )
+  .map(
+    (event) => `${event.summary} (${moment(event.start).format("hh:mm A")})`
+  );
+  console.log("filteredEvvents: ");
+  console.log(filteredEvents);
+  return filteredEvents;
+};
+
 export default function Schedule() {
   const router = useRouter();
 
@@ -379,6 +395,9 @@ export default function Schedule() {
   };
 
   const getCoursesForDay = (selectedDate, courses) => {
+    // console.log("selected day: " + selectedDate);
+    // console.log("courses:");
+    // console.log(courses);
     let selectedMoment = moment(selectedDate);
     let selectedWeekday = selectedMoment.format("dddd"); 
     let relevantCourses = [];
@@ -408,18 +427,10 @@ export default function Schedule() {
         }
       }
     });
+    // console.log("relevant courses:");
+    console.log(relevantCourses);
 
     return relevantCourses;
-  };
-
-  const getBlackboardEventsForDay = (selectedDate, blackboardEvents) => {
-    return blackboardEvents
-      .filter(
-        (event) => moment(event.start).format("YYYY-MM-DD") === selectedDate
-      )
-      .map(
-        (event) => `${event.summary} (${moment(event.start).format("hh:mm A")})`
-      );
   };
 
   const handleDeletePress = (course) => {
