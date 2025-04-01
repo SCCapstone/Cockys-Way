@@ -30,7 +30,6 @@ import {
 } from "firebase/firestore";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { useRouter, useLocalSearchParams } from "expo-router";
-import { SearchBar } from "react-native-elements";
 import * as SplashScreen from "expo-splash-screen";
 import * as Location from "expo-location";
 import MapViewDirections from "react-native-maps-directions";
@@ -56,12 +55,14 @@ SplashScreen.preventAutoHideAsync();
       - this error has been here since the searchbar was even added, but
         using search bar shows pop-up saying 
           "A props object containing a "key" prop is being spread into JSX"
+      - fix 4/1 by Isaac
+        used just a text input with its own style
+        apparently react-native-elements has some issues with search bars
 
       Not errors, but things to fix:
       - Locations with longer names will push the x button off the screen
 
 */
-
 
 export default function HomeScreen() {
   const { theme } = useContext(ThemeContext);
@@ -429,10 +430,12 @@ export default function HomeScreen() {
   // move the map to selected marker when found
   useEffect(() => {
     //if (selectedMarker && mapRef.current) {
-    if (navigateToProfessorOffice 
+    if (
+      navigateToProfessorOffice &&
       //&& selectedMarker   // testing to make prof off shown
-      && professorOfficeMarker
-      && mapRef.current) {
+      professorOfficeMarker &&
+      mapRef.current
+    ) {
       setTimeout(() => {
         mapRef.current.animateToRegion(
           {
@@ -493,11 +496,12 @@ export default function HomeScreen() {
       - Visible markers, if using Pin Filters
       - Office Location, if navigating to professor office
   */
-  const markersToDisplay = searchResults.length > 0 
-  ? searchResults 
-  : professorOfficeMarker
-  ? [...visibleMarkers, professorOfficeMarker]
-  : visibleMarkers;
+  const markersToDisplay =
+    searchResults.length > 0
+      ? searchResults
+      : professorOfficeMarker
+      ? [...visibleMarkers, professorOfficeMarker]
+      : visibleMarkers;
 
   // Request location permissions and set startLocation
   // merged both perms and set user location into one -Isaac
@@ -1037,15 +1041,16 @@ export default function HomeScreen() {
     // attempting visibility
     <CategoryVisibilityProvider markers={markers}>
       <SafeAreaView style={styles.container}>
-        <SearchBar
-          placeholder="Search Here..."
-          placeholderTextColor={theme.colors.text}
-          onChangeText={(text) => setSearch(text)}
-          value={search}
-          containerStyle={styles.searchContainer}
-          inputContainerStyle={styles.searchInputContainer}
-          inputStyle={{ color: theme.colors.garnetWhite }}
-        />
+        <View style={styles.searchContainer}>
+          <TextInput
+            placeholder="Search Here..."
+            placeholderTextColor={theme.colors.text}
+            onChangeText={(text) => setSearch(text)}
+            value={search}
+            inputContainerStyle={styles.searchInputContainer}
+            inputStyle={{ color: theme.colors.garnetWhite }}
+          />
+        </View>
         <View style={styles.buttonContainer}>
           {/* Button to filter pins*/}
           <TouchableOpacity

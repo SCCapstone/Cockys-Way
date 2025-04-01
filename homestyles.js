@@ -8,9 +8,13 @@ const createHomeStyles = (colors) =>
     },
     searchContainer: {
       backgroundColor: colors.card,
+      borderRadius: 25,
       borderBottomColor: "transparent",
       borderTopColor: "transparent",
       color: colors.text,
+      marginHorizontal: 8,
+      marginVertical: 8,
+      paddingHorizontal: 8,
     },
     searchInputContainer: {
       backgroundColor: colors.border,
