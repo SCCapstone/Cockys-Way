@@ -151,7 +151,7 @@ describe("SettingsScreen", () => {
           expect.anything(),
           expect.objectContaining({
             settings: expect.objectContaining({
-              icsLink: expect.any(String), // ✅ allows any encrypted string
+              icsLink: expect.any(String),
             }),
           }),
           { merge: true },
