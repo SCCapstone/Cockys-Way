@@ -20,6 +20,7 @@ import { getAuth } from "firebase/auth";
 import { useTheme } from "@react-navigation/native";
 import { ThemeContext } from "../../ThemeContext";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import CryptoJS from "crypto-js";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -141,6 +142,8 @@ export default function SettingsScreen() {
       const user = getAuth().currentUser;
       if (user) {
         const uid = user.uid;
+        const secretKey = "CockysWaySalt::" + uid;
+
         try {
           const userDocRef = doc(firestore, "settings", uid);
           const userDoc = await getDoc(userDocRef);
@@ -153,15 +156,24 @@ export default function SettingsScreen() {
             setIsEnabled(notificationsEnabled);
             setIsDarkMode(theme === "dark");
 
-            // Set the ICS link and the original link to compare against
-            const ics = data.settings?.icsLink || "";
-            setIcsLink(ics);
-            setOriginalLink(ics);
+            // Decrypt the Blackboard ICS link
+            const encryptedLink = data.settings?.icsLink || "";
+            let decryptedLink = "";
+
+            try {
+              const bytes = CryptoJS.AES.decrypt(encryptedLink, secretKey);
+              decryptedLink = bytes.toString(CryptoJS.enc.Utf8);
+            } catch (e) {
+              console.warn("Failed to decrypt Blackboard link.");
+            }
+
+            setIcsLink(decryptedLink);
+            setOriginalLink(decryptedLink);
           } else {
             console.log("No settings document found for user.");
           }
         } catch (error) {
-          console.error("Error fetching Firestore settings: ", error);
+          console.warn("Error fetching Firestore settings: ", error);
         }
       } else {
         Alert.alert(
@@ -241,13 +253,25 @@ export default function SettingsScreen() {
     const user = getAuth().currentUser;
     if (user) {
       const uid = user.uid;
+      const secretKey = "CockysWaySalt::" + uid;
+
       try {
+        const encryptedLink = CryptoJS.AES.encrypt(
+          icsLink,
+          secretKey
+        ).toString();
         const userDocRef = doc(firestore, "settings", uid);
-        await setDoc(userDocRef, { settings: { icsLink } }, { merge: true });
+
+        await setDoc(
+          userDocRef,
+          { settings: { icsLink: encryptedLink } },
+          { merge: true }
+        );
+
         setOriginalLink(icsLink);
         setHasChanged(false);
       } catch (error) {
-        console.error("Error saving Blackboard link: ", error);
+        console.warn("Error saving Blackboard link: ", error);
       }
     } else {
       Alert.alert(

@@ -4,6 +4,7 @@ import { ThemeProvider, ThemeContext } from "../ThemeContext";
 import { ActivityIndicator, View } from "react-native";
 import { DefaultTheme } from "@react-navigation/native";
 import { CategoryVisibilityProvider } from "./CategoryVisibilityContext";
+import "react-native-get-random-values";
 // added above line to connect Map with Pin Filter page for Visibility use
 
 function AppLayout() {
@@ -146,9 +147,9 @@ function AppLayout() {
 export default function Layout() {
   return (
     <CategoryVisibilityProvider>
-    <ThemeProvider>
-      <AppLayout />
-    </ThemeProvider>
+      <ThemeProvider>
+        <AppLayout />
+      </ThemeProvider>
     </CategoryVisibilityProvider>
   );
 }

@@ -3,6 +3,7 @@ import { Tabs, useRouter } from "expo-router";
 import { FIREBASE_AUTH } from "../../FirebaseConfig";
 import { useContext } from "react";
 import { ThemeContext } from "../../ThemeContext";
+import "react-native-get-random-values";
 
 export default function TabLayout() {
   const router = useRouter();

@@ -22,7 +22,7 @@ import {
   onSnapshot,
   deleteDoc,
 } from "firebase/firestore";
-
+import CryptoJS from "crypto-js";
 import Class from "../../components/Class";
 import { getAuth } from "firebase/auth";
 import { Calendar, CalendarList, Agenda } from "react-native-calendars";
@@ -31,17 +31,19 @@ import { useContext } from "react";
 import { ThemeContext } from "../../ThemeContext";
 import ical from "ical.js";
 
+const SALT = "CockysWaySalt::"; // same as settings.js
+
 export const getBlackboardEventsForDay = (selectedDate, blackboardEvents) => {
   console.log("selected date: " + selectedDate);
   console.log("blackboard events: ");
   console.log(blackboardEvents);
   const filteredEvents = blackboardEvents
-  .filter(
-    (event) => moment(event.start).format("YYYY-MM-DD") === selectedDate
-  )
-  .map(
-    (event) => `${event.summary} (${moment(event.start).format("hh:mm A")})`
-  );
+    .filter(
+      (event) => moment(event.start).format("YYYY-MM-DD") === selectedDate
+    )
+    .map(
+      (event) => `${event.summary} (${moment(event.start).format("hh:mm A")})`
+    );
   console.log("filteredEvvents: ");
   console.log(filteredEvents);
   return filteredEvents;
@@ -222,12 +224,12 @@ export default function Schedule() {
     },
   });
 
-  const blackboardDot = {color: "#73000A"};
-  const courseDot = {color: "#AAAAAA"};
+  const blackboardDot = { color: "#73000A" };
+  const courseDot = { color: "#AAAAAA" };
 
   useEffect(() => {
     setThemeKey((prev) => prev + 1);
-  }, [colors])
+  }, [colors]);
   useEffect(() => {
     if (!user) {
       console.log("no user found");
@@ -240,9 +242,24 @@ export default function Schedule() {
         if (settingsDoc.exists()) {
           const settingsData = settingsDoc.data();
           if (settingsData.settings && settingsData.settings.icsLink) {
-            const icsUrl = settingsData.settings.icsLink;
+            const encryptedLink = settingsData.settings.icsLink;
+            const secretKey = SALT + user.uid;
+            let decryptedLink = "";
+
             try {
-              const response = await fetch(icsUrl);
+              const bytes = CryptoJS.AES.decrypt(encryptedLink, secretKey);
+              decryptedLink = bytes.toString(CryptoJS.enc.Utf8);
+            } catch (err) {
+              console.warn("Failed to decrypt ICS link:", err);
+            }
+
+            if (!decryptedLink) {
+              setBlackboardEvents([]); // no usable link so set to nothing
+              return;
+            }
+
+            try {
+              const response = await fetch(decryptedLink);
               const text = await response.text();
 
               const jcalData = ical.parse(text);
@@ -314,7 +331,10 @@ export default function Schedule() {
         if (combined[date]) {
           combined[date] = {
             ...combined[date],
-            dots: [...(combined[date].dots || []), ...blackboardMarked[date].dots],
+            dots: [
+              ...(combined[date].dots || []),
+              ...blackboardMarked[date].dots,
+            ],
           };
         } else {
           combined[date] = blackboardMarked[date];
@@ -349,10 +369,10 @@ export default function Schedule() {
       let startDate = moment(start);
       let endDate = moment(end);
 
-      let meetingStr = course.meeting.replace(/Th/g, "X"); 
-      let matches = meetingStr.match(/(X|M|T|W|F)/g); 
+      let meetingStr = course.meeting.replace(/Th/g, "X");
+      let matches = meetingStr.match(/(X|M|T|W|F)/g);
       if (matches) {
-        matches = matches.map((d) => (d === "X" ? "Th" : d)); 
+        matches = matches.map((d) => (d === "X" ? "Th" : d));
 
         matches.forEach((dayAbbrev) => {
           let dayFull = daysMap[dayAbbrev];
@@ -364,7 +384,7 @@ export default function Schedule() {
                 let formattedDate = currentDate.format("YYYY-MM-DD");
                 markedDates[formattedDate] = { marked: true };
 
-                if(!markedDates[formattedDate].dots) {
+                if (!markedDates[formattedDate].dots) {
                   markedDates[formattedDate].dots = [courseDot];
                 } else {
                   markedDates[formattedDate].dots.push(courseDot);
@@ -399,7 +419,7 @@ export default function Schedule() {
     // console.log("courses:");
     // console.log(courses);
     let selectedMoment = moment(selectedDate);
-    let selectedWeekday = selectedMoment.format("dddd"); 
+    let selectedWeekday = selectedMoment.format("dddd");
     let relevantCourses = [];
 
     courses.forEach((course) => {
@@ -410,13 +430,12 @@ export default function Schedule() {
       let startDate = moment(start);
       let endDate = moment(end);
 
-
       if (!selectedMoment.isBetween(startDate, endDate, null, "[]")) return;
 
-      let meetingStr = course.meeting.replace(/Th/g, "X"); 
+      let meetingStr = course.meeting.replace(/Th/g, "X");
       let matches = meetingStr.match(/(X|M|T|W|F)/g);
       if (matches) {
-        matches = matches.map((d) => (d === "X" ? "Th" : d)); 
+        matches = matches.map((d) => (d === "X" ? "Th" : d));
 
         if (
           matches.some((dayAbbrev) => daysMap[dayAbbrev] === selectedWeekday)
@@ -488,7 +507,7 @@ export default function Schedule() {
               <Calendar
                 key={themeKey}
                 testID="calendar"
-                markingType={'multi-dot'}
+                markingType={"multi-dot"}
                 markedDates={markedDates}
                 onDayPress={(day) => {
                   setCurrentDay(day.dateString);
@@ -511,14 +530,16 @@ export default function Schedule() {
                 }}
               />
               <View style={styles.toggleSection}>
-                <Text style={{ color: colors.text, marginBottom: 7, fontSize: 15 }}>
+                <Text
+                  style={{ color: colors.text, marginBottom: 7, fontSize: 15 }}
+                >
                   {currentDay
                     ? currentDay
                     : "Select a date to view what's planned!"}
                 </Text>
                 {currentCourses.map((item, index) => {
                   const regex = /^\d{3}-\d{3}:$/;
-                  
+
                   const parts = item.split(" ");
                   // console.log(parts);
                   const isCourse = parts[1] && regex.test(parts[1]);
@@ -526,10 +547,20 @@ export default function Schedule() {
                   const text = isCourse ? colors.text : "#FFFFFF";
 
                   return (
-                    <Text key={index} style={{ color: text, backgroundColor: bg, padding: 5, marginBottom: 7, borderRadius: 7, fontSize: 15 }}>
+                    <Text
+                      key={index}
+                      style={{
+                        color: text,
+                        backgroundColor: bg,
+                        padding: 5,
+                        marginBottom: 7,
+                        borderRadius: 7,
+                        fontSize: 15,
+                      }}
+                    >
                       {item}
                     </Text>
-                  )
+                  );
                 })}
               </View>
             </View>
