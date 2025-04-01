@@ -21,6 +21,7 @@ import { useTheme } from "@react-navigation/native";
 import { ThemeContext } from "../../ThemeContext";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import CryptoJS from "crypto-js";
+import { SALT } from "@env";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -142,7 +143,7 @@ export default function SettingsScreen() {
       const user = getAuth().currentUser;
       if (user) {
         const uid = user.uid;
-        const secretKey = "CockysWaySalt::" + uid;
+        const secretKey = SALT + uid;
 
         try {
           const userDocRef = doc(firestore, "settings", uid);
@@ -253,7 +254,7 @@ export default function SettingsScreen() {
     const user = getAuth().currentUser;
     if (user) {
       const uid = user.uid;
-      const secretKey = "CockysWaySalt::" + uid;
+      const secretKey = SALT + uid;
 
       try {
         const encryptedLink = CryptoJS.AES.encrypt(

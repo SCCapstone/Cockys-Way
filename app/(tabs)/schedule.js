@@ -30,8 +30,7 @@ import moment from "moment";
 import { useContext } from "react";
 import { ThemeContext } from "../../ThemeContext";
 import ical from "ical.js";
-
-const SALT = "CockysWaySalt::"; // same as settings.js
+import { SALT } from "@env";
 
 export const getBlackboardEventsForDay = (selectedDate, blackboardEvents) => {
   console.log("selected date: " + selectedDate);
