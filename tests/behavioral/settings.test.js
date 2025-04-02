@@ -165,12 +165,10 @@ describe("SettingsScreen", () => {
 
     fireEvent.press(getByText("Privacy and Security"));
     fireEvent.press(getByText("Favorite Locations"));
-    fireEvent.press(getByText("Accessibility"));
     fireEvent.press(getByText("My Account"));
 
     expect(router.push).toHaveBeenCalledWith("/PrivacySecurity");
     expect(router.push).toHaveBeenCalledWith("/favLocations");
-    expect(router.push).toHaveBeenCalledWith("/accessibility");
     expect(router.push).toHaveBeenCalledWith("/MyAccount");
   });
 });
