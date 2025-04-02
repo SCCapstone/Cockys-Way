@@ -5,6 +5,8 @@ import fetchCourseInfo from "../hook/fetchCourseInfo";
 import { useContext } from "react";
 import { ThemeContext } from "../ThemeContext";
 
+
+
 export const getInfo = (crn, srcdb) => {
   return fetchCourseInfo(crn, srcdb);
 };
