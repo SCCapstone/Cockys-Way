@@ -116,7 +116,7 @@ export default function MyAccountScreen() {
       borderRadius: 5,
       marginBottom: 10,
       textAlign: "center",
-      color: colors.text,
+      color: colors.garnetWhite,
     },
     buttonRow: {
       flexDirection: "row",
@@ -143,10 +143,6 @@ export default function MyAccountScreen() {
       await reauthenticateWithCredential(auth.currentUser, credential);
       setIsEditing(true);
       setIsAuthenticating(false);
-      Alert.alert(
-        "Success",
-        "Authentication successful! You can now update your account."
-      );
     } catch (error) {
       Alert.alert(
         "Error",
@@ -227,7 +223,6 @@ export default function MyAccountScreen() {
     fetchUserInfo();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
 
   return (
     <ScrollView style={styles.container}>
@@ -256,15 +251,22 @@ export default function MyAccountScreen() {
               secureTextEntry
               value={passwordForAuth}
               onChangeText={setPasswordForAuth}
+              placeholderTextColor={colors.text}
             />
-            <TouchableOpacity
-              style={styles.modalButton}
-              onPress={handleAuthenticate}
-            >
-              <Text style={[styles.buttonText, { color: "#FFFFFF" }]}>
-                Authenticate
-              </Text>
-            </TouchableOpacity>
+            <View style={styles.buttonRow}>
+              <TouchableOpacity
+                style={[styles.modalButton, { flex: 1, marginRight: 5 }]}
+                onPress={() => setIsAuthenticating(false)}
+              >
+                <Text style={styles.buttonText}>Cancel</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.modalButton, { flex: 1, marginLeft: 5 }]}
+                onPress={handleAuthenticate}
+              >
+                <Text style={styles.buttonText}>Authenticate</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </Modal>
@@ -274,12 +276,14 @@ export default function MyAccountScreen() {
             <TextInput
               style={styles.modalInput}
               placeholder="New Email (Leave blank if unchanged)"
+              placeholderTextColor={colors.text}
               value={newEmail}
               onChangeText={setNewEmail}
             />
             <TextInput
               style={styles.modalInput}
               placeholder="New Password (Leave blank if unchanged)"
+              placeholderTextColor={colors.text}
               secureTextEntry
               value={newPassword}
               onChangeText={setNewPassword}

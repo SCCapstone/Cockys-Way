@@ -497,12 +497,13 @@ export default function HomeScreen() {
       - Office Location, if navigating to professor office
   */
   const markersToDisplay =
-    searchResults.length > 0
+    search !== "" && searchResults.length === 0
+      ? [] // No matches from search, show no markers
+      : searchResults.length > 0
       ? searchResults
       : professorOfficeMarker
       ? [...visibleMarkers, professorOfficeMarker]
       : visibleMarkers;
-
   // Request location permissions and set startLocation
   // merged both perms and set user location into one -Isaac
   useEffect(() => {
@@ -770,6 +771,7 @@ export default function HomeScreen() {
     setRouteDetails(null);
     setRouteSteps([]);
     setNavigationStarted(false);
+    setNavigateToProfessorOffice(false);
   };
 
   const handleFavorite = async (marker) => {
@@ -1048,7 +1050,7 @@ export default function HomeScreen() {
             onChangeText={(text) => setSearch(text)}
             value={search}
             inputContainerStyle={styles.searchInputContainer}
-            inputStyle={{ color: theme.colors.garnetWhite }}
+            style={{ color: theme.colors.garnetWhite }}
           />
         </View>
         <View style={styles.buttonContainer}>
@@ -1326,11 +1328,18 @@ export default function HomeScreen() {
                 value={newDescription}
                 onChangeText={setNewDescription}
               />
-              <Button title="Rename" onPress={handleRenamePin} />
-              <Button
-                title="Cancel"
-                onPress={() => setIsRenameModalVisible(false)}
-              />
+              <View style={styles.modalButtonContainer}>
+                <Button
+                  style={styles.renameConfirmationButton}
+                  title="Cancel"
+                  onPress={() => setIsRenameModalVisible(false)}
+                />
+                <Button
+                  style={styles.renameConfirmationButton}
+                  title="Rename"
+                  onPress={handleRenamePin}
+                />
+              </View>
             </View>
           </View>
         </Modal>
@@ -1385,17 +1394,19 @@ export default function HomeScreen() {
                 {selectedDestination ? selectedDestination.title : ""}
               </Text>
               <View style={styles.exitButtonContainer}>
-                <TouchableOpacity
-                  style={styles.exitButton}
-                  onPress={handleFavorite}
-                >
-                  <FontAwesome
-                    name={isFavorited ? "star" : "star-o"}
-                    size={24}
-                    color={theme.colors.garnetWhite}
-                    testID="favorite-icon"
-                  />
-                </TouchableOpacity>
+                {selectedDestination?.id !== "searched-location" && (
+                  <TouchableOpacity
+                    style={styles.exitButton}
+                    onPress={handleFavorite}
+                  >
+                    <FontAwesome
+                      name={isFavorited ? "star" : "star-o"}
+                      size={24}
+                      color={theme.colors.garnetWhite}
+                      testID="favorite-icon"
+                    />
+                  </TouchableOpacity>
+                )}
                 <TouchableOpacity
                   style={styles.exitButton}
                   onPress={handleStopDirections}

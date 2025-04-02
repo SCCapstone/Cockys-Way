@@ -110,6 +110,7 @@ export default function ProfessorInfo() {
   const [professor, setProfessor] = useState(null);
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const [navigating, setNavigating] = useState(false);
   const { theme } = useContext(ThemeContext);
   const { colors } = theme;
 
@@ -244,6 +245,7 @@ export default function ProfessorInfo() {
       return;
     }
 
+    setNavigating(true);
     try {
       const response = await searchAddress(professor.office);
       console.log(response);
@@ -264,6 +266,8 @@ export default function ProfessorInfo() {
     } catch (error) {
       console.error("Error searching address:", error);
       Alert.alert("Error searching address.");
+    } finally {
+      setNavigating(false);
     }
   };
 
@@ -329,12 +333,22 @@ export default function ProfessorInfo() {
         {professor.office ? (
           <>
             <Text style={styles.quickLookText}>{professor.office}</Text>
-            <TouchableOpacity
-              style={styles.navigateButton}
-              onPress={navigateToOffice}
-            >
-              <Text style={styles.navigateButtonText}>Navigate to Office</Text>
-            </TouchableOpacity>
+            {navigating ? (
+              <ActivityIndicator
+                size="small"
+                color={colors.primary}
+                style={{ marginTop: 10 }}
+              />
+            ) : (
+              <TouchableOpacity
+                style={styles.navigateButton}
+                onPress={navigateToOffice}
+              >
+                <Text style={styles.navigateButtonText}>
+                  Navigate to Office
+                </Text>
+              </TouchableOpacity>
+            )}
           </>
         ) : (
           <Text style={styles.quickLookText}>

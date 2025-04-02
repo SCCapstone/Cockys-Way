@@ -81,6 +81,10 @@ const AddClassSearchResults = () => {
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#73000A" />
         </View>
+      ) : courses.length === 0 ? (
+        <Text style={[styles.header, { textAlign: "center" }]}>
+          No courses found for this search.
+        </Text>
       ) : (
         <FlatList
           data={courses}

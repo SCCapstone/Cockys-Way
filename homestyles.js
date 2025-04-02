@@ -152,6 +152,11 @@ const createHomeStyles = (colors) =>
       fontSize: 16,
       color: colors.text,
     },
+    modalButtonContainer: {
+      flexDirection: "row",
+      gap: 5,
+      justifyContent: "space-between",
+    },
     trafficButton: {
       backgroundColor: colors.card,
       padding: 5,

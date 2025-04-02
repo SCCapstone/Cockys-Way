@@ -93,14 +93,6 @@ function AppLayout() {
         }}
       />
       <Stack.Screen
-        name="accessibility"
-        options={{
-          title: "Accessibility",
-          headerTintColor: theme.colors.text,
-          headerBackTitle: "Back",
-        }}
-      />
-      <Stack.Screen
         name="MyAccount"
         options={{
           title: "My Account",
