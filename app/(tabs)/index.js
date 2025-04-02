@@ -1442,11 +1442,13 @@ export default function HomeScreen() {
                   style={styles.renameConfirmationButton}
                   title="Cancel"
                   onPress={() => setIsRenameModalVisible(false)}
+                  color={theme.colors.primary}
                 />
                 <Button
                   style={styles.renameConfirmationButton}
                   title="Rename"
                   onPress={handleRenamePin}
+                  color={theme.colors.primary}
                 />
               </View>
             </View>

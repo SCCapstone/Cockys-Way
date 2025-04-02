@@ -16,6 +16,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import axios from "axios";
 import { ThemeContext } from "../ThemeContext";
 import { useContext } from "react";
+import { GOOGLE_API_KEY } from "@env";
 
 import defaultImage from "../assets/professorInfo/200x200.png";
 
@@ -30,10 +31,10 @@ const daysOfWeek = [
 ];
 
 const bounds = {
-  north: 34.027528,
-  south: 33.945306,
-  east: -80.994167,
-  west: -81.078778,
+  north: 34.302685,
+  south: 33.75846,
+  east: -80.826204,
+  west: -81.4305,
 };
 
 const addressBounds = (lat, long) => {
@@ -46,30 +47,41 @@ const addressBounds = (lat, long) => {
 };
 
 const searchAddress = async (address) => {
+  console.log("ORIGINAL ADDRESS " + address);
   let cleanedAddress = address
+    .trim()
+    .replace(/\s{2,}/g, " ")
     .replace(/-\d{4}$/, "")
-    .replace(/\b[Rr]oom\s*\d{1,4}\b/, "")
-    .replace(/^\d+\s*Storey Innovation Center/i, "Storey Innovation Center");
+    .replace(/(Room|Rm|Suite|Ste)\s*\d+/gi, "")
+    .replace(/\b(University of South Carolina|UofSC)\b/gi, "")
+    .replace(/\bCollege of.*?(?=\d{3,}\s\w)/gi, "")
+    .replace(/\bDepartment of.*?(?=\d{3,}\s\w)/gi, "")
+    .replace(/^\s*,\s*/, "")
+    .replace(/(Columbia)(?!,)/i, "$1,")
+    .replace(/([a-zA-Z])(\d)/g, "$1 $2")
+    .replace(/(\d)([A-Z][a-z]+)/g, "$1 $2");
   if (!/columbia,?\s*(sc|south carolina)/i.test(cleanedAddress)) {
     cleanedAddress += ", Columbia, SC";
   }
   console.log("CLEANED ADDRESS " + cleanedAddress);
   try {
     const response = await axios.get(
-      `https://nominatim.openstreetmap.org/search`,
+      "https://maps.googleapis.com/maps/api/geocode/json",
       {
         params: {
-          q: cleanedAddress,
-          format: "json",
+          address: cleanedAddress,
+          key: GOOGLE_API_KEY,
         },
       }
     );
     console.log("DATA");
     console.log(response);
 
-    const filteredData = response.data.filter((location) =>
-      addressBounds(parseFloat(location.lat), parseFloat(location.lon))
-    );
+    const filteredData = response.data.results.filter((location) => {
+      const lat = location.geometry.location.lat;
+      const lon = location.geometry.location.lng;
+      return addressBounds(lat, lon);
+    });
 
     return filteredData;
   } catch (error) {
@@ -252,8 +264,8 @@ export default function ProfessorInfo() {
 
       if (response.length > 0) {
         const location = response[0];
-        const latitude = parseFloat(location.lat);
-        const longitude = parseFloat(location.lon);
+        const latitude = location.geometry.location.lat;
+        const longitude = location.geometry.location.lng;
 
         router.push({
           pathname: "/(tabs)",
@@ -329,7 +341,6 @@ export default function ProfessorInfo() {
       <View style={[styles.officeInfo, styles.quickLook]}>
         <Text style={styles.quickLookHeader}>Office Information:</Text>
 
-        {/* TODO: NEED TO UPDATE WITH OFFICE INFO IN DB */}
         {professor.office ? (
           <>
             <Text style={styles.quickLookText}>{professor.office}</Text>

@@ -111,13 +111,18 @@ describe("MyAccountScreen", () => {
     fireEvent.press(getByText("Authenticate"));
 
     await waitFor(() => {
-      const emailInput = getByPlaceholderText("New Email (Leave blank if unchanged)");
+      const emailInput = getByPlaceholderText(
+        "New Email (Leave blank if unchanged)"
+      );
       fireEvent.changeText(emailInput, "new@example.com");
       fireEvent.press(getByText("Save Changes"));
     });
 
     await waitFor(() => {
-      expect(updateEmail).toHaveBeenCalledWith(expect.anything(), "new@example.com");
+      expect(updateEmail).toHaveBeenCalledWith(
+        expect.anything(),
+        "new@example.com"
+      );
     });
   });
 
@@ -131,47 +136,62 @@ describe("MyAccountScreen", () => {
     fireEvent.press(getByText("Authenticate"));
 
     await waitFor(() => {
-      const passwordField = getByPlaceholderText("New Password (Leave blank if unchanged)");
+      const passwordField = getByPlaceholderText(
+        "New Password (Leave blank if unchanged)"
+      );
       fireEvent.changeText(passwordField, "newsecurepassword");
       fireEvent.press(getByText("Save Changes"));
     });
 
     await waitFor(() => {
-      expect(updatePassword).toHaveBeenCalledWith(expect.anything(), "newsecurepassword");
+      expect(updatePassword).toHaveBeenCalledWith(
+        expect.anything(),
+        "newsecurepassword"
+      );
     });
   });
 
   it("cancels editing mode and resets fields", async () => {
-    const { getByText, getByPlaceholderText } = renderWithTheme();
+    const { getByText, getByPlaceholderText, queryByText } = renderWithTheme();
 
     fireEvent.press(getByText("Edit Account Information"));
-    fireEvent.changeText(getByPlaceholderText("Enter current password"), "test-password");
+
+    fireEvent.changeText(
+      getByPlaceholderText("Enter current password"),
+      "test-password"
+    );
+
     fireEvent.press(getByText("Authenticate"));
 
     await waitFor(() => {
       expect(getByText("Cancel")).toBeTruthy();
-      fireEvent.press(getByText("Cancel"));
     });
 
-    expect(getByText("Edit Account Information")).toBeTruthy();
+    fireEvent.press(getByText("Cancel"));
+
+    await waitFor(() => {
+      // Ensure we're back to the non-editing state
+      expect(queryByText("New Email (Leave blank if unchanged)")).toBeNull();
+      expect(getByText("Edit Account Information")).toBeTruthy();
+    });
   });
 
   it("shows error alert if no user is authenticated", async () => {
     // 👇 Mock getAuth to simulate unauthenticated user
     getAuth.mockReturnValueOnce({ currentUser: null });
-  
+
     // 👇 Spy on Alert.alert
     const alertSpy = jest.spyOn(Alert, "alert").mockImplementation(() => {});
-  
+
     renderWithTheme();
-  
+
     await waitFor(() => {
       expect(alertSpy).toHaveBeenCalledWith(
         "Sign In Required",
         "Please sign in to view your account details."
       );
     });
-  
+
     alertSpy.mockRestore(); // optional cleanup
   });
 });
