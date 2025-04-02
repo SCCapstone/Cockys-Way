@@ -112,6 +112,11 @@ export default function HomeScreen() {
   // Tutorial constants
   const [tutorialStep, setTutorialStep] = useState(0);
   const [tutorialCompleted, setTutorialCompleted] = useState(false);
+  const filterButtonRef = useRef(null);
+  const trafficButtonRef = useRef(null);
+  const historyButtonRef = useRef(null);
+  const customPinButtonRef = useRef(null);
+  const followUserButtonRef = useRef(null);
   const startNavButtonRef = useRef(null);
   const setStartButtonRef = useRef(null);
   const resetLocationButtonRef = useRef(null);
@@ -860,33 +865,89 @@ export default function HomeScreen() {
 
   // Title, description, and what button to give tutorial on
   const TUTORIAL_STEPS = [
+    // top bar buttons
+    {
+      title: "Filter Pins",
+      description:
+        "If you want to view more/less pins on the map, use this button or the search bar.",
+      buttonId: "filterButton",
+      position: "bottom",
+    },
+    {
+      title: "Traffic View",
+      description:
+        "Toggle this button to show/hide traffic conditions on the map (Android only).",
+      buttonId: "trafficButton",
+      position: "bottom",
+    },
+    {
+      title: "Route History",
+      description: "Click this button to view your previous route history.",
+      buttonId: "historyButton",
+      position: "bottom",
+    },
+    {
+      title: "Add Custom Pin",
+      description:
+        "Tap this button, then tap anywhere on the map to add your own custom location pin.",
+      buttonId: "customPinButton",
+      position: "bottom",
+    },
+    {
+      title: "Follow User Location",
+      description:
+        "Toggle this button to make the map automatically follow your current location.",
+      buttonId: "followUserButton",
+      position: "bottom",
+    },
+
+    // route details button
     {
       title: "Start Navigation",
       description:
         "Click this button to start navigation to the selected destination.",
       buttonId: "startNavButton",
+      position: "top",
     },
     {
       title: "Set New Start Location",
       description:
         "Click this button to set the selected destination as the new start location.",
       buttonId: "setStartButton",
+      position: "top",
     },
     {
       title: "Reset Location",
       description:
         "Click this button to reset the start location to your current location.",
       buttonId: "resetLocationButton",
+      position: "top",
     },
     {
       title: "Stop Directions",
       description: "Click this button to stop the current navigation.",
       buttonId: "stopDirectionsButton",
+      position: "top",
     },
   ];
 
   // Change style of current button in tutorial
   const highlightButton = (buttonId) => {
+    if (filterButtonRef.current)
+      filterButtonRef.current.setNativeProps({ style: styles.filterButton });
+    if (trafficButtonRef.current)
+      trafficButtonRef.current.setNativeProps({ style: styles.trafficButton });
+    if (historyButtonRef.current)
+      historyButtonRef.current.setNativeProps({ style: styles.historyButton });
+    if (customPinButtonRef.current)
+      customPinButtonRef.current.setNativeProps({
+        style: styles.customPinButton,
+      });
+    if (followUserButtonRef.current)
+      followUserButtonRef.current.setNativeProps({
+        style: styles.customPinButton,
+      });
+
     if (startNavButtonRef.current)
       startNavButtonRef.current.setNativeProps({ style: styles.routeButton });
     if (setStartButtonRef.current)
@@ -901,6 +962,37 @@ export default function HomeScreen() {
       });
 
     switch (buttonId) {
+      case "filterButton":
+        if (filterButtonRef.current)
+          filterButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+      case "trafficButton":
+        if (trafficButtonRef.current)
+          trafficButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+      case "historyButton":
+        if (historyButtonRef.current)
+          historyButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+      case "customPinButton":
+        if (customPinButtonRef.current)
+          customPinButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+      case "followUserButton":
+        if (followUserButtonRef.current)
+          followUserButtonRef.current.setNativeProps({
+            style: styles.highlightedButton,
+          });
+        break;
+
       case "startNavButton":
         if (startNavButtonRef.current)
           startNavButtonRef.current.setNativeProps({
@@ -925,6 +1017,7 @@ export default function HomeScreen() {
             style: styles.highlightedButton,
           });
         break;
+
       default:
         break;
     }
@@ -945,7 +1038,14 @@ export default function HomeScreen() {
         transparent={true}
         visible={!tutorialCompleted && step < TUTORIAL_STEPS.length}
       >
-        <View style={styles.tutorialOverlay}>
+        <View
+          style={[
+            styles.tutorialOverlay,
+            currentStep.position === "top"
+              ? styles.tutorialOverlayTop
+              : styles.tutorialOverlayBottom,
+          ]}
+        >
           <View style={styles.tutorialContent}>
             {/* Display current step out of total steps at the top right */}
             <View style={styles.tutorialStepIndicator}>
@@ -1057,6 +1157,8 @@ export default function HomeScreen() {
           <TouchableOpacity
             style={styles.filterButton}
             onPress={() => router.push("/PinFilterMain")}
+            ref={filterButtonRef}
+            buttonId="filterButton"
           >
             <View style={styles.accentBox}>
               <FontAwesome
@@ -1072,6 +1174,8 @@ export default function HomeScreen() {
             <TouchableOpacity
               style={styles.trafficButton}
               onPress={() => setShowTraffic(!showTraffic)}
+              ref={trafficButtonRef}
+              buttonId="trafficButton"
             >
               <FontAwesome
                 name="exclamation-triangle"
@@ -1085,6 +1189,8 @@ export default function HomeScreen() {
           <TouchableOpacity
             style={styles.historyButton}
             onPress={() => router.push("/routeHistory")}
+            ref={historyButtonRef}
+            buttonId="historyButton"
           >
             <FontAwesome
               name="book"
@@ -1101,6 +1207,8 @@ export default function HomeScreen() {
               setShowCustomPinNotification(true);
               setCreatingCustomPin(true);
             }}
+            ref={customPinButtonRef}
+            buttonId="customPinButton"
           >
             <FontAwesome
               name="map-marker"
@@ -1114,6 +1222,8 @@ export default function HomeScreen() {
           <TouchableOpacity
             style={styles.customPinButton}
             onPress={() => setFollowsUser(!followsUser)}
+            ref={followUserButtonRef}
+            buttonId="followUserButton"
           >
             <FontAwesome
               name={followsUser ? "location-arrow" : "map-marker"}

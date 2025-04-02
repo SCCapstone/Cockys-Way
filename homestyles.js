@@ -303,6 +303,22 @@ const createHomeStyles = (colors) =>
       borderRadius: 20,
       borderColor: colors.text,
     },
+    tutorialOverlayTop: {
+      flex: 1,
+      justifyContent: "flex-start",
+      alignItems: "center",
+      paddingTop: 80,
+      borderRadius: 20,
+      borderColor: colors.text,
+    },
+    tutorialOverlayBottom: {
+      flex: 1,
+      justifyContent: "flex-end",
+      alignItems: "center",
+      paddingBottom: 80,
+      borderRadius: 20,
+      borderColor: colors.text,
+    },
     tutorialContent: {
       backgroundColor: colors.card,
       padding: 12,
