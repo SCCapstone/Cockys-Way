@@ -1049,8 +1049,7 @@ export default function HomeScreen() {
             placeholderTextColor={theme.colors.text}
             onChangeText={(text) => setSearch(text)}
             value={search}
-            inputContainerStyle={styles.searchInputContainer}
-            style={{ color: theme.colors.garnetWhite }}
+            style={styles.textInput}
           />
         </View>
         <View style={styles.buttonContainer}>

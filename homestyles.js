@@ -15,10 +15,15 @@ const createHomeStyles = (colors) =>
       marginHorizontal: 8,
       marginVertical: 8,
       paddingHorizontal: 8,
+      height: 40,
     },
-    searchInputContainer: {
-      backgroundColor: colors.border,
-      borderBottomColor: colors.border,
+    textInput: {
+      height: 40,
+      paddingVertical: 0,
+      textAlignVertical: "center",
+      fontSize: 16,
+      lineHeight: 20,
+      color: colors.garnetWhite,
     },
     map: {
       flex: 1,
