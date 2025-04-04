@@ -8,14 +8,12 @@ import { getAuth } from "firebase/auth";
 
 jest.mock("firebase/auth");
 
-// Mock navigation
 jest.mock("expo-router", () => ({
   router: {
     push: jest.fn(),
   },
 }));
 
-// Mock Firebase Firestore and Auth
 jest.mock("firebase/firestore", () => ({
   getFirestore: jest.fn(),
   doc: jest.fn(),
@@ -33,16 +31,15 @@ jest.mock("firebase/firestore", () => ({
   ),
 }));
 
-// Mock fonts and splash screen
 jest.mock("expo-font", () => ({
   useFonts: jest.fn(() => [true]),
   loadAsync: jest.fn(),
-  isLoaded: jest.fn(() => true), // <- this is the missing function causing your error
+  isLoaded: jest.fn(() => true),
 }));
 
 jest.mock("@expo-google-fonts/abel", () => ({
   useFonts: jest.fn(() => [true]),
-  Abel_400Regular: {}, // dummy font value to avoid undefined error
+  Abel_400Regular: {},
 }));
 
 jest.mock("expo-splash-screen", () => ({
@@ -108,15 +105,12 @@ describe("SettingsScreen", () => {
 
   it("opens/closes the Blackboard link help modal when pressed", async () => {
     const { getByTestId, getByText, queryByText } = renderWithTheme();
-    // Check to make sure modal is closed
     expect(queryByText("Blackboard .ics Link")).toBeFalsy();
 
-    // open the modal
     const helpLinkText = await waitFor(() => getByTestId("infoButton"));
     fireEvent.press(helpLinkText);
     expect(getByText("Blackboard .ics Link")).toBeTruthy();
 
-    // Close the modal
     const closeButton = getByText("Close");
     fireEvent.press(closeButton);
     expect(queryByText("Blackboard .ics Link")).toBeFalsy();

@@ -1,6 +1,5 @@
 import { Alert } from "react-native";
 
-// ✅ Inline mock to avoid circular require issues
 jest.mock("firebase/auth", () => ({
   getAuth: jest.fn(() => ({
     currentUser: {
@@ -34,7 +33,6 @@ import { render, fireEvent, waitFor, act } from "@testing-library/react-native";
 import MyAccountScreen from "../../app/MyAccount";
 import { ThemeContext } from "../../ThemeContext";
 
-// ✅ Firebase functions from the mock
 import {
   getAuth,
   EmailAuthProvider,
@@ -170,17 +168,14 @@ describe("MyAccountScreen", () => {
     fireEvent.press(getByText("Cancel"));
 
     await waitFor(() => {
-      // Ensure we're back to the non-editing state
       expect(queryByText("New Email (Leave blank if unchanged)")).toBeNull();
       expect(getByText("Edit Account Information")).toBeTruthy();
     });
   });
 
   it("shows error alert if no user is authenticated", async () => {
-    // 👇 Mock getAuth to simulate unauthenticated user
     getAuth.mockReturnValueOnce({ currentUser: null });
 
-    // 👇 Spy on Alert.alert
     const alertSpy = jest.spyOn(Alert, "alert").mockImplementation(() => {});
 
     renderWithTheme();
@@ -192,6 +187,6 @@ describe("MyAccountScreen", () => {
       );
     });
 
-    alertSpy.mockRestore(); // optional cleanup
+    alertSpy.mockRestore();
   });
 });

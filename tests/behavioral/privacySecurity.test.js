@@ -3,7 +3,6 @@ import { render, fireEvent, waitFor } from "@testing-library/react-native";
 import PrivacySecurityScreen from "../../app/PrivacySecurity";
 import { ThemeProvider } from "../../ThemeContext";
 
-// Mocks
 jest.mock("firebase/firestore", () => ({
   getFirestore: jest.fn(),
   doc: jest.fn(() => ({})),

@@ -38,14 +38,12 @@ jest.mock("../../components/Class", () => {
   };
 });
 
-// Mock the route parameters
 jest.spyOn(router, "useLocalSearchParams").mockReturnValue({
   subject: "CSCE",
   semester: "202501",
   number: "101",
 });
 
-// Mock theme
 const mockTheme = {
   colors: {
     background: "#fff",
@@ -53,7 +51,6 @@ const mockTheme = {
   },
 };
 
-// Sample course data
 const mockCourseData = [
   {
     crn: "12345",
@@ -67,7 +64,6 @@ const mockCourseData = [
   },
 ];
 
-// Mock fetchCourseList hook
 jest.spyOn(fetchHook, "default").mockReturnValue({
   data: mockCourseData,
   isLoading: false,
@@ -106,14 +102,8 @@ describe("AddClassSearchResults", () => {
     );
   
     const toggleButton = getByTestId("toggle-add-class");
-  
-    // should show the plus at first
     expect(getByTestId("check-icon").props.children).toBe("plus-circle");
-  
-    // press button to toggle icon
     fireEvent.press(toggleButton);
-  
-    // should now be check after toggling icon
     expect(getByTestId("check-icon").props.children).toBe("check-circle");
   });
 });
