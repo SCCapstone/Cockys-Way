@@ -285,12 +285,15 @@ const Class = ({
                 backgroundColor: pressed ? "#450006" : "#73000A",
               },
             ]}
+            testID="toggle-add-class"
           >
             <FontAwesome
               name={added ? "check-circle" : "plus-circle"}
               size={30}
               color="#FFFFFF"
+              testID="check-icon"
             />
+            {console.log("the real one being loaded")}
           </Pressable>
         ) : (
           <>

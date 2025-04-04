@@ -34,9 +34,6 @@ import ical from "ical.js";
 import { SALT } from "@env";
 
 export const getBlackboardEventsForDay = (selectedDate, blackboardEvents) => {
-  console.log("selected date: " + selectedDate);
-  console.log("blackboard events: ");
-  console.log(blackboardEvents);
   const filteredEvents = blackboardEvents
     .filter(
       (event) => moment(event.start).format("YYYY-MM-DD") === selectedDate
@@ -44,8 +41,6 @@ export const getBlackboardEventsForDay = (selectedDate, blackboardEvents) => {
     .map(
       (event) => `${event.summary} (${moment(event.start).format("hh:mm A")})`
     );
-  console.log("filteredEvvents: ");
-  console.log(filteredEvents);
   return filteredEvents;
 };
 
@@ -446,8 +441,6 @@ export default function Schedule() {
         }
       }
     });
-    // console.log("relevant courses:");
-    console.log(relevantCourses);
 
     return relevantCourses;
   };
