@@ -16,6 +16,7 @@ import {
   Modal,
   TextInput,
   Button,
+  ToastAndroid,
   Platform,
 } from "react-native";
 import {
@@ -597,7 +598,7 @@ export default function HomeScreen() {
       setFilteredMarkers((prevMarkers) => [...prevMarkers, newPin]);
 
       // just so we can see it was added right
-      Alert.alert("Success", "Custom pin added successfully!");
+      ToastAndroid.show("Custom pin added successfully!", ToastAndroid.SHORT);
     } catch (error) {
       Alert.alert("Error adding custom pin", error.message);
     }
@@ -677,7 +678,10 @@ export default function HomeScreen() {
           );
 
           setIsRenameModalVisible(false);
-          Alert.alert("Success", "Custom pin renamed successfully!");
+          ToastAndroid.show(
+            "Custom pin renamed successfully!",
+            ToastAndroid.SHORT
+          );
         } else {
           Alert.alert("Error", "No custom pins found for this user.");
         }
@@ -752,7 +756,10 @@ export default function HomeScreen() {
                 // same for the route menu
                 handleStopDirections();
 
-                Alert.alert("Success", "Custom pin deleted successfully!");
+                ToastAndroid.show(
+                  "Custom pin deleted successfully!",
+                  ToastAndroid.SHORT
+                );
               } else {
                 Alert.alert("Error", "No custom pins found for this user.");
               }
@@ -869,7 +876,7 @@ export default function HomeScreen() {
     {
       title: "Filter Pins",
       description:
-        "If you want to view more/less pins on the map, use this button or the search bar.",
+        "If you want to view more/less pins on the map, use this button or the search bar.\n\nPins are initially filtered to display college buildings only at startup",
       buttonId: "filterButton",
       position: "bottom",
     },
@@ -1110,12 +1117,12 @@ export default function HomeScreen() {
 
   // Make sure tutorial marker is displaying on map, sometimes still doesn't work
   useEffect(() => {
-    if (!tutorialCompleted) {
+    if (!tutorialCompleted && tutorialStep >= 5) {
       setFilteredMarkers((prevMarkers) => [...prevMarkers, TUTORIAL_MARKER]);
       setSelectedMarker(TUTORIAL_MARKER);
       setSelectedDestination(TUTORIAL_MARKER);
       onMarkerSelected(TUTORIAL_MARKER);
-    } else {
+    } else if (tutorialCompleted || tutorialStep < 5) {
       setFilteredMarkers((prevMarkers) =>
         prevMarkers.filter((marker) => marker.id !== TUTORIAL_MARKER.id)
       );
@@ -1124,7 +1131,7 @@ export default function HomeScreen() {
       setShowRouteDetails(false);
       setShowTravelModeButtons(false);
     }
-  }, [tutorialCompleted]);
+  }, [tutorialCompleted, tutorialStep]);
 
   if (
     isLoading ||
@@ -1426,6 +1433,7 @@ export default function HomeScreen() {
               <Text style={styles.modalText}>Enter new title for the pin:</Text>
               <TextInput
                 style={styles.modalInput}
+                placeholder={selectedMarker?.title || "Enter new title"}
                 value={newTitle}
                 onChangeText={setNewTitle}
               />
@@ -1434,6 +1442,9 @@ export default function HomeScreen() {
               </Text>
               <TextInput
                 style={styles.modalInput}
+                placeholder={
+                  selectedMarker?.description || "Enter new description"
+                }
                 value={newDescription}
                 onChangeText={setNewDescription}
               />
