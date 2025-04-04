@@ -480,7 +480,7 @@ export default function SettingsScreen() {
         animationType="fade"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => setInfoModalVisible(false)}
+        onRequestClose={() => setInfoModalVisible(false)}// possible onRequestClose Exception due to nonexistent state
       >
         <View style={styles.modalBackdrop}>
           <View style={styles.modalContainer}>
