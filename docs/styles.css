@@ -286,6 +286,10 @@ footer p {
   .profiles {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .enlarged-image-container img {
+    width: 240px;
+  }
 }
 
 @media (max-width: 625px) {
@@ -319,12 +323,6 @@ footer p {
     display: inline-block;
     margin-left: 0;
     padding-left: 1em;
-  }
-
-  .enlarged-image-container img {
-    width: 90vw;
-    max-width: 100%;
-    height: auto;
   }
 }
 
