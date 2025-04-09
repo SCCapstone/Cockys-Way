@@ -10,6 +10,7 @@ import {
   Modal,
   Pressable,
   TextInput,
+  ToastAndroid,
 } from "react-native";
 import { useFonts, Abel_400Regular } from "@expo-google-fonts/abel";
 import * as SplashScreen from "expo-splash-screen";
@@ -178,9 +179,18 @@ export default function SettingsScreen() {
         }
       } else {
         Alert.alert(
-          "Sign In Required",
-          "Please sign in to access your settings.",
-          [{ text: "OK" }]
+          "Sign In",
+          "Some settings are only available to signed-in users. Please sign in to continue.",
+          [
+            {
+              text: "Go to Login",
+              onPress: () => router.push("/login"),
+            },
+            {
+              text: "Cancel",
+              style: "cancel",
+            },
+          ]
         );
       }
     };
@@ -233,10 +243,9 @@ export default function SettingsScreen() {
         console.error("Error updating theme preference: ", error);
       }
     } else {
-      Alert.alert(
-        "Sign In Required",
-        "Please sign in to update your theme preference.",
-        [{ text: "OK" }]
+      ToastAndroid.show(
+        "Not signed in — changes to theme won’t be saved.",
+        ToastAndroid.SHORT
       );
     }
   };
@@ -291,7 +300,29 @@ export default function SettingsScreen() {
 
       <TouchableOpacity
         style={styles.settingItem}
-        onPress={() => router.push("/PrivacySecurity")}
+        onPress={() => {
+          const user = getAuth().currentUser;
+          if (user) {
+            router.push("/PrivacySecurity");
+          } else {
+            Alert.alert(
+              "Sign In Required",
+              "Please sign in to access Privacy and Security settings.",
+              [
+                {
+                  text: "Go to Login",
+                  onPress: () => {
+                    router.push("/login");
+                  },
+                },
+                {
+                  text: "Cancel",
+                  style: "cancel",
+                },
+              ]
+            );
+          }
+        }}
       >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Privacy and Security</Text>
@@ -300,7 +331,29 @@ export default function SettingsScreen() {
 
       <TouchableOpacity
         style={styles.settingItem}
-        onPress={() => router.push("/favLocations")}
+        onPress={() => {
+          const user = getAuth().currentUser;
+          if (user) {
+            router.push("/favLocations");
+          } else {
+            Alert.alert(
+              "Sign In Required",
+              "Please sign in to access Favorite Locations.",
+              [
+                {
+                  text: "Go to Login",
+                  onPress: () => {
+                    router.push("/login");
+                  },
+                },
+                {
+                  text: "Cancel",
+                  style: "cancel",
+                },
+              ]
+            );
+          }
+        }}
       >
         <View style={styles.accentBox}>
           <Text style={styles.settingText}>Favorite Locations</Text>
@@ -310,7 +363,29 @@ export default function SettingsScreen() {
       <View style={styles.settingItem}>
         <TouchableOpacity
           style={styles.accentBox}
-          onPress={() => router.push("/MyAccount")}
+          onPress={() => {
+            const user = getAuth().currentUser;
+            if (user) {
+              router.push("/MyAccount");
+            } else {
+              Alert.alert(
+                "Sign In Required",
+                "Please sign in to access your account information.",
+                [
+                  {
+                    text: "Go to Login",
+                    onPress: () => {
+                      router.push("/login");
+                    },
+                  },
+                  {
+                    text: "Cancel",
+                    style: "cancel",
+                  },
+                ]
+              );
+            }
+          }}
         >
           <Text style={styles.settingText}>My Account</Text>
         </TouchableOpacity>
@@ -366,6 +441,27 @@ export default function SettingsScreen() {
               setIcsLink(text);
               setHasChanged(text !== originalLink);
             }}
+            onFocus={() => {
+              const user = getAuth().currentUser;
+              if (!user) {
+                Alert.alert(
+                  "Sign In Required",
+                  "Please sign in to edit your Blackboard link.",
+                  [
+                    {
+                      text: "Go to Login",
+                      onPress: () => {
+                        router.push("/login");
+                      },
+                    },
+                    {
+                      text: "Cancel",
+                      style: "cancel",
+                    },
+                  ]
+                );
+              }
+            }}
             placeholder="Enter your Blackboard link"
             placeholderTextColor="#888"
           />
@@ -384,7 +480,7 @@ export default function SettingsScreen() {
         animationType="fade"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => setInfoModalVisible(false)}
+        onRequestClose={() => setInfoModalVisible(false)}// possible onRequestClose Exception due to nonexistent state
       >
         <View style={styles.modalBackdrop}>
           <View style={styles.modalContainer}>

@@ -6,14 +6,12 @@ import { ThemeProvider } from "../../ThemeContext";
 
 const renderWithTheme = (ui) => render(<ThemeProvider>{ui}</ThemeProvider>);
 
-// Mock FirebaseConfig to avoid `getReactNativePersistence` issue
 jest.mock("../../FirebaseConfig", () => ({
   FIREBASE_AUTH: {
     currentUser: null,
   },
 }));
 
-// Mock Firebase Auth functions
 jest.mock("firebase/auth", () => ({
   getAuth: () => ({
     currentUser: null,
@@ -25,14 +23,12 @@ jest.mock("firebase/auth", () => ({
   createUserWithEmailAndPassword: jest.fn(),
 }));
 
-// Mock Expo Router
 jest.mock("expo-router", () => ({
   router: {
     push: jest.fn(),
   },
 }));
 
-// Mock the global alert function
 global.alert = jest.fn();
 
 describe("Register Screen", () => {
@@ -41,14 +37,12 @@ describe("Register Screen", () => {
   });
 
   it("registers successfully with valid input", async () => {
-    // Simulate a successful registration response
     createUserWithEmailAndPassword.mockResolvedValue({
       user: { uid: "12345", email: "test@example.com" },
     });
 
     const { getByPlaceholderText, getByTestId } = renderWithTheme(<Register />);
 
-    // Fill in the registration form
     fireEvent.changeText(
       getByPlaceholderText("Type Your Email"),
       "test@example.com"
@@ -62,33 +56,28 @@ describe("Register Screen", () => {
       "password123"
     );
 
-    // Press the register button (ensure your component sets testID="register-button")
     fireEvent.press(getByTestId("register-button"));
 
-    // Wait for the async registration to complete and assert Firebase was called correctly
     await waitFor(() => {
       expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(
-        expect.any(Object), // Represents your Firebase auth instance
+        expect.any(Object), 
         "test@example.com",
         "password123"
       );
     });
 
-    // Verify that the success alert was displayed
     await waitFor(() => {
       expect(global.alert).toHaveBeenCalledWith("Succesfully Registered!");
     });
   });
 
   it("shows an alert on registration failure", async () => {
-    // Simulate a registration failure
     createUserWithEmailAndPassword.mockRejectedValue(
       new Error("Registration Failed")
     );
 
     const { getByPlaceholderText, getByTestId } = renderWithTheme(<Register />);
 
-    // Fill in the registration form with valid values
     fireEvent.changeText(
       getByPlaceholderText("Type Your Email"),
       "fail@example.com"
@@ -102,10 +91,8 @@ describe("Register Screen", () => {
       "password123"
     );
 
-    // Press the register button
     fireEvent.press(getByTestId("register-button"));
 
-    // Wait for Firebase call and assert it was called with the expected parameters
     await waitFor(() => {
       expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(
         expect.any(Object),
@@ -114,7 +101,6 @@ describe("Register Screen", () => {
       );
     });
 
-    // Verify that the failure alert is displayed (note the exclamation mark)
     await waitFor(() => {
       expect(global.alert).toHaveBeenCalledWith("Registration Failed!");
     });

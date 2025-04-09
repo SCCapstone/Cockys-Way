@@ -196,13 +196,14 @@ const createHomeStyles = (colors) =>
     routeDetailsContainer: {
       position: "absolute",
       bottom: 50,
-      left: 20,
-      right: 20,
+      left: 10,
+      right: 10,
       backgroundColor: colors.card,
       padding: 15,
       borderRadius: 5,
       elevation: 5,
       opacity: 0.9,
+      flexDirection: 'column',
     },
     routeDetailsText: {
       fontSize: 15,
@@ -240,7 +241,7 @@ const createHomeStyles = (colors) =>
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
-      gap: 10,
+      width: '100%',
     },
     loadingContainer: {
       flex: 1,

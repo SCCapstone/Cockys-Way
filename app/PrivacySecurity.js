@@ -18,6 +18,8 @@ import {
   getDoc,
   setDoc,
   deleteDoc,
+  collection,
+  getDocs,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -46,8 +48,8 @@ export const deleteUser = async ({
     const credential = EmailAuthProvider.credential(user.email, password);
     await reauthenticateWithCredential(user, credential);
 
-    // Delete Firestore data
-    await deleteDoc(doc(firestore, "settings", user.uid));
+    // Delete user data from Firestore before deleting the account
+    await deleteUserData(user, firestore, setModalVisible, false);
 
     // Delete Auth account
     await user.delete();
@@ -75,6 +77,47 @@ export const deleteUser = async ({
       }
       Alert.alert("Error", error.message || "Unexpected error occurred.");
     }
+  }
+};
+
+const deleteUserData = async (
+  user,
+  firestore,
+  setModalVisible,
+  showAlert = true
+) => {
+  if (!user) {
+    Alert.alert("Sign In Required", "Please sign in to delete your data.");
+    return;
+  }
+
+  try {
+    const simpleCollections = ["settings", "custom-pins", "favorites"];
+
+    for (const collectionName of simpleCollections) {
+      const docRef = doc(firestore, collectionName, user.uid);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        await deleteDoc(docRef);
+      }
+    }
+
+    const coursesRef = collection(firestore, "schedules", user.uid, "courses");
+    const coursesSnap = await getDocs(coursesRef);
+
+    for (const courseDoc of coursesSnap.docs) {
+      await deleteDoc(courseDoc.ref);
+    }
+
+    await deleteDoc(doc(firestore, "schedules", user.uid));
+
+    if (showAlert) {
+      Alert.alert("Data Deleted", "Your data has been successfully deleted.");
+    }
+    setModalVisible(false);
+  } catch (error) {
+    console.error("Error deleting user data:", error);
+    Alert.alert("Error", "There was an error deleting your data.");
   }
 };
 
@@ -225,21 +268,6 @@ export default function PrivacySecurityScreen() {
     }
   };
 
-  const deleteUserData = async () => {
-    if (!user) {
-      Alert.alert("Sign In Required", "Please sign in to delete your data.");
-      return;
-    }
-    try {
-      await deleteDoc(doc(firestore, "settings", user.uid));
-      Alert.alert("Data Deleted", "Your data has been successfully deleted.");
-      setModalVisible(false);
-    } catch (error) {
-      console.error("Error deleting user data:", error);
-      Alert.alert("Error", "There was an error deleting your data.");
-    }
-  };
-
   return (
     <ScrollView style={styles.container}>
       <Text style={styles.header}>Privacy and Security</Text>
@@ -273,7 +301,7 @@ export default function PrivacySecurityScreen() {
               </Pressable>
               <Pressable
                 style={[styles.modalButton, styles.modalConfirmButton]}
-                onPress={deleteUserData}
+                onPress={() => deleteUserData(user, firestore, setModalVisible)}
               >
                 <Text style={styles.modalButtonText}>Delete</Text>
               </Pressable>
@@ -331,6 +359,8 @@ export default function PrivacySecurityScreen() {
               placeholder="Enter your password"
               secureTextEntry
               value={password}
+              color={colors.garnetWhite}
+              placeholderTextColor={colors.garnetWhite}
               onChangeText={setPassword}
             />
             {passwordError !== "" && (

@@ -9,6 +9,7 @@ import {
   Image,
   ActivityIndicator,
   ToastAndroid,
+  ScrollView,
 } from "react-native";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { useRouter } from "expo-router";
@@ -33,9 +34,6 @@ import ical from "ical.js";
 import { SALT } from "@env";
 
 export const getBlackboardEventsForDay = (selectedDate, blackboardEvents) => {
-  console.log("selected date: " + selectedDate);
-  console.log("blackboard events: ");
-  console.log(blackboardEvents);
   const filteredEvents = blackboardEvents
     .filter(
       (event) => moment(event.start).format("YYYY-MM-DD") === selectedDate
@@ -43,8 +41,6 @@ export const getBlackboardEventsForDay = (selectedDate, blackboardEvents) => {
     .map(
       (event) => `${event.summary} (${moment(event.start).format("hh:mm A")})`
     );
-  console.log("filteredEvvents: ");
-  console.log(filteredEvents);
   return filteredEvents;
 };
 
@@ -445,8 +441,6 @@ export default function Schedule() {
         }
       }
     });
-    // console.log("relevant courses:");
-    console.log(relevantCourses);
 
     return relevantCourses;
   };
@@ -536,31 +530,35 @@ export default function Schedule() {
                     ? currentDay
                     : "Select a date to view what's planned!"}
                 </Text>
-                {currentCourses.map((item, index) => {
-                  const regex = /^\d{3}-\d{3}:$/;
+                <View style={{ maxHeight: 375, width: "100%" }}>
+                  <ScrollView>
+                    {currentCourses.map((item, index) => {
+                      const regex = /^\d{3}-\d{3}:$/;
 
-                  const parts = item.split(" ");
-                  // console.log(parts);
-                  const isCourse = parts[1] && regex.test(parts[1]);
-                  const bg = isCourse ? "#AAAAAA" : "#73000A";
-                  const text = isCourse ? colors.text : "#FFFFFF";
+                      const parts = item.split(" ");
+                      // console.log(parts);
+                      const isCourse = parts[1] && regex.test(parts[1]);
+                      const bg = isCourse ? "#AAAAAA" : "#73000A";
+                      const text = isCourse ? colors.text : "#FFFFFF";
 
-                  return (
-                    <Text
-                      key={index}
-                      style={{
-                        color: text,
-                        backgroundColor: bg,
-                        padding: 5,
-                        marginBottom: 7,
-                        borderRadius: 7,
-                        fontSize: 15,
-                      }}
-                    >
-                      {item}
-                    </Text>
-                  );
-                })}
+                      return (
+                        <Text
+                          key={index}
+                          style={{
+                            color: text,
+                            backgroundColor: bg,
+                            padding: 5,
+                            marginBottom: 7,
+                            borderRadius: 7,
+                            fontSize: 15,
+                          }}
+                        >
+                          {item}
+                        </Text>
+                      );
+                    })}
+                  </ScrollView>
+                </View>
               </View>
             </View>
           ) : (

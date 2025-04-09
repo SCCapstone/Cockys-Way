@@ -31,8 +31,6 @@ describe("Blackboard Courses for Day", () => {
                 "summary": "Exercise-3"
             }
         ];
-        console.log("hello resuilts")
-        console.log(getBlackboardEventsForDay("2025-03-04", events))
         expect(getBlackboardEventsForDay("2025-03-04", events)).toEqual(["Midterm (11:26 AM)"]);
         expect(getBlackboardEventsForDay("2024-04-15", events)).toEqual(["Program 5 (11:59 PM)"]);
         expect(getBlackboardEventsForDay("2024-04-26", events)).toEqual([]);

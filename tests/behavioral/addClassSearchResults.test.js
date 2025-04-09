@@ -15,26 +15,35 @@ jest.mock("@expo/vector-icons", () => {
 
 jest.mock("../../components/Class", () => {
   const React = require("react");
-  const { View, Text } = require("react-native");
-  return (props) => {
-    console.log("Mock Class props:", props);
+  const { useState } = React;
+  const { View, Text, Pressable } = require("react-native");
+
+  return ({ code, section, name, instructor }) => {
+    const [added, setAdded] = useState(false);
+
     return (
-      <View>
-        <Text>{props.name}</Text>
-        <Text>{props.instructor}</Text>
+      <View testID={`class-${code}-${section}`}>
+        <Text>{name}</Text>
+        <Text>{instructor}</Text>
+        <Pressable
+          testID="toggle-add-class"
+          onPress={() => setAdded((prev) => !prev)}
+        >
+          <Text testID="check-icon">
+            {added ? "check-circle" : "plus-circle"}
+          </Text>
+        </Pressable>
       </View>
     );
   };
 });
 
-// Mock the route parameters
 jest.spyOn(router, "useLocalSearchParams").mockReturnValue({
   subject: "CSCE",
   semester: "202501",
   number: "101",
 });
 
-// Mock theme
 const mockTheme = {
   colors: {
     background: "#fff",
@@ -42,7 +51,6 @@ const mockTheme = {
   },
 };
 
-// Sample course data
 const mockCourseData = [
   {
     crn: "12345",
@@ -52,10 +60,10 @@ const mockCourseData = [
     instr: "Prof. Smith",
     meets: "MWF 10:00-10:50",
     srcdb: "202501",
+    fromSearch: true
   },
 ];
 
-// Mock fetchCourseList hook
 jest.spyOn(fetchHook, "default").mockReturnValue({
   data: mockCourseData,
   isLoading: false,
@@ -84,5 +92,18 @@ describe("AddClassSearchResults", () => {
       expect(getByText("Intro to CS")).toBeTruthy();
       expect(getByText("Prof. Smith")).toBeTruthy();
     });
+  });
+
+  it("shows check icon after class is added", async () => {
+    const { getByTestId } = render(
+      <ThemeContext.Provider value={{ theme: mockTheme }}>
+        <AddClassSearchResults />
+      </ThemeContext.Provider>
+    );
+  
+    const toggleButton = getByTestId("toggle-add-class");
+    expect(getByTestId("check-icon").props.children).toBe("plus-circle");
+    fireEvent.press(toggleButton);
+    expect(getByTestId("check-icon").props.children).toBe("check-circle");
   });
 });

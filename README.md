@@ -13,6 +13,7 @@ To run this app, you'll first need to download and install:
 
 - [Node.js](https://nodejs.org/en/)
 - [Expo Go](https://expo.dev/go) on your phone
+- [Android Studio](https://developer.android.com/studio) & Emulator
 
 ## Setup
 
@@ -60,6 +61,8 @@ We will be deploying our build with eas build (using expo.dev) to build an apk t
 3. Run `eas build -p android --profile preview` to build the app
 
 4. The link to the apk will be provided in this repo, and the apk file itself will be available for download via "releases" in this repo
+
+6. Once downloaded, the apk file can be installed and run on any Android device or using an Android Studio emulator
 
 > Note: The build process may take a while as we are working on the free version of the platform (~20-30 minutes). Also, access to the Cockys-Way project on expo.dev is required to deploy the app. If you need access, please reach out to one of the team members.
 

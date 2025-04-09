@@ -224,18 +224,15 @@ describe("HomeScreen", () => {
     );
   };
 
-  // test markers are displayed and selectable
   it("markers displayed on map", async () => {
     const { queryByText, queryAllByTestId, getByTestId } = renderHomeScreen();
 
-    // make sure to skip tutorial
     await waitFor(() => {
       expect(queryByText("Skip")).toBeTruthy();
     });
     const skipButton = queryByText("Skip");
     fireEvent.press(skipButton);
 
-    // make sure markers are rendered
     await waitFor(() => {
       const markers = queryAllByTestId("marker");
       expect(markers.length).toBeGreaterThan(0);
@@ -258,16 +255,13 @@ describe("HomeScreen", () => {
       expect(markers.length).toBeGreaterThan(0);
     });
 
-    // find all markers
     const markers = queryAllByTestId("marker");
     const catawbaMarker = markers.find(
       (marker) => marker.props.title === "1000 Catawba Street"
     );
     expect(catawbaMarker).toBeTruthy();
-    // if worked, select 1000 Catawba Street marker
     fireEvent.press(catawbaMarker);
 
-    // make sure route details container popped up, then look for 1000 Catawba Street marker title
     await waitFor(() => {
       const routeDetailsContainer = getByTestId("route-details-container");
       expect(routeDetailsContainer).toBeTruthy();
@@ -286,29 +280,23 @@ describe("HomeScreen", () => {
     const skipButton = queryByText("Skip");
     fireEvent.press(skipButton);
 
-    // look for search input
     const searchInput = getByPlaceholderText("Search Here...");
     expect(searchInput).toBeTruthy();
 
-    // type "1027" into the search input
     fireEvent.changeText(searchInput, "1027");
 
-    // let markers update
     await waitFor(() => {
       const markers = queryAllByTestId("marker");
-      // only marker shown should be the 1027 Barnwell St marker
       expect(markers.length).toBe(1);
       expect(markers[0].props.title).toBe(
         "1027 Barnwell St. (University Foundations)"
       );
     });
-    // confirm cannot see 1005 Idlewilde Boulevard marker
     const idlewildeMarker = queryAllByTestId("marker").find(
       (marker) => marker.props.title === "1005 Idlewilde Boulevard"
     );
     expect(idlewildeMarker).toBeFalsy();
 
-    // select 1027 Barnwell St marker
     const barnwellMarker = queryAllByTestId("marker").find(
       (marker) =>
         marker.props.title === "1027 Barnwell St. (University Foundations)"
@@ -316,14 +304,12 @@ describe("HomeScreen", () => {
     expect(barnwellMarker).toBeTruthy();
     fireEvent.press(barnwellMarker);
 
-    // verify route details show correct details
     await waitFor(() => {
       const routeDetailsContainer = getByTestId("route-details-container");
       expect(routeDetailsContainer).toBeTruthy();
       expect(
         queryByText("1027 Barnwell St. (University Foundations)")
       ).toBeTruthy();
-      // Verify Idlewilde is not shown
       expect(queryByText("1005 Idlewilde Boulevard")).toBeFalsy();
     });
 
@@ -357,7 +343,6 @@ describe("HomeScreen", () => {
       expect(queryByText("1000 Catawba Street")).toBeTruthy();
     });
 
-    // look for Start Nav button
     await waitFor(() => {
       expect(queryByText("Start Nav")).toBeTruthy();
     });
@@ -423,24 +408,19 @@ describe("HomeScreen", () => {
       expect(queryByText("1000 Catawba Street")).toBeTruthy();
     });
 
-    // check for initial state of favorite icon
     let favoriteButton = getByTestId("favorite-icon");
     expect(favoriteButton).toBeTruthy();
 
-    // initially not favorited
     await waitFor(() => {
       expect(getByText("star-o")).toBeTruthy();
     });
 
-    // press the favorite button
     fireEvent.press(favoriteButton);
     await waitFor(() => {
       expect(getByText("star")).toBeTruthy();
     });
 
-    // press the favorite button again to unfavorite
     await act(async () => {
-      // simulate that the location is currently favorited so unfavorite logic runs
       firestore.getDoc.mockImplementationOnce(() =>
         Promise.resolve({
           exists: () => true,

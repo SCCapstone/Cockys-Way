@@ -7,7 +7,7 @@ jest.mock("firebase/auth", () => ({
     return () => {};
   },
   initializeAuth: jest.fn(),
-  getReactNativePersistence: jest.fn(), // ✅ This line fixes the error
+  getReactNativePersistence: jest.fn(),
 }));
 
 import React from "react";
@@ -18,7 +18,6 @@ import { ThemeProvider } from "../../ThemeContext";
 
 const renderWithTheme = (ui) => render(<ThemeProvider>{ui}</ThemeProvider>);
 
-// mock the firebase config
 jest.mock("../../FirebaseConfig", () => ({
   FIREBASE_AUTH: {
     currentUser: null,
@@ -28,7 +27,6 @@ jest.mock("../../FirebaseConfig", () => ({
   },
 }));
 
-// mock firebase/firestore with realistic data (like what we have actually stored)
 jest.mock("firebase/firestore", () => ({
   collection: jest.fn(),
   getDocs: jest.fn(() =>
@@ -111,17 +109,14 @@ jest.mock("firebase/firestore", () => ({
   ),
 }));
 
-// mocking expo-router
 jest.mock("expo-router", () => ({
   useRouter: jest.fn(),
 }));
 
-// mock for FontAwesome icons
 jest.mock("@expo/vector-icons/FontAwesome", () => "FontAwesome");
 
 
 describe("Directory Screen", () => {
-  // setup router mock before each test
   const mockPush = jest.fn();
   beforeEach(() => {
     jest.clearAllMocks();
@@ -131,25 +126,20 @@ describe("Directory Screen", () => {
   it("renders alphabet bar and allows scrolling to sections", async () => {
     const { getByText, queryByText } = renderWithTheme(<Directory />);
 
-    // wait for the data to load (Whitney Abreu should be displayed first)
     await waitFor(() => {
       expect(queryByText("Whitney Abreu")).toBeTruthy();
     });
 
-    // click on 'A' in the alphabet bar
     const letterA = getByText("A");
     fireEvent.press(letterA);
 
-    // Should scroll to Whitney Abreu
     await waitFor(() => {
       expect(queryByText("Whitney Abreu")).toBeTruthy();
     });
 
-    // click on "S" in the alphabet bar
     const letterS = getByText("S");
     fireEvent.press(letterS);
 
-    // should scroll to John Smith
     await waitFor(() => {
       expect(queryByText("John Smith")).toBeTruthy();
     });
@@ -158,17 +148,14 @@ describe("Directory Screen", () => {
   it("navigates to professor info when a professor name is clicked", async () => {
     const { getByText, queryByText } = renderWithTheme(<Directory />);
 
-    // wait for the data to load (Whitney Abreu should be displayed first)
     await waitFor(() => {
       expect(queryByText("Whitney Abreu")).toBeTruthy();
     });
 
-    // professor name is clicked
     await act(async () => {
       fireEvent.press(getByText("Whitney Abreu"));
     });
 
-    // check that router was used with the correct path
     expect(mockPush).toHaveBeenCalledWith({
       pathname: "professorInfo",
       params: expect.any(Object),
@@ -180,23 +167,19 @@ describe("Directory Screen", () => {
       <Directory />
     );
 
-    // wait for the data to load (Whitney Abreu should be displayed first)
     await waitFor(() => {
       expect(queryByText("Whitney Abreu")).toBeTruthy();
     });
 
-    // once page loaded, get search input and type
     const searchInput = getByPlaceholderText("Search by Name");
     fireEvent.changeText(searchInput, "Smith");
 
-    // after "Smith" is typed, only John Smith should be displayed
     await waitFor(() => {
       expect(queryByText("John Smith")).toBeTruthy();
       expect(queryByText("Whitney Abreu")).toBeNull();
       expect(queryByText("Mike Zhang")).toBeNull();
     });
 
-    // after the search is cleared, all professors should be displayed again
     fireEvent.changeText(searchInput, "");
     await waitFor(() => {
       expect(queryByText("Whitney Abreu")).toBeTruthy();

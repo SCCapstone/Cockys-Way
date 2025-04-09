@@ -4,13 +4,11 @@ import ProfessorInfo from "../../app/professorInfo";
 import { ThemeProvider } from "../../ThemeContext";
 import { useLocalSearchParams } from "expo-router";
 
-// 👇 Fix expo-font error
 jest.mock("expo-font", () => ({
   loadAsync: jest.fn(),
   isLoaded: jest.fn(() => true),
 }));
 
-// 👇 Mock expo-router to supply professor data
 jest.mock("expo-router", () => ({
   useRouter: () => ({ push: jest.fn() }),
   useLocalSearchParams: jest.fn(),

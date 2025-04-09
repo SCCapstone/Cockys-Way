@@ -15,6 +15,8 @@ import Constants from "expo-constants";
 
 import fetchCourseInfo from "../hook/fetchCourseInfo";
 
+let hasShownEmulatorAlert = false;
+
 const Class = ({
   crn,
   code,
@@ -66,7 +68,7 @@ const Class = ({
             notificationTime.getDate() +
               ((DAY_MAP[day] - notificationTime.getDay() + 7) % 7)
           );
-          
+
           await Notifications.scheduleNotificationAsync({
             content: {
               title: `${name} is about to start!`,
@@ -162,9 +164,12 @@ const Class = ({
         handleRegistrationError(`${e}`);
       }
     } else {
-      handleRegistrationError(
-        "You MUST use a physical device for push notifications.\nEmulators do not support push notifications. "
-      );
+      if (!hasShownEmulatorAlert) {
+        hasShownEmulatorAlert = true;
+        handleRegistrationError(
+          "You MUST use a physical device for push notifications.\nEmulators do not support push notifications. "
+        );
+      }
     }
   }
 
@@ -259,7 +264,7 @@ const Class = ({
 
   //added testID to the class component 30 MARCH 2025
   return (
-    <View style={styles.course} testID={`class-${code}-${section}`}> 
+    <View style={styles.course} testID={`class-${code}-${section}`}>
       <View style={styles.courseText}>
         <Text style={styles.courseHeader}>
           {code}-{section}
@@ -280,12 +285,15 @@ const Class = ({
                 backgroundColor: pressed ? "#450006" : "#73000A",
               },
             ]}
+            testID="toggle-add-class"
           >
             <FontAwesome
               name={added ? "check-circle" : "plus-circle"}
               size={30}
               color="#FFFFFF"
+              testID="check-icon"
             />
+            {console.log("the real one being loaded")}
           </Pressable>
         ) : (
           <>
