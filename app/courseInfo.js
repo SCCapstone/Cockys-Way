@@ -76,15 +76,34 @@ const courseInfo = () => {
             <Text style={styles.title}>
               {info.code} - {info.section}
             </Text>
-            <Pressable
-              onPress={() => router.push(`/directory?search=${instructor}`)}
+            <View
+              style={{
+                flexDirection: "row",
+                justifyContent: "center",
+                flexWrap: "wrap",
+              }}
             >
-              <Text
-                style={[styles.subtitle, { textDecorationLine: "underline" }]}
-              >
-                {instructor}
-              </Text>
-            </Pressable>
+              {instructor.split("/").map((name, index) => (
+                <Pressable
+                  key={index}
+                  onPress={() =>
+                    router.push(`/directory?search=${name.trim()}`)
+                  }
+                >
+                  <Text
+                    style={[
+                      styles.subtitle,
+                      {
+                        textDecorationLine: "underline",
+                        marginHorizontal: 5,
+                      },
+                    ]}
+                  >
+                    {name.trim()}
+                  </Text>
+                </Pressable>
+              ))}
+            </View>
             <Text style={styles.header}>Meeting times:</Text>
             <Text style={styles.info}>{cleanString(info.meeting_html)}</Text>
             <Text style={styles.header}>Credits:</Text>
