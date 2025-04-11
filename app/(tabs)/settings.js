@@ -17,7 +17,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
 import { router } from "expo-router";
-import { getAuth } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useTheme } from "@react-navigation/native";
 import { ThemeContext } from "../../ThemeContext";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
@@ -197,6 +197,19 @@ export default function SettingsScreen() {
 
     fetchSettings();
   }, [firestore]);
+
+  useEffect(() => {
+    const auth = getAuth();
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        // If user logs out, reset the theme toggle and app theme
+        setIsDarkMode(false);
+        setIsDarkTheme(false);
+      }
+    });
+
+    return unsubscribe;
+  }, []);
 
   const toggleSwitch = async () => {
     const newState = !isEnabled;
@@ -480,7 +493,7 @@ export default function SettingsScreen() {
         animationType="fade"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={() => setInfoModalVisible(false)}// possible onRequestClose Exception due to nonexistent state
+        onRequestClose={() => setInfoModalVisible(false)} // possible onRequestClose Exception due to nonexistent state
       >
         <View style={styles.modalBackdrop}>
           <View style={styles.modalContainer}>
