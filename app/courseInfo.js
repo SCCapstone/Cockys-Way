@@ -1,11 +1,9 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Pressable } from "react-native";
 import React, { useEffect, useState } from "react";
-import { useLocalSearchParams } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import fetchCourseInfo from "../hook/fetchCourseInfo";
 import { useContext } from "react";
 import { ThemeContext } from "../ThemeContext";
-
-
 
 export const getInfo = (crn, srcdb) => {
   return fetchCourseInfo(crn, srcdb);
@@ -20,6 +18,7 @@ export const cleanString = (string) => {
 };
 
 const courseInfo = () => {
+  const router = useRouter();
   const { crn, srcdb, instructor, meeting } = useLocalSearchParams();
   const [info, setInfo] = useState({});
   const { theme } = useContext(ThemeContext);
@@ -77,8 +76,15 @@ const courseInfo = () => {
             <Text style={styles.title}>
               {info.code} - {info.section}
             </Text>
-            <Text style={styles.subtitle}>{info.title}</Text>
-            <Text style={styles.subtitle}>{instructor}</Text>
+            <Pressable
+              onPress={() => router.push(`/directory?search=${instructor}`)}
+            >
+              <Text
+                style={[styles.subtitle, { textDecorationLine: "underline" }]}
+              >
+                {instructor}
+              </Text>
+            </Pressable>
             <Text style={styles.header}>Meeting times:</Text>
             <Text style={styles.info}>{cleanString(info.meeting_html)}</Text>
             <Text style={styles.header}>Credits:</Text>

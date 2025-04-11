@@ -12,7 +12,7 @@ import {
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { FIRESTORE_DB } from "../../FirebaseConfig";
 import { collection, getDocs } from "firebase/firestore";
-import { useRouter } from "expo-router";
+import { useRouter, useLocalSearchParams } from "expo-router";
 import { useTheme } from "@react-navigation/native";
 import { ThemeContext } from "../../ThemeContext";
 import { useContext } from "react";
@@ -42,7 +42,8 @@ export default function Directory() {
   const [error, setError] = useState(null);
 
   // Used for search feature
-  const [search, setSearch] = useState("");
+  const { search: searchParam } = useLocalSearchParams();
+  const [search, setSearch] = useState(searchParam || "");
   const [filteredData, setFilteredData] = useState([]);
   const flatListRef = useRef(null);
 
@@ -160,6 +161,12 @@ export default function Directory() {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (searchParam) {
+      setSearch(searchParam);
+    }
+  }, [searchParam]);
 
   // Filter data based on value in search bar. If search bar is empty, show all data
   useEffect(() => {
