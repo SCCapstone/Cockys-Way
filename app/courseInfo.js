@@ -83,26 +83,40 @@ const courseInfo = () => {
                 flexWrap: "wrap",
               }}
             >
-              {instructor.split("/").map((name, index) => (
-                <Pressable
-                  key={index}
-                  onPress={() =>
-                    router.push(`/directory?search=${name.trim()}`)
-                  }
-                >
-                  <Text
-                    style={[
-                      styles.subtitle,
-                      {
-                        textDecorationLine: "underline",
-                        marginHorizontal: 5,
-                      },
-                    ]}
+              {instructor.split("/").map((name, index, array) => {
+                const trimmedName = name.trim();
+                const isLast = index === array.length - 1;
+
+                return (
+                  <View
+                    key={index}
+                    style={{ flexDirection: "row", alignItems: "center" }}
                   >
-                    {name.trim()}
-                  </Text>
-                </Pressable>
-              ))}
+                    <Pressable
+                      onPress={() =>
+                        router.push(`/directory?search=${trimmedName}`)
+                      }
+                    >
+                      <Text
+                        style={[
+                          styles.subtitle,
+                          {
+                            textDecorationLine: "underline",
+                            marginHorizontal: 5,
+                          },
+                        ]}
+                      >
+                        {trimmedName}
+                      </Text>
+                    </Pressable>
+                    {!isLast && (
+                      <Text style={[styles.subtitle, { marginHorizontal: 2 }]}>
+                        /
+                      </Text>
+                    )}
+                  </View>
+                );
+              })}
             </View>
             <Text style={styles.header}>Meeting times:</Text>
             <Text style={styles.info}>{cleanString(info.meeting_html)}</Text>
