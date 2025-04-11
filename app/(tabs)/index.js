@@ -131,6 +131,8 @@ export default function HomeScreen() {
   };
 
   const onMarkerSelected = (marker) => {
+    console.log("hello marker")
+    console.log(marker);
     setSelectedMarker(marker);
     setSelectedDestination({
       latitude: marker.latitude,
@@ -182,8 +184,11 @@ export default function HomeScreen() {
         (marker) => marker.id === Number(markerId)
       );
       if (markerToFocus) {
-        onMarkerSelected(markerToFocus);
-        router.replace("/");
+        setTimeout(() => {
+          onMarkerSelected(markerToFocus);
+          router.replace("/");
+        }
+        , 500); 
       }
     }
   }, [markerId, markers]);

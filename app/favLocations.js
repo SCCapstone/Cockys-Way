@@ -81,6 +81,7 @@ const FavLocations = () => {
       padding: 10,
       backgroundColor: colors.primary,
       borderRadius: 5,
+      marginBottom: 10,
     },
     name: {
       flex: 1,
