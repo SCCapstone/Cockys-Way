@@ -32,7 +32,6 @@ export const formatName = (name) => {
   }
 };
 
-
 export default function Directory() {
   // Used for navigation
   const router = useRouter();
@@ -98,9 +97,10 @@ export default function Directory() {
       fontFamily: "Abel",
     },
     letterContainer: {
-      justifyContent: "flex-start",
-      padding: 10,
-      marginTop: 30, // helps align the bar
+      width: 30,
+      marginTop: 20,
+      flexShrink: 0,
+      maxHeight: "100%",
     },
     letter: {
       paddingTop: 5,
@@ -108,6 +108,15 @@ export default function Directory() {
     letterFont: {
       fontSize: 16,
       color: colors.garnetWhite,
+    },
+    letterOverlay: {
+      position: "absolute",
+      top: 20,
+      right: 0,
+      width: 30,
+      height: "95%",
+      justifyContent: "center",
+      alignItems: "center",
     },
   });
 
@@ -190,40 +199,48 @@ export default function Directory() {
         style={styles.searchBar}
       />
       <View style={styles.mainContent}>
-        <FlatList
-          data={filteredData}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.staffBox}
-              onPress={() =>
-                router.push({
-                  pathname: "professorInfo",
-                  params: { item: JSON.stringify(item) },
-                })
-              }
-            >
-              <Text style={styles.staffText}>{formatName(item.name)}</Text>
-              <FontAwesome name="chevron-right" size={30} color="#fff" />
-            </TouchableOpacity>
-          )}
-          keyExtractor={(item) => item.name}
-          ref={flatListRef}
-          getItemLayout={(data, index) => ({
-            length: ITEM_HEIGHT,
-            offset: ITEM_HEIGHT * index,
-            index,
-          })}
-        />
-        <View style={styles.letterContainer}>
-          {alphabet.map((letter) => (
-            <TouchableOpacity
-              key={letter}
-              onPress={() => handleLetterPress(letter)}
-              style={styles.letter}
-            >
-              <Text style={styles.letterFont}>{letter}</Text>
-            </TouchableOpacity>
-          ))}
+        <View style={{ flex: 1, marginRight: 30 }}>
+          <FlatList
+            data={filteredData}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={styles.staffBox}
+                onPress={() =>
+                  router.push({
+                    pathname: "professorInfo",
+                    params: { item: JSON.stringify(item) },
+                  })
+                }
+              >
+                <Text style={styles.staffText}>{formatName(item.name)}</Text>
+                <FontAwesome name="chevron-right" size={30} color="#fff" />
+              </TouchableOpacity>
+            )}
+            keyExtractor={(item) => item.name}
+            ref={flatListRef}
+            getItemLayout={(data, index) => ({
+              length: ITEM_HEIGHT,
+              offset: ITEM_HEIGHT * index,
+              index,
+            })}
+          />
+        </View>
+        <View style={styles.letterOverlay}>
+          <FlatList
+            data={alphabet}
+            keyExtractor={(item) => item}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                onPress={() => handleLetterPress(item)}
+                style={styles.letter}
+              >
+                <Text style={styles.letterFont}>{item}</Text>
+              </TouchableOpacity>
+            )}
+            contentContainerStyle={{ alignItems: "center" }}
+            showsVerticalScrollIndicator={false}
+            scrollEnabled={true}
+          />
         </View>
       </View>
     </SafeAreaView>
