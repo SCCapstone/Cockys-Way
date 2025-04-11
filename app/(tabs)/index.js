@@ -105,7 +105,7 @@ export default function HomeScreen() {
   );
 
   // Get professor's office location if navigated from ProfessorInfo.js
-  const { latitude, longitude } = useLocalSearchParams();
+  const { latitude, longitude, markerId } = useLocalSearchParams();
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [navigateToProfessorOffice, setNavigateToProfessorOffice] =
     useState(false);
@@ -174,6 +174,19 @@ export default function HomeScreen() {
     };
     saveRouteHistory(route);
   };
+
+  useEffect(() => {
+    console.log(markerId);
+    if (markerId && markers.length > 0) {
+      const markerToFocus = markers.find(
+        (marker) => marker.id === Number(markerId)
+      );
+      if (markerToFocus) {
+        onMarkerSelected(markerToFocus);
+        router.replace("/");
+      }
+    }
+  }, [markerId, markers]);
 
   // Fetch markers from Firebase
   useEffect(() => {

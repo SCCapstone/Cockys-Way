@@ -22,8 +22,10 @@ import {
 import { getAuth } from "firebase/auth";
 import { useContext } from "react";
 import { ThemeContext } from "../ThemeContext";
+import { useRouter } from "expo-router";
 
 const FavLocations = () => {
+  const router = useRouter();
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
   const auth = getAuth();
@@ -207,20 +209,22 @@ const FavLocations = () => {
           data={favorites}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
-            <View>
-              <View style={styles.itemContainer}>
-                <Text style={styles.name}>
-                  {item.title || `Location ID: ${item.id}`}
-                </Text>
-                <TouchableOpacity
-                  style={styles.removeButton}
-                  onPress={() => removeLocationFromFavorites(item.id)}
-                >
-                  <Text style={styles.removeButtonText}>−</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.separator} />
-            </View>
+            <TouchableOpacity
+              style={styles.itemContainer}
+              onPress={() =>
+                router.push({ pathname: "/", params: { markerId: item.id } })
+              }
+            >
+              <Text style={styles.name}>
+                {item.title || `Location ID: ${item.id}`}
+              </Text>
+              <TouchableOpacity
+                style={styles.removeButton}
+                onPress={() => removeLocationFromFavorites(item.id)}
+              >
+                <Text style={styles.removeButtonText}>−</Text>
+              </TouchableOpacity>
+            </TouchableOpacity>
           )}
         />
       ) : (

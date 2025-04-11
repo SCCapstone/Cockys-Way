@@ -621,9 +621,15 @@ export default function Schedule() {
           <View style={styles.bottomContainer}>
             <TouchableOpacity
               onPress={() => {
+                const today = moment().format("YYYY-MM-DD");
                 setCalendarVisibility(!calenderVisibility);
-                setCurrentDay("");
-                setCurrentCourses([]);
+                setCurrentDay(today);
+                const courseList = getCoursesForDay(today, courses);
+                const blackboardList = getBlackboardEventsForDay(
+                  today,
+                  blackboardEvents
+                );
+                setCurrentCourses([...courseList, ...blackboardList]);
                 // console.log("currentDay: "+ currentDay)
               }}
               style={styles.switchViewButton}
