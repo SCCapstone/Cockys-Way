@@ -111,10 +111,10 @@ jest.mock("firebase/firestore", () => ({
 
 jest.mock("expo-router", () => ({
   useRouter: jest.fn(),
+  useLocalSearchParams: jest.fn(() => ({})),
 }));
 
 jest.mock("@expo/vector-icons/FontAwesome", () => "FontAwesome");
-
 
 describe("Directory Screen", () => {
   const mockPush = jest.fn();
@@ -137,6 +137,7 @@ describe("Directory Screen", () => {
       expect(queryByText("Whitney Abreu")).toBeTruthy();
     });
 
+    await waitFor(() => expect(queryByText("S")).toBeTruthy());
     const letterS = getByText("S");
     fireEvent.press(letterS);
 

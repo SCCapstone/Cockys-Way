@@ -236,6 +236,8 @@ export default function Directory() {
           <FlatList
             data={alphabet}
             keyExtractor={(item) => item}
+            initialNumToRender={26}
+            maxToRenderPerBatch={26}
             renderItem={({ item }) => (
               <TouchableOpacity
                 onPress={() => handleLetterPress(item)}
