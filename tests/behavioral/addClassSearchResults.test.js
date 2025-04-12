@@ -1,6 +1,6 @@
 import React from "react";
 import { render, waitFor, fireEvent } from "@testing-library/react-native";
-import AddClassSearchResults from "../../app/addClassSearchResults";
+import AddClassSearchResults from "../../app/(tabs)/schedule/addClassSearchResults";
 import * as router from "expo-router";
 import * as fetchHook from "../../hook/fetchCourseList";
 import { ThemeContext } from "../../ThemeContext";
@@ -60,7 +60,7 @@ const mockCourseData = [
     instr: "Prof. Smith",
     meets: "MWF 10:00-10:50",
     srcdb: "202501",
-    fromSearch: true
+    fromSearch: true,
   },
 ];
 
@@ -100,7 +100,7 @@ describe("AddClassSearchResults", () => {
         <AddClassSearchResults />
       </ThemeContext.Provider>
     );
-  
+
     const toggleButton = getByTestId("toggle-add-class");
     expect(getByTestId("check-icon").props.children).toBe("plus-circle");
     fireEvent.press(toggleButton);

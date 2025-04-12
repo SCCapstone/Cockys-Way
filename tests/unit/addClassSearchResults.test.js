@@ -3,7 +3,7 @@ jest.mock("../../FirebaseConfig", () => ({
   FIREBASE_DB: {},
 }));
 
-import { getInfo } from "../../app/addClassSearchResults";
+import { getInfo } from "../../app/(tabs)/schedule/addClassSearchResults";
 import fetchInfo from "../../hook/fetchCourseList";
 
 // this will speicfy that here is a mock for fetchInfo

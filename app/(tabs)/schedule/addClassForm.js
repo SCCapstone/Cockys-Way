@@ -9,7 +9,7 @@ import React, { useState } from "react";
 import { Dropdown } from "react-native-element-dropdown";
 import { useRouter } from "expo-router";
 import { useContext } from "react";
-import { ThemeContext } from "../ThemeContext";
+import { ThemeContext } from "../../../ThemeContext";
 
 const data = [
   { label: "Fall 2024", value: "202408" },
@@ -39,6 +39,7 @@ const AddClassForm = () => {
     header: {
       fontSize: 30,
       color: colors.primary,
+      marginTop: 20,
     },
 
     subheader: {
@@ -127,7 +128,7 @@ const AddClassForm = () => {
   const handleSubmit = () => {
     if (validateInputs()) {
       router.push({
-        pathname: "/addClassSearchResults",
+        pathname: "/(tabs)/schedule/addClassSearchResults",
         params: { semester, subject, number },
       });
     }

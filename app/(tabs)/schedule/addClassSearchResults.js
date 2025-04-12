@@ -7,11 +7,11 @@ import {
 } from "react-native";
 import React, { useEffect, useMemo, useState } from "react";
 import { useLocalSearchParams } from "expo-router";
-import fetchCourseList from "../hook/fetchCourseList";
-import Class from "../components/Class";
-import fetchCourseInfo from "../hook/fetchCourseInfo";
+import fetchCourseList from "../../../hook/fetchCourseList";
+import Class from "../../../components/Class";
+import fetchCourseInfo from "../../../hook/fetchCourseInfo";
 import { useContext } from "react";
-import { ThemeContext } from "../ThemeContext";
+import { ThemeContext } from "../../../ThemeContext";
 
 export const getInfo = (subject, semester) => {
   console.log(fetchCourseList(subject, semester));
@@ -36,6 +36,7 @@ const AddClassSearchResults = () => {
       fontSize: 25,
       marginBottom: 20,
       color: colors.text,
+      marginTop: 20,
     },
     loadingContainer: {
       flex: 1,
