@@ -14,7 +14,7 @@ import {
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { useRouter } from "expo-router";
 import { useState, useEffect } from "react";
-import { FIRESTORE_DB } from "../../FirebaseConfig";
+import { FIRESTORE_DB } from "../../../FirebaseConfig";
 import {
   doc,
   getDoc,
@@ -24,12 +24,12 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import CryptoJS from "crypto-js";
-import Class from "../../components/Class";
+import Class from "../../../components/Class";
 import { getAuth } from "firebase/auth";
 import { Calendar, CalendarList, Agenda } from "react-native-calendars";
 import moment from "moment";
 import { useContext } from "react";
-import { ThemeContext } from "../../ThemeContext";
+import { ThemeContext } from "../../../ThemeContext";
 import ical from "ical.js";
 import { SALT } from "@env";
 
@@ -605,7 +605,7 @@ export default function Schedule() {
           {!calenderVisibility && (
             <TouchableOpacity
               onPress={() => {
-                router.push("../addClassForm");
+                router.push("/(tabs)/schedule/addClassForm");
               }}
               style={styles.addButton}
             >
@@ -644,7 +644,7 @@ export default function Schedule() {
         <View style={[styles.container, styles.background]}>
           <Image
             style={styles.image}
-            source={require("../../assets/images/cockys-way.png")}
+            source={require("../../../assets/images/cockys-way.png")}
           />
           <Text style={styles.noUser}>
             Looks like you're not logged in, tap the Profile icon in the top

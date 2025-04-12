@@ -1,7 +1,7 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
 import { useRouter } from "expo-router";
-import AddClassForm from "../../app/addClassForm";
+import AddClassForm from "../../app/(tabs)/schedule/addClassForm";
 import { ThemeContext } from "../../ThemeContext";
 
 const mockTheme = {
@@ -73,7 +73,7 @@ describe("AddClassForm", () => {
     ).toBeNull();
 
     expect(mockPush).toHaveBeenCalledWith({
-      pathname: "/addClassSearchResults",
+      pathname: "/(tabs)/schedule/addClassSearchResults",
       params: { semester: "202408", subject: "CSCE", number: "101" },
     });
   });
