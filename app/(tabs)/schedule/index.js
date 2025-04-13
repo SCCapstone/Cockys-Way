@@ -531,8 +531,8 @@ export default function Schedule() {
                     : "Select a date to view what's planned!"}
                 </Text>
                 <View style={{ maxHeight: 375, width: "100%" }}>
-                  <ScrollView>
-                    {currentCourses.map((item, index) => {
+  <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
+    {currentCourses.map((item, index) => {
                       const regex = /^\d{3}-\d{3}:$/;
 
                       const parts = item.split(" ");
