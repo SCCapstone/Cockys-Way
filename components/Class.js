@@ -257,7 +257,7 @@ const Class = ({
 
   const navigateToCourseInfo = () => {
     router.push({
-      pathname: "../courseInfo",
+      pathname: "/courseInfo",
       params: { crn, srcdb, instructor, meeting },
     });
   };
