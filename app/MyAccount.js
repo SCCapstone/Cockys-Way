@@ -157,52 +157,51 @@ export default function MyAccountScreen() {
     setNewEmail("");
     setNewPassword("");
   };
-
-  const handleSaveChanges = async () => {
-    setIsLoading(true);
-    try {
-      const auth = getAuth();
-      if (!auth.currentUser) {
-        Alert.alert("Error", "No authenticated user found.");
-        return;
-      }
-
-      const credential = EmailAuthProvider.credential(
-        auth.currentUser.email,
-        passwordForAuth
-      );
-      await reauthenticateWithCredential(auth.currentUser, credential);
-
-      if (newEmail.trim() !== "") {
-        updateEmail(auth.currentUser, newEmail)
-          .then(() => {
-            Alert.alert("Success", "Your email has been updated!");
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-
-        setNewEmail("");
-        setIsLoading(false);
-        return;
-      }
-
-      if (newPassword.trim() !== "") {
-        await updatePassword(auth.currentUser, newPassword);
-        Alert.alert("Success", "Your password has been updated!");
-      }
-
-      setNewEmail("");
-      setNewPassword("");
-      setPasswordForAuth("");
-      setIsEditing(false);
-    } catch (error) {
-      Alert.alert("Error", error.message);
-    } finally {
-      setIsLoading(false);
+///////////////
+const handleSaveChanges = async () => {
+  setIsLoading(true);
+  try {
+    const auth = getAuth();
+    if (!auth.currentUser) {
+      Alert.alert("Error", "No authenticated user found.");
+      return;
     }
-  };
 
+    const credential = EmailAuthProvider.credential(
+      auth.currentUser.email,
+      passwordForAuth
+    );
+    await reauthenticateWithCredential(auth.currentUser, credential);
+
+    // Track success messages
+    const updates = [];
+
+    if (newEmail.trim() !== "") {
+      await updateEmail(auth.currentUser, newEmail);
+      updates.push("Your email has been updated!");
+    }
+
+    if (newPassword.trim() !== "") {
+      await updatePassword(auth.currentUser, newPassword);
+      updates.push("Your password has been updated!");
+    }
+
+    if (updates.length > 0) {
+      Alert.alert("Success", updates.join("\n"));
+    }
+
+    setNewEmail("");
+    setNewPassword("");
+    setPasswordForAuth("");
+    setIsEditing(false);
+  } catch (error) {
+    Alert.alert("Error", error.message);
+  } finally {
+    setIsLoading(false);
+  }
+};
+
+/////////////////
   useEffect(() => {
     const fetchUserInfo = async () => {
       const user = auth.currentUser;
