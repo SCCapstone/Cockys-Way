@@ -20,6 +20,8 @@ import {
   getDoc,
   collection,
   getDocs,
+  setDoc,//
+  addDoc,//
   onSnapshot,
   deleteDoc,
 } from "firebase/firestore";
@@ -44,14 +46,17 @@ export const getBlackboardEventsForDay = (selectedDate, blackboardEvents) => {
   return filteredEvents;
 };
 
+
+
 export default function Schedule() {
   const router = useRouter();
-
   const auth = getAuth();
   const user = auth.currentUser;
-
   const db = FIRESTORE_DB;
+
   const [courses, setCourses] = useState([]);
+  const [courseSettings, setCourseSettings] = useState({});//////////////////
+  const [notificationsEnabled, setNotificationsEnabled] = useState(false);/////////////////
   const [modalVisibility, setModalVisibility] = useState(false);
   const [courseToDelete, setCourseToDelete] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -63,6 +68,40 @@ export default function Schedule() {
   const [themeKey, setThemeKey] = useState(0);
   const { theme } = useContext(ThemeContext);
   const { colors } = theme;
+////////////
+const toggleCourseNotifications = async (courseId, enabled) => {
+  if (!user) return;
+  const userRef = doc(db, "settings", user.uid);
+
+  try {
+    await setDoc(
+      userRef,
+      {
+        courseSettings: {
+          [courseId]: {
+            notificationsEnabled: enabled,
+          },
+        },
+      },
+      { merge: true }
+    );
+
+    setCourseSettings((prev) => ({
+      ...prev,
+      [courseId]: {
+        notificationsEnabled: enabled,
+      },
+    }));
+
+    ToastAndroid.show(
+      `Notifications ${enabled ? "enabled" : "disabled"} for ${courseId}`,
+      ToastAndroid.SHORT
+    );
+  } catch (err) {
+    console.error("Error updating course notification:", err);
+  }
+};
+/////////////
 
   const styles = StyleSheet.create({
     background: {
@@ -236,6 +275,15 @@ export default function Schedule() {
       async (settingsDoc) => {
         if (settingsDoc.exists()) {
           const settingsData = settingsDoc.data();
+          const settings = settingsData.settings || {};
+          const perCourse = settingsData.courseSettings || {};
+
+  setNotificationsEnabled(settings.notificationsEnabled ?? false);
+  setCourseSettings(perCourse);
+          if (typeof settings.notificationsEnabled === "boolean") {
+            setNotificationsEnabled(settings.notificationsEnabled);
+          }        
+
           if (settingsData.settings && settingsData.settings.icsLink) {
             const encryptedLink = settingsData.settings.icsLink;
             const secretKey = SALT + user.uid;
@@ -472,20 +520,30 @@ export default function Schedule() {
     setCourseToDelete(null);
   };
 
-  const renderCourse = (course) => {
+  ///////////////////////
+  const renderCourse = ({ item }) => {
+    const courseId = `${item.code}${item.section}`;
+    const isNotified =
+      courseSettings?.[courseId]?.notificationsEnabled ?? notificationsEnabled;
+  
     return (
       <Class
-        crn={course.item.id}
-        code={course.item.code}
-        section={course.item.section}
-        name={course.item.name}
-        instructor={course.item.instructor}
-        meeting={course.item.meeting}
-        srcdb={course.item.srcdb}
-        onDeletePress={() => handleDeletePress(course.item)}
+        crn={item.id}
+        code={item.code}
+        section={item.section}
+        name={item.name}
+        instructor={item.instructor}
+        meeting={item.meeting}
+        srcdb={item.srcdb}
+        isNotified={isNotified}
+        onDeletePress={() => handleDeletePress(item)}
+        onToggleNotification={() =>
+          toggleCourseNotifications(courseId, !isNotified)
+        }
       />
     );
   };
+  /////////////////////
 
   return (
     <>

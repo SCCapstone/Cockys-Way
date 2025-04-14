@@ -27,6 +27,8 @@ const Class = ({
   srcdb,
   fromSearch = false,
   onDeletePress,
+  isNotified = false, //4/14/2025
+  onToggleNotification = () => {},//4/14/2025
 }) => {
   const [notificationIcon, setNotificationIcon] = useState(false);
   const [added, setAdded] = useState(false);
@@ -298,14 +300,7 @@ const Class = ({
         ) : (
           <>
             <Pressable
-              onPress={async () => {
-                if (!notificationIcon) {
-                  await scheduleCourseNotifications(meeting, expoPushToken);
-                } else {
-                  await cancelScheduledNotifications();
-                }
-                setNotificationIcon(!notificationIcon);
-              }}
+onPress={onToggleNotification}
               style={({ pressed }) => [
                 {
                   backgroundColor: pressed ? "#450006" : "transparent",
@@ -317,7 +312,7 @@ const Class = ({
               <View style={{ width: 40, alignItems: "center", justifyContent: "center" }}>
                 <FontAwesome5
                   testID="bell-icon"
-                  name={notificationIcon ? "bell" : "bell-slash"}
+                  name={isNotified ? "bell" : "bell-slash"}
                   size={30}
                   color="#FFFFFF"
                 />
