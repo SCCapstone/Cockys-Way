@@ -26,6 +26,7 @@ import {
   EmailAuthProvider,
   reauthenticateWithCredential,
 } from "firebase/auth";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useContext } from "react";
 import { ThemeContext } from "../ThemeContext";
 import { useRouter } from "expo-router";
@@ -50,6 +51,8 @@ export const deleteUser = async ({
 
     // Delete user data from Firestore before deleting the account
     await deleteUserData(user, firestore, setModalVisible, false);
+
+    await AsyncStorage.removeItem("routeHistory");
 
     // Delete Auth account
     await user.delete();
@@ -110,6 +113,8 @@ const deleteUserData = async (
     }
 
     await deleteDoc(doc(firestore, "schedules", user.uid));
+
+    await AsyncStorage.removeItem("routeHistory");
 
     if (showAlert) {
       Alert.alert("Data Deleted", "Your data has been successfully deleted.");
@@ -176,7 +181,7 @@ export default function PrivacySecurityScreen() {
       padding: 10,
       marginBottom: 15,
       color: colors.text,
-    },    
+    },
     settingText: {
       fontSize: 22.5,
       color: colors.alwaysWhite,
