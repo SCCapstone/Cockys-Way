@@ -86,9 +86,6 @@ const Register = () => {
       textAlign: "center",
       marginTop: 10,
     },
-    registerButtonPosition: {
-      marginTop: "40%",
-    },
   });
 
   const register = async () => {

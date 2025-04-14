@@ -531,8 +531,8 @@ export default function Schedule() {
                     : "Select a date to view what's planned!"}
                 </Text>
                 <View style={{ maxHeight: 375, width: "100%" }}>
-  <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
-    {currentCourses.map((item, index) => {
+                  <ScrollView contentContainerStyle={{ paddingBottom: 150 }}>
+                    {currentCourses.map((item, index) => {
                       const regex = /^\d{3}-\d{3}:$/;
 
                       const parts = item.split(" ");
@@ -547,7 +547,7 @@ export default function Schedule() {
                           style={{
                             color: text,
                             backgroundColor: bg,
-                            padding: 5,
+                            padding: 10,
                             marginBottom: 7,
                             borderRadius: 7,
                             fontSize: 15,
@@ -566,7 +566,7 @@ export default function Schedule() {
               <FlatList
                 data={courses}
                 renderItem={(courses) => renderCourse(courses)}
-                contentContainerStyle={{ gap: 20 }}
+                contentContainerStyle={{ gap: 20, paddingBottom: 150 }}
               />
             </View>
           )}

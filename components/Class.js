@@ -257,7 +257,7 @@ const Class = ({
 
   const navigateToCourseInfo = () => {
     router.push({
-      pathname: "../courseInfo",
+      pathname: "/courseInfo",
       params: { crn, srcdb, instructor, meeting },
     });
   };
@@ -314,12 +314,14 @@ const Class = ({
               ]}
               testID="toggle-bell"
             >
-              <FontAwesome5
-                testID="bell-icon"
-                name={notificationIcon ? "bell" : "bell-slash"}
-                size={30}
-                color="#FFFFFF"
-              />
+              <View style={{ width: 40, alignItems: "center", justifyContent: "center" }}>
+                <FontAwesome5
+                  testID="bell-icon"
+                  name={notificationIcon ? "bell" : "bell-slash"}
+                  size={30}
+                  color="#FFFFFF"
+                />
+              </View>
             </Pressable>
             <Pressable
               onPress={onDeletePress}
