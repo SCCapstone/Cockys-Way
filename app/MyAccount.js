@@ -215,7 +215,6 @@ export default function MyAccountScreen() {
       }
       const userData = {
         email: user.email || "N/A",
-        phoneNumber: user.phoneNumber || "N/A",
         uid: user.uid,
       };
       setUserInfo(userData);
