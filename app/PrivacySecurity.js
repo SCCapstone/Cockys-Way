@@ -168,6 +168,15 @@ export default function PrivacySecurityScreen() {
       justifyContent: "space-between",
       alignItems: "center",
     },
+    passwordInput: {
+      width: "100%",
+      borderWidth: 1,
+      borderColor: "#ccc",
+      borderRadius: 5,
+      padding: 10,
+      marginBottom: 15,
+      color: colors.text,
+    },    
     settingText: {
       fontSize: 22.5,
       color: colors.alwaysWhite,
