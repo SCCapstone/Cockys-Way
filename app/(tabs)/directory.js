@@ -104,7 +104,7 @@ export default function Directory() {
       maxHeight: "100%",
     },
     letter: {
-      paddingTop: 5,
+      paddingTop: 2,
     },
     letterFont: {
       fontSize: 16,
