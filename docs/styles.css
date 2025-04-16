@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --garnet: #73000a;
   --white: #ffffff;
@@ -22,6 +26,7 @@ header {
   padding: 0 1rem;
   color: var(--white);
   font-size: 1.175rem;
+  z-index: 999;
 }
 
 header p {
@@ -205,8 +210,105 @@ footer p {
 
 .hamburger {
   cursor: pointer;
-  padding: 1em;
+  padding: 1.175em;
   display: none;
+}
+
+.slideshow-container {
+  display: flex;
+  position: relative;
+  z-index: 0;
+  gap: 2em;
+}
+
+.slide {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.number-text {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.preview-images {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+
+.preview-image img {
+  max-width: 75px;
+
+}
+
+.slide img {
+  max-width: 325px;
+}
+
+.current {
+  cursor: pointer;
+}
+
+.feature-caption p,
+.feature-caption li {
+  font-size: 1.25rem;
+}
+
+p {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 1.375rem;
+}
+
+h4 {
+  font-size: 1.285rem;
 }
 
 @media (max-width: 1300px) {
@@ -218,6 +320,21 @@ footer p {
 @media (max-width: 1050px) {
   .profiles {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .slideshow-container {
+    display: block;
+  }
+
+  .current img {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    max-width: 275px;
+  }
+
+  .slideshow-container ul {
+    text-align: start;
   }
 }
 
