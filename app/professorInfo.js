@@ -18,7 +18,7 @@ import { ThemeContext } from "../ThemeContext";
 import { useContext } from "react";
 import { GOOGLE_API_KEY } from "@env";
 
-import defaultImage from "../assets/professorInfo/200x200.png";
+import defaultImage from "../assets/professorInfo/no-profile-picture.png";
 
 const daysOfWeek = [
   "sunday",
@@ -154,15 +154,17 @@ export default function ProfessorInfo() {
       flexDirection: "row",
       marginTop: 20,
       width: "95%",
+      marginBottom: 5
+      // paddingHorizontal: 30,
     },
     midBox: {
       flex: 1,
       alignItems: "center",
-      margin: 5,
+      // margin: 5,
     },
     image: {
       height: 225,
-      width: 200,
+      width: "100%",
     },
     quickLook: {
       backgroundColor: colors.lightGarnet,
@@ -388,7 +390,7 @@ export default function ProfessorInfo() {
             <View style={[styles.flexRow, styles.spacer]}>
               <FontAwesome name="at" size={30} color="#73000A" />
               <Text
-                style={[styles.social]}
+                style={[styles.social, { flexShrink: 1 }]}
                 onPress={() => Linking.openURL(`mailto:${professor.email}`)}
               >
                 {professor.email}
