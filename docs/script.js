@@ -162,4 +162,11 @@ document.querySelectorAll(".demo.cursor").forEach((image, index) => {
   image.addEventListener("click", () => showSlides(index));
 });
 
+window.addEventListener("scroll", () => {
+  const scrollY = window.scrollY;
+  document.querySelector(".red-triangle").style.transform = `rotate(45deg) translateY(${-scrollY * 0.4}px) translateX(${-scrollY * 1.1}px)`;
+  document.querySelector(".logo-parallax").style.transform = `translateY(${scrollY * 0.5}px)`;
+
+})
+
 showSlides(0);
