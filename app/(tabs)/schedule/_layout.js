@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../../ThemeContext";
 import { Stack } from "expo-router";
 
 export default function ScheduleLayout() {
+  const { theme } = useContext(ThemeContext);
+  const { colors } = theme;
+
   return (
     <Stack>
       <Stack.Screen name="index" options={{ headerShown: false }} />
@@ -10,7 +15,7 @@ export default function ScheduleLayout() {
         options={{
           title: "",
           headerTransparent: true,
-          headerTintColor: "white",
+          headerTintColor: colors.garnetWhite,
           headerStyle: {
             marginBottom: 60,
           },
@@ -22,7 +27,7 @@ export default function ScheduleLayout() {
         options={{
           title: "",
           headerTransparent: true,
-          headerTintColor: "white",
+          headerTintColor: colors.garnetWhite,
           headerStyle: {
             marginBottom: 60,
           },
