@@ -109,6 +109,21 @@ nav a:hover {
   color: var(--garnet);
 }
 
+.info#why-use-cockys-way {
+  display: flex;
+  gap: 2em;
+}
+
+.about-caption {
+  /* flex: 0; */
+}
+
+.info#why-use-cockys-way img {
+  flex-shrink: 0;
+  /* width: 550px; */
+  object-fit: contain;
+}
+
 .feature:not(:first-of-type) {
   margin-top: 2em;
 }
@@ -267,17 +282,25 @@ footer p {
   display: flex;
   justify-content: center;
   gap: 0.5em;
+  margin: 1em 0;
 }
 
 
 
 .demo {
   opacity: 0.6;
+  transition: opacity 0.1s ease-in;
+
 }
 
-.active,
 .demo:hover {
+  box-sizing: content-box;
   opacity: 1;
+}
+
+.active {
+  opacity: 1;
+  box-sizing: content-box;
 }
 
 
@@ -309,6 +332,17 @@ h3 {
 
 h4 {
   font-size: 1.285rem;
+}
+
+@media (max-width: 1500px) {
+  .info#why-use-cockys-way {
+    display: block;
+  }
+  
+  .info#why-use-cockys-way img {
+    display: block; 
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 1300px) {

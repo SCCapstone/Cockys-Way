@@ -1,5 +1,3 @@
-let slideIndex = 0;
-
 const featureInfo = [
   {
     title: "Smart Campus Navigation",
@@ -82,14 +80,6 @@ document.querySelectorAll("nav ul li").forEach((navLink) => {
   });
 });
 
-const plusSlides = (n) => {
-  showSlides((slideIndex += n));
-};
-
-const currentSlide = (n) => {
-  showSlides((slideIndex = n));
-};
-
 const enlargeImage = (e) => {
   e.stopPropagation();
   const overlay = document.createElement("div");
@@ -164,8 +154,12 @@ const showSlides = (n) => {
 
   caption.appendChild(list);
 
-  slides[slideIndex].style.display = "block";
-  dots[slideIndex].className += " active";
+  slides[n].style.display = "block";
+  dots[n].className += " active";
 };
 
-showSlides(slideIndex);
+document.querySelectorAll(".demo.cursor").forEach((image, index) => {
+  image.addEventListener("click", () => showSlides(index));
+});
+
+showSlides(0);
