@@ -8,6 +8,17 @@
   --black: #000000;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+#home,
+#why-use-cockys-way,
+#features,
+#about-the-team {
+  scroll-margin-top: 5em;
+}
+
 body {
   font-family: "Abel", sans-serif;
   margin: 0;
