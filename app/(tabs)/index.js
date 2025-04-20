@@ -1073,13 +1073,14 @@ export default function HomeScreen() {
         >
           <View style={styles.tutorialContent}>
             {/* Display current step out of total steps at the top right */}
-            <View style={styles.tutorialStepIndicator}>
-              <Text style={styles.tutorialStepText}>
-                Step {step + 1} of {TUTORIAL_STEPS.length}
-              </Text>
+            <View style={styles.tutorialFlex}>
+              <Text style={styles.tutorialTitle}>{currentStep.title}</Text>
+              <View style={styles.tutorialStepIndicator}>
+                <Text style={styles.tutorialStepText}>
+                  Step {step + 1} of {TUTORIAL_STEPS.length}
+                </Text>
+              </View>
             </View>
-
-            <Text style={styles.tutorialTitle}>{currentStep.title}</Text>
             <Text style={styles.tutorialDescription}>
               {currentStep.description}
             </Text>

@@ -353,13 +353,18 @@ const createHomeStyles = (colors) =>
       color: colors.text,
     },
     tutorialStepIndicator: {
-      position: "absolute",
-      top: 10,
-      right: 10,
       backgroundColor: "rgba(255, 255, 255, 0.8)",
       padding: 5,
       borderRadius: 5,
+      justifyContent: "center",
+      alignItems: "center",
     },
+    tutorialFlex: {
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexDirection: "row",
+      width: "100%"
+    },  
     tutorialStepText: {
       fontSize: 14,
       color: colors.primary,
