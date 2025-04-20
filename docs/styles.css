@@ -117,6 +117,26 @@ nav a:hover {
   color: var(--garnet);
 }
 
+@keyframes bouncing {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-40px)
+  }
+
+  60% {
+    transform: translateY(-25px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .landing-logo {
+    animation: bouncing 2s;
+  }
+}
+
 .info {
   width: 75%;
   margin: 0 auto;
@@ -532,5 +552,15 @@ h4 {
 
   .red-triangle {
     bottom: -4150px;
+  }
+
+  .preview-images {
+    /* max-width: 392.5px; */
+    /* width: 90%; */
+    margin: 0 auto;
+  }
+
+  .preview-image img {
+    width: 90%;
   }
 }
