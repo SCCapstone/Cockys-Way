@@ -64,7 +64,9 @@ SplashScreen.preventAutoHideAsync();
       - Locations with longer names will push the x button off the screen
 
 */
-
+/*
+  Home Screen
+*/
 export default function HomeScreen() {
   const { theme } = useContext(ThemeContext);
   const styles = createHomeStyles(theme.colors);
@@ -96,10 +98,11 @@ export default function HomeScreen() {
   const [newTitle, setNewTitle] = useState("");
   const [newDescription, setNewDescription] = useState("");
 
+  // Favorited Locations
   const [userFavorites, setUserFavorites] = useState([]);
   const [isFavorited, setIsFavorited] = useState(false);
 
-  // category isibility toggle
+  // category visibility toggle
   const { categoryVisibility, isInitialized } = useContext(
     CategoryVisibilityContext
   );
@@ -109,6 +112,9 @@ export default function HomeScreen() {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [navigateToProfessorOffice, setNavigateToProfessorOffice] =
     useState(false);
+
+  // Info Modal Constants
+  const [showInfoModal, setShowInfoModal] = useState(false);
 
   // Tutorial constants
   const [tutorialStep, setTutorialStep] = useState(0);
@@ -1183,6 +1189,7 @@ export default function HomeScreen() {
           <TouchableOpacity
             style={styles.filterButton}
             onPress={() => router.push("/PinFilterMain")}
+            testID = "filterButton"
             ref={filterButtonRef}
             buttonId="filterButton"
           >
@@ -1268,7 +1275,67 @@ export default function HomeScreen() {
               color={theme.colors.garnetWhite}
             />
           </TouchableOpacity>
+          
+          {/* Info Button */}
+          <TouchableOpacity
+            style={styles.infoButton}
+            onPress={() => setShowInfoModal(true)}
+            testID="infoButton"
+          >
+            <FontAwesome name="info-circle" size={24} color={theme.colors.garnetWhite} />
+          </TouchableOpacity>
         </View>
+
+        {/* Info Modal */}
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={showInfoModal}
+          onRequestClose={() => setShowInfoModal(false)}
+        >
+          <View style={styles.modalContainer}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalTitleInfo}>Button Information</Text>
+              <ScrollView>
+                <View style={styles.modalContent}>
+                  <Text style={styles.modalText}>
+                    <FontAwesome name="map-pin" size={18} /> Filter Pins Icon - Allows user to filter pins based on category (ie, building type)
+                  </Text>
+                  <Text style={styles.modalText}>
+                    <FontAwesome name="exclamation-triangle" size={18} /> Traffic Icon - Show/Hide Traffic on Map
+                  </Text>
+                  <Text style={styles.modalText}>
+                    <FontAwesome name="book" size={18} /> Route History Icon - View your previous route history
+                  </Text>
+
+                  <Text style={styles.modalText}>
+                    <FontAwesome
+                      name="map-marker"
+                      size={18}
+                      color={theme.colors.text}
+                      style={{ marginRight: 2, alignSelf: "center" }} // Had to add it like this to keep it aligned with text
+                    />
+                    <Text style={styles.plusText}>+</Text> Add Custom Pin Icon - Add a custom pin to the map
+                  </Text>
+
+                  <Text style={styles.modalText}>
+                    <FontAwesome name="location-arrow" size={18} /> Follow User Icon - Toggle map to follow your location
+                  </Text>
+                  <Text style={styles.modalText}>
+                    <FontAwesome name="refresh" size={18} /> Tutorial Refresh Icon - Reset/Restart the Tutorial
+                  </Text>
+                </View>
+              </ScrollView>
+              <TouchableOpacity
+                style={styles.closeButton}
+                onPress={() => setShowInfoModal(false)}
+              >
+                <Text style={styles.modalCloseText}>Close</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
+
         {showCustomPinNotification && (
           <View style={styles.notificationBox}>
             <Text style={styles.notificationText}>
@@ -1284,6 +1351,8 @@ export default function HomeScreen() {
               <Text style={styles.cancelButtonText}>Cancel</Text>
             </TouchableOpacity>
           </View>
+
+          
         )}
 
         {/* Map */}

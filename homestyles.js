@@ -162,6 +162,40 @@ const createHomeStyles = (colors) =>
       gap: 5,
       justifyContent: "space-between",
     },
+
+    // specifically for info modal on map screen
+    // info model in settings was still bright in dark mode, so made my own -Chloe
+    modalTitleInfo: {
+      fontSize: 18,
+      fontFamily: "Abel_400Regular",
+      marginBottom: 10,
+      color: colors.text,
+    },
+    modalCloseText: {
+      color: colors.text,
+      textAlign: "right",
+      fontSize: 16,
+    },
+
+    // For the Info Button on the map screen
+    infoButton: {
+      position: "absolute", // Allows precise positioning
+      bottom: 10,           // increase to put it further up
+      right: 10,
+      padding: 5,
+      borderRadius: 20,
+      width: 40,
+      height: 40,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    plusText: {
+      fontSize: 14,
+      fontWeight: "bold",
+      color: colors.text,
+      marginLeft: 2,
+    },
+
     trafficButton: {
       backgroundColor: colors.card,
       padding: 5,
