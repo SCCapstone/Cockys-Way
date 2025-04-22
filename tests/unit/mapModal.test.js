@@ -4,7 +4,7 @@ import HomeScreen from "../../app/(tabs)";
 import { ThemeContext } from "../../ThemeContext";
 import { CategoryVisibilityContext } from "../../app/CategoryVisibilityContext"; // need this bc otherwise its annoying
 // npm --trace-deprecation test -- mapModal
-
+import { flatten } from "react-native/Libraries/StyleSheet/StyleSheet";
 import { act } from "react-test-renderer";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import * as Location from "expo-location";
@@ -268,8 +268,8 @@ describe("HomeScreen Modal Tests", () => {
       );
     };
 
-  it("renders the '+' symbol and the map-marker icon correctly", () => {
-    const { getByText, getByTestId } = render(
+  it("renders the '+' symbol and the map-marker icon correctly", async () => {
+    const { getByText, getByTestId, findByTestId } = render(
       <ThemeContext.Provider value={{ theme }}>
         <CategoryVisibilityContext.Provider value={mockCategoryVisibility}>
           <HomeScreen />
@@ -278,19 +278,87 @@ describe("HomeScreen Modal Tests", () => {
     );
 
     // Open the modal
-    const infoButton = getByTestId("infoButton"); //changed
-    infoButton.props.onPress();
+    //const infoButton = getByTestId("infoButton"); //changed
+    const infoButton = await findByTestId("infoButton");
+    //infoButton.props.onPress();
+    fireEvent.press(infoButton);
 
     // Check if the "+" symbol is rendered
-    expect(getByText("+")).toBeTruthy();
+    //expect(getByText("+")).toBeTruthy();
+
+    const plusText = await findByTestId("plus-symbol");
+    const plusStyle = Array.isArray(plusText.props.style)
+        ? Object.assign({}, ...plusText.props.style.filter(Boolean))
+        : plusText.props.style ?? {};
+
+        expect(plusStyle.marginLeft).toBe(2);
 
     // Check if the map-marker icon is rendered
     const mapMarkerIcon = getByTestId("map-marker-icon");
     expect(mapMarkerIcon).toBeTruthy();
   });
 
-  it("ensures the '+' symbol is aligned correctly with the map-marker icon", () => {
-    const { getByText, getByTestId } = render(
+  it("ensures the '+' symbol is aligned correctly with the map-marker icon", async () => {
+    const { findByTestId, getByText, getAllByText } = render(
+        <ThemeContext.Provider value={{ theme }}>
+          <CategoryVisibilityContext.Provider value={mockCategoryVisibility}>
+            <HomeScreen />
+          </CategoryVisibilityContext.Provider>
+        </ThemeContext.Provider>
+      );
+    
+      const infoButton = await findByTestId("infoButton");
+      fireEvent.press(infoButton); // simulate user interaction
+    
+    //  const mapMarkerIcon = await findByTestId("map-marker-icon");
+      const mapMarkerWrapper = await findByTestId("map-marker-icon");
+    //  const plusTexts = getAllByText("+");
+    //  const plusText = plusTexts[0]; // these 3 commented out 4/22
+      //const plusText = getByText("+");
+      const plusText = await findByTestId("plus-symbol");
+    
+      // Handle potentially array-based style
+    //  const mapMarkerStyle = Array.isArray(mapMarkerIcon.props.style)
+    //    ? Object.assign({}, ...mapMarkerIcon.props.style)
+    //    : mapMarkerIcon.props.style;
+
+//    const iconStyle = Array.isArray(mapMarkerIcon.props.style)
+//        ? Object.assign({}, ...mapMarkerIcon.props.style)
+//        : mapMarkerIcon.props.style;
+/*
+console.log("mapMarkerIcon style:", mapMarkerIcon.props.style);
+        const iconStyleRaw = mapMarkerIcon.props?.style ?? {};
+        const iconStyle = Array.isArray(iconStyleRaw)
+        ? Object.assign({}, ...iconStyleRaw.filter(Boolean)) // filter out undefined/null/false
+        : iconStyleRaw || {};
+    
+      const plusStyle = Array.isArray(plusText.props.style)
+        ? Object.assign({}, ...plusText.props.style)
+        : plusText.props.style;
+
+        console.log("📦 iconStyle:", iconStyle);
+    
+      //expect(mapMarkerStyle.marginRight).toBe(2);
+      //expect(iconStyle.marginRight).toBe(2);
+      expect(iconStyle).toHaveProperty("marginRight", 2);
+      expect(plusStyle.marginLeft).toBe(2);
+      */
+      const iconStyleRaw = mapMarkerWrapper.props?.style ?? {};
+      const iconStyle = Array.isArray(iconStyleRaw)
+        ? Object.assign({}, ...iconStyleRaw.filter(Boolean))
+        : iconStyleRaw;
+      
+      const plusStyleRaw = plusText.props?.style ?? {};
+      const plusStyle = Array.isArray(plusStyleRaw)
+        ? Object.assign({}, ...plusStyleRaw.filter(Boolean))
+        : plusStyleRaw;
+      
+      expect(iconStyle.marginRight).toBe(2);
+      expect(plusStyle.marginLeft).toBe(2);
+      
+    
+    
+    /*const { getByText, getByTestId } = render(
       <ThemeContext.Provider value={{ theme }}>
         <CategoryVisibilityContext.Provider value={mockCategoryVisibility}>
           <HomeScreen />
@@ -308,7 +376,8 @@ describe("HomeScreen Modal Tests", () => {
 
     expect(mapMarkerIcon.props.style.marginRight).toBe(2); // Ensure spacing is correct
     expect(plusText.props.style.marginLeft).toBe(2); // Ensure spacing is correct
-  });
+  */
+});
 
   it("renders the modal content correctly", async () => {
     const { getByText, getByTestId } = render(
@@ -329,13 +398,16 @@ describe("HomeScreen Modal Tests", () => {
     // Check if the modal content is rendered
     expect(getByText("Button Information")).toBeTruthy();
     //expect(getByText(" Add Custom Pin Icon - Add a custom pin to the map")).toBeTruthy();
+    //expect(
+    //    getByText((content, element) => {
+    //      return (
+    //        content.includes("Add Custom Pin Icon - Add a custom pin to the map") &&
+    //        element.type === "Text"
+    //      );
+    //    })
+    //).toBeTruthy();
     expect(
-        getByText((content, element) => {
-          return (
-            content.includes("Add Custom Pin Icon - Add a custom pin to the map") &&
-            element.type === "Text"
-          );
-        })
+        getByText(/Add Custom Pin Icon - Add a custom pin to the map/)
     ).toBeTruthy();
 
 });

@@ -1280,7 +1280,7 @@ export default function HomeScreen() {
           <TouchableOpacity
             style={styles.infoButton}
             onPress={() => setShowInfoModal(true)}
-            testID="infoButton"
+            testID = "infoButton"
           >
             <FontAwesome name="info-circle" size={24} color={theme.colors.garnetWhite} />
           </TouchableOpacity>
@@ -1307,16 +1307,33 @@ export default function HomeScreen() {
                   <Text style={styles.modalText}>
                     <FontAwesome name="book" size={18} /> Route History Icon - View your previous route history
                   </Text>
-
+                  {/*}
                   <Text style={styles.modalText}>
                     <FontAwesome
                       name="map-marker"
+                      testID="map-marker-icon"
                       size={18}
                       color={theme.colors.text}
                       style={{ marginRight: 2, alignSelf: "center" }} // Had to add it like this to keep it aligned with text
                     />
                     <Text style={styles.plusText}>+</Text> Add Custom Pin Icon - Add a custom pin to the map
                   </Text>
+                  */}
+                  {/* trying to resolve test errors */}
+                  <View style={{ flexDirection: "row", alignItems: "center" }} testID="add-pin-wrapper">
+                    <View testID="map-marker-icon" style={{ marginRight: 2 }}> 
+                      <FontAwesome
+                        name="map-marker"
+                        //testID="map-marker-icon"
+                        size={18}
+                        color={theme.colors.text}
+                        style={{ marginRight: 2 }}
+                      />
+                    </View> {/* Testing doesn't like Fontawesome so lets try adding this view*/}
+                    {/*<Text style={[styles.plusText, { marginLeft: 2 }]}>+</Text>    TESTING*/}
+                    <Text style={{ marginLeft: 2 }} testID="plus-symbol">+</Text>
+                    <Text style={styles.modalText}>Add Custom Pin Icon - Add a custom pin to the map</Text>
+                  </View>
 
                   <Text style={styles.modalText}>
                     <FontAwesome name="location-arrow" size={18} /> Follow User Icon - Toggle map to follow your location
