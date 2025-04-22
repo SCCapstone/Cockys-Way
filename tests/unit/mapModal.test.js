@@ -12,7 +12,8 @@ import * as firestore from "firebase/firestore";
 
 
 /*
-        working out some issues
+        Keeping comments in case working on other tests breaks something
+        so I can go back to the start if necessary -Chloe
 
 */
 

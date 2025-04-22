@@ -137,8 +137,9 @@ export default function HomeScreen() {
   };
 
   const onMarkerSelected = (marker) => {
-    console.log("hello marker")
-    console.log(marker);
+    // Commented out these two console logs for testing purposes. Uncomment as needed
+    //console.log("hello marker")
+    //console.log(marker);
     setSelectedMarker(marker);
     setSelectedDestination({
       latitude: marker.latitude,
@@ -406,9 +407,10 @@ export default function HomeScreen() {
         return;
       }
 
-      console.log(
-        `Firestore document ${title} found. Proceeding with update...`
-      );
+      // Commented out for pinFilterB test. Uncomment as needed.
+      //console.log(
+      //  `Firestore document ${title} found. Proceeding with update...`
+      //);
 
       const alternateNames = await getAlternateNames(title);
 
@@ -441,9 +443,10 @@ export default function HomeScreen() {
       //  description: updatedDescription,
       //});
 
-      console.log(
-        `Updated location ${title} with alternate names in description`
-      );
+      // Commented out for pinFilterB test. Uncomment as needed
+      //console.log(
+      //  `Updated location ${title} with alternate names in description`
+      //);
     } catch (error) {
       console.error(
         `Error updating location ${title} with alternate names:`,
@@ -1405,6 +1408,7 @@ export default function HomeScreen() {
                 title={title}
                 description={description}
                 pinColor={color ? color : "red"}
+                testID="marker" // for testing pinFilterB
                 onPress={() => onMarkerSelected(marker)}
                 zIndex={selectedMarker?.id === id ? 1000 : 1} // Bring selected marker to the front
                 style={
