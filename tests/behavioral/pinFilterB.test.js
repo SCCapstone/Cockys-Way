@@ -16,41 +16,33 @@ import { doc } from "firebase/firestore";
 */
 
 
-
-// testing...
-
-const FIRESTORE_DB = {}; // Mock Firestore database object
-const uid = "mock-uid";
-
-const userFavoritesRef = doc(FIRESTORE_DB, "favorites", uid);
-
 // Mock Theme
 const mockTheme = {
     colors: {
-      text: "#000000",
-      garnetWhite: "#FFFFFF",
+        text: "#000000",
+        garnetWhite: "#FFFFFF",
     },
-};
+}; // end mockTheme
 
   // Mock Category Visibility
 const mockCategoryVisibility = {
     categoryVisibility: {
-      9492: true,
-      23396: true,
+        9492: true,
+        23396: true,
     },
     isInitialized: true,
-};
+}; // end mockCategoryVisibility
 
 // rendering home screen to make life easier
 const renderHomeScreen = (props = {}) => {
     return render(
-      <ThemeContext.Provider value={{ theme: mockTheme }}>
-        <CategoryVisibilityContext.Provider value={mockCategoryVisibility}>
-          <HomeScreen {...props} />
-        </CategoryVisibilityContext.Provider>
-      </ThemeContext.Provider>
+        <ThemeContext.Provider value={{ theme: mockTheme }}>
+            <CategoryVisibilityContext.Provider value={mockCategoryVisibility}>
+                <HomeScreen {...props} />
+            </CategoryVisibilityContext.Provider>
+        </ThemeContext.Provider>
     );
-};
+}; // end renderHomeScreen
 
 //                                  MOCKS
 
@@ -58,9 +50,9 @@ const renderHomeScreen = (props = {}) => {
 jest.mock("expo-router", () => ({
     useRouter: jest.fn(),
     useLocalSearchParams: jest.fn(() => ({
-      latitude: 33.987514,
-      longitude: -81.03051,
-      markerId: 223277,
+        latitude: 33.987514,
+        longitude: -81.03051,
+        markerId: 223277,
     })),
 })); // End mock expo-router
 
@@ -73,7 +65,7 @@ jest.mock("expo-font", () => ({
 // Mock location
 jest.mock("expo-location", () => ({
     requestForegroundPermissionsAsync: jest.fn(() =>
-      Promise.resolve({ status: "granted" }) // bc everything breaks otherwise
+        Promise.resolve({ status: "granted" }) // bc everything breaks otherwise
     ),
 
     getCurrentPositionAsync: jest.fn(() =>
@@ -93,7 +85,7 @@ jest.mock("firebase/firestore", () => ({
     
     getDoc: jest.fn(() =>
         Promise.resolve({ 
-            //exists: () => false, 
+            //exists: () => false, // commented out for testing
             exists: () => true, 
             data: () => ({}) })
     ),
@@ -172,8 +164,8 @@ describe("HomeScreen Pin Filter Behavioral Tests", () => {
         // testing when cat hidden
         const customVisibility = {
             categoryVisibility: {
-              9492: true,    // visible
-              23396: false,  // hidden
+                9492: true,    // vis
+                23396: false,  // hid
             },
             isInitialized: true,
         };
@@ -181,11 +173,11 @@ describe("HomeScreen Pin Filter Behavioral Tests", () => {
         // custom render bc also testing when one hidden
         const { queryAllByTestId } = render(
             <ThemeContext.Provider value={{ theme: mockTheme }}>
-              <CategoryVisibilityContext.Provider value={customVisibility}>
-                <HomeScreen />
-              </CategoryVisibilityContext.Provider>
+                <CategoryVisibilityContext.Provider value={customVisibility}>
+                    <HomeScreen />
+                </CategoryVisibilityContext.Provider>
             </ThemeContext.Provider>
-        );
+        ); // different from the func bc of customVisbility
 
         // commented out for round 2 of tests (1 vis 1 hid)
         // Simulate category visibility changes
@@ -201,10 +193,6 @@ describe("HomeScreen Pin Filter Behavioral Tests", () => {
             expect(markers[0].props.title).toBe("1000 Catawba Street");
         });
 
-        // Verify that filtered pins are displayed
-        //expect(queryByText("Filtered Pin Title")).toBeTruthy(); // Replace with actual pin title
-        //expect(queryByText("Non-Filtered Pin Title")).toBeNull(); // Replace with a pin that should be hidden
-    
     }); // End of "filters pins based on category visibility"
 
 
@@ -230,7 +218,8 @@ describe("HomeScreen Pin Filter Behavioral Tests", () => {
             expect(markers.length).toBeGreaterThan(0);
             expect(markers.some(marker => marker.props.title === "1005 Idlewilde Boulevard")).toBeTruthy();
         });
-    });
+
+    }); // end of "responds to pressing a marker"
 
 
 }); // end description
