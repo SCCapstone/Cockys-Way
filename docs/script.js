@@ -36,6 +36,16 @@ const featureInfo = [
     ],
   },
   {
+    title: "Personalized Class Schedule",
+    description:
+      "No more flipping between apps or printing out your schedule. Cocky's Way displays your daily and weekly class schedule right inside the app, and shows you exactly where to go. With seamless integration from Blackboard and local databases, you'll always be on time—and on track.",
+    features: [
+      "See your upcoming classes at a glance",
+      "Add classes at your discretion",
+      "Add your homework schedule to calendar with a link",
+    ],
+  },
+  {
     title: "Calendar View",
     description:
       "The calendar view is a great way to see all of your classes and assignments in one place. Any courses you add to your schedule will automatically appear on the calendar. If you link your Blackboard calendar to your profile, your assignments will be imported too. You’ll be able to view all your courses and due dates by simply selecting a day.",
@@ -54,16 +64,6 @@ const featureInfo = [
       "Quickly delete your account and all stored data (account required)",
       "View favorite locations (account required)",
       "Add your blackboard .ics link to import your Blackboard calendar that contains due dates and deadlines",
-    ],
-  },
-  {
-    title: "Personalized Class Schedule",
-    description:
-      "No more flipping between apps or printing out your schedule. Cocky's Way displays your daily and weekly class schedule right inside the app, and shows you exactly where to go. With seamless integration from Blackboard and local databases, you'll always be on time—and on track.",
-    features: [
-      "See your upcoming classes at a glance",
-      "Add classes at your discretion",
-      "Add your homework schedule to calendar with a link",
     ],
   },
 ];
