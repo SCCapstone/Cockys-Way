@@ -128,7 +128,7 @@ const createHomeStyles = (colors) =>
       backgroundColor: "rgba(0,0,0,0.5)",
     },
     modalView: {
-      width: 300,
+      width: "80%",
       backgroundColor: colors.card,
       borderRadius: 10,
       padding: 20,
@@ -144,9 +144,10 @@ const createHomeStyles = (colors) =>
     },
     modalText: {
       marginBottom: 15,
-      textAlign: "center",
+      textAlign: "left",
       fontSize: 18,
       color: colors.text,
+      maxWidth: "85%",
     },
     modalInput: {
       width: "100%",
@@ -180,7 +181,7 @@ const createHomeStyles = (colors) =>
     // For the Info Button on the map screen
     infoButton: {
       position: "absolute", // Allows precise positioning
-      bottom: 10,           // increase to put it further up
+      bottom: 10, // increase to put it further up
       right: 10,
       padding: 5,
       borderRadius: 20,
@@ -237,7 +238,7 @@ const createHomeStyles = (colors) =>
       borderRadius: 5,
       elevation: 5,
       opacity: 0.9,
-      flexDirection: 'column',
+      flexDirection: "column",
     },
     routeDetailsText: {
       fontSize: 15,
@@ -275,7 +276,7 @@ const createHomeStyles = (colors) =>
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
-      width: '100%',
+      width: "100%",
     },
     loadingContainer: {
       flex: 1,
@@ -397,8 +398,8 @@ const createHomeStyles = (colors) =>
       justifyContent: "space-between",
       alignItems: "center",
       flexDirection: "row",
-      width: "100%"
-    },  
+      width: "100%",
+    },
     tutorialStepText: {
       fontSize: 14,
       color: colors.primary,

@@ -194,8 +194,7 @@ export default function HomeScreen() {
         setTimeout(() => {
           onMarkerSelected(markerToFocus);
           router.replace("/");
-        }
-        , 500); 
+        }, 500);
       }
     }
   }, [markerId, markers]);
@@ -1192,7 +1191,7 @@ export default function HomeScreen() {
           <TouchableOpacity
             style={styles.filterButton}
             onPress={() => router.push("/PinFilterMain")}
-            testID = "filterButton"
+            testID="filterButton"
             ref={filterButtonRef}
             buttonId="filterButton"
           >
@@ -1278,14 +1277,18 @@ export default function HomeScreen() {
               color={theme.colors.garnetWhite}
             />
           </TouchableOpacity>
-          
+
           {/* Info Button */}
           <TouchableOpacity
             style={styles.infoButton}
             onPress={() => setShowInfoModal(true)}
-            testID = "infoButton"
+            testID="infoButton"
           >
-            <FontAwesome name="info-circle" size={24} color={theme.colors.garnetWhite} />
+            <FontAwesome
+              name="info-circle"
+              size={24}
+              color={theme.colors.garnetWhite}
+            />
           </TouchableOpacity>
         </View>
 
@@ -1301,15 +1304,55 @@ export default function HomeScreen() {
               <Text style={styles.modalTitleInfo}>Button Information</Text>
               <ScrollView>
                 <View style={styles.modalContent}>
-                  <Text style={styles.modalText}>
-                    <FontAwesome name="map-pin" size={18} /> Filter Pins Icon - Allows user to filter pins based on category (ie, building type)
-                  </Text>
-                  <Text style={styles.modalText}>
-                    <FontAwesome name="exclamation-triangle" size={18} /> Traffic Icon - Show/Hide Traffic on Map
-                  </Text>
-                  <Text style={styles.modalText}>
-                    <FontAwesome name="book" size={18} /> Route History Icon - View your previous route history
-                  </Text>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <FontAwesome
+                      style={[styles.modalText, { marginRight: 5 }]}
+                      name="map-pin"
+                      size={18}
+                    />
+                    <Text style={styles.modalText}>
+                      Filter Pins Icon - Allows user to filter pins based on
+                      category (ie, building type)
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <FontAwesome
+                      style={[styles.modalText, { marginRight: 5 }]}
+                      name="exclamation-triangle"
+                      size={18}
+                    />
+                    <Text style={styles.modalText}>
+                      Traffic Icon - Show/Hide Traffic on Map
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <FontAwesome
+                      name="book"
+                      size={18}
+                      style={[styles.modalText, { marginRight: 5 }]}
+                    />
+                    <Text style={styles.modalText}>
+                      Route History Icon - View your previous route history
+                    </Text>
+                  </View>
                   {/*}
                   <Text style={styles.modalText}>
                     <FontAwesome
@@ -1323,27 +1366,89 @@ export default function HomeScreen() {
                   </Text>
                   */}
                   {/* trying to resolve test errors */}
-                  <View style={{ flexDirection: "row", alignItems: "center" }} testID="add-pin-wrapper">
-                    <View testID="map-marker-icon" style={{ marginRight: 2 }}> 
-                      <FontAwesome
-                        name="map-marker"
-                        //testID="map-marker-icon"
-                        size={18}
-                        color={theme.colors.text}
-                        style={{ marginRight: 2 }}
-                      />
-                    </View> {/* Testing doesn't like Fontawesome so lets try adding this view*/}
-                    {/*<Text style={[styles.plusText, { marginLeft: 2 }]}>+</Text>    TESTING*/}
-                    <Text style={{ marginLeft: 2 }} testID="plus-symbol">+</Text>
-                    <Text style={styles.modalText}>Add Custom Pin Icon - Add a custom pin to the map</Text>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                    testID="add-pin-wrapper"
+                  >
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          marginRight: 10,
+                        }}
+                      >
+                        <View
+                          testID="map-marker-icon"
+                          style={{ marginRight: 2 }}
+                        >
+                          <FontAwesome
+                            name="map-marker"
+                            //testID="map-marker-icon"
+                            size={18}
+                            color={theme.colors.text}
+                            style={{ marginRight: 2 }}
+                          />
+                        </View>
+                        {/* Testing doesn't like Fontawesome so lets try adding this view*/}
+                        {/*<Text style={[styles.plusText, { marginLeft: 2 }]}>+</Text>    TESTING*/}
+                        <Text
+                          style={{
+                            marginLeft: 0,
+                            color: theme.colors.text,
+                          }}
+                          testID="plus-symbol"
+                        >
+                          +
+                        </Text>
+                      </View>
+                      <Text style={styles.modalText}>
+                        Add Custom Pin Icon - Add a custom pin to the map
+                      </Text>
+                    </View>
                   </View>
-
-                  <Text style={styles.modalText}>
-                    <FontAwesome name="location-arrow" size={18} /> Follow User Icon - Toggle map to follow your location
-                  </Text>
-                  <Text style={styles.modalText}>
-                    <FontAwesome name="refresh" size={18} /> Tutorial Refresh Icon - Reset/Restart the Tutorial
-                  </Text>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <FontAwesome
+                      name="location-arrow"
+                      size={18}
+                      style={[styles.modalText, { marginRight: 5 }]}
+                    />
+                    <Text style={styles.modalText}>
+                      Follow User Icon - Toggle map to follow your location
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      flexDirection: "row",
+                      alignItems: "flex-start",
+                      marginBottom: 15,
+                    }}
+                  >
+                    <FontAwesome
+                      name="refresh"
+                      size={18}
+                      style={{ marginRight: 23, marginTop: 3, width: 24 }}
+                      color={theme.colors.text}
+                    />
+                    <Text style={[styles.modalText, { flex: 1 }]}>
+                      Tutorial Refresh Icon - Reset/Restart the Tutorial
+                    </Text>
+                  </View>
                 </View>
               </ScrollView>
               <TouchableOpacity
@@ -1371,8 +1476,6 @@ export default function HomeScreen() {
               <Text style={styles.cancelButtonText}>Cancel</Text>
             </TouchableOpacity>
           </View>
-
-          
         )}
 
         {/* Map */}
