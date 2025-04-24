@@ -315,6 +315,10 @@ footer p {
   display: none;
 }
 
+.slide img {
+  max-height: 600px;
+}
+
 .cursor {
   cursor: pointer;
 }
