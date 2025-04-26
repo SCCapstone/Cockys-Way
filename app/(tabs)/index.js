@@ -5,7 +5,6 @@ import MapView, {
   PROVIDER_DEFAULT,
 } from "react-native-maps";
 import {
-  StyleSheet,
   SafeAreaView,
   Alert,
   View,
@@ -20,10 +19,8 @@ import {
   Platform,
 } from "react-native";
 import {
-  addDoc,
   updateDoc,
   doc,
-  deleteDoc,
   collection,
   getDocs,
   getDoc,
@@ -51,22 +48,6 @@ import {
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
 
-/*
-      ERRORS AFTER 3/31 PIN FILTER MERGE:
-      - this error has been here since the searchbar was even added, but
-        using search bar shows pop-up saying 
-          "A props object containing a "key" prop is being spread into JSX"
-      - fix 4/1 by Isaac
-        used just a text input with its own style
-        apparently react-native-elements has some issues with search bars
-
-      Not errors, but things to fix:
-      - Locations with longer names will push the x button off the screen
-
-*/
-/*
-  Home Screen
-*/
 export default function HomeScreen() {
   const { theme } = useContext(ThemeContext);
   const styles = createHomeStyles(theme.colors);
@@ -76,6 +57,7 @@ export default function HomeScreen() {
   const [search, setSearch] = useState("");
   const [userLocation, setUserLocation] = useState(null);
   const [selectedDestination, setSelectedDestination] = useState(null);
+  const [professorOfficeMarker, setProfessorOfficeMarker] = useState(null);
   const [travelMode, setTravelMode] = useState("DRIVING");
   const [startLocation, setStartLocation] = useState(null);
   const [routeDetails, setRouteDetails] = useState(null);
@@ -86,13 +68,14 @@ export default function HomeScreen() {
   const [navigationStarted, setNavigationStarted] = useState(false);
   const [followsUser, setFollowsUser] = useState(false);
   const mapRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(true); // testing to see if loading works?
+  const [isLoading, setIsLoading] = useState(true);
+
   // Creating custom pins
   const [creatingCustomPin, setCreatingCustomPin] = useState(false);
   const [customPinLocation, setCustomPinLocation] = useState(null);
   // popup to show user how to add custom pins
   const [showCustomPinNotification, setShowCustomPinNotification] =
-    useState(false); // previously named with Modal instead of Notification
+    useState(false);
   // adjusting custom pins
   const [isRenameModalVisible, setIsRenameModalVisible] = useState(false);
   const [newTitle, setNewTitle] = useState("");
@@ -137,9 +120,11 @@ export default function HomeScreen() {
   };
 
   const onMarkerSelected = (marker) => {
-    // Commented out these two console logs for testing purposes. Uncomment as needed
-    //console.log("hello marker")
-    //console.log(marker);
+    setNavigationStarted(false);
+    setRouteDetails(null);
+    setRouteSteps([]);
+    setNavigateToProfessorOffice(false);
+
     setSelectedMarker(marker);
     setSelectedDestination({
       latitude: marker.latitude,
@@ -149,8 +134,6 @@ export default function HomeScreen() {
 
     setShowRouteDetails(true);
     setShowTravelModeButtons(true);
-    setRouteSteps([]);
-
     setIsFavorited(userFavorites.includes(marker.id));
 
     // Zoom in on marker region
@@ -170,6 +153,7 @@ export default function HomeScreen() {
   // separate function to handle starting navigation by button instead of onMarkerSelected
   const handleStartNavigation = (marker) => {
     if (!tutorialCompleted) return;
+
     setNavigationStarted(true);
     const route = {
       title: marker.title,
@@ -184,12 +168,13 @@ export default function HomeScreen() {
     saveRouteHistory(route);
   };
 
+  // For navigating from a professor's office
   useEffect(() => {
-    console.log(markerId);
     if (markerId && markers.length > 0) {
       const markerToFocus = markers.find(
         (marker) => marker.id === Number(markerId)
       );
+
       if (markerToFocus) {
         setTimeout(() => {
           onMarkerSelected(markerToFocus);
@@ -234,9 +219,7 @@ export default function HomeScreen() {
 
         // Process each location to add alternate names to description
         for (const location of db_data) {
-          // Ignore custom pins (made em all blue, so skip blue)
           if (location.color === "blue") {
-            //console.log(`Skipping custom pin: ${location.title}`); // Debugging
             continue; // Skip this iteration for custom pins
           }
 
@@ -276,10 +259,7 @@ export default function HomeScreen() {
     };
 
     fetchMarkers();
-    //  }, []); // ORIG. COMMENTED OUT FOR OFFICE TEST
-  }, [latitude, longitude]); // end of fetching markers
-  // might be able to replace above line with the line above it, but id dont want to deal with any
-  // errors that may occur as a result atm
+  }, [latitude, longitude]);
 
   const [visibleMarkers, setVisibleMarkers] = useState([]);
 
@@ -294,11 +274,6 @@ export default function HomeScreen() {
     }
   }, [isInitialized, categoryVisibility, markers]);
 
-  /*
-   * I used the useEffect so that all favorites already stored
-   * would be fetched when the app first starts so the star icon
-   * would display correctly
-   */
   useEffect(() => {
     const fetchUserFavorites = async () => {
       const user = getAuth().currentUser;
@@ -320,7 +295,6 @@ export default function HomeScreen() {
   // changed from using longitude & latitude to title due to
   // incorrect coordinates in firestore (correct general area, but not Exact
   // coords in google)
-  //    GOOGLE. COMMENTED OUT TO TEST NOMINATIM
   const getAlternateNames = async (title) => {
     try {
       const response = await axios.get(
@@ -333,16 +307,9 @@ export default function HomeScreen() {
           },
         }
       );
-      //console.log(`Google API Response for "${title}":`, response.data); // Debugging
 
       if (response.data.status === "OK" && response.data.results.length > 0) {
         const results = response.data.results;
-
-        // error handling
-        //if (!Array.isArray(results) || results.length === 0) {
-        //  console.error(`Error fetching alternate names: No valid results for ${title}`);
-        //  return []; // Ensure we return an array
-        //}
 
         const alternateNames = results.map(
           (result) => result.formatted_address
@@ -354,17 +321,12 @@ export default function HomeScreen() {
             ) || []
         );
 
-        //const combinedNames = [...new Set([...alternateNames, ...addresses.flat()])];
         const combinedNames = [...new Set([...alternateNames, ...addresses])];
-        //console.log(`Alternate Names for "${title}":`, combinedNames);
 
         return combinedNames;
       } else {
-        // trying to get this to WORK
         console.warn(`Warning: No results found for "${title}"`);
         return [];
-        //console.error('Error fetching alternate names:', response.data.status);
-        //return [];
       }
     } catch (error) {
       console.error("Error fetching alternate names:", error);
@@ -372,31 +334,19 @@ export default function HomeScreen() {
     }
   }; // end of getAlternateNames
 
-  /*
-    For testing:
-    Looking at Darla Moore School of Business.
-    Should get: 1014 Greene St, Columbia, SC 29208
-    as one of the alternate names, if anything.
-    So searching "1014 Greene" should now show Darla Moore School of Business
-  */
-  // adding the alternate names to Firestore
-  // changed to updating the description instead
   const addAlternateNamesToLocation = async (location) => {
     const { id, title, description, custom } = location;
     if (custom) {
-      //console.warn("skipping alternate names for custom pin: " + title);  I commented this because it was annoying me
       return;
     }
 
-    // trying to use title instead of id
+    // use title instead of id
     if (!title || typeof title !== "string") {
       console.error(`Invalid Firestore document title:`, title);
       return;
     }
 
     try {
-      //const docId = id.toString(); // Convert `id` to string before Firestore update
-      //const docRef = doc(FIRESTORE_DB, "locTest", docId);
       const docRef = doc(FIRESTORE_DB, "locTest", title);
 
       // Check if document exists
@@ -405,11 +355,6 @@ export default function HomeScreen() {
         console.error(`Error: Document ${title} does not exist in Firestore.`);
         return;
       }
-
-      // Commented out for pinFilterB test. Uncomment as needed.
-      //console.log(
-      //  `Firestore document ${title} found. Proceeding with update...`
-      //);
 
       const alternateNames = await getAlternateNames(title);
 
@@ -435,17 +380,7 @@ export default function HomeScreen() {
         ", "
       )}`;
 
-      // idk why i commented this out but lets see what happens if i uncomment it out during the 3/31/25 merge
       await updateDoc(docRef, { description: updatedDescription });
-
-      //await updateDoc(doc(FIRESTORE_DB, "locTest", id.toString()), {
-      //  description: updatedDescription,
-      //});
-
-      // Commented out for pinFilterB test. Uncomment as needed
-      //console.log(
-      //  `Updated location ${title} with alternate names in description`
-      //);
     } catch (error) {
       console.error(
         `Error updating location ${title} with alternate names:`,
@@ -453,11 +388,6 @@ export default function HomeScreen() {
       );
     }
   }; // end of addAlternateNamesToLocation
-
-  // state to track prof office
-  // we want prof office to be shown on map when navigated from ProfessorInfo,
-  // even if it's hidden by category visibility
-  const [professorOfficeMarker, setProfessorOfficeMarker] = useState(null);
 
   // move the map to selected marker when found
   useEffect(() => {
@@ -486,16 +416,6 @@ export default function HomeScreen() {
     }
   }, [navigateToProfessorOffice, selectedMarker]);
 
-  /*
-      TO-DO:
-      When using search, a minor popup appears saying 
-      "A props object containing a 'key' prop is being spread into JSX"
-      It doesn't crash or anything, it just. shows that little popup.
-      It's been there since last semester.
-
-  */
-
-  // had to fix search after adding pin filters
   // State to track search results
   const [searchResults, setSearchResults] = useState([]);
 
@@ -504,8 +424,6 @@ export default function HomeScreen() {
     if (search === "") {
       // If no search query, reset to visible markers
       setSearchResults([]);
-      // ORIG
-      //setFilteredMarkers(markers);
     } else {
       const filtered = markers.filter((marker) => {
         const searchLower = search.toLowerCase();
@@ -518,7 +436,6 @@ export default function HomeScreen() {
       //setFilteredMarkers(filtered);
       setSearchResults(filtered);
     }
-    //console.log("Filtered Markers:", filteredMarkers); // debugging error when using search
   }, [search, markers]);
 
   // Determine which markers to display on the map
@@ -650,9 +567,7 @@ export default function HomeScreen() {
     setIsRenameModalVisible(true);
   };
 
-  // rename custom pin
-  // originally started as just to rename.
-  // adjusted to add ability to change description too.
+  // Rename custom pin
   const handleRenamePin = async () => {
     if (newTitle && newDescription) {
       try {
@@ -802,6 +717,7 @@ export default function HomeScreen() {
   // Handle stopping directions
   const handleStopDirections = () => {
     if (!tutorialCompleted) return;
+
     setSelectedDestination(null);
     setSelectedMarker(null);
     setShowTravelModeButtons(false);
@@ -864,6 +780,20 @@ export default function HomeScreen() {
         latitude: selectedDestination.latitude,
         longitude: selectedDestination.longitude,
       });
+
+      if (Platform.OS === "android") {
+        ToastAndroid.show(
+          `New start location has been set to ${selectedDestination.title}!`,
+          ToastAndroid.SHORT
+        );
+      } else {
+        Alert.alert(
+          "Start Location Updated",
+          `New start location has been set to ${selectedDestination.title}!`
+        );
+      }
+
+      handleStopDirections();
     }
   };
 
@@ -1122,6 +1052,35 @@ export default function HomeScreen() {
 
   // To skip tutorial
   const handleSkipTutorial = () => {
+    // Reset button style BEFORE skipping tutorial so the button does
+    // not stay highlighted
+    if (filterButtonRef.current)
+      filterButtonRef.current.setNativeProps({ style: styles.filterButton });
+    if (trafficButtonRef.current)
+      trafficButtonRef.current.setNativeProps({ style: styles.trafficButton });
+    if (historyButtonRef.current)
+      historyButtonRef.current.setNativeProps({ style: styles.historyButton });
+    if (customPinButtonRef.current)
+      customPinButtonRef.current.setNativeProps({
+        style: styles.customPinButton,
+      });
+    if (followUserButtonRef.current)
+      followUserButtonRef.current.setNativeProps({
+        style: styles.customPinButton,
+      });
+    if (startNavButtonRef.current)
+      startNavButtonRef.current.setNativeProps({ style: styles.routeButton });
+    if (setStartButtonRef.current)
+      setStartButtonRef.current.setNativeProps({ style: styles.routeButton });
+    if (resetLocationButtonRef.current)
+      resetLocationButtonRef.current.setNativeProps({
+        style: styles.routeButton,
+      });
+    if (stopDirectionsButtonRef.current)
+      stopDirectionsButtonRef.current.setNativeProps({
+        style: styles.routeButton,
+      });
+
     setTutorialCompleted(true);
     AsyncStorage.setItem("tutorialCompleted", "true");
 
@@ -1162,10 +1121,9 @@ export default function HomeScreen() {
 
   if (
     isLoading ||
-    //|| markers.length === 0                   // UNCOMMENT IF THIS BREAKS 3/31/25
+    //|| markers.length === 0
     !isInitialized
   ) {
-    //if (!isInitialized || isLoading) {
     return (
       <View style={styles.loadingContainer}>
         <ActivityIndicator size="large" color="#73000A" />
@@ -1353,19 +1311,6 @@ export default function HomeScreen() {
                       Route History Icon - View your previous route history
                     </Text>
                   </View>
-                  {/*}
-                  <Text style={styles.modalText}>
-                    <FontAwesome
-                      name="map-marker"
-                      testID="map-marker-icon"
-                      size={18}
-                      color={theme.colors.text}
-                      style={{ marginRight: 2, alignSelf: "center" }} // Had to add it like this to keep it aligned with text
-                    />
-                    <Text style={styles.plusText}>+</Text> Add Custom Pin Icon - Add a custom pin to the map
-                  </Text>
-                  */}
-                  {/* trying to resolve test errors */}
                   <View
                     style={{
                       flexDirection: "row",
@@ -1399,8 +1344,6 @@ export default function HomeScreen() {
                             style={{ marginRight: 2 }}
                           />
                         </View>
-                        {/* Testing doesn't like Fontawesome so lets try adding this view*/}
-                        {/*<Text style={[styles.plusText, { marginLeft: 2 }]}>+</Text>    TESTING*/}
                         <Text
                           style={{
                             marginLeft: 0,
@@ -1524,32 +1467,6 @@ export default function HomeScreen() {
             );
           })}
 
-          {/* Why is this here? This is basically the exact same MapViewDirections as below?
-        -Isaac March 4    */}
-          {/* display prof. office if selected */}
-          {/* {selectedDestination && (
-          <MapViewDirections
-            origin={userLocation}
-            destination={{
-              latitude: selectedDestination.latitude,
-              longitude: selectedDestination.longitude,
-            }}
-            apikey={GOOGLE_API_KEY}
-            strokeWidth={4}
-            strokeColor="#73000A"
-            mode={travelMode}
-            onReady={(result) => {
-              setRouteDetails({
-                distance: result.distance,
-                duration: result.duration,
-              });
-              setRouteSteps(result.legs[0].steps || []);
-            }}
-            onError={(error) => Alert.alert("Error getting directions", error)}
-          />
-        )} */}
-          {/* End of displaying prof office if selected */}
-
           {/* Directions */}
           {startLocation && selectedDestination && navigationStarted && (
             <MapViewDirections
@@ -1576,46 +1493,6 @@ export default function HomeScreen() {
           )}
         </MapView>
 
-        {/* Modal for Custom Pin Instructions */}
-        {/*}
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={showCustomPinModal}
-        onRequestClose={() => setShowCustomPinModal(false)}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>
-              Tap anywhere on the map to create a custom pin.
-            </Text>
-            <TouchableOpacity
-              style={styles.modalButton}
-              onPress={() => setShowCustomPinModal(false)}
-            >
-              <Text style={styles.modalButtonText}>Got it!</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal> */}
-
-        {/* Custom Pin Actions */}
-        {/*selectedMarker && selectedMarker.color === "blue" && (
-        <View style={styles.pinActionsContainer}>
-          <TouchableOpacity
-            style={styles.pinActionButton}
-            onPress={() => handleRenamePin(selectedMarker)}
-          >
-            <Text style={styles.pinActionText}>Rename</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.pinActionButton}
-            onPress={() => handleDeletePin(selectedMarker)}
-          >
-            <Text style={styles.pinActionText}>Delete</Text>
-          </TouchableOpacity>
-        </View>
-      )*/}
         {selectedMarker && selectedMarker.color === "blue" && (
           <View style={styles.pinActionsContainer}>
             <TouchableOpacity
