@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 const createHomeStyles = (colors) =>
   StyleSheet.create({
@@ -234,11 +234,12 @@ const createHomeStyles = (colors) =>
       left: 10,
       right: 10,
       backgroundColor: colors.card,
-      padding: 15,
+      padding: 10,
       borderRadius: 5,
       elevation: 5,
       opacity: 0.9,
       flexDirection: "column",
+      maxWidth: "100%",
     },
     routeStepContainer: {
       marginBottom: 10,
@@ -272,25 +273,27 @@ const createHomeStyles = (colors) =>
     },
     routeButton: {
       backgroundColor: colors.card,
-      paddingHorizontal: 10,
+      paddingHorizontal: Dimensions.get("window").width < 400 ? 6 : 10,
       paddingVertical: 5,
-      marginLeft: 10,
+      marginLeft: 6,
       borderColor: colors.garnetWhite,
       borderWidth: 1,
       borderRadius: 5,
       alignItems: "center",
       justifyContent: "center",
-      minWidth: 80,
+      minWidth: Dimensions.get("window").width < 400 ? 70 : 80,
+      flexShrink: 1,
+      marginHorizontal: 2,
     },
     routeButtonText: {
       color: colors.text,
-      fontSize: 16,
+      fontSize: Dimensions.get("window").width < 400 ? 10 : 14,
     },
     buttonContainer: {
       flexDirection: "row",
       justifyContent: "space-center",
       alignItems: "center",
-      gap: 10,
+      gap: Dimensions.get("window").width < 400 ? 4 : 10,
       paddingHorizontal: 5,
       marginVertical: 10,
     },
@@ -299,6 +302,8 @@ const createHomeStyles = (colors) =>
       justifyContent: "flex-end",
       alignItems: "center",
       width: "100%",
+      flexWrap: "wrap",
+      gap: Dimensions.get("window").width < 400 ? 2 : 5,
     },
     loadingContainer: {
       flex: 1,

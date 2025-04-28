@@ -17,6 +17,7 @@ import {
   Button,
   ToastAndroid,
   Platform,
+  Dimensions,
 } from "react-native";
 import {
   updateDoc,
@@ -236,6 +237,11 @@ export default function HomeScreen() {
       default:
         return "arrow-up";
     }
+  };
+
+  const getIconSize = () => {
+    const windowWidth = Dimensions.get("window").width;
+    return windowWidth < 400 ? 16 : 24;
   };
 
   // For navigating from a professor's office
@@ -1730,7 +1736,9 @@ export default function HomeScreen() {
 
             {/* Step-by-Step Instructions */}
             {routeSteps && routeSteps.length > 0 ? (
-              <ScrollView style={{ maxHeight: 150 }}>
+              <ScrollView
+                style={{ maxHeight: Dimensions.get("window").height * 0.2 }}
+              >
                 {routeSteps.map((step, index) => {
                   const instructions = formatStepInstructions(
                     step?.html_instructions
@@ -1786,7 +1794,7 @@ export default function HomeScreen() {
                   >
                     <FontAwesome
                       name="map"
-                      size={24}
+                      size={getIconSize()}
                       color={theme.colors.garnetWhite}
                     />
                     <Text style={styles.routeButtonText}>Start Nav</Text>
@@ -1801,7 +1809,7 @@ export default function HomeScreen() {
                   >
                     <FontAwesome
                       name="play"
-                      size={24}
+                      size={getIconSize()}
                       color={theme.colors.garnetWhite}
                     />
                     <Text style={styles.routeButtonText}>Set Start</Text>
@@ -1816,7 +1824,7 @@ export default function HomeScreen() {
                   >
                     <FontAwesome
                       name="times"
-                      size={24}
+                      size={getIconSize()}
                       color={theme.colors.garnetWhite}
                     />
                     <Text style={styles.routeButtonText}>Reset</Text>
@@ -1833,7 +1841,7 @@ export default function HomeScreen() {
               >
                 <FontAwesome
                   name="stop"
-                  size={24}
+                  size={getIconSize()}
                   color={theme.colors.garnetWhite}
                 />
                 <Text style={styles.routeButtonText}>Stop</Text>
