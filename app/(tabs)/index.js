@@ -165,7 +165,72 @@ export default function HomeScreen() {
       timestamp: new Date().toISOString(),
       travelMode,
     };
+
     saveRouteHistory(route);
+  };
+
+  const formatStepInstructions = (htmlInstructions) => {
+    if (!htmlInstructions) return "Continue on current route";
+
+    try {
+      let text = htmlInstructions.replace(/<[^>]+>/g, "");
+
+      // fix spacing issues
+      text = text.replace(/([a-z])([A-Z])/g, "$1 $2");
+      text = text.replace(/(\d)([a-zA-Z])/g, "$1 $2");
+      text = text.replace(/([a-zA-Z])(\d)/g, "$1 $2");
+
+      // add period to end of some cases
+      text = text.replace(
+        /(St|Street|Ave|Avenue|Rd|Road|Dr|Drive|Blvd|Boulevard|Ln|Lane|Way|Ct|Court|Pl|Place)\s+(Pass by|Destination|Continue|Merge|Take|Keep|Use|Follow)/gi,
+        "$1. $2"
+      );
+      if (!/[.!?]$/.test(text)) {
+        text = text + ".";
+      }
+
+      return text;
+    } catch (error) {
+      return htmlInstructions || "Continue";
+    }
+  };
+
+  // get icon of right, left, etc. based on returned maneuver from result
+  const getManeuverIcon = (maneuver) => {
+    if (!maneuver) return "arrow-up";
+
+    switch (maneuver) {
+      case "turn-right":
+        return "arrow-right";
+      case "turn-left":
+        return "arrow-left";
+      case "turn-sharp-right":
+        return "arrow-right";
+      case "turn-sharp-left":
+        return "arrow-left";
+      case "turn-slight-right":
+        return "arrow-right";
+      case "turn-slight-left":
+        return "arrow-left";
+      case "keep-right":
+        return "arrow-right";
+      case "keep-left":
+        return "arrow-left";
+      case "straight":
+        return "arrow-up";
+      case "merge":
+        return "code-fork";
+      case "fork-right":
+        return "code-fork";
+      case "fork-left":
+        return "code-fork";
+      case "ramp-right":
+        return "arrow-right";
+      case "ramp-left":
+        return "arrow-left";
+      default:
+        return "arrow-up";
+    }
   };
 
   // For navigating from a professor's office
@@ -1646,22 +1711,45 @@ export default function HomeScreen() {
             {/* Step-by-Step Instructions */}
             {routeSteps && routeSteps.length > 0 ? (
               <ScrollView style={{ maxHeight: 150 }}>
-                {routeSteps.map((step, index) => (
-                  <View key={index} style={{ marginBottom: 10 }}>
-                    <Text style={styles.routeDetailsText}>
-                      {step.html_instructions.replace(/<[^>]+>/g, "")}
-                    </Text>
-                    <Text style={styles.routeDetailsText}>
-                      Distance: {step.distance.text}, Duration:{" "}
-                      {step.duration.text}
-                    </Text>
-                  </View>
-                ))}
+                {routeSteps.map((step, index) => {
+                  const instructions = formatStepInstructions(
+                    step?.html_instructions
+                  );
+                  const distance = step?.distance?.text || "";
+                  const duration = step?.duration?.text || "";
+
+                  return (
+                    <View key={index} style={styles.routeStepContainer}>
+                      <View
+                        style={{ flexDirection: "row", alignItems: "center" }}
+                      >
+                        {step?.maneuver && (
+                          <FontAwesome
+                            name={getManeuverIcon(step.maneuver)}
+                            size={16}
+                            color={theme.colors.primary}
+                            style={{ marginRight: 5 }}
+                          />
+                        )}
+                        <Text style={styles.routeStepHeader}>
+                          {instructions}
+                        </Text>
+                      </View>
+                      {(distance || duration) && (
+                        <Text style={styles.routeStepDistance}>
+                          {distance} • {duration}
+                        </Text>
+                      )}
+                      {index < routeSteps.length - 1 && (
+                        <View style={styles.routeStepDivider} />
+                      )}
+                    </View>
+                  );
+                })}
               </ScrollView>
             ) : (
               <Text style={styles.routeDetailsText}>
-                Please click 'Start Nav'. Otherwise, there are no directions
-                available.
+                Click 'Start Nav' to see directions.
               </Text>
             )}
 

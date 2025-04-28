@@ -240,6 +240,26 @@ const createHomeStyles = (colors) =>
       opacity: 0.9,
       flexDirection: "column",
     },
+    routeStepContainer: {
+      marginBottom: 10,
+      paddingHorizontal: 5,
+    },
+    routeStepHeader: {
+      fontSize: 15,
+      fontWeight: "bold",
+      color: colors.text,
+      marginBottom: 3,
+    },
+    routeStepDistance: {
+      fontSize: 14,
+      color: colors.text,
+      opacity: 0.8,
+    },
+    routeStepDivider: {
+      height: 1,
+      backgroundColor: colors.border,
+      marginVertical: 8,
+    },
     routeDetailsText: {
       fontSize: 15,
       marginBottom: 5,
