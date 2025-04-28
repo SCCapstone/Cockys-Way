@@ -524,7 +524,8 @@ const toggleCourseNotifications = async (courseId, enabled) => {
   const renderCourse = ({ item }) => {
     const courseId = `${item.code}${item.section}`;
     const isNotified =
-      courseSettings?.[courseId]?.notificationsEnabled ?? notificationsEnabled;
+      notificationsEnabled &&
+      (courseSettings?.[courseId]?.notificationsEnabled ?? true);
   
     return (
       <Class
