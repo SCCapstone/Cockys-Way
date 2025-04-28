@@ -1783,54 +1783,55 @@ export default function HomeScreen() {
 
             {/* Buttons */}
             <View style={styles.routeButtonsContainer}>
-              {!navigationStarted ? (
-                <>
-                  {/* Start navigation button*/}
-                  <TouchableOpacity
-                    style={styles.routeButton}
-                    onPress={() => handleStartNavigation(selectedMarker)}
-                    ref={startNavButtonRef}
-                    buttonId="startNavButton"
-                  >
-                    <FontAwesome
-                      name="map"
-                      size={getIconSize()}
-                      color={theme.colors.garnetWhite}
-                    />
-                    <Text style={styles.routeButtonText}>Start Nav</Text>
-                  </TouchableOpacity>
+              <View style={{ flexDirection: "row" }}>
+                {!navigationStarted ? (
+                  <>
+                    {/* Start navigation button */}
+                    <TouchableOpacity
+                      style={styles.routeButton}
+                      onPress={() => handleStartNavigation(selectedMarker)}
+                      ref={startNavButtonRef}
+                      buttonId="startNavButton"
+                    >
+                      <FontAwesome
+                        name="map"
+                        size={getIconSize()}
+                        color={theme.colors.garnetWhite}
+                      />
+                      <Text style={styles.routeButtonText}>Start Nav</Text>
+                    </TouchableOpacity>
 
-                  {/* Set new start location button */}
-                  <TouchableOpacity
-                    style={styles.routeButton}
-                    onPress={handleChangeStartLocation}
-                    ref={setStartButtonRef}
-                    buttonId="setStartButton"
-                  >
-                    <FontAwesome
-                      name="play"
-                      size={getIconSize()}
-                      color={theme.colors.garnetWhite}
-                    />
-                    <Text style={styles.routeButtonText}>Set Start</Text>
-                  </TouchableOpacity>
+                    {/* Other buttons (Set Start, Reset) */}
+                    <TouchableOpacity
+                      style={styles.routeButton}
+                      onPress={handleChangeStartLocation}
+                      ref={setStartButtonRef}
+                      buttonId="setStartButton"
+                    >
+                      <FontAwesome
+                        name="play"
+                        size={getIconSize()}
+                        color={theme.colors.garnetWhite}
+                      />
+                      <Text style={styles.routeButtonText}>Set Start</Text>
+                    </TouchableOpacity>
 
-                  {/* Reset Location Button */}
-                  <TouchableOpacity
-                    style={styles.routeButton}
-                    onPress={handleResetStartLocation}
-                    ref={resetLocationButtonRef}
-                    buttonId="resetLocationButton"
-                  >
-                    <FontAwesome
-                      name="times"
-                      size={getIconSize()}
-                      color={theme.colors.garnetWhite}
-                    />
-                    <Text style={styles.routeButtonText}>Reset</Text>
-                  </TouchableOpacity>
-                </>
-              ) : null}
+                    <TouchableOpacity
+                      style={styles.routeButton}
+                      onPress={handleResetStartLocation}
+                      ref={resetLocationButtonRef}
+                      buttonId="resetLocationButton"
+                    >
+                      <FontAwesome
+                        name="times"
+                        size={getIconSize()}
+                        color={theme.colors.garnetWhite}
+                      />
+                      <Text style={styles.routeButtonText}>Reset</Text>
+                    </TouchableOpacity>
+                  </>
+                ) : null}
+              </View>
 
               {/* Stop Directions Button */}
               <TouchableOpacity

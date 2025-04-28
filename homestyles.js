@@ -283,7 +283,7 @@ const createHomeStyles = (colors) =>
       justifyContent: "center",
       minWidth: Dimensions.get("window").width < 400 ? 70 : 80,
       flexShrink: 1,
-      marginHorizontal: 2,
+      marginHorizontal: Dimensions.get("window").width < 400 ? 4 : 6,
     },
     routeButtonText: {
       color: colors.text,
@@ -299,11 +299,10 @@ const createHomeStyles = (colors) =>
     },
     routeButtonsContainer: {
       flexDirection: "row",
-      justifyContent: "flex-end",
+      justifyContent: "space-between",
       alignItems: "center",
       width: "100%",
       flexWrap: "wrap",
-      gap: Dimensions.get("window").width < 400 ? 2 : 5,
     },
     loadingContainer: {
       flex: 1,
