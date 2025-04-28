@@ -1832,6 +1832,16 @@ export default function HomeScreen() {
                   </>
                 ) : null}
               </View>
+              {Dimensions.get("window").width > 400 && (
+                <View
+                  style={{
+                    width: 1,
+                    height: "100%",
+                    backgroundColor: theme.colors.garnetWhite,
+                    marginHorizontal: 8,
+                  }}
+                ></View>
+              )}
 
               {/* Stop Directions Button */}
               <TouchableOpacity
