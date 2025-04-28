@@ -155,6 +155,8 @@ export default function HomeScreen() {
     if (!tutorialCompleted) return;
 
     setNavigationStarted(true);
+    setSelectedMarker(null);
+
     const route = {
       title: marker.title,
       startLocation: startLocation,
@@ -180,11 +182,14 @@ export default function HomeScreen() {
       text = text.replace(/(\d)([a-zA-Z])/g, "$1 $2");
       text = text.replace(/([a-zA-Z])(\d)/g, "$1 $2");
 
-      // add period to end of some cases
+      // add period before certain places
       text = text.replace(
-        /(St|Street|Ave|Avenue|Rd|Road|Dr|Drive|Blvd|Boulevard|Ln|Lane|Way|Ct|Court|Pl|Place)\s+(Pass by|Destination|Continue|Merge|Take|Keep|Use|Follow)/gi,
+        /(St|Street|Ave|Avenue|Rd|Road|Dr|Drive|Blvd|Boulevard|Ln|Lane|Way|Ct|Court|Pl|Place|stairs|bicycle)\s+(Pass by|Destination|Continue|Merge|Take|Keep|Use|Follow)/gi,
         "$1. $2"
       );
+      text = text.replace(/(left|right)\s+(Walk|Destination|Get)/gi, "$1. $2");
+
+      // add period to end if missing
       if (!/[.!?]$/.test(text)) {
         text = text + ".";
       }
@@ -867,6 +872,18 @@ export default function HomeScreen() {
     if (!tutorialCompleted) return;
     if (userLocation) {
       setStartLocation(userLocation);
+    }
+
+    if (Platform.OS === "android") {
+      ToastAndroid.show(
+        `Location has been reset to your original position.`,
+        ToastAndroid.SHORT
+      );
+    } else {
+      Alert.alert(
+        "Location Reset",
+        `Location has been reset to your original position.`
+      );
     }
   };
 
@@ -1698,14 +1715,17 @@ export default function HomeScreen() {
 
             {/* Total Distance and Duration */}
             {routeDetails && (
-              <>
-                <Text style={styles.routeDetailsText}>
-                  Total Distance: {routeDetails.distance.toFixed(2)} miles
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Text style={styles.routeStepDistance}>
+                  Total: {routeDetails.distance.toFixed(2)} mi •{" "}
+                  {Math.ceil(routeDetails.duration)} min
                 </Text>
-                <Text style={styles.routeDetailsText}>
-                  Total Duration: {Math.ceil(routeDetails.duration)} minutes
-                </Text>
-              </>
+              </View>
             )}
 
             {/* Step-by-Step Instructions */}
@@ -1755,50 +1775,54 @@ export default function HomeScreen() {
 
             {/* Buttons */}
             <View style={styles.routeButtonsContainer}>
-              {/* Start navigation button*/}
-              <TouchableOpacity
-                style={styles.routeButton}
-                onPress={() => handleStartNavigation(selectedMarker)}
-                ref={startNavButtonRef}
-                buttonId="startNavButton"
-              >
-                <FontAwesome
-                  name="map"
-                  size={24}
-                  color={theme.colors.garnetWhite}
-                />
-                <Text style={styles.routeButtonText}>Start Nav</Text>
-              </TouchableOpacity>
+              {!navigationStarted ? (
+                <>
+                  {/* Start navigation button*/}
+                  <TouchableOpacity
+                    style={styles.routeButton}
+                    onPress={() => handleStartNavigation(selectedMarker)}
+                    ref={startNavButtonRef}
+                    buttonId="startNavButton"
+                  >
+                    <FontAwesome
+                      name="map"
+                      size={24}
+                      color={theme.colors.garnetWhite}
+                    />
+                    <Text style={styles.routeButtonText}>Start Nav</Text>
+                  </TouchableOpacity>
 
-              {/* Set new start location button */}
-              <TouchableOpacity
-                style={styles.routeButton}
-                onPress={handleChangeStartLocation}
-                ref={setStartButtonRef}
-                buttonId="setStartButton"
-              >
-                <FontAwesome
-                  name="play"
-                  size={24}
-                  color={theme.colors.garnetWhite}
-                />
-                <Text style={styles.routeButtonText}>Set Start</Text>
-              </TouchableOpacity>
+                  {/* Set new start location button */}
+                  <TouchableOpacity
+                    style={styles.routeButton}
+                    onPress={handleChangeStartLocation}
+                    ref={setStartButtonRef}
+                    buttonId="setStartButton"
+                  >
+                    <FontAwesome
+                      name="play"
+                      size={24}
+                      color={theme.colors.garnetWhite}
+                    />
+                    <Text style={styles.routeButtonText}>Set Start</Text>
+                  </TouchableOpacity>
 
-              {/* Reset Location Button */}
-              <TouchableOpacity
-                style={styles.routeButton}
-                onPress={handleResetStartLocation}
-                ref={resetLocationButtonRef}
-                buttonId="resetLocationButton"
-              >
-                <FontAwesome
-                  name="times"
-                  size={24}
-                  color={theme.colors.garnetWhite}
-                />
-                <Text style={styles.routeButtonText}>Reset</Text>
-              </TouchableOpacity>
+                  {/* Reset Location Button */}
+                  <TouchableOpacity
+                    style={styles.routeButton}
+                    onPress={handleResetStartLocation}
+                    ref={resetLocationButtonRef}
+                    buttonId="resetLocationButton"
+                  >
+                    <FontAwesome
+                      name="times"
+                      size={24}
+                      color={theme.colors.garnetWhite}
+                    />
+                    <Text style={styles.routeButtonText}>Reset</Text>
+                  </TouchableOpacity>
+                </>
+              ) : null}
 
               {/* Stop Directions Button */}
               <TouchableOpacity
