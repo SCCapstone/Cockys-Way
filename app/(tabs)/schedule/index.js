@@ -20,8 +20,8 @@ import {
   getDoc,
   collection,
   getDocs,
-  setDoc,//
-  addDoc,//
+  setDoc, //
+  addDoc, //
   onSnapshot,
   deleteDoc,
 } from "firebase/firestore";
@@ -46,8 +46,6 @@ export const getBlackboardEventsForDay = (selectedDate, blackboardEvents) => {
   return filteredEvents;
 };
 
-
-
 export default function Schedule() {
   const router = useRouter();
   const auth = getAuth();
@@ -55,8 +53,8 @@ export default function Schedule() {
   const db = FIRESTORE_DB;
 
   const [courses, setCourses] = useState([]);
-  const [courseSettings, setCourseSettings] = useState({});//////////////////
-  const [notificationsEnabled, setNotificationsEnabled] = useState(false);/////////////////
+  const [courseSettings, setCourseSettings] = useState({}); //////////////////
+  const [notificationsEnabled, setNotificationsEnabled] = useState(false); /////////////////
   const [modalVisibility, setModalVisibility] = useState(false);
   const [courseToDelete, setCourseToDelete] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -68,40 +66,40 @@ export default function Schedule() {
   const [themeKey, setThemeKey] = useState(0);
   const { theme } = useContext(ThemeContext);
   const { colors } = theme;
-////////////
-const toggleCourseNotifications = async (courseId, enabled) => {
-  if (!user) return;
-  const userRef = doc(db, "settings", user.uid);
+  ////////////
+  const toggleCourseNotifications = async (courseId, enabled) => {
+    if (!user) return;
+    const userRef = doc(db, "settings", user.uid);
 
-  try {
-    await setDoc(
-      userRef,
-      {
-        courseSettings: {
-          [courseId]: {
-            notificationsEnabled: enabled,
+    try {
+      await setDoc(
+        userRef,
+        {
+          courseSettings: {
+            [courseId]: {
+              notificationsEnabled: enabled,
+            },
           },
         },
-      },
-      { merge: true }
-    );
+        { merge: true }
+      );
 
-    setCourseSettings((prev) => ({
-      ...prev,
-      [courseId]: {
-        notificationsEnabled: enabled,
-      },
-    }));
+      setCourseSettings((prev) => ({
+        ...prev,
+        [courseId]: {
+          notificationsEnabled: enabled,
+        },
+      }));
 
-    ToastAndroid.show(
-      `Notifications ${enabled ? "enabled" : "disabled"} for ${courseId}`,
-      ToastAndroid.SHORT
-    );
-  } catch (err) {
-    console.error("Error updating course notification:", err);
-  }
-};
-/////////////
+      ToastAndroid.show(
+        `Notifications ${enabled ? "enabled" : "disabled"} for ${courseId}`,
+        ToastAndroid.SHORT
+      );
+    } catch (err) {
+      console.error("Error updating course notification:", err);
+    }
+  };
+  /////////////
 
   const styles = StyleSheet.create({
     background: {
@@ -278,11 +276,11 @@ const toggleCourseNotifications = async (courseId, enabled) => {
           const settings = settingsData.settings || {};
           const perCourse = settingsData.courseSettings || {};
 
-  setNotificationsEnabled(settings.notificationsEnabled ?? false);
-  setCourseSettings(perCourse);
+          setNotificationsEnabled(settings.notificationsEnabled ?? false);
+          setCourseSettings(perCourse);
           if (typeof settings.notificationsEnabled === "boolean") {
             setNotificationsEnabled(settings.notificationsEnabled);
-          }        
+          }
 
           if (settingsData.settings && settingsData.settings.icsLink) {
             const encryptedLink = settingsData.settings.icsLink;
@@ -524,9 +522,8 @@ const toggleCourseNotifications = async (courseId, enabled) => {
   const renderCourse = ({ item }) => {
     const courseId = `${item.code}${item.section}`;
     const isNotified =
-      notificationsEnabled &&
-      (courseSettings?.[courseId]?.notificationsEnabled ?? true);
-  
+      courseSettings?.[courseId]?.notificationsEnabled ?? notificationsEnabled;
+
     return (
       <Class
         crn={item.id}

@@ -29,15 +29,12 @@ export default {
           apiKey: process.env.GOOGLE_API_KEY,
         },
       },
-      googleServicesFile: "./google-services.json"
+      googleServicesFile: "./google-services.json",
     },
     web: {
       favicon: "./assets/favicon.png",
     },
     extra: {
-      FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
-      GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
-      SALT: process.env.SALT,
       eas: {
         projectId: "25d82025-901e-4d91-84eb-966383bd4984",
       },
