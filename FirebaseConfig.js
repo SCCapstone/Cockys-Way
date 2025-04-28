@@ -17,7 +17,7 @@ const firebaseAPIKey = FIREBASE_API_KEY;
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAhXY2zmVfjcQveDeRMwa0l5mXJSBjF7s8",
+  apiKey: firebaseAPIKey,
   authDomain: "cockys-way.firebaseapp.com",
   projectId: "cockys-way",
   storageBucket: "cockys-way.firebasestorage.app",
