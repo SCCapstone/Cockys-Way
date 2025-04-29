@@ -1832,7 +1832,7 @@ export default function HomeScreen() {
                   </>
                 ) : null}
               </View>
-              {Dimensions.get("window").width > 400 && (
+              {!navigationStarted && Dimensions.get("window").width > 400 && (
                 <View
                   style={{
                     width: 1,
@@ -1840,7 +1840,7 @@ export default function HomeScreen() {
                     backgroundColor: theme.colors.garnetWhite,
                     marginHorizontal: 8,
                   }}
-                ></View>
+                />
               )}
 
               {/* Stop Directions Button */}
